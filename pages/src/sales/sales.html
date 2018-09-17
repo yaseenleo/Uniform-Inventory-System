@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../../../css/style.css">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+        <nav class="navbar navbar-expand-lg bg-primary">
+                <div class="container">
+                    <div class="navbar-translate">
+                        <a class="navbar-brand">Uniform Inventory</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse justify-center">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="active nav-item">
+                                <a href="#pablo" class="nav-link">
+                                    Sales
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#pablo" class="nav-link">
+                                    Production
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#pablo" class="nav-link">
+                                    Purchase
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                    <a href="#pablo" class="nav-link">
+                                        Documents
+                                    </a>
+                                </li>
+                        </ul>
+            
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    Sign Up
+                                </a>
+                            </li>
+            
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    Sign In
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        Log Out
+                                    </a>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-2">
+                    <h3 class="Sales-left-heading">Sales Module</h3>
+                    <p><a href="#">Sales Order</a></p>
+                    <p><a href="#">Delivery Note</a></p>
+                    <p><a href="#">Packing List</a></p>
+                    <p><a href="#">Commercial Invoice</a></p>
+                    <p><a href="#">Payment receipt</a></p>
+
+            </div>
+
+            <div class="col-md-10">
+                <form action="" method="post" class="form-horizontal">
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label for="customer-name" class=" form-control-label">Customer Name</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" name="customer name" class="form-control">
+                        </div>
+                        <div class="col-2">
+                            <label for="password-input" class=" form-control-label">Sales No</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" name="sales no" class="form-control">
+                        </div>
+
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label for="date" class=" form-control-label">Date</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="date" name="date" class="form-control">
+                        </div>
+                        <div class="col-2">
+                            <label for="expire-date" class=" form-control-label">Expire Date</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="date" name="expire date" class="form-control">
+                        </div>
+
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label for="phone" class=" form-control-label">Phone</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="number" name="phone" class="form-control">
+                        </div>
+                        <div class="col-2">
+                            <label for="ship" class=" form-control-label">Ship to</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" name="ship" class="form-control">
+                        </div>
+
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label for="product-number" class=" form-control-label">Product No</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="number" name="phone" class="form-control">
+                        </div>
+
+
+                        <div class="col-2">
+                            <label for="sales-order-status">Status</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="text" class="form-control" id="sales-order-status" value="Open">
+                        </div>
+                    </div>
+                </form>
+
+                <!-- product list section -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td scope="col">S.no</td>
+                            <td scope="col">Product Category</td>
+                            <td scope="col">Description</td>
+                            <td scope="col">Qty Avail</td>
+                            <td scope="col">Qty Order</td>
+                            <td scope="col">Unit Price</td>
+                            <td scope="col">Total Price</td>
+                        </tr>
+
+                    <tbody>
+                        <tr>
+                            <td scope="row">1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td scope="row">2</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td scope="row">3</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td scope="row">4</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td scope="row">5</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                    </thead>
+                </table>
+
+
+                <!-- payment -->
+                <form action="#">
+
+                    <div>
+                        <label for="">Order Total:</label>
+                        <input type="text" id="total-order">
+                    </div>
+
+                    <fieldset class="the-fieldset">
+                        <legend class="the-legend">
+                            Parment Method
+                        </legend>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <label for="">type</label>
+                                <select name="payment-type" id="payment-type">
+                                    <option value="cash">cash</option>
+                                    <option value="check">check</option>
+                                    <option value="dept-card">Dept Card</option>
+                                </select>
+                            </div>
+
+                            <div class="col-3">
+                                <label for="">Date</label>
+                                <input class=" pay-input" type="date" name="payment-date" id="payment-date">
+                            </div>
+
+                            <div class="col-3">
+                                <label for="">Ref:</label>
+                                <input type="text" class=" pay-input">
+                            </div>
+
+                            <div class="col-3">
+                                <label for="">Exp Date:</label>
+                                <input type="date">
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="row">
+                            <div class="col-3">
+                                <label for="">Amount</label>
+                                <input type="text" id="">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div>
+                        <div class="row">
+                            <div class="col-2">
+                                <button class="btn btn-secondary sales-btn">Print</button>
+                            </div>
+
+                            <div class="col-2">
+                                <button class="btn btn-secondary sales-btn">Save</button>
+                            </div>
+
+                            <div class="col-2">
+                                <button class="btn btn-secondary sales-btn">New</button>
+                            </div>
+
+                            <div class="col-2">
+                                <button class="btn btn-secondary sales-btn">Clear</button>
+                            </div>
+
+                            <div class="col-2">
+                                <button class="btn btn-secondary sales-btn">Delete</button>
+                            </div>
+
+                            <div class="col-2">
+                                <button class="btn btn-secondary sales-btn">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+    crossorigin="anonymous"></script>
+
+</html>
