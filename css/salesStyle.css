@@ -1,0 +1,51 @@
+/* Sales */
+
+/* Purchase section*/
+
+.sales-container{
+    border: 1px solid rgb(65, 63, 63);
+    padding: 5em !important;
+}
+
+.Sales-left-heading{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 22px;
+}
+
+/* sales payment */
+.the-fieldset {
+    border: 1px solid #615f5f;
+    padding: 10px;
+}
+
+.the-legend {
+    border-style: none;
+    border-width: 0;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 0;
+    width: auto;
+    padding: 0 10px;
+    border: 1px solid #7e7777;
+}
+
+/* table */
+
+.td-cells{
+    height: 34px !important;
+}
+
+.border-none{
+    border: none !important;
+}
+
+.product-detail-list{
+    margin: 1em 0 1em 1em;
+}
+
+/* Purchase section*/
+
+.purchase-container{
+    border: 1px solid rgb(65, 63, 63);
+    padding: 5em !important;
+}

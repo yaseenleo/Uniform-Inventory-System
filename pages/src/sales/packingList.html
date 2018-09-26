@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/salesStyle.css">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container">
+            <div class="navbar-translate">
+                <a class="navbar-brand">Uniform Inventory</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse justify-center">
+                <ul class="navbar-nav mx-auto">
+                    <li class="active nav-item">
+                        <a href="#pablo" class="nav-link">
+                            Sales
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pablo" class="nav-link">
+                            Production
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pablo" class="nav-link">
+                            Purchase
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pablo" class="nav-link">
+                            Documents
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Sign Up
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Sign In
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Log Out
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-2">
+                <h3 class="Sales-left-heading">Sales Module</h3>
+                <p><a href="#">Sales Order</a></p>
+                <p><a href="#">Delivery Note</a></p>
+                <p><a href="packingList.html">Packing List</a></p>
+                <p><a href="#">Commercial Invoice</a></p>
+                <p><a href="#">Payment receipt</a></p>
+
+            </div>
+
+            <div class="col-md-10">
+                <div class="packing-slip-header">
+
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Company Name</h3>
+                            <p><address id="address">Street Address</address></p> <!-- fetch address -->
+                            <p><address id="city">City</address></p> <!-- fetch city -->
+                            <p>Phone: <span id="phone-no"></span></p> <!-- fetch phone number -->
+                            <p>Fax: <span id="fax-no"></span></p> <!-- fetch fax number -->
+                            <p>Website: <span id="phone-no"></span></p> <!-- fetch website name of company -->
+
+                        </div>
+
+                        <div class="col-6">
+                            <h3>Packing List</h3>
+                            <p>Date: <span id="date"></span></p> <!-- fetch date -->
+                            <p>Customer I.D: <span id="cust-id"></span></p> <!-- customer id -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- packing address section -->
+                <div class="packing-address">
+                    <div class="row">
+                        <div class="col-4">
+                            <h3>Bill To:</h3>
+                            <p>Name: <span id="name"></span></p> <!-- responsible person name-->
+                            <p>Company Name: <span id="company-name"></span></p> <!-- bill company name-->
+                            <p>Street Address: <span id="bill-address"></span></p> <!-- bill street address -->
+                            <p>City or ZIP: <span id="bill-city"></span></p> <!-- bill city name -->
+                            <p>Phone: <span id="phone"></span></p> <!-- phone -->
+                        </div>
+
+                        <div class="col-4">
+                            <h3>Ship To:</h3>
+                            <p>Name: <span id="name"></span></p> <!-- responsible person name-->
+                            <p>Company Name: <span id="company-name"></span></p> <!-- ship company name-->
+                            <p>Street Address: <span id="bill-address"></span></p> <!-- ship street address -->
+                            <p>City or ZIP: <span id="bill-city"></span></p> <!-- ship city name -->
+                            <p>Phone: <span id="phone"></span></p> <!-- phone -->
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="packling-supply">
+                    <table class="table table-sm table-bordered ">
+                        <thead>
+                            <tr>
+                                <th>ORDER DATE</th>
+                                <th>ORDER NO.</th>
+                                <th>PURCHASE ORDER NO.</th>
+                                <th>CUSTOMER CONTACT</th>
+                            </tr>
+
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Purchase dept</td>
+                            </tr>
+                        </tbody>
+                        </thead>
+                    </table>
+                </div>
+
+                <div class="packing-lists">
+                    <table class="table table-responsive-sm table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ITEM.NO</th>
+                                <th>DESCRIPTION</th>
+                                <th>ORDER QTY</th>
+                                <th>SHIP QTY</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td id="item-id">253</td>
+                                <td id="item-description">bow tie</td>
+                                <td id="order-qty">15</td>
+                                <td id="ship-qty">12</td>
+                            </tr>
+
+                            <tr>
+                                <td id="item-id">121</td>
+                                <td id="item-description">socks</td>
+                                <td id="order-qty">20</td>
+                                <td id="ship-qty">17</td>
+                            </tr>
+
+                            <tr>
+                                <td id="item-id"></td>
+                                <td id="item-description"></td>
+                                <td id="order-qty"></td>
+                                <td id="ship-qty"></td>
+                            </tr>
+
+                            <tr>
+                                    <td id="item-id"></td>
+                                    <td id="item-description"></td>
+                                    <td id="order-qty"></td>
+                                    <td id="ship-qty"></td>
+                                </tr>
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <td></td>
+                                <td class="float-right">Total</td>
+                                <td>35</td>
+                                <td>29</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+    crossorigin="anonymous"></script>
+
+</html>

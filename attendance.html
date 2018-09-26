@@ -1,0 +1,137 @@
+<Doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Attendane System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+<input type="text" id="staff">
+<button onclick="addemployee()">Submit</button>
+
+        <table style="border: solid; border-color: black;">
+                <thead>
+                <tr style="border: solid;">
+                    <td><b>name</b></td>
+                    <td><b>Attendance</b></td>
+                    
+                   
+                
+                </tr>
+                </thead>
+                <tbody id="para"></tbody>
+                </table>
+                <button onclick="exportToExcel('para');" style="color: blueviolet; background-color: black;">Download Excel</button>
+
+
+ 
+        <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyD5pdm5evOducQYIZXRBcs2U5bnl2qFRYU",
+            authDomain: "uniformpurchasingsystem-4cc93.firebaseapp.com",
+            databaseURL: "https://uniformpurchasingsystem-4cc93.firebaseio.com",
+            projectId: "uniformpurchasingsystem-4cc93",
+            storageBucket: "uniformpurchasingsystem-4cc93.appspot.com",
+            messagingSenderId: "201733282717"
+          };
+          firebase.initializeApp(config);
+        </script>   
+        
+<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+
+
+
+<script>
+
+
+var rootref = firebase.database().ref("staff/employee")
+rootref.on("child_added", snap=> {
+
+//var address= snap.child("address").val();
+//var keys = snap.key;
+// var email= snap.child("email").val();
+// var fname= snap.child("fname").val();
+// var gender= snap.child("gender").val();
+var name= snap.child("nameofmember").val();
+// var phone= snap.child("phoneno").val();
+
+$("#para").append(`<tr><td>` +name+ `</td><td><input type="text"></td></tr>`);
+
+});
+
+
+</script>
+
+
+<script>
+
+function exportToExcel(para){
+    var tab_text="<table border='2px'><tr bgcolor='#87AFC6' style='height: 75px; text-align: center; width: 250px'>";
+    var textRange; var j=0;
+    tab = document.getElementById('para'); // id of table
+
+    for(j = 0 ; j < tab.rows.length ; j++)
+    {
+
+        tab_text=tab_text;
+
+        tab_text=tab_text+tab.rows[j].innerHTML.toUpperCase()+"</tr>";
+        //tab_text=tab_text+"</tr>";
+    }
+
+    tab_text= tab_text+"</table>";
+    tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, ""); //remove if u want links in your table
+    tab_text= tab_text.replace(/<img[^>]*>/gi,""); //remove if u want images in your table
+    tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); //remove input params
+
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE ");
+
+    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
+
+    {
+        txtArea1.document.open("txt/html","replace");
+        txtArea1.document.write( 'sep=,\r\n' + tab_text);
+        txtArea1.document.close();
+        txtArea1.focus();
+        sa=txtArea1.document.execCommand("SaveAs",true,"sudhir123.txt");
+    }
+
+    else {
+       sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));
+    }
+    
+    return (sa);
+}
+
+
+
+
+</script>
+
+<script>
+
+function addemployee(){
+    var namestaff = document.getElementById('staff').value;
+    var uid2 = firebase.database().ref().child('use').push().key;
+    if(namestaff == ""){alert("Fill Name");}
+    else{
+    var dataaa = {
+  nameofmember : namestaff}
+  var updates = {};
+  updates['/staff/employee/' + uid2] = dataaa;
+  firebase.database().ref().update(updates);
+  alert("Done");
+}
+}
+
+
+</script>
+
+</body>
+</html>
