@@ -1,3 +1,25 @@
+/* common style */
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.doc-head-text{
+    color: #00bcd4;
+    text-transform: uppercase;
+    margin-bottom: 0.8em;
+}
+
+.main-subject{
+    font-size: 27px;
+    background-color: rgb(199, 188, 188);
+    border: 1px solid black;
+    padding: 5px;
+    font-weight: 400;
+    margin-bottom: 0.5em;
+    border-radius: 2px;
+}
+
+/* navbar */
 .navbar{
     background: #fff;
     color: #555;

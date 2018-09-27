@@ -1,10 +1,9 @@
 /* Sales */
 
-/* Purchase section*/
-
 .sales-container{
     border: 1px solid rgb(65, 63, 63);
-    padding: 5em !important;
+    padding: 4em !important;
+    background-color: rgb(244, 246, 247);
 }
 
 .Sales-left-heading{
@@ -48,4 +47,22 @@
 .purchase-container{
     border: 1px solid rgb(65, 63, 63);
     padding: 5em !important;
+}
+
+/* goods receiving note */
+
+.gr-container{
+    padding: 2em !important;
+}
+
+.gr-info{
+    border: 1px solid black;
+    padding: 2em;
+    margin: 1em 0 2em 0;
+}
+
+.gr-type{
+    border: 1px solid black;
+    padding: 2px;
+    text-align: center;
 }

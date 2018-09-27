@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sales Order</title>
-     
+
     <link rel="stylesheet" href="../../../css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
@@ -22,396 +22,401 @@
 
 <body>
 
-   
 
-        <nav class="navbar navbar-expand-lg bg-primary">
-                <div class="container">
-                    <div class="navbar-translate">
-                        <a class="navbar-brand">Uniform Inventory</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                            <span class="navbar-toggler-icon"></span>
-                            <span class="navbar-toggler-icon"></span>
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </div>
-                    <div class="collapse navbar-collapse justify-center">
-                        <ul class="navbar-nav mx-auto">
-                            <li class="active nav-item">
-                                <a href="sales.html" class="nav-link">
-                                    Sales
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#pablo" class="nav-link">
-                                    Production
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../purchase/purchase.html" class="nav-link">
-                                    Purchase
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                    <a href="#pablo" class="nav-link">
-                                        Documents
-                                    </a>
-                                </li>
-                        </ul>
-            
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    Sign Up
-                                </a>
-                            </li>
-            
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    Sign In
-                                </a>
-                            </li>
 
-                            <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Log Out
-                                    </a>
-                                </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container">
+            <div class="navbar-translate">
+                <a class="navbar-brand">Uniform Inventory</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse justify-center">
+                <ul class="navbar-nav mx-auto">
+                    <li class="active nav-item">
+                        <a href="sales.html" class="nav-link">
+                            Sales
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pablo" class="nav-link">
+                            Production
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../purchase/purchase.html" class="nav-link">
+                            Purchase
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pablo" class="nav-link">
+                            Documents
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Sign Up
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Sign In
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Log Out
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <div class="container-fluid">
 
         <div class="row">
             <div class="col-md-2 sidebar">
-                    <h3 class="Sales-left-heading">Sales Module</h3>
-                    <p><a href="#" onclick="show('operation1')" style="cursor: pointer;">Generate Sales Order</a></p>
-                    <p><a>Purchase Order</a></p>
-                    <p><a href="packingList.html">Packing List</a></p>
-                    <p><a href="#">Commercial Invoice</a></p>
-                    <p><a href="#">Payment receipt</a></p>
+                <h3 class="Sales-left-heading">Sales Module</h3>
+                <p><a href="#" onclick="show('operation1')" style="cursor: pointer;">Generate Sales Order</a></p>
+                <p><a>Purchase Order</a></p>
+                <p><a href="packingList.html">Packing List</a></p>
+                <p><a href="#">Commercial Invoice</a></p>
+                <p><a href="#">Payment receipt</a></p>
 
             </div>
 
             <div class="col-md-10">
 
-            <div class="container sales-container" id="main_place">
+                <div class="container sales-container" id="main_place">
+
+                    <div class="text-center doc-head-text">
+                        <h2>Sales Slip</h2>
+                    </div>
+
+                    <h2 class="main-subject">Client Details</h2>
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label class="form-control-label">Customer Name</label>
+                        </div>
+                        <div class="col-3">
+                            <input class="form-input" id="name" type="text" placeholder="Customer Name">
+
+                        </div>
+                        <div class="col-2">
+                            <label for="expire-date" class="form-control-label">Delivery Date</label>
+                        </div>
+                        <div class="col-3">
+                            <input class="form-input" id="deliverydate" type="date" placeholder="Delivery Date">
+                        </div>
+
+                    </div>
 
                     <div class="row form-group">
-                            <div class="col-2">
-                                <label class="form-control-label">Customer Name</label>
+                        <div class="col-2">
+                            <label for="date" class=" form-control-label">Client Ph.Number</label>
+                        </div>
+                        <div class="col-3">
+                            <input class="form-input" id="customerphone" type="text" placeholder="Client Phone Number">
+                        </div>
+                        <div class="col-2">
+                            <label for="expire-date" class=" form-control-label">Personal Phone</label>
+                        </div>
+                        <div class="col-3">
+                            <input class="form-input" id="personalphone" type="text" placeholder="Personal Phone">
+                        </div>
+
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label class=" form-control-label">Shipping Address</label>
+                        </div>
+                        <div class="col-3">
+                            <input class="form-input" id="addressofdelivery" type="text" placeholder="Shipping Address">
+                        </div>
+                        <div class="col-2">
+                            <label for="expire-date" class=" form-control-label">Writer Name</label>
+                        </div>
+                        <div class="col-3">
+                            <input class="form-input" id="nameofdev" type="text" placeholder="Writer Name">
+                        </div>
+
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label>Order Date</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="date" id="orderdate" placeholder="Order Date" class="form-input">
+                        </div>
+                    </div>
+
+
+
+                    <div class="product-detail-container">
+                        <h2 class="main-subject">Product Details</h2>
+                        <div class="product-detail-list">
+                            <div class="row">
+                                <div class=" small-col">
+                                    <h4>1.</h4>
+                                </div>
+
+                                <div class="col-2">
+                                    <input class="form-input" type="text" placeholder="Product Category" id="pro1category">
+                                </div>
+
+                                <div class="col-2">
+                                    <input class="form-input" type="text" placeholder="Product Description" id="pro1description">
+                                </div>
+
+                                <div class="col-2">
+                                    <input class="form-input" type="text" placeholder="Quantity Available" id="pro1quantityavailable">
+                                </div>
+
+                                <div class="col-2">
+                                    <input class="form-input" type="text" placeholder="Quantity Ordered" id="pro1quantityorder">
+                                </div>
+
+                                <div class="col-2">
+                                    <input class="form-input" type="text" placeholder="Unit Price" id="pro1unitprice">
+                                </div>
                             </div>
-                            <div class="col-3">
-<input class="form-input" id="name" type="text" placeholder="Customer Name">
+                        </div>
+                        <div class="product-detail-list">
+                            <div class="row">
+                                <div class="small-col">
+                                    <h4>2.</h4>
+                                </div>
+
+                                <div class="col-2">
+                                    <input class="form-input" type="text" placeholder="Product Category" id="pro2category">
+                                </div>
+
+                                <div class="col-2">
+                                    <input class="form-input" type="text" placeholder="Product Description" id="pro2description">
+                                </div>
+
+                                <div class="col-2">
+                                    <input class="form-input" type="text" placeholder="Quantity Available" id="pro2quantityavailable">
+                                </div>
+
+                                <div class="col-2">
+                                    <input class="form-input" type="text" placeholder="Quantity Ordered" id="pro2quantityorder">
+                                </div>
+
+                                <div class="col-2">
+                                    <input class="form-input" type="text" placeholder="Unit Price" id="pro2unitprice">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <input type="text" placeholder="Product type" id="pro1totalprice"> -->
+
+
+                </div>
+
+                <div class="forms" style="max-width: none; display: none;" id="operation1">
+                    <form action="" method="post" class="form-horizontal">
+                        <div class="row form-group">
+                            <div class="col-2">
+                                <label for="customer-name" class=" form-control-label"><b>Customer Name</b></label>
+                            </div>
+                            <div class="col-3" id="waqas">
 
                             </div>
                             <div class="col-2">
-                                <label for="expire-date" class="form-control-label">Delivery Date</label>
+                                <label for="password-input" class=" form-control-label"><b>Client Phone</b></label>
                             </div>
-                            <div class="col-3">
-<input class="form-input" id="deliverydate" type="date" placeholder="Delivery Date">
+                            <div class="col-3" id="customerphones">
+
                             </div>
-    
+
                         </div>
 
                         <div class="row form-group">
-                                <div class="col-2">
-                                    <label for="date" class=" form-control-label">Client Ph.Number</label>
-                                </div>
-                                <div class="col-3">
-                                    <input class="form-input" id="customerphone" type="text" placeholder="Client Phone Number">
-                                </div>
-                                <div class="col-2">
-                                    <label for="expire-date" class=" form-control-label">Personal Phone</label>
-                                </div>
-                                <div class="col-3">
-<input class="form-input" id="personalphone" type="text" placeholder="Personal Phone">
-                                </div>
-        
+                            <div class="col-2">
+                                <label for="date" class=" form-control-label">Receiving Date</label>
+                            </div>
+                            <div class="col-3" id="recdate">
+                            </div>
+                            <div class="col-2">
+                                <label for="expire-date" class=" form-control-label">Delivery Date</label>
+                            </div>
+                            <div class="col-3" id="deldate">
                             </div>
 
-                            <div class="row form-group">
-                                    <div class="col-2">
-                                        <label class=" form-control-label">Shipping Address</label>
-                                    </div>
-                                    <div class="col-3">
-<input class="form-input" id="addressofdelivery" type="text" placeholder="Shipping Address">
-                                    </div>
-                                    <div class="col-2">
-                                        <label for="expire-date" class=" form-control-label">Writer Name</label>
-                                    </div>
-                                    <div class="col-3">
-<input class="form-input" id="nameofdev" type="text" placeholder="Writer Name">
-                                    </div>
-            
-                                </div>
-
-                                <div class="row form-group">
-                                    <div class="col-2">
-                                        <label>Order Date</label>
-                                    </div>
-                                    <div class="col-3">
-                                        <input type="date" id="orderdate" placeholder="Order Date" class="form-input">
-                                    </div>
-                                </div>
-            
-                
-                   
-<div class="product-detail-container">
-<h2>Product Details</h2>
-<div class="product-detail-list">
-<div class="row">
-    <div class=" small-col">
-        <h4>1.</h4>
-    </div>
-
-    <div class="col-2">
-        <input class="form-input" type="text" placeholder="Product Category" id="pro1category">
-    </div>
-
-    <div class="col-2">
-        <input class="form-input" type="text" placeholder="Product Description" id="pro1description">
-    </div>
-
-    <div class="col-2">
-        <input class="form-input" type="text" placeholder="Quantity Available" id="pro1quantityavailable">
-    </div>
-
-    <div class="col-2">
-        <input class="form-input" type="text" placeholder="Quantity Ordered" id="pro1quantityorder">
-    </div>
-
-    <div class="col-2">
-        <input class="form-input" type="text" placeholder="Unit Price" id="pro1unitprice">
-    </div>
-</div>
-</div>
-<div class="product-detail-list">
-<div class="row">
-        <div class="small-col">
-            <h4>2.</h4>
-        </div>
-    
-        <div class="col-2">
-<input class="form-input" type="text" placeholder="Product Category" id="pro2category">
-        </div>
-    
-        <div class="col-2">
-<input class="form-input" type="text" placeholder="Product Description" id="pro2description">
-        </div>
-    
-        <div class="col-2">
-<input class="form-input" type="text" placeholder="Quantity Available" id="pro2quantityavailable">
-        </div>
-    
-        <div class="col-2">
-<input class="form-input" type="text" placeholder="Quantity Ordered" id="pro2quantityorder">
-        </div>
-    
-        <div class="col-2">
-<input class="form-input" type="text" placeholder="Unit Price" id="pro2unitprice">
-        </div>
-    </div>
-</div>
-</div>
-<!-- <input type="text" placeholder="Product type" id="pro1totalprice"> -->
-
-                  
-                </div>
-             
-            <div class="forms" style="max-width: none; display: none;" id="operation1">
-                <form action="" method="post" class="form-horizontal">
-                    <div class="row form-group">
-                        <div class="col-2">
-                            <label for="customer-name" class=" form-control-label" ><b>Customer Name</b></label>
-                        </div>
-                        <div class="col-3" id="waqas">
-                          
-                        </div>
-                        <div class="col-2">
-                            <label for="password-input" class=" form-control-label"><b>Client Phone</b></label>
-                        </div>
-                        <div class="col-3" id="customerphones">
-                            
                         </div>
 
-                    </div>
-
-                    <div class="row form-group">
-                        <div class="col-2">
-                            <label for="date" class=" form-control-label">Receiving Date</label>
-                        </div>
-                        <div class="col-3" id="recdate">
+                        <div class="row form-group">
+                            <div class="col-2">
+                                <label for="phone" class=" form-control-label">Company Phone</label>
                             </div>
-                        <div class="col-2">
-                            <label for="expire-date" class=" form-control-label">Delivery Date</label>
-                        </div>
-                        <div class="col-3" id="deldate">
-                         </div>
+                            <div class="col-3" id="personalphones">
+                                <!-- <input type="number" name="phone" class="form-control"> -->
+                            </div>
+                            <div class="col-2">
+                                <label for="ship" class=" form-control-label">Ship to</label>
+                            </div>
+                            <div class="col-3" id="addressofdeliverys">
 
-                    </div>
+                            </div>
 
-                    <div class="row form-group">
-                        <div class="col-2">
-                            <label for="phone" class=" form-control-label">Company Phone</label>
-                        </div>
-                        <div class="col-3" id="personalphones">
-                            <!-- <input type="number" name="phone" class="form-control"> -->
-                        </div>
-                        <div class="col-2">
-                            <label for="ship" class=" form-control-label">Ship to</label>
-                        </div>
-                        <div class="col-3" id="addressofdeliverys">
-                           
                         </div>
 
-                    </div>
+                        <div class="row form-group">
+                            <div class="col-2">
+                                <label for="product-number" class=" form-control-label">Client Name</label>
+                            </div>
+                            <div class="col-3" id="clientname">
+                                <!-- <input type="number" name="phone" class="form-control"> -->
+                            </div>
 
-                    <div class="row form-group">
-                        <div class="col-2">
-                            <label for="product-number" class=" form-control-label">Client Name</label>
+
+                            <div class="col-2">
+                                <label for="sales-order-status">Status</label>
+                            </div>
+                            <div class="col-3" id="status">
+                                <!-- <input type="text" class="form-control" id="sales-order-status" value="Open"> -->
+                            </div>
                         </div>
-                        <div class="col-3" id="clientname">
-                            <!-- <input type="number" name="phone" class="form-control"> -->
-                        </div>
+                    </form>
+
+                    <!-- product list section -->
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td scope="col">S.no</td>
+                                <td scope="col">Product Category</td>
+                                <td scope="col">Description</td>
+                                <td scope="col">Qty Avail</td>
+                                <td scope="col">Qty Order</td>
+                                <td scope="col">Unit Price</td>
+                                <td scope="col">Total Price</td>
+                            </tr>
+
+                        <tbody>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td class="category"></td>
+                                <td class="description"></td>
+                                <td class="qtyavailable"></td>
+                                <td class="qtyorder"></td>
+                                <td class="unitprice"></td>
+                                <td class="totalprice"></td>
+                            </tr>
+
+                            <tr>
+                                <td scope="row">2</td>
+                                <td id="na"></td>
+                                <td id="ma"></td>
+                                <td id="oa"></td>
+                                <td id="pa"></td>
+                                <td id="qa"></td>
+                                <td id="ra"></td>
+                            </tr>
+
+                            <tr>
+                                <td scope="row">3</td>
+                                <td class="category"></td>
+                                <td class="description"></td>
+                                <td class="qtyavailable"></td>
+                                <td class="qtyorder"></td>
+                                <td class="unitprice"></td>
+                                <td class="totalprice"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="6">Total</td>
+                                <td colspan="1" id="grandtotal"></td>
+                            </tr>
+
+                        </tbody>
+                        </thead>
+                    </table>
 
 
-                        <div class="col-2">
-                            <label for="sales-order-status">Status</label>
-                        </div>
-                        <div class="col-3" id="status">
-                            <!-- <input type="text" class="form-control" id="sales-order-status" value="Open"> -->
-                        </div>
-                    </div>
-                </form>
-
-                <!-- product list section -->
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <td scope="col">S.no</td>
-                            <td scope="col">Product Category</td>
-                            <td scope="col">Description</td>
-                            <td scope="col">Qty Avail</td>
-                            <td scope="col">Qty Order</td>
-                            <td scope="col">Unit Price</td>
-                            <td scope="col">Total Price</td>
-                        </tr>
-
-                    <tbody>
-                        <tr>
-                            <td scope="row">1</td>
-                            <td class="category"></td>
-                            <td class="description"></td>
-                            <td class="qtyavailable"></td>
-                            <td class="qtyorder"></td>
-                            <td class="unitprice"></td>
-                            <td class="totalprice"></td>
-                        </tr>
-
-                        <tr>
-                            <td scope="row">2</td>
-                            <td id="na"></td>
-                            <td id="ma"></td>
-                            <td id="oa"></td>
-                            <td id="pa"></td>
-                            <td id="qa"></td>
-                            <td id="ra"></td>
-                             </tr>
-
-                        <tr>
-                            <td scope="row">3</td>
-                            <td class="category"></td>
-                            <td class="description"></td>
-                            <td class="qtyavailable"></td>
-                            <td class="qtyorder"></td>
-                            <td class="unitprice"></td>
-                            <td class="totalprice"></td>
-                        </tr>
-<tr>
-    <td colspan="6">Total</td>
-    <td colspan="1" id="grandtotal"></td>
-</tr>
-                       
-                    </tbody>
-                    </thead>
-                </table>
-
-
-                <!-- payment -->
-                <form action="#">
-<!-- 
+                    <!-- payment -->
+                    <form action="#">
+                        <!-- 
                     <div>
                         <label for="">Order Total:</label>
                         <div id="grandtotal"></div>
                     </div> -->
 
-                    <fieldset class="the-fieldset">
-                        <legend class="the-legend">
-                            Parment Method
-                        </legend>
+                        <fieldset class="the-fieldset">
+                            <legend class="the-legend">
+                                Parment Method
+                            </legend>
 
-                        <div class="row">
-                            <div class="col-2">
-                                <label for="">type</label>
-                                <select name="payment-type" id="payment-type">
-                                    <option value="cash">cash</option>
-                                    <option value="check">check</option>
-                                    <option value="dept-card">Dept Card</option>
-                                </select>
+                            <div class="row">
+                                <div class="col-2">
+                                    <label for="">type</label>
+                                    <select name="payment-type" id="payment-type">
+                                        <option value="cash">cash</option>
+                                        <option value="check">check</option>
+                                        <option value="dept-card">Dept Card</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-3">
+                                    <label for="">Date</label>
+                                    <input class=" pay-input" type="date" name="payment-date" id="payment-date">
+                                </div>
+
+                                <div class="col-3">
+                                    <label for="">Ref:</label>
+                                    <input type="text" class=" pay-input">
+                                </div>
+
+                                <div class="col-3">
+                                    <label for="">Exp Date:</label>
+                                    <input type="date">
+                                </div>
                             </div>
 
-                            <div class="col-3">
-                                <label for="">Date</label>
-                                <input class=" pay-input" type="date" name="payment-date" id="payment-date">
-                            </div>
-
-                            <div class="col-3">
-                                <label for="">Ref:</label>
-                                <input type="text" class=" pay-input">
-                            </div>
-
-                            <div class="col-3">
-                                <label for="">Exp Date:</label>
-                                <input type="date">
-                            </div>
-                        </div>
-
-                        <br>
-                        <!-- <div class="row">
+                            <br>
+                            <!-- <div class="row">
                             <div class="col-3">
                                 <label for="">Amount</label>
                                 <input type="text" id="">
                             </div>
                         </div> -->
-                    </fieldset>
+                        </fieldset>
 
-                </form>
+                    </form>
 
 
-            </div>
-           
-<!--             
+                </div>
+
+                <!--             
 
             <div id=operation2 style="display: none;">
                     Again some textboxes and text
                 <p id="neww"></p>  
                 </div> -->
-                  
 
 
 
-                </div>
+
+            </div>
         </div>
 
     </div>
-   
-      <!-- <p id="n"></p> -->
-<!-- <button onclick="waqaskhan();">Submit</button>
+
+    <!-- <p id="n"></p> -->
+    <!-- <button onclick="waqaskhan();">Submit</button>
 <input type="button" id="create_pdf" value="Generate PDF">  -->
- 
+
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -421,206 +426,13 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
 
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script> 
-  
-    
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+
+
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
     crossorigin="anonymous"></script>
 
 
-
-
-    <script>  
-        (function () {  
-            var  
-             form = $('.forms'),  
-             cache_width = form.width(),  
-             a4 = [595.28, 841.89]; // for a4 size paper width and height  
-      
-            $('#create_pdf').on('click', function () {  
-                $('body').scrollTop(0);  
-                createPDF();  
-            });  
-            //create pdf  
-            function createPDF() {  
-                getCanvas().then(function (canvas) {  
-                    var  
-                     img = canvas.toDataURL("image/png"),  
-                     doc = new jsPDF({  
-                         unit: 'px',  
-                         format: 'a4'  
-                     });  
-                    doc.addImage(img, 'JPEG', 20, 20);  
-                    doc.save('waqaskhans.pdf');  
-                    form.width(cache_width);  
-                });  
-            }  
-      
-            // create canvas object  
-            function getCanvas() {  
-                form.width((a4[0] * 1.7) - 80).css('max-width', 'none');  
-                return html2canvas(form, {  
-                    imageTimeout: 2000,  
-                    removeContainer: true  
-                });  
-            }  
-      
-        }());  
-    </script>  
-    <script>  
-        /* 
-     * jQuery helper plugin for examples and tests 
-     */  
-        (function ($) {  
-            $.fn.html2canvas = function (options) {  
-                var date = new Date(),  
-                $message = null,  
-                timeoutTimer = false,  
-                timer = date.getTime();  
-                html2canvas.logging = options && options.logging;  
-                html2canvas.Preload(this[0], $.extend({  
-                    complete: function (images) {  
-                        var queue = html2canvas.Parse(this[0], images, options),  
-                        $canvas = $(html2canvas.Renderer(queue, options)),  
-                        finishTime = new Date();  
-      
-                        $canvas.css({ position: 'absolute', left: 0, top: 0 }).appendTo(document.body);  
-                        $canvas.siblings().toggle();  
-      
-                        $(window).click(function () {  
-                            if (!$canvas.is(':visible')) {  
-                                $canvas.toggle().siblings().toggle();  
-                                throwMessage("Canvas Render visible");  
-                            } else {  
-                                $canvas.siblings().toggle();  
-                                $canvas.toggle();  
-                                throwMessage("Canvas Render hidden");  
-                            }  
-                        });  
-                        throwMessage('Screenshot created in ' + ((finishTime.getTime() - timer) / 1000) + " seconds<br />", 4000);  
-                    }  
-                }, options));  
-      
-                function throwMessage(msg, duration) {  
-                    window.clearTimeout(timeoutTimer);  
-                    timeoutTimer = window.setTimeout(function () {  
-                        $message.fadeOut(function () {  
-                            $message.remove();  
-                        });  
-                    }, duration || 2000);  
-                    if ($message)  
-                        $message.remove();  
-                    $message = $('<div ></div>').html(msg).css({  
-                        margin: 0,  
-                        padding: 10,  
-                        background: "#000",  
-                        opacity: 0.7,  
-                        position: "fixed",  
-                        top: 10,  
-                        right: 10,  
-                        fontFamily: 'Tahoma',  
-                        color: '#fff',  
-                        fontSize: 12,  
-                        borderRadius: 12,  
-                        width: 'auto',  
-                        height: 'auto',  
-                        textAlign: 'center',  
-                        textDecoration: 'none'  
-                    }).hide().fadeIn().appendTo('body');  
-                }  
-            };  
-        })(jQuery);  
-      
-    
-    
-    
-    </script>
-
-
-<script>
-function show(param_div_id) {
-//  var proarray = [];
- var l = document.getElementById('pro1category').value;
- var m = document.getElementById('pro1description').value;
- var n = document.getElementById('pro1quantityavailable').value;
- var o = document.getElementById('pro1quantityorder').value;
- var p = document.getElementById('pro1unitprice').value;
-
-
- var secl = document.getElementById('pro2category').value;
- var secm = document.getElementById('pro2description').value;
- var secn = document.getElementById('pro2quantityavailable').value;
- var seco = document.getElementById('pro2quantityorder').value;
- var secp = document.getElementById('pro2unitprice').value;
-
-var secqtyord = parseInt(seco);
-var secunitprice = parseInt(secp);
-var sectotprice = secqtyord * secunitprice;
-var qtyord = parseInt(o);
-var unitprice = parseInt(p);
-var totprice = qtyord * unitprice;
-
-//  proarray.push(l);
-//  proarray.push(m);
-//  proarray.push(n);
-//  proarray.push(o);
- 
-var a = document.getElementById('name').value;
-    var b = document.getElementById('orderdate').value;
-    var c = document.getElementById('deliverydate').value;
-         // alert(param_div_id);
-         var d = document.getElementById('customerphone').value;
-         var e = document.getElementById('personalphone').value;
-         var f = document.getElementById('addressofdelivery').value;
-         var g = document.getElementById('nameofdev').value;
-        //  var newarray = proarray.join('<br>');
-        var grandtotal = (totprice*2) + sectotprice;
-          $("#waqas").append(a);
-       $("#recdate").append(b);
-       $("#deldate").append(c);
-     //  $("#idk").append(c);
-     $("#personalphones").append(e);
-     $("#addressofdeliverys").append(f);
-     $("#clientname").append(g);
-     $("#status").append("Sales Order");
-     $("#customerphones").append(d);
-    //  $("#idk").append(newarray);
-   
-    $(".category").append(l);
-    $(".description").append(m);
-    $(".qtyavailable").append(n);
-    $(".qtyorder").append(qtyord);
-    // $("#customerphones").append(qtyord);
-    $(".unitprice").append(unitprice);
-    $(".totalprice").append(totprice);
-    $("#na").append(secl);
-    $("#ma").append(secm);
-    $("#oa").append(secn);
-    $("#pa").append(secqtyord);
-    $("#qa").append(secunitprice);
-    $("#ra").append(sectotprice);
-  $("#grandtotal").append(grandtotal);
-     document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
-
-        }
-
-
-    //     function showc() {
-    // var k = document.getElementById('n').innerHTML;
-    
-    //  var b = document.getElementById('orderdate').value;
-    //  var c = document.getElementById('deliverydate').value;
-    //        alert(param_div_id);
-    
-        
-    //   alert(k);
-    //     $("#recdate").append(`<div>`+b+`</div>`);
-    //     $("#deldate").append(`<div>`+c+`</div>`);
-    //     $("#idk").append(c);
-       
-
-    //     }
-
-</script>
 </html>
