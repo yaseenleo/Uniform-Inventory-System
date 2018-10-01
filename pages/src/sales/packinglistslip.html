@@ -97,18 +97,18 @@
 
                     <div class="row">
                         <div class="col-6">
-                                <h3>Uniform Shop || Company Name</h3>
-                                <p><address id="address">Street Address: house no.L-212, street-3, NY</address> </p> <!-- fetch address -->
-                                <p><address id="city">City: <span>Brocklin</span></address></p> <!-- fetch city -->
-                                <p>Phone: <span>786-786-7845</span></p> <!-- fetch phone number -->
-                                <p>Fax: </p> <!-- fetch fax number -->
-                                <p>Website: <span>http://Uniformshop.com</span> <span id="phone-no"></span></p> <!-- fetch website name of company -->
-    
+                            <h3>Uniform Shop || Company Name</h3>
+                            <p><address id="address">Street Address: house no.L-212, street-3, NY</address> </p> <!-- fetch address -->
+                            <p><address id="city">City: <span>Brocklin</span></address></p> <!-- fetch city -->
+                            <p>Phone: <span>786-786-7845</span></p> <!-- fetch phone number -->
+                            <p>Fax: </p> <!-- fetch fax number -->
+                            <p>Website: <span>http://Uniformshop.com</span> <span id="phone-no"></span></p> <!-- fetch website name of company -->
+
                         </div>
 
                         <div class="col-6">
                             <h3>Packing List</h3>
-                            <p>Date: <span id="date"></span></p> <!-- fetch date -->
+                            <p>Date: <span><input id="pack-date" type="date"></span></p> <!-- fetch date -->
                             <p>Customer I.D: <span id="cust-id"></span></p> <!-- customer id -->
                         </div>
                     </div>
@@ -117,22 +117,22 @@
                 <!-- packing address section -->
                 <div class="packing-address">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-5">
                             <h3 class="main-subject">Bill To:</h3>
-                            <p>Name: <span id="name"></span></p> <!-- responsible person name-->
-                            <p>Company Name: <span id="company-name"></span></p> <!-- bill company name-->
-                            <p>Street Address: <span id="bill-address"></span></p> <!-- bill street address -->
-                            <p>City or ZIP: <span id="bill-city"></span></p> <!-- bill city name -->
-                            <p>Phone: <span id="phone"></span></p> <!-- phone -->
+                            <p>Name: <span> <input type="text"> </span></p> <!-- responsible person name-->
+                            <p>Company Name: <span> <input type="text"> </span></p> <!-- bill company name-->
+                            <p>Street Address: <span> <input type="text"> </span></p> <!-- bill street address -->
+                            <p>City or ZIP: <span> <input type="text"> </span></p> <!-- bill city name -->
+                            <p>Phone: <span> <input type="tel"> </span></p> <!-- phone -->
                         </div>
 
-                        <div class="col-4">
+                        <div class="col-5">
                             <h3 class="main-subject">Ship To:</h3>
-                            <p>Name: <span id="name"></span></p> <!-- responsible person name-->
-                            <p>Company Name: <span id="company-name"></span></p> <!-- ship company name-->
-                            <p>Street Address: <span id="bill-address"></span></p> <!-- ship street address -->
-                            <p>City or ZIP: <span id="bill-city"></span></p> <!-- ship city name -->
-                            <p>Phone: <span id="phone"></span></p> <!-- phone -->
+                            <p>Name: <span> <input type="text"> </span></p> <!-- responsible person name-->
+                            <p>Company Name: <span> <input type="text"> </span></p> <!-- ship company name-->
+                            <p>Street Address: <span> <input type="text"> </span></p> <!-- ship street address -->
+                            <p>City or ZIP: <span> <input type="text"> </span></p> <!-- ship city name -->
+                            <p>Phone: <span> <input type="tel"> </span></p> <!-- phone -->
                         </div>
 
                     </div>
@@ -150,10 +150,10 @@
 
                         <tbody>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>Purchase dept</td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="tel" name="" id=""></td>
                             </tr>
                         </tbody>
                         </thead>
@@ -172,6 +172,36 @@
                         </thead>
 
                         <tbody>
+                                <tr>
+                                    <td id="item-id"><input type="text"></td>
+                                    <td id="item-description"><input type="text"></td>
+                                    <td id="order-qty"><input type="text"></td>
+                                    <td id="ship-qty"><input type="text"></td>
+                                </tr>
+    
+                                <tr>
+                                    <td id="item-id"><input type="text"></td>
+                                    <td id="item-description"><input type="text"></td>
+                                    <td id="order-qty"><input type="text"></td>
+                                    <td id="ship-qty"><input type="text"></td>
+                                </tr>
+    
+                                <tr>
+                                    <td id="item-id"><input type="text"></td>
+                                    <td id="item-description"><input type="text"></td>
+                                    <td id="order-qty"><input type="text"></td>
+                                    <td id="ship-qty"><input type="text"></td>
+                                </tr>
+    
+                                <tr>
+                                        <td id="item-id"><input type="text"></td>
+                                        <td id="item-description"><input type="text"></td>
+                                        <td id="order-qty"><input type="text"></td>
+                                        <td id="ship-qty"><input type="text"></td>
+                                    </tr>
+                            </tbody>
+
+                        <!-- <tbody>
                             <tr>
                                 <td id="item-id">253</td>
                                 <td id="item-description">bow tie</td>
@@ -199,7 +229,7 @@
                                     <td id="order-qty"></td>
                                     <td id="ship-qty"></td>
                                 </tr>
-                        </tbody>
+                        </tbody> -->
 
                         <tfoot>
                             <tr>

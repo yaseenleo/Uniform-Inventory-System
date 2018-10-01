@@ -6,13 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sales Order</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="../../../css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
     <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../../../css/salesStyle.css">
-    <!-- <script src="main.js"></script> -->
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
@@ -88,10 +86,12 @@
             <div class="col-md-2 sidebar">
                 <h3 class="Sales-left-heading">Sales Module</h3>
                 <p><a href="#" onclick="show('operation1')" style="cursor: pointer;">Generate Sales Order</a></p>
-                <p><a>Purchase Order</a></p>
+                <p><a href="sales.html">Sales Order</a></p>
+                <p><a href="packinglistslip.html">Packing List Slip</a></p>
                 <p><a href="packingList.html">Packing List</a></p>
-                <p><a href="#">Commercial Invoice</a></p>
-                <p><a href="#">Payment receipt</a></p>
+                <p><a href="salesinvoiceslip.html">Commercial Invoice Slip</a></p>
+                <p><a href="salesinvoice.html">Commercial Invoice</a></p>
+                <p><a href="payreceipt.html">Payment receipt</a></p>
 
             </div>
 
@@ -101,12 +101,13 @@
                     <h1 class="doc-head-text">Payment Receipt</h1>
 
                     <div class="pay-receipt-info">
-                        <h5>Virginia Beach Police Department <br> Special Operation</h5>
-                        <div class="sub-pay-receipt-info">
-                            <p>Virginia Beach, VA23456</p>
-                            <p>Phone: <span id="company-phone-number"></span></p>
-                            <p>Fax: <span id="company-fax-number"></span></p>
-                            <p>Website Name</p>
+                            <h3>Uniform Shop || Company Name</h3>
+                            <p><address id="address">Street Address: house no.L-212, street-3, NY</address> </p> <!-- fetch address -->
+                            <p><address id="city">City: <span>Brocklin</span></address></p> <!-- fetch city -->
+                            <p>Phone: <span>786-786-7845</span></p> <!-- fetch phone number -->
+                            <p>Fax: </p> <!-- fetch fax number -->
+                            <p>Website: <span>http://Uniformshop.com</span> <span id="phone-no"></span></p> <!-- fetch website name of company -->
+
                         </div>
 
                         <div class="sub-pay-receipt-info">
@@ -117,61 +118,91 @@
                     </div>
 
                     <div class="pay-type">
-                        <table>
-                            <tr>
-                                <th>PAYMENT METHOD</th>
-                                <th>CCHECK NO. OR LAST FOUR OF CC</th>
-                                <th>REMARKS</th>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </table>
+                        <div class="row">
+                            <div class="col-4 pay-cells-head">
+                                <h6>PAYMENT METHOD</h6>
+                            </div>
+
+                            <div class="col-4 pay-cells-head">
+                                <h6>CHECK NO. OR LAST FOUR OF CC</h6>
+                            </div>
+
+                            <div class="col-4 pay-cells-head">
+                                <h6>REMARKS</h6>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4 pay-cells">
+                                <p></p>
+                            </div>
+
+                            <div class="col-4 pay-cells">
+                                <p></p>
+                            </div>
+
+                            <div class="col-4 pay-cells">
+                                <p></p>
+                            </div>
+                        </div>
+
                     </div>
 
                     <section class="pay-items-container">
 
-                        <div class="pay-items-container">
+                        <div>
+                            <div class="row">
+                                <div class="col-1 pay-cells-head">
+                                    <h6>QTY</h6>
+                                </div>
 
-                            <div class="pay-items">
-                                <h6>QTY</h6>
+                                <div class="col-5 pay-cells-head">
+                                    <h6>DESCRIPTION</h6>
+                                </div>
+
+                                <div class="col-4 pay-cells-head">
+                                    <h6>ATTENDEE NAME</h6>
+                                </div>
+
+                                <div class="col-2 pay-cells-head">
+                                    <h6>AMOUNT</h6>
+                                </div>
+
+
                             </div>
 
-                            <div class="pay-items">
-                                <h6>DESCRIPTION</h6>
-                            </div>
+                            <div class="row">
+                                    <div class="col-1 pay-cells-large">
+                                        <p></p>
+                                    </div>
+    
+                                    <div class="col-5 pay-cells-large">
+                                        <p></p>
+                                    </div>
+    
+                                    <div class="col-4 pay-cells-large">
+                                        <p></p>
+                                    </div>
+    
+                                    <div class="col-2 pay-cells-large">
+                                        <p></p>
+                                    </div>
+    
+    
+                                </div>
 
-                            <div class="pay-items">
-                                <h6>ATTENDEE NAME</h6>
-                            </div>
+                                <div class="row">
+                                    <div class="col-10 pay-cells">
+                                        <h6>TOTAL</h6>
+                                    </div>
 
-                            <div class="pay-items">
-                                <h6>AMOUNT</h6>
-                            </div>
+                                    <div class="col-2 pay-cells">
+                                        <p id="total"></p>
+                                    </div>
+                                </div>
 
                         </div>
 
-                        <div class="pay-items-container">
-                            
-                            <div class="pay-items">
-
-                            </div>
-
-                            <div class="pay-items">
-
-                            </div>
-
-                            <div class="pay-items">
-
-                            </div>
-
-                            <div class="pay-items">
-
-                            </div>
-
-                        </div>
 
                     </section>
                 </div>

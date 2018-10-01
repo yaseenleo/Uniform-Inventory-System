@@ -32,8 +32,8 @@
             </div>
             <div class="collapse navbar-collapse justify-center">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a href="../sales/sales.html" class="nav-link">
+                    <li class="active nav-item">
+                        <a href="sales.html" class="nav-link">
                             Sales
                         </a>
                     </li>
@@ -42,8 +42,8 @@
                             Production
                         </a>
                     </li>
-                    <li class="active nav-item">
-                        <a href="purchase.html" class="nav-link">
+                    <li class="nav-item">
+                        <a href="../purchase/purchase.html" class="nav-link">
                             Purchase
                         </a>
                     </li>
@@ -79,86 +79,86 @@
 
     <div class="container-fluid">
 
-
         <div class="row">
-            <div class="col-md-2 sidebar">
-                <h3 class="Sales-left-heading">Purchase Module</h3>
-                <p><a href="#">Generate Purchase Order</a></p>
-                <p><a href="purchase.html">Purchase Order</a></p>
-                <p><a href="grnote.html">Good Receiving Note</a></p>
-                <p><a href="purchaseinvoice.html">Purchase Invoice</a></p>
-                <p><a href="vendoraccount.html">Vendor Receipt Account</a></p>
-                <p><a href="vendorpay.html">Vendor Payment</a></p>
+            <div class="col-md-2">
+                <h3 class="Sales-left-heading">Sales Module</h3>
+                <p><a href="packinglistslip.html">Packing List Slip</a></p>
+                <p><a href="salesinvoiceslip.html">Commercial Invoice Slip</a></p>
+                <p><a href="sales.html">Sales Order</a></p>
+                <p><a href="deliverynote.html">Delivery Note</a></p>
+                <p><a href="packingList.html">Packing List</a></p>
+                <p><a href="salesinvoice.html">Commercial Invoice</a></p>
+                <p><a href="payreceipt.html">Payment receipt</a></p>
 
             </div>
 
             <div class="col-md-10">
-
-        <div class="container purchase-container">
-
-
                 <div class="packing-slip-header">
 
                     <div class="row">
-
                         <div class="col-6">
-                            <h3>Company Name</h3>
-                            <p><address id="address">Street Address</address></p> <!-- fetch address -->
-                            <p><address id="city">City</address></p> <!-- fetch city -->
-                            <p>Phone: <span id="phone-no"></span></p> <!-- fetch phone number -->
-                            <p>Fax: <span id="fax-no"></span></p> <!-- fetch fax number -->
-                            <p>Website: <span id="phone-no"></span></p> <!-- fetch website name of company -->
-
+                                <h3>Uniform Shop || Company Name</h3>
+                                <p><address id="address">Street Address: house no.L-212, street-3, NY</address> </p> <!-- fetch address -->
+                                <p><address id="city">City: <span>Brocklin</span></address></p> <!-- fetch city -->
+                                <p>Phone: <span>786-786-7845</span></p> <!-- fetch phone number -->
+                                <p>Fax: </p> <!-- fetch fax number -->
+                                <p>Website: <span>http://Uniformshop.com</span> <span id="phone-no"></span></p> <!-- fetch website name of company -->
+    
                         </div>
 
                         <div class="col-6">
-                    <h3>PURCHASE ORDER</h3>
-                            <p>Date: <span id="date"></span></p> <!-- fetch date -->
-                            <p>P.O # <span id="product-num"></span></p> <!-- fetch date -->
+                            <h3>SALES INVOICE</h3>
+                            <p>Date: <span><input type="date"></span></p> <!-- fetch date -->
+                            <p>INVOICE # <span id="invoice-num"></span></p> <!-- fetch date -->
+                            <p>Customer I.D: <span id="cust-id"></span></p> <!-- customer id -->
                         </div>
                     </div>
                 </div>
 
                 <!-- packing address section -->
-                <div class="supply-content">
+                <div class="packing-address">
                     <div class="row">
                         <div class="col-4">
-                            <h3 class="main-subject">VENDOR:</h3>
-                            <p>Name: <span id="name"></span></p> <!-- responsible person name-->
-                            <p>Company Name: <span id="company-name"></span></p> <!-- bill company name-->
-                            <p>Street Address: <span id="bill-address"></span></p> <!-- bill street address -->
-                            <p>City or ZIP: <span id="bill-city"></span></p> <!-- bill city name -->
-                            <p>Phone: <span id="phone"></span></p> <!-- phone -->
+                            <h3>Bill To:</h3>
+                            <p>Name: <span> <input type="text"> </span></p> <!-- responsible person name-->
+                            <p>Company Name: <span> <input type="text"> </span></p> <!-- bill company name-->
+                            <p>Street Address: <span> <input type="text"> </span></p> <!-- bill street address -->
+                            <p>City or ZIP: <span> <input type="text"> </span></p> <!-- bill city name -->
+                            <p>Phone: <span> <input type="tel"> </span></p> <!-- phone -->
                         </div>
 
                         <div class="col-4">
-                            <h3 class="main-subject">Ship To:</h3>
-                            <p>Name: <span id="name"></span></p> <!-- responsible person name-->
-                            <p>Company Name: <span id="company-name"></span></p> <!-- ship company name-->
-                            <p>Street Address: <span id="bill-address"></span></p> <!-- ship street address -->
-                            <p>City or ZIP: <span id="bill-city"></span></p> <!-- ship city name -->
-                            <p>Phone: <span id="phone"></span></p> <!-- phone -->
+                            <h3>Ship To:</h3>
+                            <p>Name: <span> <input type="text"> </span></p> <!-- responsible person name-->
+                            <p>Company Name: <span> <input type="text"> </span></p> <!-- ship company name-->
+                            <p>Street Address: <span> <input type="text"> </span></p> <!-- ship street address -->
+                            <p>City or ZIP: <span> <input type="text"> </span></p> <!-- ship city name -->
+                            <p>Phone: <span> <input type="tel"> </span></p> <!-- phone -->
                         </div>
 
                     </div>
                 </div>
 
-                <div class="purchase-supply supply-info">
+                <div class="packling-supply">
                     <table class="table table-sm table-bordered ">
                         <thead>
                             <tr>
-                                <th class="head-text-sec">REQUISITIONER</th>
-                                <th class="head-text-sec">SHIP VIA</th>
-                                <th class="head-text-sec">F.O.B</th>
-                                <th class="head-text-sec">SHIPPING TERMS</th>
+                                <th>SALES PERSON</th>
+                                <th>P.O. #</th>
+                                <th>SHIP DATE</th>
+                                <th>SHIP VIA</th>
+                                <th>F.O.B</th>
+                                <th>TERMS</th>
                             </tr>
 
                         <tbody>
                             <tr>
-                                <td class="td-cells"></td>
-                                <td class="td-cells"></td>
-                                <td class="td-cells"></td>
-                                <td class="td-cells"></td>
+                                <td class="td-cells"> <input type="text"> </td>
+                                <td class="td-cells"> <input type="text"> </td>
+                                <td class="td-cells"> <input type="text"> </td>
+                                <td class="td-cells"> <input type="text"> </td>
+                                <td class="td-cells"> <input type="text"> </td>
+                                <td class="td-cells"> <input type="text"> </td>
                             </tr>
                         </tbody>
                         </thead>
@@ -169,20 +169,60 @@
                     <table class="table table-responsive-sm table-bordered">
                         <thead>
                             <tr>
-                                <th class="head-text-sec">ITEM.NO</th>
-                                <th class="head-text-sec">DESCRIPTION</th>
-                                <th class="head-text-sec">QTY</th>
-                                <th class="head-text-sec">UNIT PRICE</th>
-                                <th class="head-text-sec">TOTAL</th>
+                                <th>ITEM.NO</th>
+                                <th>DESCRIPTION</th>
+                                <th>QTY</th>
+                                <th>UNIT PRICE</th>
+                                <th>TAX</th>
+                                <th>TOTAL</th>
                             </tr>
                         </thead>
 
                         <tbody>
+                                <tr>
+                                    <td class="td-cells" id="item-id"><input type="text"></td>
+                                    <td class="td-cells" id="item-description"><input type="text"></td>
+                                    <td class="td-cells" id="qty"><input type="text"></td>
+                                    <td class="td-cells" id="unit-price"><input type="text"></td>
+                                    <td class="td-cells" id="tax">x</td>
+                                    <td class="td-cells" id="total-price"></td>
+                                </tr>
+    
+                                <tr>
+                                    <td class="td-cells" id="item-id"><input type="text"></td>
+                                    <td class="td-cells" id="item-description"><input type="text"></td>
+                                    <td class="td-cells" id="qty"><input type="text"></td>
+                                    <td class="td-cells" id="unit-price"><input type="text"></td>
+                                    <td class="td-cells" id="tax">x</td>
+                                    <td class="td-cells" id="total-price"></td>
+                                </tr>
+    
+                                <tr>
+                                    <td class="td-cells" id="item-id"><input type="text"></td>
+                                    <td class="td-cells" id="item-description"><input type="text"></td>
+                                    <td class="td-cells" id="qty"><input type="text"></td>
+                                    <td class="td-cells" id="unit-price"><input type="text"></td>
+                                    <td class="td-cells" id="tax">x</td>
+                                    <td class="td-cells" id="total-price"></td>
+                                </tr>
+    
+                                <tr>
+                                    <td class="td-cells" id="item-id"><input type="text"></td>
+                                    <td class="td-cells" id="item-description"><input type="text"></td>
+                                    <td class="td-cells" id="qty"><input type="text"></td>
+                                    <td class="td-cells" id="unit-price"><input type="text"></td>
+                                    <td class="td-cells" id="tax">x</td>
+                                    <td class="td-cells" id="total-price"></td>
+                                </tr>
+                            </tbody>
+
+                        <!-- <tbody>
                             <tr>
                                 <td class="td-cells" id="item-id">25312</td>
                                 <td class="td-cells" id="item-description">Product XYZ</td>
                                 <td class="td-cells" id="qty">15</td>
                                 <td class="td-cells" id="unit-price">150.00</td>
+                                <td class="td-cells" id="tax">x</td>
                                 <td class="td-cells" id="total-price">2,250.00</td>
                             </tr>
 
@@ -191,6 +231,7 @@
                                 <td class="td-cells" id="item-description">Product ABC</td>
                                 <td class="td-cells" id="qty">1</td>
                                 <td class="td-cells" id="unit-price">75.00</td>
+                                <td class="td-cells" id="tax">x</td>
                                 <td class="td-cells" id="total-price">75.00</td>
                             </tr>
 
@@ -199,6 +240,7 @@
                                 <td class="td-cells" id="item-description"></td>
                                 <td class="td-cells" id="qty"></td>
                                 <td class="td-cells" id="unit-price"></td>
+                                <td class="td-cells" id="tax"></td>
                                 <td class="td-cells" id="total-price"></td>
                             </tr>
 
@@ -207,12 +249,14 @@
                                 <td class="td-cells" id="item-description"></td>
                                 <td class="td-cells" id="qty"></td>
                                 <td class="td-cells" id="unit-price"></td>
+                                <td class="td-cells" id="tax"></td>
                                 <td class="td-cells" id="total-price"></td>
                             </tr>
-                        </tbody>
+                        </tbody> -->
 
                         <tfoot>
                             <tr>
+                                <td class="td-cells border-none"></td>
                                 <td class="td-cells border-none"></td>
                                 <td class="td-cells border-none"></td>
                                 <td class="td-cells border-none"></td>
@@ -222,8 +266,6 @@
                         </tfoot>
                     </table>
                 </div>
-
-            </div>
 
             </div>
         </div>

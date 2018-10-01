@@ -7,6 +7,7 @@ body{
     color: #00bcd4;
     text-transform: uppercase;
     margin-bottom: 0.8em;
+    text-align: center;
 }
 
 .main-subject{
@@ -17,6 +18,10 @@ body{
     font-weight: 400;
     margin-bottom: 0.5em;
     border-radius: 2px;
+}
+
+.border{
+    border: 1px solid rgb(63, 62, 62);
 }
 
 /* navbar */

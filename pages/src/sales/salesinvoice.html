@@ -82,11 +82,13 @@
         <div class="row">
             <div class="col-md-2">
                 <h3 class="Sales-left-heading">Sales Module</h3>
-                <p><a href="#">Sales Order</a></p>
-                <p><a href="#">Delivery Note</a></p>
+                <p><a href="#" onclick="show('operation1')" style="cursor: pointer;">Generate Sales Order</a></p>
+                <p><a href="sales.html">Sales Order</a></p>
+                <p><a href="packinglistslip.html">Packing List Slip</a></p>
                 <p><a href="packingList.html">Packing List</a></p>
-                <p><a href="#">Commercial Invoice</a></p>
-                <p><a href="#">Payment receipt</a></p>
+                <p><a href="salesinvoiceslip.html">Commercial Invoice Slip</a></p>
+                <p><a href="salesinvoice.html">Commercial Invoice</a></p>
+                <p><a href="payreceipt.html">Payment receipt</a></p>
 
             </div>
 
@@ -95,17 +97,17 @@
 
                     <div class="row">
                         <div class="col-6">
-                            <h3>Company Name</h3>
-                            <p><address id="address">Street Address</address></p> <!-- fetch address -->
-                            <p><address id="city">City</address></p> <!-- fetch city -->
-                            <p>Phone: <span id="phone-no"></span></p> <!-- fetch phone number -->
-                            <p>Fax: <span id="fax-no"></span></p> <!-- fetch fax number -->
-                            <p>Website: <span id="phone-no"></span></p> <!-- fetch website name of company -->
-
+                                <h3>Uniform Shop || Company Name</h3>
+                                <p><address id="address">Street Address: house no.L-212, street-3, NY</address> </p> <!-- fetch address -->
+                                <p><address id="city">City: <span>Brocklin</span></address></p> <!-- fetch city -->
+                                <p>Phone: <span>786-786-7845</span></p> <!-- fetch phone number -->
+                                <p>Fax: </p> <!-- fetch fax number -->
+                                <p>Website: <span>http://Uniformshop.com</span> <span id="phone-no"></span></p> <!-- fetch website name of company -->
+    
                         </div>
 
                         <div class="col-6">
-                            <h3>INVOICE</h3>
+                            <h3>SALES INVOICE</h3>
                             <p>Date: <span id="date"></span></p> <!-- fetch date -->
                             <p>INVOICE # <span id="invoice-num"></span></p> <!-- fetch date -->
                             <p>Customer I.D: <span id="cust-id"></span></p> <!-- customer id -->
