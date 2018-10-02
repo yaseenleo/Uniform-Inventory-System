@@ -194,3 +194,173 @@ function show(param_div_id) {
 
 // Packing slip data input
 
+function generatePackingData(applyPackingData) {
+
+    var packDate = document.getElementById("pack-date").value;
+    // Bill to input value
+    var packBillName = document.getElementById("bill-name").value;
+    var packBillCompany = document.getElementById("bill-company").value;
+    var packBillAddress = document.getElementById("bill-address").value;
+    var packBillCity = document.getElementById("bill-city").value;
+    var packBillPhone = document.getElementById("bill-phone").value;
+    
+    
+    // ship to input value
+    var packShipName = document.getElementById("ship-name").value;
+    var packShipCompany = document.getElementById("ship-company").value;
+    var packShipAddress = document.getElementById("ship-address").value;
+    var packShipCity = document.getElementById("ship-city").value;
+    var packShipPhone = document.getElementById("ship-phone").value;
+    
+    // append bill values
+
+    $("#pack-date-g").append(packDate);
+    $("#bill-name-g").append(packBillName);
+    $("#bill-company-g").append(packBillCompany);
+    $("#bill-address-g").append(packBillAddress);
+    $("#bill-city-g").append(packBillCity);
+    $("#bill-phone-g").append(packBillPhone);
+
+    // append ship values
+
+    $("#ship-name-g").append(packShipName);
+    $("#ship-company-g").append(packShipCompany);
+    $("#ship-address-g").append(packShipAddress);
+    $("#ship-city-g").append(packShipCity);
+    $("#ship-phone-g").append(packShipPhone);
+
+    // packing order info data
+    
+    var packOrderDate = document.getElementById("pack-odr-date").value;
+    var packOrderNum = document.getElementById("pack-odr-num").value;
+    var packPurchaseNum = document.getElementById("purchase-odr-num").value;
+    var packCustomerNum = document.getElementById("pack-cust-num").value;
+
+    $("pack-odr-date-g").append(packOrderDate);
+    $("pack-odr-num-g").append(packOrderNum);
+    $("purchase-odr-num").append(packPurchaseNum);
+    $("pack-cust-num").append(packCustomerNum);
+
+
+    // packing order info data end
+    
+    // packing slip items
+    
+    // item 1
+    var packItemOne = document.getElementById("pack-item-1").value;
+    var packDescriptOne = document.getElementById("pack-descript-1").value;    
+    var packOrderOne = document.getElementById("pack-odr-1").value;
+    var packShipOne = document.getElementById("pack-ship-1").value;
+
+    $("#pack-item-1-g").append(packItemOne);
+    $("#pack-descript-1-g").append(packDescriptOne);
+    $("#pack-odr-1-g").append(packOrderOne);
+    $("#pack-ship-1-g").append(packShipOne);
+
+    // item 2
+
+    var packItemTwo = document.getElementById("pack-item-2").value;
+    var packDescriptTwo = document.getElementById("pack-descript-2").value;    
+    var packOrderTwo = document.getElementById("pack-odr-2").value;
+    var packShipTwo = document.getElementById("pack-ship-2").value;
+
+    $("#pack-item-2-g").append(packItemTwo);
+    $("#pack-descript-2-g").append(packDescriptTwo);
+    $("#pack-odr-2-g").append(packOrderTwo);
+    $("#pack-ship-2-g").append(packShipTwo);
+    // item 3
+    var packItemThree = document.getElementById("pack-item-3").value;
+    var packDescriptThree = document.getElementById("pack-descript-3").value;    
+    var packOrderThree = document.getElementById("pack-odr-3").value;
+    var packShipThree = document.getElementById("pack-ship-3").value;
+
+    $("#pack-item-3-g").append(packItemThree);
+    $("#pack-descript-3-g").append(packDescriptThree);
+    $("#pack-odr-3-g").append(packOrderThree);
+    $("#pack-ship-3-g").append(packShipThree);
+    // item 4
+    var packItemFour = document.getElementById("pack-item-4").value;
+    var packDescriptFour = document.getElementById("pack-descript-4").value;    
+    var packOrderFour = document.getElementById("pack-odr-4").value;
+    var packShipFour = document.getElementById("pack-ship-4").value;
+    
+    $("#pack-item-4-g").append(packItemFour);
+    $("#pack-descript-4-g").append(packDescriptFour);
+    $("#pack-odr-4-g").append(packOrderFour);
+    $("#pack-ship-4-g").append(packShipFour);
+    // packing slip items end
+
+    document.getElementById('packing-main').innerHTML = document.getElementById(applyPackingData).innerHTML;
+}
+
+// Packing slip data input end
+
+// Invoice slip data
+
+function generateInvoiceData() {
+
+    var invoiceDate = document.getElementById("invoice-date").value;
+    // Bill to input value
+    var invoiceBillName = document.getElementById("invoice-bill-name").value;
+    var invoiceBillCompany = document.getElementById("invoice-bill-company").value;
+    var invoiceBillAddress = document.getElementById("invoice-bill-address").value;
+    var invoiceBillCity = document.getElementById("invoice-bill-city").value;
+    var invoiceBillPhone = document.getElementById("invoice-bill-phone").value;
+    
+    
+    // ship to input value
+    var invoiceShipName = document.getElementById("invoice-ship-name").value;
+    var invoiceShipCompany = document.getElementById("invoice-ship-company").value;
+    var invoiceShipAddress = document.getElementById("invoice-ship-address").value;
+    var invoiceShipCity = document.getElementById("invoice-ship-city").value;
+    var invoiceShipPhone = document.getElementById("invoice-ship-phone").value;
+    
+    // append bill values
+
+    $("#invoice-date-g").append(invoiceDate);
+    $("#invoice-bill-name-g").append(invoiceBillName);
+    $("#invoice-bill-company-g").append(invoiceBillCompany);
+    $("#invoice-bill-address-g").append(invoiceBillAddress);
+    $("#invoice-bill-city-g").append(invoiceBillCity);
+    $("#invoice-bill-phone-g").append(invoiceBillPhone);
+
+    // append ship values
+
+    $("#invoice-ship-name-g").append(invoiceShipName);
+    $("#invoice-ship-company-g").append(invoiceShipCompany);
+    $("#invoice-ship-address-g").append(invoiceShipAddress);
+    $("#invoice-ship-city-g").append(invoiceShipCity);
+    $("#invoice-ship-phone-g").append(invoiceShipPhone);
+}
+
+// invoice ship data
+
+var invoiceSalesPerson = document.getElementById("invoice-sp").value;
+var invoiceProductOrder = document.getElementById("invoice-po").value;
+var invoiceShipDate = document.getElementById("invoice-ship-date").value;
+var invoiceShipVia = document.getElementById("invoice-ship-via").value;
+var InvoiceTerms = document.getElementById("invoice-terms").value;
+
+$("#invoice-sp-g").append(invoiceSalesPerson);
+$("#invoice-op-g").append(invoiceProductOrder);
+$("#invoice-ship-date-g").append(invoiceShipDate);
+$("#invoice-ship-via-g").append(invoiceShipVia);
+$("#invoice-terms-g").append(InvoiceTerms);
+
+// invoice ship data end
+
+// invoice item list
+
+// item 1
+var invoiceItemOne = document.getElementById("invoice-item-id-1").value;
+var invoiceItemDesciptOne = document.getElementById("invoice-item-description-1").value;
+var invoiceItemQtyOne = document.getElementById("invoice-qty-1").value;
+var invoiceItemUpriceOne = document.getElementById("invoice-unit-price-1").value;
+var invoiceItemTaxOne = document.getElementById("invoice-tax-1").value;
+
+$("#invoice-item-id-1-g").append(invoiceItemOne);
+$("#invoice-item-description-1-g").append(invoiceItemDesciptOne);
+$("#invoice-qty-1-g").append(invoiceItemQtyOne);
+// invoice item list end
+
+// Invoice slip data end

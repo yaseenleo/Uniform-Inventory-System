@@ -85,7 +85,7 @@
                 <p><a href="#" onclick="show('operation1')" style="cursor: pointer;">Generate Sales Order</a></p>
                 <p><a href="sales.html">Sales Order</a></p>
                 <p><a href="packinglistslip.html">Packing List Slip</a></p>
-                <p><a href="packingList.html">Packing List</a></p>
+                <p><a href="#" onclick="generatePackingData('packing-generate-form');">Packing List</a></p>
                 <p><a href="salesinvoiceslip.html">Commercial Invoice Slip</a></p>
                 <p><a href="salesinvoice.html">Commercial Invoice</a></p>
                 <p><a href="payreceipt.html">Payment receipt</a></p>
@@ -93,6 +93,9 @@
             </div>
 
             <div class="col-md-10">
+
+                <div id="packing-main">
+
                 <div class="packing-slip-header">
 
                     <div class="row">
@@ -119,20 +122,20 @@
                     <div class="row">
                         <div class="col-5">
                             <h3 class="main-subject">Bill To:</h3>
-                            <p>Name: <span> <input type="text"> </span></p> <!-- responsible person name-->
-                            <p>Company Name: <span> <input type="text"> </span></p> <!-- bill company name-->
-                            <p>Street Address: <span> <input type="text"> </span></p> <!-- bill street address -->
-                            <p>City or ZIP: <span> <input type="text"> </span></p> <!-- bill city name -->
-                            <p>Phone: <span> <input type="tel"> </span></p> <!-- phone -->
+                            <p>Name: <span> <input id="bill-name" type="text"> </span></p> <!-- responsible person name-->
+                            <p>Company Name: <span> <input id="bill-company" type="text"> </span></p> <!-- bill company name-->
+                            <p>Street Address: <span> <input id="bill-address" type="text"> </span></p> <!-- bill street address -->
+                            <p>City or ZIP: <span> <input id="bill-city" type="text"> </span></p> <!-- bill city name -->
+                            <p>Phone: <span> <input id="bill-phone" type="tel"> </span></p> <!-- phone -->
                         </div>
 
                         <div class="col-5">
                             <h3 class="main-subject">Ship To:</h3>
-                            <p>Name: <span> <input type="text"> </span></p> <!-- responsible person name-->
-                            <p>Company Name: <span> <input type="text"> </span></p> <!-- ship company name-->
-                            <p>Street Address: <span> <input type="text"> </span></p> <!-- ship street address -->
-                            <p>City or ZIP: <span> <input type="text"> </span></p> <!-- ship city name -->
-                            <p>Phone: <span> <input type="tel"> </span></p> <!-- phone -->
+                            <p>Name: <span> <input id="ship-name" type="text"> </span></p> <!-- responsible person name-->
+                            <p>Company Name: <span> <input id="ship-company" type="text"> </span></p> <!-- ship company name-->
+                            <p>Street Address: <span> <input id="ship-address" type="text"> </span></p> <!-- ship street address -->
+                            <p>City or ZIP: <span> <input id="ship-city" type="text"> </span></p> <!-- ship city name -->
+                            <p>Phone: <span> <input id="ship-phone" type="tel"> </span></p> <!-- phone -->
                         </div>
 
                     </div>
@@ -150,10 +153,10 @@
 
                         <tbody>
                             <tr>
-                                <td><input type="text"></td>
-                                <td><input type="text"></td>
-                                <td><input type="text"></td>
-                                <td><input type="tel" name="" id=""></td>
+                                <td><input id="pack-odr-date" type="text"></td>
+                                <td><input id="pack-odr-num" type="text"></td>
+                                <td><input id="purchase-odr-num" type="text"></td>
+                                <td><input id="pack-cust-num" type="tel" name="" id=""></td>
                             </tr>
                         </tbody>
                         </thead>
@@ -173,31 +176,31 @@
 
                         <tbody>
                                 <tr>
-                                    <td id="item-id"><input type="text"></td>
-                                    <td id="item-description"><input type="text"></td>
-                                    <td id="order-qty"><input type="text"></td>
-                                    <td id="ship-qty"><input type="text"></td>
+                                    <td id="item-id"><input id="pack-item-1" type="text"></td>
+                                    <td id="item-description"><input id="pack-descript-1" type="text"></td>
+                                    <td id="order-qty"><input id="pack-odr-1" type="text"></td>
+                                    <td id="ship-qty"><input id="pack-ship-1" type="text"></td>
                                 </tr>
     
                                 <tr>
-                                    <td id="item-id"><input type="text"></td>
-                                    <td id="item-description"><input type="text"></td>
-                                    <td id="order-qty"><input type="text"></td>
-                                    <td id="ship-qty"><input type="text"></td>
+                                    <td id="item-id"><input id="pack-item-2" type="text"></td>
+                                    <td id="item-description"><input id="pack-descript-2" type="text"></td>
+                                    <td id="order-qty"><input id="pack-odr-2" type="text"></td>
+                                    <td id="ship-qty"><input id="pack-ship-2" type="text"></td>
                                 </tr>
     
                                 <tr>
-                                    <td id="item-id"><input type="text"></td>
-                                    <td id="item-description"><input type="text"></td>
-                                    <td id="order-qty"><input type="text"></td>
-                                    <td id="ship-qty"><input type="text"></td>
+                                    <td id="item-id"><input id="pack-item-3" type="text"></td>
+                                    <td id="item-description"><input id="pack-descript-3" type="text"></td>
+                                    <td id="order-qty"><input id="pack-odr-3" type="text"></td>
+                                    <td id="ship-qty"><input id="pack-ship-3" type="text"></td>
                                 </tr>
     
                                 <tr>
-                                        <td id="item-id"><input type="text"></td>
-                                        <td id="item-description"><input type="text"></td>
-                                        <td id="order-qty"><input type="text"></td>
-                                        <td id="ship-qty"><input type="text"></td>
+                                        <td id="item-id"><input id="pack-item-4" type="text"></td>
+                                        <td id="item-description"><input id="pack-descript-4" type="text"></td>
+                                        <td id="order-qty"><input id="pack-odr-4" type="text"></td>
+                                        <td id="ship-qty"><input id="pack-ship-4" type="text"></td>
                                     </tr>
                             </tbody>
 
@@ -243,6 +246,164 @@
                 </div>
 
             </div>
+
+
+            <div id="packing-generate-form" style="max-width: none; display: none;">
+
+                    <div class="packing-slip-header">
+    
+                        <div class="row">
+                            <div class="col-6">
+                                <h3>Uniform Shop || Company Name</h3>
+                                <p><address id="address">Street Address: house no.L-212, street-3, NY</address> </p> <!-- fetch address -->
+                                <p><address id="city">City: <span>Brocklin</span></address></p> <!-- fetch city -->
+                                <p>Phone: <span>786-786-7845</span></p> <!-- fetch phone number -->
+                                <p>Fax: </p> <!-- fetch fax number -->
+                                <p>Website: <span>http://Uniformshop.com</span> <span id="phone-no"></span></p> <!-- fetch website name of company -->
+    
+                            </div>
+    
+                            <div class="col-6">
+                                <h3>Packing List</h3>
+                                <p>Date: <span><input id="pack-date-g" type="date"></span></p> <!-- fetch date -->
+                                <p>Customer I.D: <span id="cust-id-g"></span></p> <!-- customer id -->
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- packing address section -->
+                    <div class="packing-address">
+                        <div class="row">
+                            <div class="col-5">
+                                <h3 class="main-subject">Bill To:</h3>
+                                <p>Name: <span id="bill-name-g"></span></p> <!-- responsible person name-->
+                                <p>Company Name: <span id="bill-company-g"></span></p> <!-- bill company name-->
+                                <p>Street Address: <span id="billaddress-g"></span></p> <!-- bill street address -->
+                                <p>City or ZIP: <span id="bill-city-g"></span></p> <!-- bill city name -->
+                                <p>Phone: <span id="bill-phone-g"></span></p> <!-- phone -->
+                            </div>
+    
+                            <div class="col-5">
+                                <h3 class="main-subject">Ship To:</h3>
+                                <p>Name: <span id="ship-name-g"></span></p> <!-- responsible person name-->
+                                <p>Company Name: <span id="ship-company-g"></span></p> <!-- ship company name-->
+                                <p>Street Address: <span id="ship-address-g"></span></p> <!-- ship street address -->
+                                <p>City or ZIP: <span id="ship-city-g"></span></p> <!-- ship city name -->
+                                <p>Phone: <span id="ship-phone-g" type="tel"></span></p> <!-- phone -->
+                            </div>
+    
+                        </div>
+                    </div>
+    
+                    <div class="packling-supply">
+                        <table class="table table-sm table-bordered ">
+                            <thead>
+                                <tr>
+                                    <th>ORDER DATE</th>
+                                    <th>ORDER NO.</th>
+                                    <th>PURCHASE ORDER NO.</th>
+                                    <th>CUSTOMER CONTACT</th>
+                                </tr>
+    
+                            <tbody>
+                                <tr>
+                                    <td id="pack-odr-date-g"></td>
+                                    <td id="pack-odr-num-g"></td>
+                                    <td id="purchase-odr-num-g"></td>
+                                    <td id="pack-cust-num-g"></td>
+                                </tr>
+                            </tbody>
+                            </thead>
+                        </table>
+                    </div>
+    
+                    <div class="packing-lists">
+                        <table class="table table-responsive-sm table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>ITEM.NO</th>
+                                    <th>DESCRIPTION</th>
+                                    <th>ORDER QTY</th>
+                                    <th>SHIP QTY</th>
+                                </tr>
+                            </thead>
+    
+                            <tbody>
+                                <tr>
+                                    <td id="pack-item-1-g"></td>
+                                    <td id="pack-descript-1-g"></td>
+                                    <td id="pack-odr-1"></td>
+                                    <td id="pack-ship-1"></td>
+                                </tr>
+    
+                                <tr>
+                                    <td id="pack-item-2-g"></td>
+                                    <td id="pack-descript-2-g"></td>
+                                    <td id="pack-odr-2-g"></td>
+                                    <td id="pack-ship-2-g"></td>
+                                </tr>
+    
+                                <tr>
+                                    <td id="pack-item-3-g"></td>
+                                    <td id="pack-descript-3-g"></td>
+                                    <td id="pack-odr-3-g"></td>
+                                    <td id="pack-ship-3-g"></td>
+                                </tr>
+    
+                                <tr>
+                                        <td id="pack-item-4-g"></td>
+                                        <td id="pack-descript-4-g"></td>
+                                        <td id="pack-odr-4-g"></td>
+                                        <td id="pack-ship-4-g"></td>
+                                    </tr>
+                                </tbody>
+    
+                            <!-- <tbody>
+                                <tr>
+                                    <td id="item-id">253</td>
+                                    <td id="item-description">bow tie</td>
+                                    <td id="order-qty">15</td>
+                                    <td id="ship-qty">12</td>
+                                </tr>
+    
+                                <tr>
+                                    <td id="item-id">121</td>
+                                    <td id="item-description">socks</td>
+                                    <td id="order-qty">20</td>
+                                    <td id="ship-qty">17</td>
+                                </tr>
+    
+                                <tr>
+                                    <td id="item-id"></td>
+                                    <td id="item-description"></td>
+                                    <td id="order-qty"></td>
+                                    <td id="ship-qty"></td>
+                                </tr>
+    
+                                <tr>
+                                        <td id="item-id"></td>
+                                        <td id="item-description"></td>
+                                        <td id="order-qty"></td>
+                                        <td id="ship-qty"></td>
+                                    </tr>
+                            </tbody> -->
+    
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td class="float-right">Total</td>
+                                    <td>35</td>
+                                    <td>29</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+    
+                </div>
+
+
+
+            </div>
         </div>
 
     </div>
@@ -258,5 +419,7 @@
 
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
     crossorigin="anonymous"></script>
+
+<script src="../../../js/app.js"></script>
 
 </html>
