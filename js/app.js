@@ -297,7 +297,7 @@ function generatePackingData(applyPackingData) {
 
 // Invoice slip data
 
-function generateInvoiceData() {
+function generateInvoiceData(applyInvoiceData) {
 
     var invoiceDate = document.getElementById("invoice-date").value;
     // Bill to input value
@@ -331,7 +331,7 @@ function generateInvoiceData() {
     $("#invoice-ship-address-g").append(invoiceShipAddress);
     $("#invoice-ship-city-g").append(invoiceShipCity);
     $("#invoice-ship-phone-g").append(invoiceShipPhone);
-}
+
 
 // invoice ship data
 
@@ -361,6 +361,68 @@ var invoiceItemTaxOne = document.getElementById("invoice-tax-1").value;
 $("#invoice-item-id-1-g").append(invoiceItemOne);
 $("#invoice-item-description-1-g").append(invoiceItemDesciptOne);
 $("#invoice-qty-1-g").append(invoiceItemQtyOne);
+$("#invoice-unit-price-1-g").append(invoiceItemUpriceOne);
+$("#invoice-tax-1-g").append(invoiceItemTaxOne);
+
+var invoiceTotalPriceOne = invoiceItemUpriceOne + invoiceItemTaxOne;
+$("#invoice-total-1-g").append(invoiceTotalPriceOne);
+
+// item 2
+var invoiceItemTwo = document.getElementById("invoice-item-id-2").value;
+var invoiceItemDesciptTwo = document.getElementById("invoice-item-description-2").value;
+var invoiceItemQtyTwo = document.getElementById("invoice-qty-2").value;
+var invoiceItemUpriceTwo = document.getElementById("invoice-unit-price-2").value;
+var invoiceItemTaxTwo = document.getElementById("invoice-tax-2").value;
+
+$("#invoice-item-id-2-g").append(invoiceItemTwo);
+$("#invoice-item-description-2-g").append(invoiceItemDesciptTwo);
+$("#invoice-qty-2-g").append(invoiceItemQtyTwo);
+$("#invoice-unit-price-2-g").append(invoiceItemUpriceTwo);
+$("#invoice-tax-2-g").append(invoiceItemTaxTwo);
+
+var invoiceTotalPriceTwo = invoiceItemUpriceTwo + invoiceItemTaxTwo;
+$("#invoice-total-2-g").append(invoiceTotalPriceTwo);
+
+// item 3
+var invoiceItemThree = document.getElementById("invoice-item-id-3").value;
+var invoiceItemDesciptThree = document.getElementById("invoice-item-description-3").value;
+var invoiceItemQtyThree = document.getElementById("invoice-qty-3").value;
+var invoiceItemUpriceThree = document.getElementById("invoice-unit-price-3").value;
+var invoiceItemTaxThree = document.getElementById("invoice-tax-3").value;
+
+$("#invoice-item-id-3-g").append(invoiceItemThree);
+$("#invoice-item-description-3-g").append(invoiceItemDesciptThree);
+$("#invoice-qty-3-g").append(invoiceItemQtyThree);
+$("#invoice-unit-price-3-g").append(invoiceItemUpriceThree);
+$("#invoice-tax-3-g").append(invoiceItemTaxThree);
+
+var invoiceTotalPriceThree = invoiceItemUpriceThree + invoiceItemTaxThree;
+$("#invoice-total-3-g").append(invoiceTotalPriceThree);
+
+// item 4
+var invoiceItemFour = document.getElementById("invoice-item-id-4").value;
+var invoiceItemDesciptFour = document.getElementById("invoice-item-description-4").value;
+var invoiceItemQtyFour = document.getElementById("invoice-qty-4").value;
+var invoiceItemUpriceFour = document.getElementById("invoice-unit-price-4").value;
+var invoiceItemTaxFour = document.getElementById("invoice-tax-4").value;
+
+$("#invoice-item-id-3-4").append(invoiceItemFour);
+$("#invoice-item-description-3-4").append(invoiceItemDesciptFour);
+$("#invoice-qty-4-g").append(invoiceItemQtyFour);
+$("#invoice-unit-price-4-g").append(invoiceItemUpriceFour);
+$("#invoice-tax-4-g").append(invoiceItemTaxFour);
+
+var invoiceTotalPriceFour = invoiceItemUpriceFour + invoiceItemTaxFour;
+$("#invoice-total-4-g").append(invoiceTotalPriceFour);
+
 // invoice item list end
 
+var invoiceTotalAmount = invoiceTotalPriceOne + invoiceTotalPriceTwo + invoiceTotalPriceThree + invoiceTotalPriceFour;
+$("#invoice-total").append(invoiceTotalAmount);
+
+document.getElementById('invoice-main').innerHTML = document.getElementById(applyInvoiceData).innerHTML;
+
 // Invoice slip data end
+
+// has bug in totalling need to convert string into integer in items
+}

@@ -87,7 +87,7 @@
                 <p><a href="sales.html">Sales Order</a></p>
                 <p><a href="deliverynote.html">Delivery Note</a></p>
                 <p><a href="packingList.html">Packing List</a></p>
-                <p><a href="salesinvoice.html">Commercial Invoice</a></p>
+                <p><a href="#" onclick="generateInvoiceData('generate-invoice');">Commercial Invoice</a></p>
                 <p><a href="payreceipt.html">Payment receipt</a></p>
 
             </div>
@@ -156,7 +156,7 @@
                                 <tr>
                                         <td class="td-cells"> <input id="invoice-sp" type="text"> </td>
                                         <td class="td-cells"> <input id="invoice-po" type="text"> </td>
-                                        <td class="td-cells"> <input id="invoice-ship-date" type="text"> </td>
+                                        <td class="td-cells"> <input id="invoice-ship-date" type="date"> </td>
                                         <td class="td-cells"> <input id="invoice-ship-via" type="text"> </td>
                                         <td class="td-cells"> <input id="invoice-terms" type="text"> </td>
                                     </tr>
@@ -287,7 +287,7 @@
         
                                 <div class="col-6">
                                     <h3>SALES INVOICE</h3>
-                                    <p>Date: <span><input id="invoice-date-g" type="date"></span></p> <!-- fetch date -->
+                                    <p>Date: <span id="invoice-date-g"></span></p> <!-- fetch date -->
                                     <p>INVOICE # <span id="invoice-num-g"></span></p> <!-- fetch date -->
                                     <p>Customer I.D: <span id="cust-id-g"></span></p> <!-- customer id -->
                                 </div>
@@ -299,20 +299,20 @@
                             <div class="row">
                                 <div class="col-4">
                                     <h3>Bill To:</h3>
-                                    <p>Name: <span> <input id="invoice-bill-name-g" type="text"> </span></p> <!-- responsible person name-->
-                                    <p>Company Name: <span> <input id="invoice-bill-company-g" type="text"> </span></p> <!-- bill company name-->
-                                    <p>Street Address: <span> <input id="invoice-bill-address-g" type="text"> </span></p> <!-- bill street address -->
-                                    <p>City or ZIP: <span> <input id="invoice-bill-city-g" type="text"> </span></p> <!-- bill city name -->
-                                    <p>Phone: <span> <input id="invoice-bill-phone-g" type="tel"> </span></p> <!-- phone -->
+                                    <p>Name: <span id="invoice-bill-name-g"></span></p> <!-- responsible person name-->
+                                    <p>Company Name: <span id="invoice-bill-company-g"></span></p> <!-- bill company name-->
+                                    <p>Street Address: <span id="invoice-bill-address-g"></span></p> <!-- bill street address -->
+                                    <p>City or ZIP: <span id="invoice-bill-city-g"></span></p> <!-- bill city name -->
+                                    <p>Phone: <span id="invoice-bill-phone-g"> <input  type="tel"> </span></p> <!-- phone -->
                                 </div>
         
                                 <div class="col-4">
                                     <h3>Ship To:</h3>
-                                    <p>Name: <span> <input id="invoice-ship-name-g" type="text"> </span></p> <!-- responsible person name-->
-                                    <p>Company Name: <span> <input id="invoice-ship-company-g" type="text"> </span></p> <!-- ship company name-->
-                                    <p>Street Address: <span> <input id="invoice-ship-address-g" type="text"> </span></p> <!-- ship street address -->
-                                    <p>City or ZIP: <span> <input id="invoice-ship-city-g" type="text"> </span></p> <!-- ship city name -->
-                                    <p>Phone: <span> <input id="invoice-ship-phone-g" type="tel"> </span></p> <!-- phone -->
+                                    <p>Name: <span id="invoice-ship-name-g"></span></p> <!-- responsible person name-->
+                                    <p>Company Name: <span id="invoice-ship-company-g"></span></p> <!-- ship company name-->
+                                    <p>Street Address: <span id="invoice-ship-address-g"></span></p> <!-- ship street address -->
+                                    <p>City or ZIP: <span id="invoice-ship-city-g"></span></p> <!-- ship city name -->
+                                    <p>Phone: <span id="invoice-ship-phone-g"></span></p> <!-- phone -->
                                 </div>
         
                             </div>
@@ -370,7 +370,7 @@
                                             <td class="td-cells" id="invoice-item-description-2-g"></td>
                                             <td class="td-cells" id="invoice-qty-2-g"></td>
                                             <td class="td-cells" id="invoice-unit-price-2-g"></td>
-                                            <td class="td-cells" id="invoice-tax-2-g"><input  type="text" name="" id=""></td>
+                                            <td class="td-cells" id="invoice-tax-2-g"></td>
                                             <td class="td-cells" id="invoice-total-2-g"></td>
                                         </tr>
             
@@ -438,7 +438,7 @@
                                         <td class="td-cells border-none"></td>
                                         <td class="td-cells border-none"></td>
                                         <td class="td-cells border-none" class="float-right">Total</td>
-                                        <td class="td-cells border-none">35</td>
+                                        <td class="td-cells border-none" id="invoice-total" >35</td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -463,4 +463,5 @@
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
     crossorigin="anonymous"></script>
 
+<script src="../../../js/app.js"></script>
 </html>
