@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $('body').bootstrapMaterialDesign();
 });
 
@@ -37,13 +37,13 @@ $(document).ready(function() {
         });
     }
 
-}());  
+}());
 
 // form create end
 
-  /* 
- * jQuery helper plugin for examples and tests 
- */
+/* 
+* jQuery helper plugin for examples and tests 
+*/
 (function ($) {
     $.fn.html2canvas = function (options) {
         var date = new Date(),
@@ -203,15 +203,15 @@ function generatePackingData(applyPackingData) {
     var packBillAddress = document.getElementById("bill-address").value;
     var packBillCity = document.getElementById("bill-city").value;
     var packBillPhone = document.getElementById("bill-phone").value;
-    
-    
+
+
     // ship to input value
     var packShipName = document.getElementById("ship-name").value;
     var packShipCompany = document.getElementById("ship-company").value;
     var packShipAddress = document.getElementById("ship-address").value;
     var packShipCity = document.getElementById("ship-city").value;
     var packShipPhone = document.getElementById("ship-phone").value;
-    
+
     // append bill values
 
     $("#pack-date-g").append(packDate);
@@ -230,7 +230,7 @@ function generatePackingData(applyPackingData) {
     $("#ship-phone-g").append(packShipPhone);
 
     // packing order info data
-    
+
     var packOrderDate = document.getElementById("pack-odr-date").value;
     var packOrderNum = document.getElementById("pack-odr-num").value;
     var packPurchaseNum = document.getElementById("purchase-odr-num").value;
@@ -243,12 +243,12 @@ function generatePackingData(applyPackingData) {
 
 
     // packing order info data end
-    
+
     // packing slip items
-    
+
     // item 1
     var packItemOne = document.getElementById("pack-item-1").value;
-    var packDescriptOne = document.getElementById("pack-descript-1").value;    
+    var packDescriptOne = document.getElementById("pack-descript-1").value;
     var packOrderOne = document.getElementById("pack-odr-1").value;
     var packShipOne = document.getElementById("pack-ship-1").value;
 
@@ -260,7 +260,7 @@ function generatePackingData(applyPackingData) {
     // item 2
 
     var packItemTwo = document.getElementById("pack-item-2").value;
-    var packDescriptTwo = document.getElementById("pack-descript-2").value;    
+    var packDescriptTwo = document.getElementById("pack-descript-2").value;
     var packOrderTwo = document.getElementById("pack-odr-2").value;
     var packShipTwo = document.getElementById("pack-ship-2").value;
 
@@ -270,7 +270,7 @@ function generatePackingData(applyPackingData) {
     $("#pack-ship-2-g").append(packShipTwo);
     // item 3
     var packItemThree = document.getElementById("pack-item-3").value;
-    var packDescriptThree = document.getElementById("pack-descript-3").value;    
+    var packDescriptThree = document.getElementById("pack-descript-3").value;
     var packOrderThree = document.getElementById("pack-odr-3").value;
     var packShipThree = document.getElementById("pack-ship-3").value;
 
@@ -280,10 +280,10 @@ function generatePackingData(applyPackingData) {
     $("#pack-ship-3-g").append(packShipThree);
     // item 4
     var packItemFour = document.getElementById("pack-item-4").value;
-    var packDescriptFour = document.getElementById("pack-descript-4").value;    
+    var packDescriptFour = document.getElementById("pack-descript-4").value;
     var packOrderFour = document.getElementById("pack-odr-4").value;
     var packShipFour = document.getElementById("pack-ship-4").value;
-    
+
     $("#pack-item-4-g").append(packItemFour);
     $("#pack-descript-4-g").append(packDescriptFour);
     $("#pack-odr-4-g").append(packOrderFour);
@@ -297,7 +297,7 @@ function generatePackingData(applyPackingData) {
 
 // Invoice slip data
 
-function generateInvoiceData() {
+function generateInvoiceData(applyInvoiceData) {
 
     var invoiceDate = document.getElementById("invoice-date").value;
     // Bill to input value
@@ -306,15 +306,15 @@ function generateInvoiceData() {
     var invoiceBillAddress = document.getElementById("invoice-bill-address").value;
     var invoiceBillCity = document.getElementById("invoice-bill-city").value;
     var invoiceBillPhone = document.getElementById("invoice-bill-phone").value;
-    
-    
+
+
     // ship to input value
     var invoiceShipName = document.getElementById("invoice-ship-name").value;
     var invoiceShipCompany = document.getElementById("invoice-ship-company").value;
     var invoiceShipAddress = document.getElementById("invoice-ship-address").value;
     var invoiceShipCity = document.getElementById("invoice-ship-city").value;
     var invoiceShipPhone = document.getElementById("invoice-ship-phone").value;
-    
+
     // append bill values
 
     $("#invoice-date-g").append(invoiceDate);
@@ -331,36 +331,94 @@ function generateInvoiceData() {
     $("#invoice-ship-address-g").append(invoiceShipAddress);
     $("#invoice-ship-city-g").append(invoiceShipCity);
     $("#invoice-ship-phone-g").append(invoiceShipPhone);
+
+
+    // invoice ship data
+
+    var invoiceSalesPerson = document.getElementById("invoice-sp").value;
+    var invoiceProductOrder = document.getElementById("invoice-po").value;
+    var invoiceShipDate = document.getElementById("invoice-ship-date").value;
+    var invoiceShipVia = document.getElementById("invoice-ship-via").value;
+    var InvoiceTerms = document.getElementById("invoice-terms").value;
+
+    $("#invoice-sp-g").append(invoiceSalesPerson);
+    $("#invoice-op-g").append(invoiceProductOrder);
+    $("#invoice-ship-date-g").append(invoiceShipDate);
+    $("#invoice-ship-via-g").append(invoiceShipVia);
+    $("#invoice-terms-g").append(InvoiceTerms);
+
+    // invoice ship data end
+
+    // invoice item list
+
+    // item 1
+    var invoiceItemOne = document.getElementById("invoice-item-id-1").value;
+    var invoiceItemDesciptOne = document.getElementById("invoice-item-description-1").value;
+    var invoiceItemQtyOne = document.getElementById("invoice-qty-1").value;
+    var invoiceItemUpriceOne = document.getElementById("invoice-unit-price-1").value;
+    var invoiceItemTaxOne = document.getElementById("invoice-tax-1").value;
+
+    $("#invoice-item-id-1-g").append(invoiceItemOne);
+    $("#invoice-item-description-1-g").append(invoiceItemDesciptOne);
+    $("#invoice-qty-1-g").append(invoiceItemQtyOne);
+
+    $("#invoice-unit-price-1-g").append(invoiceItemUpriceOne);
+    $("#invoice-tax-1-g").append(invoiceItemTaxOne);
+    var invoiceTotalPriceOne = invoiceItemUpriceOne + invoiceItemTaxOne;
+    $("#invoice-total-1-g").append(invoiceTotalPriceOne);
+    
+    // item 2
+    var invoiceItemTwo = document.getElementById("invoice-item-id-2").value;
+    var invoiceItemDesciptTwo = document.getElementById("invoice-item-description-2").value;
+    var invoiceItemQtyTwo = document.getElementById("invoice-qty-2").value;
+    var invoiceItemUpriceTwo = document.getElementById("invoice-unit-price-2").value;
+    var invoiceItemTaxTwo = document.getElementById("invoice-tax-2").value;
+    
+    $("#invoice-item-id-2-g").append(invoiceItemTwo);
+    $("#invoice-item-description-2-g").append(invoiceItemDesciptTwo);
+    $("#invoice-qty-2-g").append(invoiceItemQtyTwo);
+    $("#invoice-unit-price-2-g").append(invoiceItemUpriceTwo);
+    $("#invoice-tax-2-g").append(invoiceItemTaxTwo);
+    var invoiceTotalPriceTwo = invoiceItemUpriceTwo + invoiceItemTaxTwo;
+    $("#invoice-total-2-g").append(invoiceTotalPriceTwo);
+    
+    // item 3
+    var invoiceItemThree = document.getElementById("invoice-item-id-3").value;
+    var invoiceItemDesciptThree = document.getElementById("invoice-item-description-3").value;
+    var invoiceItemQtyThree = document.getElementById("invoice-qty-3").value;
+    var invoiceItemUpriceThree = document.getElementById("invoice-unit-price-3").value;
+    var invoiceItemTaxThree = document.getElementById("invoice-tax-3").value;
+    
+    $("#invoice-item-id-3-g").append(invoiceItemThree);
+    $("#invoice-item-description-3-g").append(invoiceItemDesciptThree);
+    $("#invoice-qty-3-g").append(invoiceItemQtyThree);
+    $("#invoice-unit-price-3-g").append(invoiceItemUpriceThree);
+    $("#invoice-tax-3-g").append(invoiceItemTaxThree);
+    var invoiceTotalPriceThree = invoiceItemUpriceThree + invoiceItemTaxThree;
+    $("#invoice-total-3-g").append(invoiceTotalPriceThree);
+
+    // item 4
+    var invoiceItemFour = document.getElementById("invoice-item-id-4").value;
+    var invoiceItemDesciptFour = document.getElementById("invoice-item-description-4").value;
+    var invoiceItemQtyFour = document.getElementById("invoice-qty-4").value;
+    var invoiceItemUpriceFour = document.getElementById("invoice-unit-price-4").value;
+    var invoiceItemTaxFour = document.getElementById("invoice-tax-4").value;
+    $("#invoice-item-id-3-4").append(invoiceItemFour);
+    $("#invoice-item-description-3-4").append(invoiceItemDesciptFour);
+    $("#invoice-qty-4-g").append(invoiceItemQtyFour);
+    $("#invoice-unit-price-4-g").append(invoiceItemUpriceFour);
+    $("#invoice-tax-4-g").append(invoiceItemTaxFour);
+    var invoiceTotalPriceFour = invoiceItemUpriceFour + invoiceItemTaxFour;
+    $("#invoice-total-4-g").append(invoiceTotalPriceFour);
+    
+    // invoice item list end
+    
+    var invoiceTotalAmount = invoiceTotalPriceOne + invoiceTotalPriceTwo + invoiceTotalPriceThree + invoiceTotalPriceFour;
+    $("#invoice-total").append(invoiceTotalAmount);
+    document.getElementById('invoice-main').innerHTML = document.getElementById(applyInvoiceData).innerHTML;
+    // Invoice slip data end
+    // has bug in totalling need to convert string into integer in items
 }
-
-// invoice ship data
-
-var invoiceSalesPerson = document.getElementById("invoice-sp").value;
-var invoiceProductOrder = document.getElementById("invoice-po").value;
-var invoiceShipDate = document.getElementById("invoice-ship-date").value;
-var invoiceShipVia = document.getElementById("invoice-ship-via").value;
-var InvoiceTerms = document.getElementById("invoice-terms").value;
-
-$("#invoice-sp-g").append(invoiceSalesPerson);
-$("#invoice-op-g").append(invoiceProductOrder);
-$("#invoice-ship-date-g").append(invoiceShipDate);
-$("#invoice-ship-via-g").append(invoiceShipVia);
-$("#invoice-terms-g").append(InvoiceTerms);
-
-// invoice ship data end
-
-// invoice item list
-
-// item 1
-var invoiceItemOne = document.getElementById("invoice-item-id-1").value;
-var invoiceItemDesciptOne = document.getElementById("invoice-item-description-1").value;
-var invoiceItemQtyOne = document.getElementById("invoice-qty-1").value;
-var invoiceItemUpriceOne = document.getElementById("invoice-unit-price-1").value;
-var invoiceItemTaxOne = document.getElementById("invoice-tax-1").value;
-
-$("#invoice-item-id-1-g").append(invoiceItemOne);
-$("#invoice-item-description-1-g").append(invoiceItemDesciptOne);
-$("#invoice-qty-1-g").append(invoiceItemQtyOne);
 // invoice item list end
 
 // Invoice slip data end
