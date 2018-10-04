@@ -5,10 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Sales Invoice</title>
 
     <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../../../css/salesStyle.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+        <meta name="description" content="Creative Button Styles  - Modern and subtle styles &amp; effects for buttons" />
+		<meta name="keywords" content="button styles, css3, modern, flat button, subtle, effects, hover, web design" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico"> 
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+	
 
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -80,21 +90,21 @@
     <div class="container-fluid">
 
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-2 sidebar">
                 <h3 class="Sales-left-heading">Sales Module</h3>
+                <p><a href="sales.html">Sales Order</a></p>
                 <p><a href="packinglistslip.html">Packing List Slip</a></p>
                 <p><a href="salesinvoiceslip.html">Commercial Invoice Slip</a></p>
-                <p><a href="sales.html">Sales Order</a></p>
-                <p><a href="deliverynote.html">Delivery Note</a></p>
-                <p><a href="packingList.html">Packing List</a></p>
-                <p><a href="salesinvoice.html">Commercial Invoice</a></p>
+                <!-- <p><a href="deliverynote.html">Delivery Note</a></p> -->
+                <!-- <p><a href="packingList.html">Packing List</a></p> -->
+                <!-- <p><a href="salesinvoice.html">Commercial Invoice</a></p> -->
                 <p><a href="payreceipt.html">Payment receipt</a></p>
 
             </div>
 
             <div class="col-md-10">
 
-                    <div id="invoice-main">
+                    <div class="invoice-container" id="invoice-main">
 
                 <div class="packing-slip-header">
 
@@ -174,7 +184,7 @@
                                 <th>QTY</th>
                                 <th>UNIT PRICE</th>
                                 <th>TAX</th>
-                                <th>TOTAL</th>
+                                <!-- <th>TOTAL</th> -->
                             </tr>
                         </thead>
 
@@ -185,7 +195,7 @@
                                     <td class="td-cells" ><input id="invoice-qty-1" type="text"></td>
                                     <td class="td-cells" ><input id="invoice-unit-price-1" type="text"></td>
                                     <td class="td-cells" ><input id="invoice-tax-1" type="text"></td>
-                                    <td class="td-cells" id="invoice-total-1"></td>
+                                    <!-- <td class="td-cells" id="invoice-total-1"></td> -->
                                 </tr>
     
                                 <tr>
@@ -194,7 +204,7 @@
                                     <td class="td-cells" ><input id="invoice-qty-2" type="text"></td>
                                     <td class="td-cells" ><input id="invoice-unit-price-2" type="text"></td>
                                     <td class="td-cells" ><input id="invoice-tax-2" type="text" name="" id=""></td>
-                                    <td class="td-cells" id="invoice-total-2"></td>
+                                    <!-- <td class="td-cells" id="invoice-total-2"></td> -->
                                 </tr>
     
                                 <tr>
@@ -203,7 +213,7 @@
                                     <td class="td-cells" ><input id="invoice-qty-3" type="text"></td>
                                     <td class="td-cells" ><input id="invoice-unit-price-3" type="text"></td>
                                     <td class="td-cells" ><input id="invoice-tax-3" type="text"></td>
-                                    <td class="td-cells" id="invoice-total-3"></td>
+                                    <!-- <td class="td-cells" id="invoice-total-3"></td> -->
                                 </tr>
     
                                 <tr>
@@ -212,7 +222,7 @@
                                     <td class="td-cells" ><input id="invoice-qty-4" type="text"></td>
                                     <td class="td-cells" ><input id="invoice-unit-price-4" type="text"></td>
                                     <td class="td-cells" ><input id="invoice-tax-4" type="text"></td>
-                                    <td class="td-cells" id="invoice-total-4"></td>
+                                    <!-- <td class="td-cells" id="invoice-total-4"></td> -->
                                 </tr>
                             </tbody>
 
@@ -266,11 +276,14 @@
                         </tfoot> -->
                     </table>
                 </div>
-
+                <section class="color-1 text-center">
+                    <p>
+<button onclick="generateInvoiceData('generate-invoice');"  class=" btn btn-secondary">Generate</button>
+</p></section>
                 </div>
 
 
-                <div id="generate-invoice" style="max-width: none; display: none;">
+                <div class="invoice-container" id="generate-invoice" style="max-width: none; display: none;">
 
                         <div class="packing-slip-header">
         
@@ -287,7 +300,7 @@
         
                                 <div class="col-6">
                                     <h3>SALES INVOICE</h3>
-                                    <p>Date: <span><input id="invoice-date-g" type="date"></span></p> <!-- fetch date -->
+                                    <p>Date: <span id="invoice-date-g"></span></p> <!-- fetch date -->
                                     <p>INVOICE # <span id="invoice-num-g"></span></p> <!-- fetch date -->
                                     <p>Customer I.D: <span id="cust-id-g"></span></p> <!-- customer id -->
                                 </div>
@@ -299,20 +312,20 @@
                             <div class="row">
                                 <div class="col-4">
                                     <h3>Bill To:</h3>
-                                    <p>Name: <span> <input id="invoice-bill-name-g" type="text"> </span></p> <!-- responsible person name-->
-                                    <p>Company Name: <span> <input id="invoice-bill-company-g" type="text"> </span></p> <!-- bill company name-->
-                                    <p>Street Address: <span> <input id="invoice-bill-address-g" type="text"> </span></p> <!-- bill street address -->
-                                    <p>City or ZIP: <span> <input id="invoice-bill-city-g" type="text"> </span></p> <!-- bill city name -->
-                                    <p>Phone: <span> <input id="invoice-bill-phone-g" type="tel"> </span></p> <!-- phone -->
+                                    <p>Name: <span id="invoice-bill-name-g"></span></p> <!-- responsible person name-->
+                                    <p>Company Name: <span id="invoice-bill-company-g"></span></p> <!-- bill company name-->
+                                    <p>Street Address: <span id="invoice-bill-address-g"></span></p> <!-- bill street address -->
+                                    <p>City or ZIP: <span id="invoice-bill-city-g"></span></p> <!-- bill city name -->
+                                    <p>Phone: <span id="invoice-bill-phone-g"></span></p> <!-- phone -->
                                 </div>
         
                                 <div class="col-4">
                                     <h3>Ship To:</h3>
-                                    <p>Name: <span> <input id="invoice-ship-name-g" type="text"> </span></p> <!-- responsible person name-->
-                                    <p>Company Name: <span> <input id="invoice-ship-company-g" type="text"> </span></p> <!-- ship company name-->
-                                    <p>Street Address: <span> <input id="invoice-ship-address-g" type="text"> </span></p> <!-- ship street address -->
-                                    <p>City or ZIP: <span> <input id="invoice-ship-city-g" type="text"> </span></p> <!-- ship city name -->
-                                    <p>Phone: <span> <input id="invoice-ship-phone-g" type="tel"> </span></p> <!-- phone -->
+                                    <p>Name: <span id="invoice-ship-name-g"></span></p> <!-- responsible person name-->
+                                    <p>Company Name: <span id="invoice-ship-company-g"></span></p> <!-- ship company name-->
+                                    <p>Street Address: <span id="invoice-ship-address-g"></span></p> <!-- ship street address -->
+                                    <p>City or ZIP: <span id="invoice-ship-city-g"></span></p> <!-- ship city name -->
+                                    <p>Phone: <span id="invoice-ship-phone-g"></span></p> <!-- phone -->
                                 </div>
         
                             </div>
@@ -370,7 +383,7 @@
                                             <td class="td-cells" id="invoice-item-description-2-g"></td>
                                             <td class="td-cells" id="invoice-qty-2-g"></td>
                                             <td class="td-cells" id="invoice-unit-price-2-g"></td>
-                                            <td class="td-cells" id="invoice-tax-2-g"><input  type="text" name="" id=""></td>
+                                            <td class="td-cells" id="invoice-tax-2-g"></td>
                                             <td class="td-cells" id="invoice-total-2-g"></td>
                                         </tr>
             
@@ -438,7 +451,7 @@
                                         <td class="td-cells border-none"></td>
                                         <td class="td-cells border-none"></td>
                                         <td class="td-cells border-none" class="float-right">Total</td>
-                                        <td class="td-cells border-none">35</td>
+                                        <td class="td-cells border-none" id="invoice-total"></td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -460,7 +473,17 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
 
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+
+
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
     crossorigin="anonymous"></script>
+
+<script src="../../../js/app.js"></script>
+
+<!-- <script src="js/classie.js"></script> -->
+<script src="js/modernizr.custom.js"></script>
 
 </html>
