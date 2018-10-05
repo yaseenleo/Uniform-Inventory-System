@@ -1,0 +1,126 @@
+<Doctype <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+        <div>
+                <p id="demo"></p>
+                <h1>Delivery</h1>
+                <table style="border: solid; border-color: black;">
+                <thead>
+                <tr style="border: solid;">
+                    <td><b>name</b></td>
+                
+                    <td><b>Id</b></td>
+                   
+                    <td><b>Delivery Status</b></td>
+                </tr>
+                </thead>
+                <tbody id="para"></tbody>
+                </table>
+                </div>
+                
+        <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyA6MZB_05f3iHzNWU9TLBnh4ImCV8l9QKU",
+            authDomain: "productionmodule.firebaseapp.com",
+            databaseURL: "https://productionmodule.firebaseio.com",
+            projectId: "productionmodule",
+            storageBucket: "",
+            messagingSenderId: "682109476740"
+          };
+          firebase.initializeApp(config);
+        </script>    
+
+<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+
+
+<script>
+
+
+var rootref = firebase.database().ref().child("panel/production");
+rootref.on("child_added", snap=> {
+
+//var address= snap.child("address").val();
+var keys = snap.key;
+var names= snap.child("name").val();
+var comi= snap.child("comid").val();
+var deli = snap.child("delivery").val();
+var cut = snap.child("cutting").val();
+var stit = snap.child("stitching").val();
+if(deli == "0"){var cccut = "In Progress"}
+if(cut == "1" && deli == "0" && stit == "1"){
+
+$("#para").append(`<tr><td>` +names+ `</td><td>` +comi+ `</td><td>` +cccut+ `</td><td><button onclick='delnodes("${keys}");'>Completed</button></td></tr>`);
+}
+});
+
+
+
+</script>
+<script>
+
+
+function delnode(keys){
+    var txt = " ";
+    	 if(confirm("Are You Sure You want to delete this data?")){
+        firebase.database().ref().child('/panel/production/' + keys + '/delivery')
+        .set("1");
+
+          window.location.reload();
+         }
+         else{
+             
+         }
+         document.getElementById("demo").innerHTML = txt;
+            
+    	}
+
+function delnodes(keys){
+    var txt = " ";
+    	 if(confirm("Are You Sure You want to delete this data?")){
+        firebase.database().ref().child('/panel/production/' + keys + '/delivery')
+        .set("1");
+
+          window.location.reload();
+         }
+         else{
+             
+         }
+         document.getElementById("demo").innerHTML = txt;
+            
+    	}
+
+</script>
+<style>
+        button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+          
+        }
+        button:hover{
+          box-shadow: 0 12px 16px 0 rgba(0,0,0,0.70),0 17px 50px 0 rgba(0,0,0,0.19);
+        
+        }
+        
+        </style>
+</body>
+</html>
