@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Delivery Note</title>
+
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/salesStyle.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <meta name="description" content="Creative Button Styles  - Modern and subtle styles &amp; effects for buttons" />
+    <meta name="keywords" content="button styles, css3, modern, flat button, subtle, effects, hover, web design" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container">
+            <div class="navbar-translate">
+                <a class="navbar-brand">Uniform Inventory</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse justify-center">
+                <ul class="navbar-nav mx-auto">
+                    <li class="active nav-item">
+                        <a href="#pablo" class="nav-link">
+                            Sales
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pablo" class="nav-link">
+                            Production
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../purchase/purchase.html" class="nav-link">
+                            Purchase
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pablo" class="nav-link">
+                            Documents
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Sign Up
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Sign In
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Log Out
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-2 sidebar">
+                <h3 class="Sales-left-heading">Sales Module</h3>
+                <!-- <p><a href="#" onclick="show('operation1')" style="cursor: pointer;">Generate Sales Order</a></p> -->
+                <p><a href="sales.html">Sales Order</a></p>
+                <p><a href="packinglistslip.html">Packing List Slip</a></p>
+                <!-- <p><a href="#" onclick="generatePackingData('packing-generate-form');">Packing List</a></p> -->
+                <p><a href="salesinvoiceslip.html">Commercial Invoice Slip</a></p>
+                <!-- <p><a href="salesinvoice.html">Commercial Invoice</a></p> -->
+                <p><a href="payreceipt.html">Payment receipt</a></p>
+
+            </div>
+
+            <div class="col-md-10">
+
+                <div class="container">
+                    <div id="delivery-main">
+
+                        <div class="delivery-slip-head">
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <h3>Uniform Shop || Company Name</h3>
+
+                                </div>
+
+                                <div class="col-6">
+                                    <h3>Packing List</h3>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <p><address id="address">Street Address: house no.L-212, street-3, NY</address> </p>
+                                    <!-- fetch address -->
+                                    <p><address id="city">City: <span>Brocklin</span></address></p> <!-- fetch city -->
+                                    <p>Phone: <span>786-786-7845</span></p> <!-- fetch phone number -->
+                                    <p>Fax: </p> <!-- fetch fax number -->
+                                    <p>Website: <span>http://Uniformshop.com</span> <span id="phone-no"></span></p>
+                                    <!-- fetch website name of company -->
+
+                                </div>
+
+                                <div class="col-6">
+                                    <p>Order Date: <span><input id="dlvry-date" type="date"></span></p>
+                                    <p>Order #: <span><input id="dlvry-odr-no" type="text"></span></p>
+                                    <p>Delivery note #: <span><input id="dlvry-note-no" type="text"></span></p>
+                                    <p>Customer I.D: <span><input id="dlvry-cust-id" type="text"></span></p>
+                                    <p>Dispatch Date: <span><input id="dlvry-date" type="date"></span></p>
+                                    <p>Delivery Method: <span><input type="text" id="dlvry-method"></span></p>
+                                </div>
+                            </div>
+
+                            <!-- delivery address section -->
+
+                            <div class="delivery-address">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h3 class="main-subject">Bill To:</h3>
+                                        <p>Name: <span> <input id="dlvry-bill-name" type="text"> </span></p>
+                                        <!-- responsible person name-->
+                                        <p>Company Name: <span> <input id="dlvry-bill-company" type="text"> </span></p>
+                                        <!-- bill company name-->
+                                        <p>Street Address: <span> <input id="dlvry-bill-address" type="text"> </span></p>
+                                        <!-- bill street address -->
+                                        <p>City or ZIP: <span> <input id="dlvry-bill-city" type="text"> </span></p>
+                                        <!-- bill city name -->
+                                        <p>Phone: <span> <input id="dlvry-bill-phone" type="tel"> </span></p>
+                                        <!-- phone -->
+                                    </div>
+
+                                    <div class="col-6">
+                                        <h3 class="main-subject">Ship To:</h3>
+                                        <p>Name: <span> <input id="dlvry-ship-name" type="text"> </span></p>
+                                        <!-- responsible person name-->
+                                        <p>Company Name: <span> <input id="dlvry-ship-company" type="text"> </span></p>
+                                        <!-- ship company name-->
+                                        <p>Street Address: <span> <input id="dlvry-ship-address" type="text"> </span></p>
+                                        <!-- ship street address -->
+                                        <p>City or ZIP: <span> <input id="dlvry-ship-city" type="text"> </span></p>
+                                        <!-- ship city name -->
+                                        <p>Phone: <span> <input id="dlvry-ship-phone" type="tel"> </span></p>
+                                        <!-- phone -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- delivery address section end -->
+
+
+                            <!-- delivery items list -->
+
+                            <div class="delivery-items">
+                                <!-- head -->
+                                <div class="row">
+                                    <div class="col-1 delivery-cell">
+                                        <h5>Item #</h5>
+                                    </div>
+
+                                    <div class="col-5 delivery-cell">
+                                        <h5>Description</h5>
+                                    </div>
+
+                                    <div class="col-2 delivery-cell">
+                                        <h5>Ordered</h5>
+                                    </div>
+
+                                    <div class="col-2 delivery-cell">
+                                        <h5>Delivered</h5>
+                                    </div>
+
+                                    <div class="col-2 delivery-cell">
+                                        <h5>Outstanding</h5>
+                                    </div>
+                                </div>
+
+                                <!-- list 1 -->
+                                <div class="row">
+                                    <div class="col-1 delivery-cell">
+
+                                    </div>
+
+                                    <div class="col-5 delivery-cell">
+
+                                    </div>
+
+                                    <div class="col-2 delivery-cell">
+
+                                    </div>
+
+                                    <div class="col-2 delivery-cell">
+
+                                    </div>
+
+                                    <div class="col-2 delivery-cell">
+
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+
+                            <!-- delivery items list end -->
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+
+
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+    crossorigin="anonymous"></script>
+
+<script src="../../../js/app.js"></script>
+
+<!-- <script src="js/classie.js"></script> -->
+<script src="js/modernizr.custom.js"></script>
+
+</html>

@@ -41,13 +41,13 @@
 .product-detail-list{
     margin: 1em 0 1em 1em;
 }
-
-/* .invoice-container{    
+/* 
+ .invoice-container{    
     border: 1px solid rgb(65, 63, 63);
-    /* padding: 2em !important; */
+     padding: 2em !important; 
     background-color: rgb(244, 246, 247);
     
-} */
+}  */
 
 
 /* Purchase section*/
@@ -115,4 +115,16 @@
     border: 1px solid rgb(107, 104, 104);
     padding: 8px;
     height: 20em;
+}
+
+/* Delivery note */
+
+.delivery-cell{
+    display: block;
+    padding: 5px;
+    /* height: 2em; */
+    border: 1px solid black;
+}
+.delivery-cell h5 {
+    overflow: hidden;
 }
