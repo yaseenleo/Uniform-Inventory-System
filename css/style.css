@@ -3,6 +3,41 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.bg-img{
+    background: url(../assets/img/fashion-1031469_1280.jpg);
+    position: relative;
+    width: 100%;
+    background-size: cover;
+    height: 34em;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.header-container{
+    margin: 0 auto;
+    position: relative;
+    display: block;
+    padding-top: 16%
+}
+
+.header-container h2 {
+    color: black;
+    font-size: 3.5em;
+    opacity: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.module-section{
+    margin: 5em 0 2em 0;
+}
+
+.card-custom{
+    background-color: rgb(233, 225, 225)
+}
+
+.card-custom h5{
+    font-size: 1.5em;
+    color: black;
+}
 .doc-head-text{
     color: #00bcd4;
     text-transform: uppercase;
