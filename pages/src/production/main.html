@@ -1,52 +1,58 @@
-<Doctype <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Main Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
 </head>
 
 <body>
     <input type="text" id="companyname">
     <input type="text" id="id">
     <button onclick="updatepro();">Submit</button>
-    
 
-    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
+
+
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
         apiKey: "AIzaSyA6MZB_05f3iHzNWU9TLBnh4ImCV8l9QKU",
         authDomain: "productionmodule.firebaseapp.com",
         databaseURL: "https://productionmodule.firebaseio.com",
         projectId: "productionmodule",
         storageBucket: "",
         messagingSenderId: "682109476740"
-      };
-      firebase.initializeApp(config);
-    </script>    
-    <script>
-    function updatepro(){
+    };
+    firebase.initializeApp(config);
+</script>
+<script>
+    function updatepro() {
         var comname = document.getElementById('companyname').value;
         var id = document.getElementById('id').value;
         var uid3 = firebase.database().ref().child('usess').push().getKey();
-  
+
         var obje = {
-            name:comname,
-            comid:id,
-            cutting:"0",
-            stitching:"0",
-            delivery:"0"
+            name: comname,
+            comid: id,
+            cutting: "0",
+            stitching: "0",
+            delivery: "0"
         };
-var updates = {};
-updates['/panel/production/' + uid3] = obje;
-				firebase.database().ref().update(updates);   
-                alert("done");     
+        var updates = {};
+        updates['/panel/production/' + uid3] = obje;
+        firebase.database().ref().update(updates);
+        alert("done");
     }
 
-    </script>
-</body>
+</script>
+
+<script src="main.js"></script>
+
 </html>

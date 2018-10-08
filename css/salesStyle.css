@@ -119,10 +119,16 @@
 
 /* Delivery note */
 
+.delivery-cell-head{
+    display: block;
+    padding: 5px;
+    border: 1px solid black;
+}
+
 .delivery-cell{
     display: block;
     padding: 5px;
-    /* height: 2em; */
+    height: 2em;
     border: 1px solid black;
 }
 .delivery-cell h5 {
