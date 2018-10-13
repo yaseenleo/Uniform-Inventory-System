@@ -170,8 +170,8 @@
                     </div>
 
 
-
-                    <div class="product-detail-container">
+                    <div class="product-detail-container" id="product_list">
+                  
                         <h2 class="main-subject">Product Details</h2>
                         <div class="product-detail-list">
                             <div class="row">
@@ -196,37 +196,12 @@
                                 </div>
 
                                 <div class="col-2">
-                                    <input class="form-input" type="text" placeholder="Unit Price" id="pro1unitprice">
+                                    <input class="form-input" type="text" placeholder="Unit Price" id="pro1unitprice" onkeypress="add_new(event)">
+
                                 </div>
-                            </div>
+                                 </div>
                         </div>
-                        <div class="product-detail-list">
-                            <div class="row">
-                                <div class="small-col">
-                                    <h4>2.</h4>
-                                </div>
-
-                                <div class="col-2">
-                                    <input class="form-input" type="text" placeholder="Product Category" id="pro2category">
-                                </div>
-
-                                <div class="col-2">
-                                    <input class="form-input" type="text" placeholder="Product Description" id="pro2description">
-                                </div>
-
-                                <div class="col-2">
-                                    <input class="form-input" type="text" placeholder="Quantity Available" id="pro2quantityavailable">
-                                </div>
-
-                                <div class="col-2">
-                                    <input class="form-input" type="text" placeholder="Quantity Ordered" id="pro2quantityorder">
-                                </div>
-
-                                <div class="col-2">
-                                    <input class="form-input" type="text" placeholder="Unit Price" id="pro2unitprice">
-                                </div>
-                            </div>
-                        </div>
+                       
                     </div>
                     <!-- <input type="text" placeholder="Product type" id="pro1totalprice"> -->
 
@@ -454,5 +429,53 @@
 <!-- <script src="js/classie.js"></script> -->
 
 <script src="../../../dist/jspdf.min.js"></script>
+<script>
+let index = 1;
+function add_new(e){
+ e = e || window.event ; 
+ console.log(e.key);
+ console.log(e);
+ if(e.key==="Enter"){
+     index++;
+    let node = document.createElement("Div");
+    let str = `  <div class="product-detail-list">
+                            <div class="row">
+                                <div class=" small-col">
+                                    <h4>`+index + "." +`</h4>
+                                </div>
 
+                                <div class="col-2">
+                                    <input class="form-input" type="text" placeholder="Product Category" id="pro`+index +`category">
+                                </div>
+
+                                <div class="col-2">
+                                    <input class="form-input" type="text" placeholder="Product Description" id="pro`+index +`description">
+                                </div>
+
+                                <div class="col-2">
+                                    <input class="form-input" type="text" placeholder="Quantity Available" id="pro`+index+`quantityavailable">
+                                </div>
+
+                                <div class="col-2">
+                                    <input class="form-input" type="text" placeholder="Quantity Ordered" id="pro`+index+`quantityorder">
+                                </div>
+
+                                <div class="col-2">
+                                    <input class="form-input" type="text" placeholder="Unit Price" id="pro`+index+`unitprice" onkeypress="add_new(event)">
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>`;
+  
+      node.innerHTML = str;
+                    document.getElementById("product_list").appendChild(node)
+
+ }
+
+
+} 
+
+
+</script>
 </html>
