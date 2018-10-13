@@ -172,7 +172,7 @@
                     </table>
                 </div>
 
-                <div class="packing-lists">
+                <div class="packing-lists" id="product_list">
                     <table class="table table-responsive-sm table-bordered">
                         <thead>
                             <tr>
@@ -188,29 +188,10 @@
                                     <td id="item-id"><input id="pack-item-1" type="text"></td>
                                     <td id="item-description"><input id="pack-descript-1" type="text"></td>
                                     <td id="order-qty"><input id="pack-odr-1" type="number"></td>
-                                    <td id="ship-qty"><input id="pack-ship-1" type="number"></td>
+                                    <td id="ship-qty"><input id="pack-ship-1" type="number" onkeypress="add_new(event)"></td>
                                 </tr>
     
-                                <tr>
-                                    <td id="item-id"><input id="pack-item-2" type="text"></td>
-                                    <td id="item-description"><input id="pack-descript-2" type="text"></td>
-                                    <td id="order-qty"><input id="pack-odr-2" type="number"></td>
-                                    <td id="ship-qty"><input id="pack-ship-2" type="number"></td>
-                                </tr>
-    
-                                <tr>
-                                    <td id="item-id"><input id="pack-item-3" type="text"></td>
-                                    <td id="item-description"><input id="pack-descript-3" type="text"></td>
-                                    <td id="order-qty"><input id="pack-odr-3" type="number"></td>
-                                    <td id="ship-qty"><input id="pack-ship-3" type="number"></td>
-                                </tr>
-    
-                                <tr>
-                                        <td id="item-id"><input id="pack-item-4" type="text"></td>
-                                        <td id="item-description"><input id="pack-descript-4" type="text"></td>
-                                        <td id="order-qty"><input id="pack-odr-4" type="number"></td>
-                                        <td id="ship-qty"><input id="pack-ship-4" type="number"></td>
-                                    </tr>
+                               
                             </tbody>
 
                         <!-- <tbody>
@@ -443,5 +424,31 @@
 
 <!-- <script src="js/classie.js"></script> -->
 <script src="js/modernizr.custom.js"></script>
+<script>
+let index = 1;
+function add_new(e){
+ e = e || window.event ; 
+ console.log(e.key);
+ if(e.key==="Enter"){
+     index++;
+    let node = document.createElement("Div");
+    let str = `
+                                <tr id="product_list">
+                                    <td id="item-id"><input id="pack-item-`+index+`" type="text"></td>
+                                    <td id="item-description"><input id="pack-descript-`+index+`" type="text"></td>
+                                    <td id="order-qty"><input id="pack-odr-`+index+`" type="number"></td>
+                                    <td id="ship-qty"><input id="pack-ship-`+index+`" type="number" onkeypress="add_new(event)"></td>
+                                </tr>`;
+  
+      node.innerHTML = str;
+                    document.getElementById("product_list").appendChild(node)
 
+ }
+
+
+}
+
+
+
+</script>
 </html>
