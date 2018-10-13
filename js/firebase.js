@@ -31,7 +31,7 @@ rootref.on("child_added", snap => {
 
 function delnode(keys){
     var txt = " ";
-    	 if(confirm("Are You Sure You want to delete this data?")){
+    	 if(confirm("Are You Sure You want to submit this data?")){
         firebase.database().ref().child('/panel/production/' + keys + '/delivery')
         .set("1");
 
@@ -44,20 +44,6 @@ function delnode(keys){
             
     	}
 
-function delnodes(keys){
-    var txt = " ";
-    	 if(confirm("Are You Sure You want to delete this data?")){
-        firebase.database().ref().child('/panel/production/' + keys + '/delivery')
-        .set("1");
-
-          window.location.reload();
-         }
-         else{
-             
-         }
-         document.getElementById("demo").innerHTML = txt;
-            
-    	}
 
 
 // delivery note end
