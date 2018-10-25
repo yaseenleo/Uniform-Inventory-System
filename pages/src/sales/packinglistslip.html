@@ -12,18 +12,22 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-        <meta name="description" content="Creative Button Styles  - Modern and subtle styles &amp; effects for buttons" />
-		<meta name="keywords" content="button styles, css3, modern, flat button, subtle, effects, hover, web design" />
-		<meta name="author" content="Codrops" />
-		<link rel="shortcut icon" href="../favicon.ico"> 
-		<link rel="stylesheet" type="text/css" href="css/default.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
+    <meta name="description" content="Creative Button Styles  - Modern and subtle styles &amp; effects for buttons" />
+    <meta name="keywords" content="button styles, css3, modern, flat button, subtle, effects, hover, web design" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
 
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+
     <!-- Font Awesome -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -67,35 +71,66 @@
         </div>
     </nav>
 
-    <div class="container-fluid">
-
-        <div class="row">
-            <div class="col-md-2 sidebar">
-                <h3 class="Sales-left-heading">Sales Module</h3>
-                <!-- <p><a href="#" onclick="show('operation1')" style="cursor: pointer;">Generate Sales Order</a></p> -->
-                <p><a href="sales.html">Sales Order</a></p>
-                <p><a href="packinglistslip.html">Packing List Slip</a></p>
-                <!-- <p><a href="#" onclick="generatePackingData('packing-generate-form');">Packing List</a></p> -->
-                <p><a href="salesinvoiceslip.html">Commercial Invoice Slip</a></p>
-                <!-- <p><a href="salesinvoice.html">Commercial Invoice</a></p> -->
-                <p><a href="payreceipt.html">Payment receipt</a></p>
-
+    <div class="wrapper container-fluid">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Sales Module</h3>
             </div>
 
-            <div class="col-md-10">
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <ul class="list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="sales.html">Sales Order</a>
+                        </li>
+                        <li>
+                            <a href="packinglistslip.html">Packing List Slip</a>
+                        </li>
+                        <li>
+                            <a href="salesinvoiceslip.html">Commercial Invoice Slip</a>
+                        </li>
+                        <li>
+                            <a href="payreceipt.html">Payment receipt</a>
+                        </li>
+                    </ul>
+                </li>
 
-                <div id="packing-main">
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                </div>
+            </nav>
+
+            <div id="packing-main">
 
                 <div class="packing-slip-header">
 
                     <div class="row">
                         <div class="col-6">
                             <h3>Uniform Shop || Company Name</h3>
-                            <p><address id="address">Street Address: house no.L-212, street-3, NY</address> </p> <!-- fetch address -->
+                            <p><address id="address">Street Address: house no.L-212, street-3, NY</address> </p>
+                            <!-- fetch address -->
                             <p><address id="city">City: <span>Brocklin</span></address></p> <!-- fetch city -->
                             <p>Phone: <span>786-786-7845</span></p> <!-- fetch phone number -->
                             <p>Fax: </p> <!-- fetch fax number -->
-                            <p>Website: <span>http://Uniformshop.com</span> <span id="phone-no"></span></p> <!-- fetch website name of company -->
+                            <p>Website: <span>http://Uniformshop.com</span> <span id="phone-no"></span></p>
+                            <!-- fetch website name of company -->
 
                         </div>
 
@@ -118,7 +153,7 @@
                                     <p>Name:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="bill-name" type="text">  <!-- responsible person name-->
+                                    <input id="bill-name" type="text"> <!-- responsible person name-->
                                 </div>
                             </div>
 
@@ -127,7 +162,7 @@
                                     <p>Company Name:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="bill-company" type="text">   <!-- bill company name-->
+                                    <input id="bill-company" type="text"> <!-- bill company name-->
                                 </div>
                             </div>
 
@@ -136,7 +171,7 @@
                                     <p>Street Address:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="bill-address" type="text">   <!-- bill street address -->
+                                    <input id="bill-address" type="text"> <!-- bill street address -->
                                 </div>
                             </div>
 
@@ -145,7 +180,7 @@
                                     <p>City or ZIP:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="bill-city" type="text">  <!-- bill city name -->
+                                    <input id="bill-city" type="text"> <!-- bill city name -->
                                 </div>
                             </div>
 
@@ -154,10 +189,10 @@
                                     <p>Phone:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="bill-phone" type="tel">  <!-- phone -->
+                                    <input id="bill-phone" type="tel"> <!-- phone -->
                                 </div>
                             </div>
-                            
+
                         </div>
 
                         <div class="col-5">
@@ -168,7 +203,7 @@
                                     <p>Name:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="ship-name" type="text">  <!-- responsible person name-->
+                                    <input id="ship-name" type="text"> <!-- responsible person name-->
                                 </div>
                             </div>
 
@@ -177,7 +212,7 @@
                                     <p>Company Name:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="ship-company" type="text">  <!-- bill company name-->
+                                    <input id="ship-company" type="text"> <!-- bill company name-->
                                 </div>
                             </div>
 
@@ -186,7 +221,7 @@
                                     <p>Street Address:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="ship-address" type="text">   <!-- bill street address -->
+                                    <input id="ship-address" type="text"> <!-- bill street address -->
                                 </div>
                             </div>
 
@@ -195,7 +230,7 @@
                                     <p>City or ZIP:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="ship-city" type="text">  <!-- bill city name -->
+                                    <input id="ship-city" type="text"> <!-- bill city name -->
                                 </div>
                             </div>
 
@@ -204,7 +239,7 @@
                                     <p>Phone:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="ship-phone" type="tel">  <!-- phone -->
+                                    <input id="ship-phone" type="tel"> <!-- phone -->
                                 </div>
                             </div>
 
@@ -247,15 +282,15 @@
                         </thead>
 
                         <tbody>
-                                <tr>
-                                    <td id="item-id"><input id="pack-item-1" type="text"></td>
-                                    <td id="item-description"><input id="pack-descript-1" type="text"></td>
-                                    <td id="order-qty"><input id="pack-odr-1" type="number"></td>
-                                    <td id="ship-qty"><input id="pack-ship-1" type="number" onkeypress="add_new(event)"></td>
-                                </tr>
-    
-                               
-                            </tbody>
+                            <tr>
+                                <td id="item-id"><input id="pack-item-1" type="text"></td>
+                                <td id="item-description"><input id="pack-descript-1" type="text"></td>
+                                <td id="order-qty"><input id="pack-odr-1" type="number"></td>
+                                <td id="ship-qty"><input id="pack-ship-1" type="number" onkeypress="add_new(event)"></td>
+                            </tr>
+
+
+                        </tbody>
 
                         <!-- <tbody>
                             <tr>
@@ -264,21 +299,21 @@
                                 <td id="order-qty">15</td>
                                 <td id="ship-qty">12</td>
                             </tr>
-
+            
                             <tr>
                                 <td id="item-id">121</td>
                                 <td id="item-description">socks</td>
                                 <td id="order-qty">20</td>
                                 <td id="ship-qty">17</td>
                             </tr>
-
+            
                             <tr>
                                 <td id="item-id"></td>
                                 <td id="item-description"></td>
                                 <td id="order-qty"></td>
                                 <td id="ship-qty"></td>
                             </tr>
-
+            
                             <tr>
                                     <td id="item-id"></td>
                                     <td id="item-description"></td>
@@ -300,222 +335,225 @@
 
                 <section class="color-1 text-center">
                     <p>
-<button onclick="generatePackingData('packing-generate-form');" class="btn btn-secondary">Generate</button>
-</p></section>
+                        <button onclick="generatePackingData('packing-generate-form');" class="btn btn-secondary">Generate</button>
+                    </p>
+                </section>
 
             </div>
 
 
             <div id="packing-generate-form" style="max-width: none; display: none;">
 
-                    <div class="packing-slip-header">
-    
-                        <div class="row">
-                            <div class="col-6">
-                                <h3>Uniform Shop || Company Name</h3>
-                                <p><address id="address">Street Address: house no.L-212, street-3, NY</address> </p> <!-- fetch address -->
-                                <p><address id="city">City: <span>Brocklin</span></address></p> <!-- fetch city -->
-                                <p>Phone: <span>786-786-7845</span></p> <!-- fetch phone number -->
-                                <p>Fax: </p> <!-- fetch fax number -->
-                                <p>Website: <span>http://Uniformshop.com</span> <span id="phone-no"></span></p> <!-- fetch website name of company -->
-    
-                            </div>
-    
-                            <div class="col-6">
-                                <h3>Packing List</h3>
-                                <p>Date: <span><input id="pack-date-g" type="date"></span></p> <!-- fetch date -->
-                                <p>Customer I.D: <span id="cust-id-g"></span></p> <!-- customer id -->
-                            </div>
+                <div class="packing-slip-header">
+
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>Uniform Shop || Company Name</h3>
+                            <p><address id="address">Street Address: house no.L-212, street-3, NY</address> </p>
+                            <!-- fetch address -->
+                            <p><address id="city">City: <span>Brocklin</span></address></p> <!-- fetch city -->
+                            <p>Phone: <span>786-786-7845</span></p> <!-- fetch phone number -->
+                            <p>Fax: </p> <!-- fetch fax number -->
+                            <p>Website: <span>http://Uniformshop.com</span> <span id="phone-no"></span></p>
+                            <!-- fetch website name of company -->
+
+                        </div>
+
+                        <div class="col-6">
+                            <h3>Packing List</h3>
+                            <p>Date: <span><input id="pack-date-g" type="date"></span></p> <!-- fetch date -->
+                            <p>Customer I.D: <span id="cust-id-g"></span></p> <!-- customer id -->
                         </div>
                     </div>
-    
-                    <!-- packing address section -->
-                    <div class="packing-address">
-                        <div class="row">
-                            <div class="col-5">
-                                <h3 class="main-subject">Bill To:</h3>
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Name:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <input id="bill-name-g" type="text">  <!-- responsible person name-->
-                                    </div>
+                </div>
+
+                <!-- packing address section -->
+                <div class="packing-address">
+                    <div class="row">
+                        <div class="col-5">
+                            <h3 class="main-subject">Bill To:</h3>
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Name:</p>
                                 </div>
-    
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Company Name:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <input id="bill-company-g" type="text">   <!-- bill company name-->
-                                    </div>
-                                </div>
-    
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Street Address:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <input id="bill-address-g" type="text">   <!-- bill street address -->
-                                    </div>
-                                </div>
-    
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>City or ZIP:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <input id="bill-city-g" type="text">  <!-- bill city name -->
-                                    </div>
-                                </div>
-    
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Phone:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <input id="bill-phone-g" type="tel">  <!-- phone -->
-                                    </div>
+                                <div class="col-8">
+                                    <input id="bill-name-g" type="text"> <!-- responsible person name-->
                                 </div>
                             </div>
-    
-                            <div class="col-5">
-                                <h3 class="main-subject">Ship To:</h3>
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Name:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <input id="ship-name-g" type="text">  <!-- responsible person name-->
-                                    </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Company Name:</p>
                                 </div>
-    
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Company Name:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <input id="ship-company-g" type="text">  <!-- bill company name-->
-                                    </div>
-                                </div>
-    
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Street Address:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <input id="ship-address-g" type="text">   <!-- bill street address -->
-                                    </div>
-                                </div>
-    
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>City or ZIP:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <input id="ship-city-g" type="text">  <!-- bill city name -->
-                                    </div>
-                                </div>
-    
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Phone:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <input id="ship-phone-g" type="tel">  <!-- phone -->
-                                    </div>
+                                <div class="col-8">
+                                    <input id="bill-company-g" type="text"> <!-- bill company name-->
                                 </div>
                             </div>
-    
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Street Address:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input id="bill-address-g" type="text"> <!-- bill street address -->
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>City or ZIP:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input id="bill-city-g" type="text"> <!-- bill city name -->
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Phone:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input id="bill-phone-g" type="tel"> <!-- phone -->
+                                </div>
+                            </div>
                         </div>
+
+                        <div class="col-5">
+                            <h3 class="main-subject">Ship To:</h3>
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Name:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input id="ship-name-g" type="text"> <!-- responsible person name-->
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Company Name:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input id="ship-company-g" type="text"> <!-- bill company name-->
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Street Address:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input id="ship-address-g" type="text"> <!-- bill street address -->
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>City or ZIP:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input id="ship-city-g" type="text"> <!-- bill city name -->
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Phone:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input id="ship-phone-g" type="tel"> <!-- phone -->
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-    
-                    <div class="packling-supply">
-                        <table class="table table-sm table-bordered ">
-                            <thead>
-                                <tr>
-                                    <th>ORDER DATE</th>
-                                    <th>ORDER NO.</th>
-                                    <th>PURCHASE ORDER NO.</th>
-                                    <th>CUSTOMER CONTACT</th>
-                                </tr>
-    
-                            <tbody>
-                                <tr>
-                                    <td id="pack-odr-date-g"></td>
-                                    <td id="pack-odr-num-g"></td>
-                                    <td id="purchase-odr-num-g"></td>
-                                    <td id="pack-cust-num-g"></td>
-                                </tr>
-                            </tbody>
-                            </thead>
-                        </table>
-                    </div>
-    
-                    <div class="packing-lists">
-                        <table class="table table-responsive-sm table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>ITEM.NO</th>
-                                    <th>DESCRIPTION</th>
-                                    <th>ORDER QTY</th>
-                                    <th>SHIP QTY</th>
-                                </tr>
-                            </thead>
-    
-                            <tbody>
-                                <tr>
-                                    <td id="pack-item-1-g"></td>
-                                    <td id="pack-descript-1-g"></td>
-                                    <td id="pack-odr-1"></td>
-                                    <td id="pack-ship-1"></td>
-                                </tr>
-    
-                                <tr>
-                                    <td id="pack-item-2-g"></td>
-                                    <td id="pack-descript-2-g"></td>
-                                    <td id="pack-odr-2-g"></td>
-                                    <td id="pack-ship-2-g"></td>
-                                </tr>
-    
-                                <tr>
-                                    <td id="pack-item-3-g"></td>
-                                    <td id="pack-descript-3-g"></td>
-                                    <td id="pack-odr-3-g"></td>
-                                    <td id="pack-ship-3-g"></td>
-                                </tr>
-    
-                                <tr>
-                                        <td id="pack-item-4-g"></td>
-                                        <td id="pack-descript-4-g"></td>
-                                        <td id="pack-odr-4-g"></td>
-                                        <td id="pack-ship-4-g"></td>
-                                    </tr>
-                                </tbody>
-    
-                            <!-- <tbody>
+                </div>
+
+                <div class="packling-supply">
+                    <table class="table table-sm table-bordered ">
+                        <thead>
+                            <tr>
+                                <th>ORDER DATE</th>
+                                <th>ORDER NO.</th>
+                                <th>PURCHASE ORDER NO.</th>
+                                <th>CUSTOMER CONTACT</th>
+                            </tr>
+
+                        <tbody>
+                            <tr>
+                                <td id="pack-odr-date-g"></td>
+                                <td id="pack-odr-num-g"></td>
+                                <td id="purchase-odr-num-g"></td>
+                                <td id="pack-cust-num-g"></td>
+                            </tr>
+                        </tbody>
+                        </thead>
+                    </table>
+                </div>
+
+                <div class="packing-lists">
+                    <table class="table table-responsive-sm table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ITEM.NO</th>
+                                <th>DESCRIPTION</th>
+                                <th>ORDER QTY</th>
+                                <th>SHIP QTY</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td id="pack-item-1-g"></td>
+                                <td id="pack-descript-1-g"></td>
+                                <td id="pack-odr-1"></td>
+                                <td id="pack-ship-1"></td>
+                            </tr>
+
+                            <tr>
+                                <td id="pack-item-2-g"></td>
+                                <td id="pack-descript-2-g"></td>
+                                <td id="pack-odr-2-g"></td>
+                                <td id="pack-ship-2-g"></td>
+                            </tr>
+
+                            <tr>
+                                <td id="pack-item-3-g"></td>
+                                <td id="pack-descript-3-g"></td>
+                                <td id="pack-odr-3-g"></td>
+                                <td id="pack-ship-3-g"></td>
+                            </tr>
+
+                            <tr>
+                                <td id="pack-item-4-g"></td>
+                                <td id="pack-descript-4-g"></td>
+                                <td id="pack-odr-4-g"></td>
+                                <td id="pack-ship-4-g"></td>
+                            </tr>
+                        </tbody>
+
+                        <!-- <tbody>
                                 <tr>
                                     <td id="item-id">253</td>
                                     <td id="item-description">bow tie</td>
                                     <td id="order-qty">15</td>
                                     <td id="ship-qty">12</td>
                                 </tr>
-    
+            
                                 <tr>
                                     <td id="item-id">121</td>
                                     <td id="item-description">socks</td>
                                     <td id="order-qty">20</td>
                                     <td id="ship-qty">17</td>
                                 </tr>
-    
+            
                                 <tr>
                                     <td id="item-id"></td>
                                     <td id="item-description"></td>
                                     <td id="order-qty"></td>
                                     <td id="ship-qty"></td>
                                 </tr>
-    
+            
                                 <tr>
                                         <td id="item-id"></td>
                                         <td id="item-description"></td>
@@ -523,25 +561,20 @@
                                         <td id="ship-qty"></td>
                                     </tr>
                             </tbody> -->
-    
-                            <tfoot>
-                                <tr>
-                                    <td></td>
-                                    <td class="float-right">Total</td>
-                                    <td>35</td>
-                                    <td>29</td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-    
+
+                        <tfoot>
+                            <tr>
+                                <td></td>
+                                <td class="float-right">Total</td>
+                                <td>35</td>
+                                <td>29</td>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
-
-
 
             </div>
         </div>
-
     </div>
 
 </body>
@@ -566,30 +599,31 @@
 <!-- <script src="js/classie.js"></script> -->
 <script src="js/modernizr.custom.js"></script>
 <script>
-let index = 1;
-function add_new(e){
- e = e || window.event ; 
- console.log(e.key);
- if(e.key==="Enter"){
-     index++;
-    let node = document.createElement("Div");
-    let str = `
+    let index = 1;
+    function add_new(e) {
+        e = e || window.event;
+        console.log(e.key);
+        if (e.key === "Enter") {
+            index++;
+            let node = document.createElement("Div");
+            let str = `
                                 <tr id="product_list">
-                                    <td id="item-id"><input id="pack-item-`+index+`" type="text"></td>
-                                    <td id="item-description"><input id="pack-descript-`+index+`" type="text"></td>
-                                    <td id="order-qty"><input id="pack-odr-`+index+`" type="number"></td>
-                                    <td id="ship-qty"><input id="pack-ship-`+index+`" type="number" onkeypress="add_new(event)"></td>
+                                    <td id="item-id"><input id="pack-item-`+ index + `" type="text"></td>
+                                    <td id="item-description"><input id="pack-descript-`+ index + `" type="text"></td>
+                                    <td id="order-qty"><input id="pack-odr-`+ index + `" type="number"></td>
+                                    <td id="ship-qty"><input id="pack-ship-`+ index + `" type="number" onkeypress="add_new(event)"></td>
                                 </tr>`;
-  
-      node.innerHTML = str;
-                    document.getElementById("product_list").appendChild(node)
 
- }
+            node.innerHTML = str;
+            document.getElementById("product_list").appendChild(node)
+
+        }
 
 
-}
+    }
 
 
 
 </script>
+
 </html>

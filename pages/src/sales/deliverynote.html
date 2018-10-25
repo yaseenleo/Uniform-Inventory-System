@@ -86,248 +86,273 @@
         </div>
     </nav>
 
-    <div class="container-fluid">
-
-        <div class="row">
-            <div class="col-md-2 sidebar">
-                <h3 class="Sales-left-heading">Sales Module</h3>
-                <!-- <p><a href="#" onclick="show('operation1')" style="cursor: pointer;">Generate Sales Order</a></p> -->
-                <p><a href="sales.html">Sales Order</a></p>
-                <p><a href="packinglistslip.html">Packing List Slip</a></p>
-                <!-- <p><a href="#" onclick="generatePackingData('packing-generate-form');">Packing List</a></p> -->
-                <p><a href="salesinvoiceslip.html">Commercial Invoice Slip</a></p>
-                <!-- <p><a href="salesinvoice.html">Commercial Invoice</a></p> -->
-                <p><a href="payreceipt.html">Payment receipt</a></p>
-
+    <div class="wrapper container-fluid">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Sales Module</h3>
             </div>
 
-            <div class="col-md-10">
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <ul class="list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="sales.html">Sales Order</a>
+                        </li>
+                        <li>
+                            <a href="packinglistslip.html">Packing List Slip</a>
+                        </li>
+                        <li>
+                            <a href="salesinvoiceslip.html">Commercial Invoice Slip</a>
+                        </li>
+                        <li>
+                            <a href="payreceipt.html">Payment receipt</a>
+                        </li>
+                    </ul>
+                </li>
 
-                <div class="container">
-                    <div id="delivery-main">
+        </nav>
 
-                        <div class="delivery-slip-head">
+        <!-- Page Content  -->
+        <div id="content">
 
-                            <div class="row">
-                                <div class="col-6">
-                                    <h3>Uniform Shop || Company Name</h3>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
 
-                                </div>
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
 
-                                <div class="col-6">
-                                    <h3>Packing List</h3>
-
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <p><address id="address">Street Address: house no.L-212, street-3, NY</address> </p>
-                                    <!-- fetch address -->
-                                    <p><address id="city">City: <span>Brocklin</span></address></p> <!-- fetch city -->
-                                    <p>Phone: <span>786-786-7845</span></p> <!-- fetch phone number -->
-                                    <p>Fax: </p> <!-- fetch fax number -->
-                                    <p>Website: <span>http://Uniformshop.com</span> <span id="phone-no"></span></p>
-                                    <!-- fetch website name of company -->
-
-                                </div>
-
-                                <div class="col-6">
-                                    <p>Order Date: <span><input id="dlvry-date" type="date"></span></p>
-                                    <p>Order #: <span><input id="dlvry-odr-no" type="text"></span></p>
-                                    <p>Delivery note #: <span><input id="dlvry-note-no" type="text"></span></p>
-                                    <p>Customer I.D: <span><input id="dlvry-cust-id" type="text"></span></p>
-                                    <p>Dispatch Date: <span><input id="dlvry-date" type="date"></span></p>
-                                    <p>Delivery Method: <span><input type="text" id="dlvry-method"></span></p>
-                                </div>
-                            </div>
-
-                            <!-- delivery address section -->
-
-                            <div class="delivery-address">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <h3 class="main-subject">Bill To:</h3>
-                                        <p>Name: <span> <input id="dlvry-bill-name" type="text"> </span></p>
-                                        <!-- responsible person name-->
-                                        <p>Company Name: <span> <input id="dlvry-bill-company" type="text"> </span></p>
-                                        <!-- bill company name-->
-                                        <p>Street Address: <span> <input id="dlvry-bill-address" type="text"> </span></p>
-                                        <!-- bill street address -->
-                                        <p>City or ZIP: <span> <input id="dlvry-bill-city" type="text"> </span></p>
-                                        <!-- bill city name -->
-                                        <p>Phone: <span> <input id="dlvry-bill-phone" type="tel"> </span></p>
-                                        <!-- phone -->
-                                    </div>
-
-                                    <div class="col-6">
-                                        <h3 class="main-subject">Ship To:</h3>
-                                        <p>Name: <span> <input id="dlvry-ship-name" type="text"> </span></p>
-                                        <!-- responsible person name-->
-                                        <p>Company Name: <span> <input id="dlvry-ship-company" type="text"> </span></p>
-                                        <!-- ship company name-->
-                                        <p>Street Address: <span> <input id="dlvry-ship-address" type="text"> </span></p>
-                                        <!-- ship street address -->
-                                        <p>City or ZIP: <span> <input id="dlvry-ship-city" type="text"> </span></p>
-                                        <!-- ship city name -->
-                                        <p>Phone: <span> <input id="dlvry-ship-phone" type="tel"> </span></p>
-                                        <!-- phone -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- delivery address section end -->
-
-
-                            <!-- delivery items list -->
-
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th>ITEMS#</th>
-                                    <th>DESCRIPTION</th>
-                                    <th>ORDERED</th>
-                                    <th>RECEIVED</th>
-                                    <th>STATUS</th>
-                                </tr>
-                                
-                                <tr>
-                                    <td><input type="text"></td>
-                                    <td><input type="text"></td>
-                                    <td><input type="text"></td>
-                                    <td><input type="text"></td>
-                                    <td><input type="text"></td>
-                                </tr>
-                            </table>
-
-                            <div class="delivery-items">
-                                <!-- head -->
-                                <div class="row">
-                                    <div class="col-1 delivery-cell-head">
-                                        <h5>Item #</h5>
-                                    </div>
-
-                                    <div class="col-5 delivery-cell-head">
-                                        <h5>Description</h5>
-                                    </div>
-
-                                    <div class="col-2 delivery-cell-head">
-                                        <h5>Ordered</h5>
-                                    </div>
-
-                                    <div class="col-2 delivery-cell-head">
-                                        <h5>Delivered</h5>
-                                    </div>
-
-                                    <div class="col-2 delivery-cell-head">
-                                        <h5>Outstanding</h5>
-                                    </div>
-                                </div>
-
-                                <!-- list 1 -->
-                                <div class="row">
-                                    <div class="col-1 delivery-cell">
-                                        <input type="text" id="dlvry-item-1">
-                                    </div>
-
-                                    <div class="col-5 delivery-cell">
-                                        <input type="text" id="dlvry-descipt-1">
-                                    </div>
-
-                                    <div class="col-2 delivery-cell">
-                                        <input type="text" id="dlvry-odr-1">
-                                    </div>
-
-                                    <div class="col-2 delivery-cell">
-                                        <input type="text" id="dlvry-delivered-1">
-                                    </div>
-
-                                    <div class="col-2 delivery-cell">
-                                        <input type="text" id="dlvry-outstand-1">
-                                    </div>
-                                </div>
-
-                                <!-- list 2 -->
-                                <div class="row">
-                                        <div class="col-1 delivery-cell">
-                                            <input type="text" id="dlvry-item-2">
-                                        </div>
-    
-                                        <div class="col-5 delivery-cell">
-                                            <input type="text" id="dlvry-descipt-2">
-                                        </div>
-    
-                                        <div class="col-2 delivery-cell">
-                                            <input type="text" id="dlvry-odr-2">
-                                        </div>
-    
-                                        <div class="col-2 delivery-cell">
-                                            <input type="text" id="dlvry-delivered-2">
-                                        </div>
-    
-                                        <div class="col-2 delivery-cell">
-                                            <input type="text" id="dlvry-outstand-2">
-                                        </div>
-                                    </div>
-
-                                    <!-- list 3 -->
-                                <div class="row">
-                                        <div class="col-1 delivery-cell">
-                                            <input type="text" id="dlvry-item-3">
-                                        </div>
-    
-                                        <div class="col-5 delivery-cell">
-                                            <input type="text" id="dlvry-descipt-3">
-                                        </div>
-    
-                                        <div class="col-2 delivery-cell">
-                                            <input type="text" id="dlvry-odr-3">
-                                        </div>
-    
-                                        <div class="col-2 delivery-cell">
-                                            <input type="text" id="dlvry-delivered-3">
-                                        </div>
-    
-                                        <div class="col-2 delivery-cell">
-                                            <input type="text" id="dlvry-outstand-3">
-                                        </div>
-                                    </div>
-
-                                    <!-- list 4 -->
-                                <div class="row">
-                                        <div class="col-1 delivery-cell">
-                                            <input type="text" id="dlvry-item-4">
-                                        </div>
-    
-                                        <div class="col-5 delivery-cell">
-                                            <input type="text" id="dlvry-descipt-4">
-                                        </div>
-    
-                                        <div class="col-2 delivery-cell">
-                                            <input type="text" id="dlvry-odr-4">
-                                        </div>
-    
-                                        <div class="col-2 delivery-cell">
-                                            <input type="text" id="dlvry-delivered-4">
-                                        </div>
-    
-                                        <div class="col-2 delivery-cell">
-                                            <input type="text" id="dlvry-outstand-4">
-                                        </div>
-                                    </div>
-
-                            </div>
-
-                            <!-- delivery items list end -->
-
-                        </div>
-
-                    </div>
                 </div>
+            </nav>
 
-
+            <div class="container" id="wrapper">
+                <div id="delivery-main">
+            
+                    <div class="delivery-slip-head">
+            
+                        <div class="row">
+                            <div class="col-6">
+                                <h3>Uniform Shop || Company Name</h3>
+            
+                            </div>
+            
+                            <div class="col-6">
+                                <h3>Packing List</h3>
+            
+                            </div>
+                        </div>
+            
+                        <div class="row">
+                            <div class="col-6">
+                                <p><address id="address">Street Address: house no.L-212, street-3, NY</address> </p>
+                                <!-- fetch address -->
+                                <p><address id="city">City: <span>Brocklin</span></address></p> <!-- fetch city -->
+                                <p>Phone: <span>786-786-7845</span></p> <!-- fetch phone number -->
+                                <p>Fax: </p> <!-- fetch fax number -->
+                                <p>Website: <span>http://Uniformshop.com</span> <span id="phone-no"></span></p>
+                                <!-- fetch website name of company -->
+            
+                            </div>
+            
+                            <div class="col-6">
+                                <p>Order Date: <span><input id="dlvry-date" type="date"></span></p>
+                                <p>Order #: <span><input id="dlvry-odr-no" type="text"></span></p>
+                                <p>Delivery note #: <span><input id="dlvry-note-no" type="text"></span></p>
+                                <p>Customer I.D: <span><input id="dlvry-cust-id" type="text"></span></p>
+                                <p>Dispatch Date: <span><input id="dlvry-date" type="date"></span></p>
+                                <p>Delivery Method: <span><input type="text" id="dlvry-method"></span></p>
+                            </div>
+                        </div>
+            
+                        <!-- delivery address section -->
+            
+                        <div class="delivery-address">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h3 class="main-subject">Bill To:</h3>
+                                    <p>Name: <span> <input id="dlvry-bill-name" type="text"> </span></p>
+                                    <!-- responsible person name-->
+                                    <p>Company Name: <span> <input id="dlvry-bill-company" type="text"> </span></p>
+                                    <!-- bill company name-->
+                                    <p>Street Address: <span> <input id="dlvry-bill-address" type="text"> </span></p>
+                                    <!-- bill street address -->
+                                    <p>City or ZIP: <span> <input id="dlvry-bill-city" type="text"> </span></p>
+                                    <!-- bill city name -->
+                                    <p>Phone: <span> <input id="dlvry-bill-phone" type="tel"> </span></p>
+                                    <!-- phone -->
+                                </div>
+            
+                                <div class="col-6">
+                                    <h3 class="main-subject">Ship To:</h3>
+                                    <p>Name: <span> <input id="dlvry-ship-name" type="text"> </span></p>
+                                    <!-- responsible person name-->
+                                    <p>Company Name: <span> <input id="dlvry-ship-company" type="text"> </span></p>
+                                    <!-- ship company name-->
+                                    <p>Street Address: <span> <input id="dlvry-ship-address" type="text"> </span></p>
+                                    <!-- ship street address -->
+                                    <p>City or ZIP: <span> <input id="dlvry-ship-city" type="text"> </span></p>
+                                    <!-- ship city name -->
+                                    <p>Phone: <span> <input id="dlvry-ship-phone" type="tel"> </span></p>
+                                    <!-- phone -->
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- delivery address section end -->
+            
+            
+                        <!-- delivery items list -->
+            
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>ITEMS#</th>
+                                <th>DESCRIPTION</th>
+                                <th>ORDERED</th>
+                                <th>RECEIVED</th>
+                                <th>STATUS</th>
+                            </tr>
+                            
+                            <tr>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                            </tr>
+                        </table>
+            
+                        <div class="delivery-items">
+                            <!-- head -->
+                            <div class="row">
+                                <div class="col-1 delivery-cell-head">
+                                    <h5>Item #</h5>
+                                </div>
+            
+                                <div class="col-5 delivery-cell-head">
+                                    <h5>Description</h5>
+                                </div>
+            
+                                <div class="col-2 delivery-cell-head">
+                                    <h5>Ordered</h5>
+                                </div>
+            
+                                <div class="col-2 delivery-cell-head">
+                                    <h5>Delivered</h5>
+                                </div>
+            
+                                <div class="col-2 delivery-cell-head">
+                                    <h5>Outstanding</h5>
+                                </div>
+                            </div>
+            
+                            <!-- list 1 -->
+                            <div class="row">
+                                <div class="col-1 delivery-cell">
+                                    <input type="text" id="dlvry-item-1">
+                                </div>
+            
+                                <div class="col-5 delivery-cell">
+                                    <input type="text" id="dlvry-descipt-1">
+                                </div>
+            
+                                <div class="col-2 delivery-cell">
+                                    <input type="text" id="dlvry-odr-1">
+                                </div>
+            
+                                <div class="col-2 delivery-cell">
+                                    <input type="text" id="dlvry-delivered-1">
+                                </div>
+            
+                                <div class="col-2 delivery-cell">
+                                    <input type="text" id="dlvry-outstand-1">
+                                </div>
+                            </div>
+            
+                            <!-- list 2 -->
+                            <div class="row">
+                                    <div class="col-1 delivery-cell">
+                                        <input type="text" id="dlvry-item-2">
+                                    </div>
+            
+                                    <div class="col-5 delivery-cell">
+                                        <input type="text" id="dlvry-descipt-2">
+                                    </div>
+            
+                                    <div class="col-2 delivery-cell">
+                                        <input type="text" id="dlvry-odr-2">
+                                    </div>
+            
+                                    <div class="col-2 delivery-cell">
+                                        <input type="text" id="dlvry-delivered-2">
+                                    </div>
+            
+                                    <div class="col-2 delivery-cell">
+                                        <input type="text" id="dlvry-outstand-2">
+                                    </div>
+                                </div>
+            
+                                <!-- list 3 -->
+                            <div class="row">
+                                    <div class="col-1 delivery-cell">
+                                        <input type="text" id="dlvry-item-3">
+                                    </div>
+            
+                                    <div class="col-5 delivery-cell">
+                                        <input type="text" id="dlvry-descipt-3">
+                                    </div>
+            
+                                    <div class="col-2 delivery-cell">
+                                        <input type="text" id="dlvry-odr-3">
+                                    </div>
+            
+                                    <div class="col-2 delivery-cell">
+                                        <input type="text" id="dlvry-delivered-3">
+                                    </div>
+            
+                                    <div class="col-2 delivery-cell">
+                                        <input type="text" id="dlvry-outstand-3">
+                                    </div>
+                                </div>
+            
+                                <!-- list 4 -->
+                            <div class="row">
+                                    <div class="col-1 delivery-cell">
+                                        <input type="text" id="dlvry-item-4">
+                                    </div>
+            
+                                    <div class="col-5 delivery-cell">
+                                        <input type="text" id="dlvry-descipt-4">
+                                    </div>
+            
+                                    <div class="col-2 delivery-cell">
+                                        <input type="text" id="dlvry-odr-4">
+                                    </div>
+            
+                                    <div class="col-2 delivery-cell">
+                                        <input type="text" id="dlvry-delivered-4">
+                                    </div>
+            
+                                    <div class="col-2 delivery-cell">
+                                        <input type="text" id="dlvry-outstand-4">
+                                    </div>
+                                </div>
+            
+                        </div>
+            
+                        <!-- delivery items list end -->
+            
+                    </div>
+            
+                </div>
             </div>
         </div>
-
     </div>
 
 </body>
