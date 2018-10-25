@@ -423,53 +423,12 @@ function generateInvoiceData(applyInvoiceData) {
 
 // Invoice slip data end
 
-// sales dynamic input 
-
-let index = 1;
-function add_new(e){
- e = e || window.event ; 
- console.log(e.key);
- console.log(e);
- if(e.key==="Enter"){
-     index++;
-    let node = document.createElement("Div");
-    let str = `  <div class="product-detail-list">
-                            <div class="row">
-                                <div class=" small-col">
-                                    <h4>`+index + "." +`</h4>
-                                </div>
-
-                                <div class="col-2">
-                                    <input class="form-input" type="text" placeholder="Product Category" id="pro`+index +`category">
-                                </div>
-
-                                <div class="col-2">
-                                    <input class="form-input" type="text" placeholder="Product Description" id="pro`+index +`description">
-                                </div>
-
-                                <div class="col-2">
-                                    <input class="form-input" type="text" placeholder="Quantity Available" id="pro`+index+`quantityavailable">
-                                </div>
-
-                                <div class="col-2">
-                                    <input class="form-input" type="text" placeholder="Quantity Ordered" id="pro`+index+`quantityorder">
-                                </div>
-
-                                <div class="col-2">
-                                    <input class="form-input" type="text" placeholder="Unit Price" id="pro`+index+`unitprice" onkeypress="add_new(event)">
-                                </div>
-                            </div>
-                        </div>
-                       
-                    </div>`;
-  
-      node.innerHTML = str;
-                    document.getElementById("product_list").appendChild(node)
-
- }
 
 
-} 
+// side nav
 
-
-// sales dynamic input end
+$(document).ready(function () {
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+    });
+});
