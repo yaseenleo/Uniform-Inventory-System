@@ -89,6 +89,14 @@
     text-align: center;
 }
 
+.gr-col-1{
+	width: 20px;
+}
+
+.gr-col-2{
+	width: 20px;
+}
+
 /* payment receipt */
 
 .payscript-container{
@@ -386,3 +394,4 @@
 }
 
 /* stitching module end */
+
