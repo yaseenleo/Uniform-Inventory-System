@@ -50,7 +50,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#pablo" class="nav-link">
+                        <a href="../production/main.html" class="nav-link">
                             Production
                         </a>
                     </li>
@@ -66,25 +66,6 @@
                     </li>
                 </ul>
 
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            Sign Up
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            Sign In
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            Log Out
-                        </a>
-                    </li>
-                </ul>
             </div>
         </div>
     </nav>
@@ -457,39 +438,89 @@
         console.log(e);
         if (e.key === "Enter") {
             index++;
-            let node = document.createElement("Div");
-            let str = `  <div class="product-detail-list">
-                            <div class="row">
-                                <div class=" small-col">
-                                    <h4>`+ index + "." + `</h4>
-                                </div>
 
-                                <div class="col-2">
-                                    <input class="form-input" type="text" placeholder="Product Category" id="pro`+ index + `category">
-                                </div>
+const rowDiv = document.createElement('div');
+const col1Div = document.createElement('div');
+const col2Div = document.createElement('div');
+const col3Div = document.createElement('div');
+const col4Div = document.createElement('div');
+const col5Div = document.createElement('div');
+let input1 = document.createElement('input');
+let input2 = document.createElement('input');
+let input3 = document.createElement('input');
+let input4 = document.createElement('input');
+let input5 = document.createElement('input');
 
-                                <div class="col-2">
-                                    <input class="form-input" type="text" placeholder="Product Description" id="pro`+ index + `description">
-                                </div>
+input1.setAttribute('type', 'text')
+input1.setAttribute('class', 'form-input')
 
-                                <div class="col-2">
-                                    <input class="form-input" type="text" placeholder="Quantity Available" id="pro`+ index + `quantityavailable">
-                                </div>
+input2.setAttribute('type', 'text');
+input2.setAttribute('class', 'form-input')
 
-                                <div class="col-2">
-                                    <input class="form-input" type="text" placeholder="Quantity Ordered" id="pro`+ index + `quantityorder">
-                                </div>
+input3.setAttribute('type', 'text')
+input3.setAttribute('class', 'form-input')
 
-                                <div class="col-2">
-                                    <input class="form-input" type="text" placeholder="Unit Price" id="pro`+ index + `unitprice" onkeypress="add_new(event)">
-                                </div>
-                            </div>
-                        </div>
+input4.setAttribute('type', 'text')
+input4.setAttribute('class', 'form-input')
+
+input5.setAttribute('type', 'text')
+input5.setAttribute('class', 'form-input')
+
+rowDiv.classList.add('row')
+col1Div.classList.add('col-3', 'bordered');
+col2Div.classList.add('col-3', 'bordered');
+col3Div.classList.add('col-2', 'bordered');
+col4Div.classList.add('col-2', 'bordered');
+col5Div.classList.add('col-2', 'bordered');
+
+rowDiv.appendChild(col1Div);
+rowDiv.appendChild(col2Div);
+rowDiv.appendChild(col3Div);
+rowDiv.appendChild(col4Div);
+rowDiv.appendChild(col5Div);
+
+col1Div.appendChild(input1);
+col2Div.appendChild(input2);
+col3Div.appendChild(input3);
+col4Div.appendChild(input4);
+col5Div.appendChild(input5);
+console.log(rowDiv);
+
+document.getElementById('container').appendChild(rowDiv);
+
+            // let node = document.createElement("Div");
+            // let str = `  <div class="product-detail-list">
+            //                 <div class="row">
+            //                     <div class=" small-col">
+            //                         <h4>`+ index + "." + `</h4>
+            //                     </div>
+
+            //                     <div class="col-2">
+            //                         <input class="form-input" type="text" placeholder="Product Category" id="pro`+ index + `category">
+            //                     </div>
+
+            //                     <div class="col-2">
+            //                         <input class="form-input" type="text" placeholder="Product Description" id="pro`+ index + `description">
+            //                     </div>
+
+            //                     <div class="col-2">
+            //                         <input class="form-input" type="text" placeholder="Quantity Available" id="pro`+ index + `quantityavailable">
+            //                     </div>
+
+            //                     <div class="col-2">
+            //                         <input class="form-input" type="text" placeholder="Quantity Ordered" id="pro`+ index + `quantityorder">
+            //                     </div>
+
+            //                     <div class="col-2">
+            //                         <input class="form-input" type="text" placeholder="Unit Price" id="pro`+ index + `unitprice" onkeypress="add_new(event)">
+            //                     </div>
+            //                 </div>
+            //             </div>
                        
-                    </div>`;
+            //         </div>`;
 
-            node.innerHTML = str;
-            document.getElementById("product_list").appendChild(node)
+            // node.innerHTML = str;
+            // document.getElementById("product_list").appendChild(node)
 
         }
 
