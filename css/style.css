@@ -229,20 +229,10 @@ color: #fff;
 .rounded-circle{
     border-radius: 50%;
 }
-.form-control{
-    color: white !important;
-}
 
-.form-control:focus{
-    box-shadow: none;
-}
 
-.form-control::placeholder{
-    color: white !important;
-    font-weight: 400;
-    font-size: 14px !important;
-}
-.has-white .form-control{
+
+.has-white {
     color: white;
     background-image: linear-gradient(to top,#fff 2px,rgba(255,255,255,0) 2px),linear-gradient(to top,#fff 1px,rgba(255,255,255,0) 1px) !important;
 }

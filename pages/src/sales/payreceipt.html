@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="../../../css/style.css">
-    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../../../css/salesStyle.css">
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -42,7 +41,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#pablo" class="nav-link">
+                        <a href="../production/main.html" class="nav-link">
                             Production
                         </a>
                     </li>
@@ -107,6 +106,8 @@
 
                 </div>
             </nav>
+            
+            <div id="pay-container">
 
             <div class="container payscript-container">
                 <h1 class="doc-head-text">Payment Receipt</h1>
@@ -145,15 +146,19 @@
             
                     <div class="row">
                         <div class="col-4 pay-cells">
-                            <p></p>
+                            <select name="pay" id="pay-method">
+                                <option value="cash">Cash</option>
+                                <option value="check">Check</option>
+                                <option value="dept-card">Dept Card</option>
+                            </select>
                         </div>
             
                         <div class="col-4 pay-cells">
-                            <p></p>
+                            <input type="text" id="pay-no">
                         </div>
             
                         <div class="col-4 pay-cells">
-                            <p></p>
+                            <input type="text" id="pay-remarks">
                         </div>
                     </div>
             
@@ -163,7 +168,7 @@
             
                     <div>
                         <div class="row">
-                            <div class="col-1 pay-cells-head">
+                            <div class="col-2 pay-cells-head">
                                 <h6>QTY</h6>
                             </div>
             
@@ -171,7 +176,7 @@
                                 <h6>DESCRIPTION</h6>
                             </div>
             
-                            <div class="col-4 pay-cells-head">
+                            <div class="col-3 pay-cells-head">
                                 <h6>ATTENDEE NAME</h6>
                             </div>
             
@@ -181,28 +186,108 @@
             
             
                         </div>
-            
+   <!-- 1          -->
                         <div class="row">
-                                <div class="col-1 pay-cells-large">
-                                    <p></p>
+                                <div class="col-2 pay-cells-large">
+                                    <input type="text" id="pay-qty1" class="form-control">
                                 </div>
             
                                 <div class="col-5 pay-cells-large">
-                                    <p></p>
+                                    <input type="text" id="pay-desc1" class="form-control">
                                 </div>
             
-                                <div class="col-4 pay-cells-large">
-                                    <p></p>
+                                <div class="col-3 pay-cells-large">
+                                    <input type="text" id="pay-name1" class="form-control">
                                 </div>
             
                                 <div class="col-2 pay-cells-large">
-                                    <p></p>
+                                    <input type="text" id="pay-amount1" class="form-control">
+                                </div>
+            
+            
+                            </div>
+<!-- 2 -->
+                            <div class="row">
+                                <div class="col-2 pay-cells-large">
+                                    <input type="text" id="pay-qty2" class="form-control">
+                                </div>
+            
+                                <div class="col-5 pay-cells-large">
+                                    <input type="text" id="pay-desc2" class="form-control">
+                                </div>
+            
+                                <div class="col-3 pay-cells-large">
+                                    <input type="text" id="pay-name2" class="form-control">
+                                </div>
+            
+                                <div class="col-2 pay-cells-large">
+                                    <input type="text" id="pay-amount2" class="form-control">
+                                </div>
+            
+            
+                            </div>
+<!-- 3 -->
+                            <div class="row">
+                                <div class="col-2 pay-cells-large">
+                                    <input type="text" id="pay-qty3" class="form-control">
+                                </div>
+            
+                                <div class="col-5 pay-cells-large">
+                                    <input type="text" id="pay-desc3" class="form-control">
+                                </div>
+            
+                                <div class="col-3 pay-cells-large">
+                                    <input type="text" id="pay-name3" class="form-control">
+                                </div>
+            
+                                <div class="col-2 pay-cells-large">
+                                    <input type="text" id="pay-amount3" class="form-control">
+                                </div>
+            
+            
+                            </div>
+<!-- 4 -->
+                            <div class="row">
+                                <div class="col-2 pay-cells-large">
+                                    <input type="text" id="pay-qty4" class="form-control">
+                                </div>
+            
+                                <div class="col-5 pay-cells-large">
+                                    <input type="text" id="pay-desc4" class="form-control">
+                                </div>
+            
+                                <div class="col-3 pay-cells-large">
+                                    <input type="text" id="pay-name4" class="form-control">
+                                </div>
+            
+                                <div class="col-2 pay-cells-large">
+                                    <input type="text" id="pay-amount4" class="form-control">
+                                </div>
+            
+            
+                            </div>
+<!-- 5 -->
+                            <div class="row">
+                                <div class="col-2 pay-cells-large">
+                                    <input type="text" id="pay-qty5" class="form-control">
+                                </div>
+            
+                                <div class="col-5 pay-cells-large">
+                                    <input type="text" id="pay-desc5" class="form-control">
+                                </div>
+            
+                                <div class="col-3 pay-cells-large">
+                                    <input type="text" id="pay-name5" class="form-control">
+                                </div>
+            
+                                <div class="col-2 pay-cells-large">
+                                    <input type="text" id="pay-amount5" class="form-control">
                                 </div>
             
             
                             </div>
             
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-10 pay-cells">
                                     <h6>TOTAL</h6>
                                 </div>
@@ -210,12 +295,126 @@
                                 <div class="col-2 pay-cells">
                                     <p id="total"></p>
                                 </div>
-                            </div>
+                            </div> -->
             
                     </div>
             
             
                 </section>
+            </div>
+
+            <div id="pay-container-form" style="display:none;">
+
+                <div class="container payscript-container">
+                    <h1 class="doc-head-text">Payment Receipt</h1>
+                
+                    <div class="pay-receipt-info">
+                            <h3>Uniform Shop || Company Name</h3>
+                            <p><address id="address">Street Address: house no.L-212, street-3, NY</address> </p> <!-- fetch address -->
+                            <p><address id="city">City: <span>Brocklin</span></address></p> <!-- fetch city -->
+                            <p>Phone: <span>786-786-7845</span></p> <!-- fetch phone number -->
+                            <p>Fax: </p> <!-- fetch fax number -->
+                            <p>Website: <span>http://Uniformshop.com</span> <span id="phone-no"></span></p> <!-- fetch website name of company -->
+                
+                        </div>
+                
+                        <div class="sub-pay-receipt-info">
+                            <p>Organization Name: <span id="buyer-organization name"></span></p>
+                            <p>Address: <address id="buyer-address"></address></p>
+                            <p>Contact: <span id="buyer-number"></span></p>
+                        </div>
+                    </div>
+                
+                    <div class="pay-type">
+                        <div class="row">
+                            <div class="col-4 pay-cells-head">
+                                <h6>PAYMENT METHOD</h6>
+                            </div>
+                
+                            <div class="col-4 pay-cells-head">
+                                <h6>CHECK NO. OR LAST FOUR OF CC</h6>
+                            </div>
+                
+                            <div class="col-4 pay-cells-head">
+                                <h6>REMARKS</h6>
+                            </div>
+                        </div>
+                
+                        <div class="row">
+                            <div class="col-4 pay-cells">
+                                <p></p>
+                            </div>
+                
+                            <div class="col-4 pay-cells">
+                                <p></p>
+                            </div>
+                
+                            <div class="col-4 pay-cells">
+                                <p></p>
+                            </div>
+                        </div>
+                
+                    </div>
+                
+                    <section class="pay-items-container">
+                
+                        <div>
+                            <div class="row">
+                                <div class="col-1 pay-cells-head">
+                                    <h6>QTY</h6>
+                                </div>
+                
+                                <div class="col-5 pay-cells-head">
+                                    <h6>DESCRIPTION</h6>
+                                </div>
+                
+                                <div class="col-4 pay-cells-head">
+                                    <h6>ATTENDEE NAME</h6>
+                                </div>
+                
+                                <div class="col-2 pay-cells-head">
+                                    <h6>AMOUNT</h6>
+                                </div>
+                
+                
+                            </div>
+                
+                            <div class="row">
+                                    <div class="col-1 pay-cells-large">
+                                        <p></p>
+                                    </div>
+                
+                                    <div class="col-5 pay-cells-large">
+                                        <p></p>
+                                    </div>
+                
+                                    <div class="col-4 pay-cells-large">
+                                        <p></p>
+                                    </div>
+                
+                                    <div class="col-2 pay-cells-large">
+                                        <p></p>
+                                    </div>
+                
+                
+                                </div>
+                
+                                <div class="row">
+                                    <div class="col-10 pay-cells">
+                                        <h6>TOTAL</h6>
+                                    </div>
+                
+                                    <div class="col-2 pay-cells">
+                                        <p id="total"></p>
+                                    </div>
+                                </div>
+                
+                        </div>
+                
+                
+                    </section>
+                </div>
+
         </div>
     </div>
 
@@ -232,11 +431,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
-<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
     crossorigin="anonymous"></script>
 
     <script src="../../../js/app.js"></script>
