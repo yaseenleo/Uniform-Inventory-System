@@ -366,14 +366,14 @@ function generateInvoiceData(applyInvoiceData) {
     $("#invoice-tax-1-g").append(invoiceItemTaxOne);
     var invoiceTotalPriceOne = invoiceItemUpriceOne + invoiceItemTaxOne;
     $("#invoice-total-1-g").append(invoiceTotalPriceOne);
-    
+
     // item 2
     var invoiceItemTwo = document.getElementById("invoice-item-id-2").value;
     var invoiceItemDesciptTwo = document.getElementById("invoice-item-description-2").value;
     var invoiceItemQtyTwo = document.getElementById("invoice-qty-2").value;
     var invoiceItemUpriceTwo = document.getElementById("invoice-unit-price-2").value;
     var invoiceItemTaxTwo = document.getElementById("invoice-tax-2").value;
-    
+
     $("#invoice-item-id-2-g").append(invoiceItemTwo);
     $("#invoice-item-description-2-g").append(invoiceItemDesciptTwo);
     $("#invoice-qty-2-g").append(invoiceItemQtyTwo);
@@ -381,14 +381,14 @@ function generateInvoiceData(applyInvoiceData) {
     $("#invoice-tax-2-g").append(invoiceItemTaxTwo);
     var invoiceTotalPriceTwo = invoiceItemUpriceTwo + invoiceItemTaxTwo;
     $("#invoice-total-2-g").append(invoiceTotalPriceTwo);
-    
+
     // item 3
     var invoiceItemThree = document.getElementById("invoice-item-id-3").value;
     var invoiceItemDesciptThree = document.getElementById("invoice-item-description-3").value;
     var invoiceItemQtyThree = document.getElementById("invoice-qty-3").value;
     var invoiceItemUpriceThree = document.getElementById("invoice-unit-price-3").value;
     var invoiceItemTaxThree = document.getElementById("invoice-tax-3").value;
-    
+
     $("#invoice-item-id-3-g").append(invoiceItemThree);
     $("#invoice-item-description-3-g").append(invoiceItemDesciptThree);
     $("#invoice-qty-3-g").append(invoiceItemQtyThree);
@@ -410,9 +410,9 @@ function generateInvoiceData(applyInvoiceData) {
     $("#invoice-tax-4-g").append(invoiceItemTaxFour);
     var invoiceTotalPriceFour = invoiceItemUpriceFour + invoiceItemTaxFour;
     $("#invoice-total-4-g").append(invoiceTotalPriceFour);
-    
+
     // invoice item list end
-    
+
     var invoiceTotalAmount = invoiceTotalPriceOne + invoiceTotalPriceTwo + invoiceTotalPriceThree + invoiceTotalPriceFour;
     $("#invoice-total").append(invoiceTotalAmount);
     document.getElementById('invoice-main').innerHTML = document.getElementById(applyInvoiceData).innerHTML;
@@ -423,7 +423,83 @@ function generateInvoiceData(applyInvoiceData) {
 
 // Invoice slip data end
 
+// sales pay receipt
 
+function generatePayReceiptData(applyReceiptData) {
+
+
+    // pay method section
+    var payMethod = document.getElementById("pay-method").value;
+    var payNum = document.getElementById("pay-no").value;
+    var payRemarks = document.getElementById("pay-remarks").value;
+
+    $("#pay-method-g").append(payMethod);
+    $("#pay-no-g").append(payNum);
+    $("#pay-remarks-g").append(payRemarks);
+
+    // pay receipt items section
+    // 1
+    var parDesc1 = document.getElementById("pay-desc1").value;
+    var payQty1 = document.getElementById("pay-qty1").value;
+    var payAmount1 = document.getElementById("pay-amount1").value;
+
+    $("#pay-desc1-g").append(parDesc1);
+    $("#pay-qty1-g").append(payQty1);
+    $("#pay-amount1-g").append(payAmount1);
+
+    // 2
+    var parDesc2 = document.getElementById("pay-desc2").value;
+    var payQty2 = document.getElementById("pay-qty2").value;
+    var payAmount2 = document.getElementById("pay-amount2").value;
+
+    $("#pay-desc2-g").append(parDesc2);
+    $("#pay-qty2-g").append(payQty2);
+    $("#pay-amount2-g").append(payAmount2);
+
+    // 3
+    var parDesc3 = document.getElementById("pay-desc3").value;
+    var payQty3 = document.getElementById("pay-qty3").value;
+    var payAmount3 = document.getElementById("pay-amount3").value;
+
+    $("#pay-desc3-g").append(parDesc3);
+    $("#pay-qty3-g").append(payQty3);
+    $("#pay-amount3-g").append(payAmount3);
+
+    // 4
+    var parDesc4 = document.getElementById("pay-desc4").value;
+    var payQty4 = document.getElementById("pay-qty4").value;
+    var payAmount4 = document.getElementById("pay-amount4").value;
+
+    $("#pay-desc4-g").append(parDesc4);
+    $("#pay-qty4-g").append(payQty4);
+    $("#pay-amount4-g").append(payAmount4);
+
+    // 5
+    var parDesc5 = document.getElementById("pay-desc5").value;
+    var payQty5 = document.getElementById("pay-qty5").value;
+    var payAmount5 = document.getElementById("pay-amount5").value;
+
+    $("#pay-desc5-g").append(parDesc5);
+    $("#pay-qty5-g").append(payQty5);
+    $("#pay-amount5-g").append(payAmount5);
+
+
+    
+        var arr = document.getElementsByName('pay-amount');
+        var tot=0;
+        for(var i=0;i<arr.length;i++)
+            if(parseInt(arr[i].value))
+                tot += parseInt(arr[i].value);
+        
+        document.getElementById('total').innerHTML = tot;
+    
+
+
+    document.getElementById("pay-container").innerHTML = document.getElementById(applyReceiptData).innerHTML;
+}
+
+
+// sales pay receipt end
 
 // side nav
 
