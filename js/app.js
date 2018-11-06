@@ -2,6 +2,14 @@ $(document).ready(function () {
     $('body').bootstrapMaterialDesign();
 });
 
+// side nav
+
+$(document).ready(function () {
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+    });
+});
+
 // form create
 (function () {
     var
@@ -501,10 +509,64 @@ function generatePayReceiptData(applyReceiptData) {
 
 // sales pay receipt end
 
-// side nav
+// sales delivery note
 
-$(document).ready(function () {
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-    });
-});
+function generateDeliveryNote(applyDeliveryNoteData){
+
+    // basic info
+var delivDate = document.getElementById("dlvry-odr-date").value;
+var delivOdrNum = document.getElementById("dlvry-odr-no").value;
+var delivNoteNum = document.getElementById("dlvry-note-no").value;
+var delivCustId = document.getElementById("dlvry-cust-id").value;
+var delivDispatchDate = document.getElementById("dlvry-dispch-date").value;
+var delivMethod = document.getElementById("dlvry-method").value;
+
+$("#dlvry-odr-date-g").append(delivDate);
+$("#dlvry-odr-no-g").append(delivOdrNum);
+$("#dlvry-note-no-g").append(delivNoteNum);
+$("#dlvry-cust-id-g").append(delivCustId);
+$("#dlvry-dispch-date-g").append(delivDispatchDate);
+$("#dlvry-method-g").append(delivMethod);
+
+    // bill to
+var delivBillName = document.getElementById("dlvry-bill-name").value;
+var delivBillComp = document.getElementById("dlvry-bill-company").value;
+var delivBillAddress = document.getElementById("dlvry-bill-address").value;
+var delivBillCity = document.getElementById("dlvry-bill-city").value;
+var delivBillPh = document.getElementById("dlvry-bill-phone").value;
+
+$("#dlvry-bill-name-g").append(delivBillName);
+$("#dlvry-bill-company-g").append(delivBillComp);
+$("#dlvry-bill-address-g").append(delivBillAddress);
+$("#dlvry-bill-city-g").append(delivBillCity);
+$("#dlvry-bill-phone-g").append(delivBillPh);
+
+    // ship to
+var delivShipName = document.getElementById("dlvry-ship-name").value;
+var delivShipComp = document.getElementById("dlvry-ship-company").value;
+var delivShipAddress= document.getElementById("dlvry-ship-address").value;
+var delivShipCity = document.getElementById("dlvry-ship-city").value;
+var delivShipPh = document.getElementById("dlvry-ship-phone").value;
+    
+$("#dlvry-ship-name-g").append(delivShipName);
+$("#dlvry-ship-company-g").append(delivShipComp);
+$("#dlvry-ship-address-g").append(delivShipAddress);
+$("#dlvry-ship-city-g").append(delivShipCity);
+$("#dlvry-ship-phone-g").append(delivShipPh);
+
+
+    // delivery items list
+    // 1
+
+var dlvryDesc1 = document.getElementById("dlvry-descipt-1").value;
+var dlvryodr1 = document.getElementById("dlvry-odr-1").value;
+var dlvryDelivered1 = document.getElementById("dlvry-delivered-1").value;;
+var dlvryStatus1 = document.getElementById("dlvry-outstand-1").value;
+
+$("#dlvry-descipt-1-g").append(dlvryDesc1);
+$("#dlvry-odr-1-g").append(dlvryodr1);
+$("#dlvry-delivered-1-g").append(dlvryDelivered1);
+$("#dlvry-outstand-1-g").append(dlvryStatus1);
+
+}
+

@@ -271,7 +271,12 @@ color: #fff;
     width: 20px !important;
 }
 
-.logo{
+/* .logo{
+    width: 24px;
+    height: 24px;
+} */
+
+.logo1{
     border-top: 1px solid black;
     margin-top: 5em;
 }
@@ -297,7 +302,7 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;
+    /* color: #999; */
 }
 
 a,

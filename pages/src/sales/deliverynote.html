@@ -14,8 +14,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <!-- Font Awesome -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-</head>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+    crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+    crossorigin="anonymous"></script></head>
 
 <body>
 
@@ -38,7 +40,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#pablo" class="nav-link">
+                        <a href="../production/main.html" class="nav-link">
                             Production
                         </a>
                     </li>
@@ -108,7 +110,12 @@
                 <div id="delivery-main">
             
                     <div class="delivery-slip-head">
-            
+                        <div class="row">
+                            <div class="col-4">
+                                    <img src="../../../assets/img/logo1.jpg" class="rounded float-left logo" alt="logo">
+                            </div>
+                        </div>
+                        
                         <div class="row">
                             <div class="col-6">
                                 <h3>Uniform Shop || Company Name</h3>
@@ -134,12 +141,61 @@
                             </div>
             
                             <div class="col-6">
-                                <p>Order Date: <span><input id="dlvry-date" type="date"></span></p>
-                                <p>Order #: <span><input id="dlvry-odr-no" type="text"></span></p>
-                                <p>Delivery note #: <span><input id="dlvry-note-no" type="text"></span></p>
-                                <p>Customer I.D: <span><input id="dlvry-cust-id" type="text"></span></p>
-                                <p>Dispatch Date: <span><input id="dlvry-date" type="date"></span></p>
-                                <p>Delivery Method: <span><input type="text" id="dlvry-method"></span></p>
+                                
+                                    <div class="row">
+                                            <div class="col-4">
+                                                <p>Order Date:</p>
+                                            </div>
+                                            <div class="col-8">
+                                                    <input id="dlvry-odr-date" type="date" class="form-control">  <!-- responsible person name-->
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                                <div class="col-4">
+                                                    <p>Order #:</p>
+                                                </div>
+                                                <div class="col-8">
+                                                        <input id="dlvry-odr-no" type="text" class="form-control">  <!-- responsible person name-->
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                    <div class="col-4">
+                                                        <p>Delivery note #:</p>
+                                                    </div>
+                                                    <div class="col-8">
+                                                            <input id="dlvry-note-no" type="text" class="form-control">  <!-- responsible person name-->
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                        <div class="col-4">
+                                                            <p>Customer I.D:</p>
+                                                        </div>
+                                                        <div class="col-8">
+                                                                <input id="dlvry-cust-id" type="text" class="form-control">  <!-- responsible person name-->
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                            <div class="col-4">
+                                                                <p>Dispatch Date:</p>
+                                                            </div>
+                                                            <div class="col-8">
+                                                                    <input id="dlvry-dispch-date" type="date" class="form-control">  <!-- responsible person name-->
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                                <div class="col-4">
+                                                                    <p>Delivery Method:</p>
+                                                                </div>
+                                                                <div class="col-8">
+                                                                        <input type="text" id="dlvry-method" class="form-control">  <!-- responsible person name-->
+                                                                </div>
+                                                            </div>
+
                             </div>
                         </div>
             
@@ -150,12 +206,14 @@
                                 <div class="col-6">
                                     <h3 class="main-subject">Bill To:</h3>
 
+                                    <div class="subject-data">
+                                    
                                     <div class="row">
                                         <div class="col-4">
                                             <p>Name:</p>
                                         </div>
                                         <div class="col-8">
-                                            <input id="dlvry-bill-name" type="text">  <!-- responsible person name-->
+                                            <input id="dlvry-bill-name" type="text" class="form-control">  <!-- responsible person name-->
                                         </div>
                                     </div>
 
@@ -164,7 +222,7 @@
                                             <p>Company Name:</p>
                                         </div>
                                         <div class="col-8">
-                                            <input id="dlvry-bill-company" type="text">  <!-- responsible person name-->
+                                            <input id="dlvry-bill-company" type="text" class="form-control">  <!-- responsible person name-->
                                         </div>
                                     </div>
 
@@ -173,7 +231,7 @@
                                             <p>Street Address:</p>
                                         </div>
                                         <div class="col-8">
-                                            <input id="dlvry-bill-address" type="text">  <!-- responsible person name-->
+                                            <input id="dlvry-bill-address" type="text" class="form-control">  <!-- responsible person name-->
                                         </div>
                                     </div>
 
@@ -182,7 +240,7 @@
                                             <p>City or ZIP:</p>
                                         </div>
                                         <div class="col-8">
-                                            <input id="dlvry-bill-city" type="text">  <!-- responsible person name-->
+                                            <input id="dlvry-bill-city" type="text" class="form-control">  <!-- responsible person name-->
                                         </div>
                                     </div>
                                     
@@ -191,24 +249,65 @@
                                             <p>Phone::</p>
                                         </div>
                                         <div class="col-8">
-                                            <input id="dlvry-bill-phone" type="tel">  <!-- responsible person name-->
+                                            <input id="dlvry-bill-phone" type="tel" class="form-control">  <!-- responsible person name-->
                                         </div>
                                     </div>
+
+                                </div>
                         
                                 </div>
             
                                 <div class="col-6">
                                     <h3 class="main-subject">Ship To:</h3>
-                                    <p>Name: <span> <input id="dlvry-ship-name" type="text"> </span></p>
-                                    <!-- responsible person name-->
-                                    <p>Company Name: <span> <input id="dlvry-ship-company" type="text"> </span></p>
-                                    <!-- ship company name-->
-                                    <p>Street Address: <span> <input id="dlvry-ship-address" type="text"> </span></p>
-                                    <!-- ship street address -->
-                                    <p>City or ZIP: <span> <input id="dlvry-ship-city" type="text"> </span></p>
-                                    <!-- ship city name -->
-                                    <p>Phone: <span> <input id="dlvry-ship-phone" type="tel"> </span></p>
-                                    <!-- phone -->
+
+                                    <div class="subject-data">
+                                        
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <p>Name:</p>
+                                        </div>
+                                        <div class="col-8">
+                                            <input id="dlvry-ship-name" type="text" class="form-control">  <!-- responsible person name-->
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <p>Company Name:</p>
+                                        </div>
+                                        <div class="col-8">
+                                            <input id="dlvry-ship-company" type="text" class="form-control">  <!-- responsible person name-->
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <p>Street Address:</p>
+                                        </div>
+                                        <div class="col-8">
+                                            <input id="dlvry-ship-address" type="text" class="form-control">  <!-- responsible person name-->
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <p>City or ZIP:</p>
+                                        </div>
+                                        <div class="col-8">
+                                            <input id="dlvry-ship-city" type="text" class="form-control">  <!-- responsible person name-->
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <p>Phone:</p>
+                                        </div>
+                                        <div class="col-8">
+                                            <input id="dlvry-ship-phone" type="tel" class="form-control">  <!-- responsible person name-->
+                                        </div>
+                                    </div>
+                                </div>
+
                                 </div>
                             </div>
                         </div>
@@ -218,7 +317,7 @@
             
                         <!-- delivery items list -->
             
-                        <table class="table table-bordered">
+                        <!-- <table class="table table-bordered note-status">
                             <tr>
                                 <th>ITEMS#</th>
                                 <th>DESCRIPTION</th>
@@ -228,19 +327,19 @@
                             </tr>
                             
                             <tr>
-                                <td><input type="text"></td>
-                                <td><input type="text"></td>
-                                <td><input type="text"></td>
-                                <td><input type="text"></td>
-                                <td><input type="text"></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control"></td>
                             </tr>
-                        </table>
+                        </table> -->
             
                         <div class="delivery-items">
                             <!-- head -->
                             <div class="row">
                                 <div class="col-1 delivery-cell-head">
-                                    <h5>Item #</h5>
+                                    <h5>S.No</h5>
                                 </div>
             
                                 <div class="col-5 delivery-cell-head">
@@ -263,95 +362,117 @@
                             <!-- list 1 -->
                             <div class="row">
                                 <div class="col-1 delivery-cell">
-                                    <input type="text" id="dlvry-item-1">
+                                    <p>1</p>
                                 </div>
             
                                 <div class="col-5 delivery-cell">
-                                    <input type="text" id="dlvry-descipt-1">
+                                    <input type="text" id="dlvry-descipt-1" class="form-control">
                                 </div>
             
                                 <div class="col-2 delivery-cell">
-                                    <input type="text" id="dlvry-odr-1">
+                                    <input type="text" id="dlvry-odr-1" class="form-control">
                                 </div>
             
                                 <div class="col-2 delivery-cell">
-                                    <input type="text" id="dlvry-delivered-1">
+                                    <input type="text" id="dlvry-delivered-1" class="form-control">
                                 </div>
             
                                 <div class="col-2 delivery-cell">
-                                    <input type="text" id="dlvry-outstand-1">
+                                    <input type="text" id="dlvry-outstand-1" class="form-control">
                                 </div>
                             </div>
             
                             <!-- list 2 -->
                             <div class="row">
                                     <div class="col-1 delivery-cell">
-                                        <input type="text" id="dlvry-item-2">
+                                        <p>2</p>
                                     </div>
             
                                     <div class="col-5 delivery-cell">
-                                        <input type="text" id="dlvry-descipt-2">
+                                        <input type="text" id="dlvry-descipt-2" class="form-control">
                                     </div>
             
                                     <div class="col-2 delivery-cell">
-                                        <input type="text" id="dlvry-odr-2">
+                                        <input type="text" id="dlvry-odr-2" class="form-control">
                                     </div>
             
                                     <div class="col-2 delivery-cell">
-                                        <input type="text" id="dlvry-delivered-2">
+                                        <input type="text" id="dlvry-delivered-2" class="form-control">
                                     </div>
             
                                     <div class="col-2 delivery-cell">
-                                        <input type="text" id="dlvry-outstand-2">
+                                        <input type="text" id="dlvry-outstand-2" class="form-control">
                                     </div>
                                 </div>
             
                                 <!-- list 3 -->
                             <div class="row">
                                     <div class="col-1 delivery-cell">
-                                        <input type="text" id="dlvry-item-3">
+                                        <p>3</p>
                                     </div>
             
                                     <div class="col-5 delivery-cell">
-                                        <input type="text" id="dlvry-descipt-3">
+                                        <input type="text" id="dlvry-descipt-3" class="form-control">
                                     </div>
             
                                     <div class="col-2 delivery-cell">
-                                        <input type="text" id="dlvry-odr-3">
+                                        <input type="text" id="dlvry-odr-3" class="form-control">
                                     </div>
             
                                     <div class="col-2 delivery-cell">
-                                        <input type="text" id="dlvry-delivered-3">
+                                        <input type="text" id="dlvry-delivered-3" class="form-control">
                                     </div>
             
                                     <div class="col-2 delivery-cell">
-                                        <input type="text" id="dlvry-outstand-3">
+                                        <input type="text" id="dlvry-outstand-3" class="form-control">
                                     </div>
                                 </div>
             
                                 <!-- list 4 -->
                             <div class="row">
                                     <div class="col-1 delivery-cell">
-                                        <input type="text" id="dlvry-item-4">
+                                        4
                                     </div>
             
                                     <div class="col-5 delivery-cell">
-                                        <input type="text" id="dlvry-descipt-4">
+                                        <input type="text" id="dlvry-descipt-4" class="form-control">
                                     </div>
             
                                     <div class="col-2 delivery-cell">
-                                        <input type="text" id="dlvry-odr-4">
+                                        <input type="text" id="dlvry-odr-4" class="form-control">
                                     </div>
             
                                     <div class="col-2 delivery-cell">
-                                        <input type="text" id="dlvry-delivered-4">
+                                        <input type="text" id="dlvry-delivered-4" class="form-control">
                                     </div>
             
                                     <div class="col-2 delivery-cell">
-                                        <input type="text" id="dlvry-outstand-4">
+                                        <input type="text" id="dlvry-outstand-4" class="form-control">
                                     </div>
                                 </div>
-            
+
+                                <!-- list 5 -->
+                                <div class="row">
+                                        <div class="col-1 delivery-cell">
+                                            5
+                                        </div>
+                
+                                        <div class="col-5 delivery-cell">
+                                            <input type="text" id="dlvry-descipt-5" class="form-control">
+                                        </div>
+                
+                                        <div class="col-2 delivery-cell">
+                                            <input type="text" id="dlvry-odr-5" class="form-control">
+                                        </div>
+                
+                                        <div class="col-2 delivery-cell">
+                                            <input type="text" id="dlvry-delivered-5" class="form-control">
+                                        </div>
+                
+                                        <div class="col-2 delivery-cell">
+                                            <input type="text" id="dlvry-outstand-5" class="form-control">
+                                        </div>
+                                    </div>            
                         </div>
             
                         <!-- delivery items list end -->

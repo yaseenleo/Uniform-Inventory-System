@@ -143,18 +143,25 @@
 
 .delivery-cell-head{
     display: block;
-    padding: 5px;
+    padding: 11px;
     border: 1px solid black;
 }
 
 .delivery-cell{
-    display: block;
-    padding: 5px;
-    height: 2em;
+
+    padding: 7px;
     border: 1px solid black;
 }
 .delivery-cell h5 {
     overflow: hidden;
+}
+
+.note-status{
+	margin-top: 2em;
+}
+
+.subject-data{
+	padding: 1em;
 }
 
 /* production module */
