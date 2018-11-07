@@ -23,8 +23,10 @@
     <link rel="stylesheet" type="text/css" href="css/component.css" />
 
     <!-- Font Awesome -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -88,6 +90,9 @@
                         </li>
                         <li>
                             <a href="salesinvoiceslip.html">Commercial Invoice Slip</a>
+                        </li>
+                        <li>
+                            <a href="deliverynote.html">Delivery Note</a>
                         </li>
                         <li>
                             <a href="payreceipt.html">Payment receipt</a>
@@ -423,58 +428,58 @@
         if (e.key === "Enter") {
             index++;
 
-const rowDiv = document.createElement('div');
-const col1Div = document.createElement('div');
-const col2Div = document.createElement('div');
-const col3Div = document.createElement('div');
-const col4Div = document.createElement('div');
-const col5Div = document.createElement('div');
-const col6Div = document.createElement('div');
+            const rowDiv = document.createElement('div');
+            const col1Div = document.createElement('div');
+            const col2Div = document.createElement('div');
+            const col3Div = document.createElement('div');
+            const col4Div = document.createElement('div');
+            const col5Div = document.createElement('div');
+            const col6Div = document.createElement('div');
 
-let para = document.createElement('p');
-let input1 = document.createElement('input');
-let input2 = document.createElement('input');
-let input3 = document.createElement('input');
-let input4 = document.createElement('input');
-let input5 = document.createElement('input');
+            let para = document.createElement('p');
+            let input1 = document.createElement('input');
+            let input2 = document.createElement('input');
+            let input3 = document.createElement('input');
+            let input4 = document.createElement('input');
+            let input5 = document.createElement('input');
 
-input1.setAttribute('type', 'text')
-input1.setAttribute('class', 'form-input')
+            input1.setAttribute('type', 'text')
+            input1.setAttribute('class', 'form-input')
 
-input2.setAttribute('type', 'text');
-input2.setAttribute('class', 'form-input')
+            input2.setAttribute('type', 'text');
+            input2.setAttribute('class', 'form-input')
 
-input3.setAttribute('type', 'text')
-input3.setAttribute('class', 'form-input')
+            input3.setAttribute('type', 'text')
+            input3.setAttribute('class', 'form-input')
 
-input4.setAttribute('type', 'text')
-input4.setAttribute('class', 'form-input')
+            input4.setAttribute('type', 'text')
+            input4.setAttribute('class', 'form-input')
 
-input5.setAttribute('type', 'text')
-input5.setAttribute('class', 'form-input')
+            input5.setAttribute('type', 'text')
+            input5.setAttribute('class', 'form-input')
 
-rowDiv.classList.add('row')
-col1Div.classList.add('col-2')
-col2Div.classList.add('col-2', 'bordered');
-col3Div.classList.add('col-2', 'bordered');
-col4Div.classList.add('col-2', 'bordered');
-col5Div.classList.add('col-2', 'bordered');
-col6Div.classList.add('col-2', 'bordered');
+            rowDiv.classList.add('row')
+            col1Div.classList.add('col-2')
+            col2Div.classList.add('col-2', 'bordered');
+            col3Div.classList.add('col-2', 'bordered');
+            col4Div.classList.add('col-2', 'bordered');
+            col5Div.classList.add('col-2', 'bordered');
+            col6Div.classList.add('col-2', 'bordered');
 
-rowDiv.appendChild(col2Div);
-rowDiv.appendChild(col3Div);
-rowDiv.appendChild(col4Div);
-rowDiv.appendChild(col5Div);
-rowDiv.appendChild(col6Div);
+            rowDiv.appendChild(col2Div);
+            rowDiv.appendChild(col3Div);
+            rowDiv.appendChild(col4Div);
+            rowDiv.appendChild(col5Div);
+            rowDiv.appendChild(col6Div);
 
-col2Div.appendChild(input1);
-col3Div.appendChild(input2);
-col4Div.appendChild(input3);
-col5Div.appendChild(input4);
-col6Div.appendChild(input5);
-console.log(rowDiv);
+            col2Div.appendChild(input1);
+            col3Div.appendChild(input2);
+            col4Div.appendChild(input3);
+            col5Div.appendChild(input4);
+            col6Div.appendChild(input5);
+            console.log(rowDiv);
 
-document.getElementById('container').appendChild(rowDiv);
+            document.getElementById('container').appendChild(rowDiv);
 
             // let node = document.createElement("Div");
             // let str = `  <div class="product-detail-list">
@@ -504,7 +509,7 @@ document.getElementById('container').appendChild(rowDiv);
             //                     </div>
             //                 </div>
             //             </div>
-                       
+
             //         </div>`;
 
             // node.innerHTML = str;

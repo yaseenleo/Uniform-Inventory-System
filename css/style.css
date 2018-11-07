@@ -26,6 +26,10 @@ body{
     opacity: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.header-text{
+    margin-bottom: 2em;
+}
 .module-section{
     margin: 5em 0 2em 0;
 }
@@ -272,8 +276,7 @@ color: #fff;
 }
 
 /* .logo{
-    width: 24px;
-    height: 24px;
+ margin-left: 3em;
 } */
 
 .logo1{

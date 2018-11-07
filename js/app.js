@@ -568,5 +568,53 @@ $("#dlvry-odr-1-g").append(dlvryodr1);
 $("#dlvry-delivered-1-g").append(dlvryDelivered1);
 $("#dlvry-outstand-1-g").append(dlvryStatus1);
 
+    // 2
+
+    var dlvryDesc2 = document.getElementById("dlvry-descipt-2").value;
+    var dlvryodr2 = document.getElementById("dlvry-odr-2").value;
+    var dlvryDelivered2 = document.getElementById("dlvry-delivered-2").value;;
+    var dlvryStatus2 = document.getElementById("dlvry-outstand-2").value;
+    
+    $("#dlvry-descipt-2-g").append(dlvryDesc2);
+    $("#dlvry-odr-2-g").append(dlvryodr2);
+    $("#dlvry-delivered-2-g").append(dlvryDelivered2);
+    $("#dlvry-outstand-2-g").append(dlvryStatus2);
+    
+    // 3
+    var dlvryDesc3 = document.getElementById("dlvry-descipt-3").value;
+    var dlvryodr3 = document.getElementById("dlvry-odr-3").value;
+    var dlvryDelivered3 = document.getElementById("dlvry-delivered-3").value;;
+    var dlvryStatus3 = document.getElementById("dlvry-outstand-3").value;
+    
+    $("#dlvry-descipt-3-g").append(dlvryDesc3);
+    $("#dlvry-odr-3-g").append(dlvryodr3);
+    $("#dlvry-delivered-3-g").append(dlvryDelivered3);
+    $("#dlvry-outstand-3-g").append(dlvryStatus3);
+    
+    // 4
+
+    var dlvryDesc4 = document.getElementById("dlvry-descipt-4").value;
+    var dlvryodr4 = document.getElementById("dlvry-odr-4").value;
+    var dlvryDelivered4 = document.getElementById("dlvry-delivered-4").value;;
+    var dlvryStatus4 = document.getElementById("dlvry-outstand-4").value;
+    
+    $("#dlvry-descipt-4-g").append(dlvryDesc4);
+    $("#dlvry-odr-4-g").append(dlvryodr4);
+    $("#dlvry-delivered-4-g").append(dlvryDelivered4);
+    $("#dlvry-outstand-4-g").append(dlvryStatus4);
+    
+    // 5
+
+    var dlvryDesc5 = document.getElementById("dlvry-descipt-5").value;
+var dlvryodr5 = document.getElementById("dlvry-odr-5").value;
+var dlvryDelivered5 = document.getElementById("dlvry-delivered-5").value;;
+var dlvryStatus5 = document.getElementById("dlvry-outstand-5").value;
+
+$("#dlvry-descipt-5-g").append(dlvryDesc5);
+$("#dlvry-odr-5-g").append(dlvryodr5);
+$("#dlvry-delivered-5-g").append(dlvryDelivered5);
+$("#dlvry-outstand-5-g").append(dlvryStatus5);
+""
+document.getElementById("delivery-note-container").innerHTML = document.getElementById(applyDeliveryNoteData).innerHTML
 }
 
