@@ -61,6 +61,9 @@
 	border-radius: 2px;
 }
 
+.packing-supply{
+	margin-bottom: 3em;
+}
 /* sales end */
 
 
@@ -141,6 +144,14 @@
 
 /* Delivery note */
 
+.delivery-items{
+	margin-top: 2em;
+}
+
+.delivery-address{
+	margin-top: 3em;
+}
+
 .delivery-cell-head{
     display: block;
     padding: 11px;
@@ -165,6 +176,14 @@
 }
 
 /* production module */
+
+.production-Header-main{
+	border-bottom: 1px solid black;
+	width: 50%;
+	padding-bottom: 1em;
+	margin: 0 auto;
+	margin-bottom: 2em;
+}
 
 .production-schema{
 	margin-top: 10em;

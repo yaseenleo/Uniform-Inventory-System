@@ -308,6 +308,13 @@ function generatePackingData(applyPackingData) {
 function generateInvoiceData(applyInvoiceData) {
 
     var invoiceDate = document.getElementById("invoice-date").value;
+    var invoiceNum = document.getElementById("invoice-num").value;
+    var invoiceCustId = document.getElementById("cust-id").value;
+
+    $("#invoice-date-g").append(invoiceDate);
+    $("#invoice-num-g").append(invoiceNum);
+    $("#cust-id-g").append(invoiceCustId);
+    
     // Bill to input value
     var invoiceBillName = document.getElementById("invoice-bill-name").value;
     var invoiceBillCompany = document.getElementById("invoice-bill-company").value;
@@ -325,7 +332,6 @@ function generateInvoiceData(applyInvoiceData) {
 
     // append bill values
 
-    $("#invoice-date-g").append(invoiceDate);
     $("#invoice-bill-name-g").append(invoiceBillName);
     $("#invoice-bill-company-g").append(invoiceBillCompany);
     $("#invoice-bill-address-g").append(invoiceBillAddress);
