@@ -305,7 +305,7 @@
                             <td scope="col">Total Price</td>
                         </tr>
 
-                    <tbody>
+                    <tbody id="create-lists">
                         <tr>
                             <td scope="row">1</td>
                             <td class="category"></td>
@@ -392,7 +392,6 @@
                                 </div>
                             </div> -->
                     </fieldset>
-
                 </form>
 
             </div>
@@ -436,42 +435,52 @@
             const col5Div = document.createElement('div');
             const col6Div = document.createElement('div');
 
-            let para = document.createElement('p');
+            let para = document.createElement('h4');
             let input1 = document.createElement('input');
             let input2 = document.createElement('input');
             let input3 = document.createElement('input');
             let input4 = document.createElement('input');
             let input5 = document.createElement('input');
 
+            var para1 = document.createTextNode(index + ".");
             input1.setAttribute('type', 'text')
             input1.setAttribute('class', 'form-input')
+            input1.setAttribute('id', 'proname'+index)
 
             input2.setAttribute('type', 'text');
             input2.setAttribute('class', 'form-input')
+            input2.setAttribute('id', 'prodesc'+index)
 
             input3.setAttribute('type', 'text')
             input3.setAttribute('class', 'form-input')
+            input3.setAttribute('id', 'proavail'+index)
 
             input4.setAttribute('type', 'text')
             input4.setAttribute('class', 'form-input')
+            input4.setAttribute('id', 'prodelivr'+index)
 
             input5.setAttribute('type', 'text')
             input5.setAttribute('class', 'form-input')
+            input5.setAttribute('id', 'proprice'+index)
+            input5.setAttribute('onkeypress', 'add_new(event)')
 
             rowDiv.classList.add('row')
-            col1Div.classList.add('col-2')
+            col1Div.classList.add('small-col')
             col2Div.classList.add('col-2', 'bordered');
             col3Div.classList.add('col-2', 'bordered');
             col4Div.classList.add('col-2', 'bordered');
             col5Div.classList.add('col-2', 'bordered');
             col6Div.classList.add('col-2', 'bordered');
 
+            rowDiv.appendChild(col1Div)
             rowDiv.appendChild(col2Div);
             rowDiv.appendChild(col3Div);
             rowDiv.appendChild(col4Div);
             rowDiv.appendChild(col5Div);
             rowDiv.appendChild(col6Div);
 
+            para.appendChild(para1)
+            col1Div.appendChild(para);
             col2Div.appendChild(input1);
             col3Div.appendChild(input2);
             col4Div.appendChild(input3);
@@ -479,8 +488,17 @@
             col6Div.appendChild(input5);
             console.log(rowDiv);
 
-            document.getElementById('container').appendChild(rowDiv);
 
+            document.getElementById('container').appendChild(rowDiv);
+            
+            function show(param_div_id) {
+
+            var listsPrint = document.getElementById("create-lists")
+            
+            var pInput1 = 
+            document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
+
+}
             // let node = document.createElement("Div");
             // let str = `  <div class="product-detail-list">
             //                 <div class="row">

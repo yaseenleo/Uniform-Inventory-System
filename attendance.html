@@ -5,14 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Attendane System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/salesStyle.css" />
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
 </head>
 <body>
-<input type="text" id="staff">
-<button onclick="addemployee()">Submit</button>
+        <div class="row">
+                <div class="col-12 text-center">
+                    <img src="../../../assets/img/logo.png" class="rounded mx-auto logo" alt="logo">
+                </div>
+            </div>
+<div class="form-group attendance-input-section">
+    <div class="row">
+        <div class="col-8">
+            <input type="text" id="staff" class="form-control">
+        </div>
+        <div class="col-3">
+            <button onclick="addemployee()" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+</div>
 
-        <table style="border: solid; border-color: black;">
+        <table class="table table-bordered" style="border: solid; border-color: black;">
                 <thead>
                 <tr style="border: solid;">
                     <td><b>name</b></td>
@@ -134,4 +150,11 @@ function addemployee(){
 </script>
 
 </body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
 </html>
