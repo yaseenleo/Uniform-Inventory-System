@@ -279,7 +279,10 @@ color: #fff;
     width: 20px !important;
 }
 
-
+.md-logo{
+    width: 200px;
+    height: 200px;
+}
 
 /* .logo1{
     border-top: 1px solid black;

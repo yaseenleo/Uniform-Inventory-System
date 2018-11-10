@@ -122,7 +122,11 @@
             </nav>
 
             <div id="packing-main">
-
+                    <div class="row">
+                            <div class="col-12">
+                                <img src="../../../assets/img/optimized-logo.png" class="rounded float-right logo md-logo" alt="logo">
+                            </div>
+                        </div>
                 <div class="packing-slip-header">
 
                     <div class="row">
@@ -139,9 +143,29 @@
                         </div>
 
                         <div class="col-6">
-                            <h3>Packing List</h3>
-                            <p>Date: <span><input id="pack-date" type="date"></span></p> <!-- fetch date -->
-                            <p>Customer I.D: <span id="cust-id"></span></p> <!-- customer id -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <h3>Packing List</h3>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Date:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input id="pack-date" type="date" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Customer I.D:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="cust-id" class="form-control">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -149,7 +173,7 @@
                 <!-- packing address section -->
                 <div class="packing-address">
                     <div class="row">
-                        <div class="col-5">
+                        <div class="col-6">
                             <h3 class="main-subject">Bill To:</h3>
 
                             <div class="row">
@@ -157,7 +181,7 @@
                                     <p>Name:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="bill-name" type="text"> <!-- responsible person name-->
+                                    <input id="bill-name" type="text" class="form-control"> <!-- responsible person name-->
                                 </div>
                             </div>
 
@@ -166,7 +190,7 @@
                                     <p>Company Name:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="bill-company" type="text"> <!-- bill company name-->
+                                    <input id="bill-company" type="text" class="form-control"> <!-- bill company name-->
                                 </div>
                             </div>
 
@@ -175,7 +199,7 @@
                                     <p>Street Address:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="bill-address" type="text"> <!-- bill street address -->
+                                    <input id="bill-address" type="text" class="form-control"> <!-- bill street address -->
                                 </div>
                             </div>
 
@@ -184,7 +208,7 @@
                                     <p>City or ZIP:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="bill-city" type="text"> <!-- bill city name -->
+                                    <input id="bill-city" type="text" class="form-control"> <!-- bill city name -->
                                 </div>
                             </div>
 
@@ -193,13 +217,13 @@
                                     <p>Phone:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="bill-phone" type="tel"> <!-- phone -->
+                                    <input id="bill-phone" type="tel" class="form-control"> <!-- phone -->
                                 </div>
                             </div>
 
                         </div>
 
-                        <div class="col-5">
+                        <div class="col-6">
                             <h3 class="main-subject">Ship To:</h3>
 
                             <div class="row">
@@ -207,7 +231,7 @@
                                     <p>Name:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="ship-name" type="text"> <!-- responsible person name-->
+                                    <input id="ship-name" type="text" class="form-control"> <!-- responsible person name-->
                                 </div>
                             </div>
 
@@ -216,7 +240,7 @@
                                     <p>Company Name:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="ship-company" type="text"> <!-- bill company name-->
+                                    <input id="ship-company" type="text" class="form-control"> <!-- bill company name-->
                                 </div>
                             </div>
 
@@ -225,7 +249,7 @@
                                     <p>Street Address:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="ship-address" type="text"> <!-- bill street address -->
+                                    <input id="ship-address" type="text" class="form-control"> <!-- bill street address -->
                                 </div>
                             </div>
 
@@ -234,7 +258,7 @@
                                     <p>City or ZIP:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="ship-city" type="text"> <!-- bill city name -->
+                                    <input id="ship-city" type="text" class="form-control"> <!-- bill city name -->
                                 </div>
                             </div>
 
@@ -243,7 +267,7 @@
                                     <p>Phone:</p>
                                 </div>
                                 <div class="col-8">
-                                    <input id="ship-phone" type="tel"> <!-- phone -->
+                                    <input id="ship-phone" type="tel" class="form-control"> <!-- phone -->
                                 </div>
                             </div>
 
@@ -264,33 +288,33 @@
 
                         <tbody>
                             <tr>
-                                <td><input id="pack-odr-date" type="date"></td>
-                                <td><input id="pack-odr-num" type="text"></td>
-                                <td><input id="purchase-odr-num" type="text"></td>
-                                <td><input id="pack-cust-num" type="tel" name="" id=""></td>
+                                <td><input id="pack-odr-date" type="date" class="form-control"></td>
+                                <td><input id="pack-odr-num" type="text" class="form-control"></td>
+                                <td><input id="purchase-odr-num" type="text" class="form-control"></td>
+                                <td><input id="pack-cust-num" type="tel" class="form-control"></td>
                             </tr>
                         </tbody>
                         </thead>
                     </table>
                 </div>
 
-                <div class="packing-lists" id="product_list">
+                <div class="packing-lists">
                     <table class="table table-responsive-sm table-bordered">
                         <thead>
-                            <tr>
-                                <th>ITEM.NO</th>
-                                <th>DESCRIPTION</th>
-                                <th>ORDER QTY</th>
-                                <th>SHIP QTY</th>
+                            <tr class="d-flex">
+                                <th class="col-2">ITEM.NO</th>
+                                <th class="col-6">DESCRIPTION</th>
+                                <th class="col-2">ORDER QTY</th>
+                                <th class="col-2">SHIP QTY</th>
                             </tr>
                         </thead>
 
-                        <tbody>
-                            <tr>
-                                <td id="item-id"><input id="pack-item-1" type="text"></td>
-                                <td id="item-description"><input id="pack-descript-1" type="text"></td>
-                                <td id="order-qty"><input id="pack-odr-1" type="number"></td>
-                                <td id="ship-qty"><input id="pack-ship-1" type="number" onkeypress="add_new(event)"></td>
+                        <tbody id="product_list">
+                            <tr class="d-flex">
+                                <td class="col-2" id="item-id"><input id="pack-item-1" type="text" class="form-control"></td>
+                                <td class="col-6" id="item-description"><input id="pack-descript-1" type="text" class="form-control"></td>
+                                <td class="col-2" id="order-qty"><input id="pack-odr-1" type="number" class="form-control"></td>
+                                <td class="col-2" id="ship-qty"><input id="pack-ship-1" type="number" class="form-control" onkeypress="add_new(event)"></td>
                             </tr>
 
 
@@ -599,16 +623,24 @@
         console.log(e.key);
         if (e.key === "Enter") {
             index++;
-            let node = document.createElement("Div");
-            let str = `
-                                <tr id="product_list">
-                                    <td id="item-id"><input id="pack-item-`+ index + `" type="text"></td>
-                                    <td id="item-description"><input id="pack-descript-`+ index + `" type="text"></td>
-                                    <td id="order-qty"><input id="pack-odr-`+ index + `" type="number"></td>
-                                    <td id="ship-qty"><input id="pack-ship-`+ index + `" type="number" onkeypress="add_new(event)"></td>
-                                </tr>`;
 
-            node.innerHTML = str;
+            var packSlipTableRow = document.createElement("tr");
+            var packSlipTableData1 = document.createElement("td");
+            var packSlipTableData2 = document.createElement("td");
+            var packSlipTableData3 = document.createElement("td");
+            var packSlipTableData4 = document.createElement("td");
+
+            var packSlipPara = document.createElement()
+            // let node = document.createElement("Div");
+            // let str = `
+            //                     <tr id="product_list">
+            //                         <td id="item-id"><input id="pack-item-`+ index + `" type="text"></td>
+            //                         <td id="item-description"><input id="pack-descript-`+ index + `" type="text"></td>
+            //                         <td id="order-qty"><input id="pack-odr-`+ index + `" type="number"></td>
+            //                         <td id="ship-qty"><input id="pack-ship-`+ index + `" type="number" onkeypress="add_new(event)"></td>
+            //                     </tr>`;
+
+            // node.innerHTML = str;
             document.getElementById("product_list").appendChild(node)
 
         }

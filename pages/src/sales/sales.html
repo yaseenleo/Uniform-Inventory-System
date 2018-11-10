@@ -133,14 +133,14 @@
                         <label class="form-control-label">Customer Name</label>
                     </div>
                     <div class="col-3">
-                        <input class="form-input" id="name" type="text" placeholder="Customer Name">
+                        <input class="form-control" id="name" type="text" placeholder="Customer Name">
 
                     </div>
                     <div class="col-2">
                         <label for="expire-date" class="form-control-label">Delivery Date</label>
                     </div>
                     <div class="col-3">
-                        <input class="form-input" id="deliverydate" type="date" placeholder="Delivery Date">
+                        <input class="form-control" id="deliverydate" type="date" placeholder="Delivery Date">
                     </div>
 
                 </div>
@@ -150,13 +150,13 @@
                         <label for="date" class=" form-control-label">Client Ph.Number</label>
                     </div>
                     <div class="col-3">
-                        <input class="form-input" id="customerphone" type="text" placeholder="Client Phone Number">
+                        <input class="form-control" id="customerphone" type="text" placeholder="Client Phone Number">
                     </div>
                     <div class="col-2">
                         <label for="expire-date" class=" form-control-label">Personal Phone</label>
                     </div>
                     <div class="col-3">
-                        <input class="form-input" id="personalphone" type="text" placeholder="Personal Phone">
+                        <input class="form-control" id="personalphone" type="text" placeholder="Personal Phone">
                     </div>
 
                 </div>
@@ -166,13 +166,13 @@
                         <label class=" form-control-label">Shipping Address</label>
                     </div>
                     <div class="col-3">
-                        <input class="form-input" id="addressofdelivery" type="text" placeholder="Shipping Address">
+                        <input class="form-control" id="addressofdelivery" type="text" placeholder="Shipping Address">
                     </div>
                     <div class="col-2">
                         <label for="expire-date" class=" form-control-label">Writer Name</label>
                     </div>
                     <div class="col-3">
-                        <input class="form-input" id="nameofdev" type="text" placeholder="Writer Name">
+                        <input class="form-control" id="nameofdev" type="text" placeholder="Writer Name">
                     </div>
 
                 </div>
@@ -182,7 +182,7 @@
                         <label>Order Date</label>
                     </div>
                     <div class="col-3">
-                        <input type="date" id="orderdate" placeholder="Order Date" class="form-input">
+                        <input type="date" id="orderdate" placeholder="Order Date" class="form-control">
                     </div>
                 </div>
 
@@ -197,23 +197,23 @@
                             </div>
 
                             <div class="col-2">
-                                <input class="form-input" type="text" placeholder="Product Category" id="pro1category">
+                                <input class="form-control" type="text" placeholder="Product Category" id="pro1category">
                             </div>
 
                             <div class="col-2">
-                                <input class="form-input" type="text" placeholder="Product Description" id="pro1description">
+                                <input class="form-control" type="text" placeholder="Product Description" id="pro1description">
                             </div>
 
                             <div class="col-2">
-                                <input class="form-input" type="text" placeholder="Quantity Available" id="pro1quantityavailable">
+                                <input class="form-control" type="text" placeholder="Quantity Available" id="pro1quantityavailable">
                             </div>
 
                             <div class="col-2">
-                                <input class="form-input" type="text" placeholder="Quantity Ordered" id="pro1quantityorder">
+                                <input class="form-control" type="text" placeholder="Quantity Ordered" id="pro1quantityorder">
                             </div>
 
                             <div class="col-2">
-                                <input class="form-input" type="text" placeholder="Unit Price" id="pro1unitprice"
+                                <input class="form-control" type="text" placeholder="Unit Price" id="pro1unitprice"
                                     onkeypress="add_new(event)">
 
                             </div>
@@ -444,23 +444,23 @@
 
             var para1 = document.createTextNode(index + ".");
             input1.setAttribute('type', 'text')
-            input1.setAttribute('class', 'form-input')
+            input1.setAttribute('class', 'form-control')
             input1.setAttribute('id', 'proname'+index)
 
             input2.setAttribute('type', 'text');
-            input2.setAttribute('class', 'form-input')
+            input2.setAttribute('class', 'form-control')
             input2.setAttribute('id', 'prodesc'+index)
 
             input3.setAttribute('type', 'text')
-            input3.setAttribute('class', 'form-input')
+            input3.setAttribute('class', 'form-control')
             input3.setAttribute('id', 'proavail'+index)
 
             input4.setAttribute('type', 'text')
-            input4.setAttribute('class', 'form-input')
+            input4.setAttribute('class', 'form-control')
             input4.setAttribute('id', 'prodelivr'+index)
 
             input5.setAttribute('type', 'text')
-            input5.setAttribute('class', 'form-input')
+            input5.setAttribute('class', 'form-control')
             input5.setAttribute('id', 'proprice'+index)
             input5.setAttribute('onkeypress', 'add_new(event)')
 
@@ -507,23 +507,23 @@
             //                     </div>
 
             //                     <div class="col-2">
-            //                         <input class="form-input" type="text" placeholder="Product Category" id="pro`+ index + `category">
+            //                         <input class="form-control" type="text" placeholder="Product Category" id="pro`+ index + `category">
             //                     </div>
 
             //                     <div class="col-2">
-            //                         <input class="form-input" type="text" placeholder="Product Description" id="pro`+ index + `description">
+            //                         <input class="form-control" type="text" placeholder="Product Description" id="pro`+ index + `description">
             //                     </div>
 
             //                     <div class="col-2">
-            //                         <input class="form-input" type="text" placeholder="Quantity Available" id="pro`+ index + `quantityavailable">
+            //                         <input class="form-control" type="text" placeholder="Quantity Available" id="pro`+ index + `quantityavailable">
             //                     </div>
 
             //                     <div class="col-2">
-            //                         <input class="form-input" type="text" placeholder="Quantity Ordered" id="pro`+ index + `quantityorder">
+            //                         <input class="form-control" type="text" placeholder="Quantity Ordered" id="pro`+ index + `quantityorder">
             //                     </div>
 
             //                     <div class="col-2">
-            //                         <input class="form-input" type="text" placeholder="Unit Price" id="pro`+ index + `unitprice" onkeypress="add_new(event)">
+            //                         <input class="form-control" type="text" placeholder="Unit Price" id="pro`+ index + `unitprice" onkeypress="add_new(event)">
             //                     </div>
             //                 </div>
             //             </div>
