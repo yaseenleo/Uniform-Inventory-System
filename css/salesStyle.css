@@ -424,8 +424,9 @@
 /* Attendence section */
 
 .attendance-input-section{
-	width: 60%;
+	width: 70%;
 	margin: 0 auto;
+	margin-bottom: 3em !important;
 }
 
 /* sttendence section end */

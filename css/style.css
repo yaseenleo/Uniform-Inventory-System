@@ -2,7 +2,10 @@
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.home-link{
+    color: white;
 
+}
 .bg-img{
     background: url(../assets/img/fashion-1031469_1280.jpg);
     position: relative;

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Attendane System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/salesStyle.css" />
 
     <!-- bootstrap -->
@@ -12,6 +13,47 @@
         crossorigin="anonymous">
 </head>
 <body>
+        <nav class="navbar navbar-expand-lg bg-primary">
+                <div class="container">
+                    <div class="navbar-translate">
+                        <a href="index.html" class="navbar-brand home-link">Uniform Inventory</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse justify-center">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="active nav-item">
+                                <a href="pages/src/sales/sales.html" class="nav-link">
+                                    Sales
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/src/production/productionLine.html" class="nav-link">
+                                    Production
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/src/purchase/purchase.html" class="nav-link">
+                                    Purchase
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="attendance.html" class="nav-link">
+                                    Attendance
+                                </a>
+                            </li>
+                        </ul>
+        
+                    </div>
+                </div>
+            </nav>
+    <div class="container-fluid">
+        <div class="container">
+
         <div class="row">
                 <div class="col-12 text-center">
                     <img src="../../../assets/img/logo.png" class="rounded mx-auto logo" alt="logo">
@@ -20,10 +62,10 @@
 <div class="form-group attendance-input-section">
     <div class="row">
         <div class="col-8">
-            <input type="text" id="staff" class="form-control">
+            <input type="text" id="staff" class="form-control form-control-lg">
         </div>
         <div class="col-3">
-            <button onclick="addemployee()" class="btn btn-success">Submit</button>
+            <button onclick="addemployee()" class="btn btn-success btn-lg">Submit</button>
         </div>
     </div>
 </div>
@@ -42,8 +84,10 @@
                 </table>
                 <button onclick="exportToExcel('para');" style="color: blueviolet; background-color: black;">Download Excel</button>
 
+            </div>
 
- 
+            </div>
+
         <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
         <script>
           // Initialize Firebase

@@ -314,7 +314,7 @@ function generateInvoiceData(applyInvoiceData) {
     $("#invoice-date-g").append(invoiceDate);
     $("#invoice-num-g").append(invoiceNum);
     $("#cust-id-g").append(invoiceCustId);
-    
+
     // Bill to input value
     var invoiceBillName = document.getElementById("invoice-bill-name").value;
     var invoiceBillCompany = document.getElementById("invoice-bill-company").value;
@@ -498,15 +498,15 @@ function generatePayReceiptData(applyReceiptData) {
     $("#pay-amount5-g").append(payAmount5);
 
 
-    
-        var arr = document.getElementsByName('pay-amount');
-        var tot=0;
-        for(var i=0;i<arr.length;i++)
-            if(parseInt(arr[i].value))
-                tot += parseInt(arr[i].value);
-        
-        document.getElementById('total').innerHTML = tot;
-    
+
+    var arr = document.getElementsByName('pay-amount');
+    var tot = 0;
+    for (var i = 0; i < arr.length; i++)
+        if (parseInt(arr[i].value))
+            tot += parseInt(arr[i].value);
+
+    document.getElementById('total').innerHTML = tot;
+
 
 
     document.getElementById("pay-container").innerHTML = document.getElementById(applyReceiptData).innerHTML;
@@ -517,62 +517,62 @@ function generatePayReceiptData(applyReceiptData) {
 
 // sales delivery note
 
-function generateDeliveryNote(applyDeliveryNoteData){
+function generateDeliveryNote(applyDeliveryNoteData) {
 
     // basic info
-var delivDate = document.getElementById("dlvry-odr-date").value;
-var delivOdrNum = document.getElementById("dlvry-odr-no").value;
-var delivNoteNum = document.getElementById("dlvry-note-no").value;
-var delivCustId = document.getElementById("dlvry-cust-id").value;
-var delivDispatchDate = document.getElementById("dlvry-dispch-date").value;
-var delivMethod = document.getElementById("dlvry-method").value;
+    var delivDate = document.getElementById("dlvry-odr-date").value;
+    var delivOdrNum = document.getElementById("dlvry-odr-no").value;
+    var delivNoteNum = document.getElementById("dlvry-note-no").value;
+    var delivCustId = document.getElementById("dlvry-cust-id").value;
+    var delivDispatchDate = document.getElementById("dlvry-dispch-date").value;
+    var delivMethod = document.getElementById("dlvry-method").value;
 
-$("#dlvry-odr-date-g").append(delivDate);
-$("#dlvry-odr-no-g").append(delivOdrNum);
-$("#dlvry-note-no-g").append(delivNoteNum);
-$("#dlvry-cust-id-g").append(delivCustId);
-$("#dlvry-dispch-date-g").append(delivDispatchDate);
-$("#dlvry-method-g").append(delivMethod);
+    $("#dlvry-odr-date-g").append(delivDate);
+    $("#dlvry-odr-no-g").append(delivOdrNum);
+    $("#dlvry-note-no-g").append(delivNoteNum);
+    $("#dlvry-cust-id-g").append(delivCustId);
+    $("#dlvry-dispch-date-g").append(delivDispatchDate);
+    $("#dlvry-method-g").append(delivMethod);
 
     // bill to
-var delivBillName = document.getElementById("dlvry-bill-name").value;
-var delivBillComp = document.getElementById("dlvry-bill-company").value;
-var delivBillAddress = document.getElementById("dlvry-bill-address").value;
-var delivBillCity = document.getElementById("dlvry-bill-city").value;
-var delivBillPh = document.getElementById("dlvry-bill-phone").value;
+    var delivBillName = document.getElementById("dlvry-bill-name").value;
+    var delivBillComp = document.getElementById("dlvry-bill-company").value;
+    var delivBillAddress = document.getElementById("dlvry-bill-address").value;
+    var delivBillCity = document.getElementById("dlvry-bill-city").value;
+    var delivBillPh = document.getElementById("dlvry-bill-phone").value;
 
-$("#dlvry-bill-name-g").append(delivBillName);
-$("#dlvry-bill-company-g").append(delivBillComp);
-$("#dlvry-bill-address-g").append(delivBillAddress);
-$("#dlvry-bill-city-g").append(delivBillCity);
-$("#dlvry-bill-phone-g").append(delivBillPh);
+    $("#dlvry-bill-name-g").append(delivBillName);
+    $("#dlvry-bill-company-g").append(delivBillComp);
+    $("#dlvry-bill-address-g").append(delivBillAddress);
+    $("#dlvry-bill-city-g").append(delivBillCity);
+    $("#dlvry-bill-phone-g").append(delivBillPh);
 
     // ship to
-var delivShipName = document.getElementById("dlvry-ship-name").value;
-var delivShipComp = document.getElementById("dlvry-ship-company").value;
-var delivShipAddress= document.getElementById("dlvry-ship-address").value;
-var delivShipCity = document.getElementById("dlvry-ship-city").value;
-var delivShipPh = document.getElementById("dlvry-ship-phone").value;
-    
-$("#dlvry-ship-name-g").append(delivShipName);
-$("#dlvry-ship-company-g").append(delivShipComp);
-$("#dlvry-ship-address-g").append(delivShipAddress);
-$("#dlvry-ship-city-g").append(delivShipCity);
-$("#dlvry-ship-phone-g").append(delivShipPh);
+    var delivShipName = document.getElementById("dlvry-ship-name").value;
+    var delivShipComp = document.getElementById("dlvry-ship-company").value;
+    var delivShipAddress = document.getElementById("dlvry-ship-address").value;
+    var delivShipCity = document.getElementById("dlvry-ship-city").value;
+    var delivShipPh = document.getElementById("dlvry-ship-phone").value;
+
+    $("#dlvry-ship-name-g").append(delivShipName);
+    $("#dlvry-ship-company-g").append(delivShipComp);
+    $("#dlvry-ship-address-g").append(delivShipAddress);
+    $("#dlvry-ship-city-g").append(delivShipCity);
+    $("#dlvry-ship-phone-g").append(delivShipPh);
 
 
     // delivery items list
     // 1
 
-var dlvryDesc1 = document.getElementById("dlvry-descipt-1").value;
-var dlvryodr1 = document.getElementById("dlvry-odr-1").value;
-var dlvryDelivered1 = document.getElementById("dlvry-delivered-1").value;;
-var dlvryStatus1 = document.getElementById("dlvry-outstand-1").value;
+    var dlvryDesc1 = document.getElementById("dlvry-descipt-1").value;
+    var dlvryodr1 = document.getElementById("dlvry-odr-1").value;
+    var dlvryDelivered1 = document.getElementById("dlvry-delivered-1").value;;
+    var dlvryStatus1 = document.getElementById("dlvry-outstand-1").value;
 
-$("#dlvry-descipt-1-g").append(dlvryDesc1);
-$("#dlvry-odr-1-g").append(dlvryodr1);
-$("#dlvry-delivered-1-g").append(dlvryDelivered1);
-$("#dlvry-outstand-1-g").append(dlvryStatus1);
+    $("#dlvry-descipt-1-g").append(dlvryDesc1);
+    $("#dlvry-odr-1-g").append(dlvryodr1);
+    $("#dlvry-delivered-1-g").append(dlvryDelivered1);
+    $("#dlvry-outstand-1-g").append(dlvryStatus1);
 
     // 2
 
@@ -580,47 +580,98 @@ $("#dlvry-outstand-1-g").append(dlvryStatus1);
     var dlvryodr2 = document.getElementById("dlvry-odr-2").value;
     var dlvryDelivered2 = document.getElementById("dlvry-delivered-2").value;;
     var dlvryStatus2 = document.getElementById("dlvry-outstand-2").value;
-    
+
     $("#dlvry-descipt-2-g").append(dlvryDesc2);
     $("#dlvry-odr-2-g").append(dlvryodr2);
     $("#dlvry-delivered-2-g").append(dlvryDelivered2);
     $("#dlvry-outstand-2-g").append(dlvryStatus2);
-    
+
     // 3
     var dlvryDesc3 = document.getElementById("dlvry-descipt-3").value;
     var dlvryodr3 = document.getElementById("dlvry-odr-3").value;
     var dlvryDelivered3 = document.getElementById("dlvry-delivered-3").value;;
     var dlvryStatus3 = document.getElementById("dlvry-outstand-3").value;
-    
+
     $("#dlvry-descipt-3-g").append(dlvryDesc3);
     $("#dlvry-odr-3-g").append(dlvryodr3);
     $("#dlvry-delivered-3-g").append(dlvryDelivered3);
     $("#dlvry-outstand-3-g").append(dlvryStatus3);
-    
+
     // 4
 
     var dlvryDesc4 = document.getElementById("dlvry-descipt-4").value;
     var dlvryodr4 = document.getElementById("dlvry-odr-4").value;
     var dlvryDelivered4 = document.getElementById("dlvry-delivered-4").value;;
     var dlvryStatus4 = document.getElementById("dlvry-outstand-4").value;
-    
+
     $("#dlvry-descipt-4-g").append(dlvryDesc4);
     $("#dlvry-odr-4-g").append(dlvryodr4);
     $("#dlvry-delivered-4-g").append(dlvryDelivered4);
     $("#dlvry-outstand-4-g").append(dlvryStatus4);
-    
+
     // 5
 
     var dlvryDesc5 = document.getElementById("dlvry-descipt-5").value;
-var dlvryodr5 = document.getElementById("dlvry-odr-5").value;
-var dlvryDelivered5 = document.getElementById("dlvry-delivered-5").value;;
-var dlvryStatus5 = document.getElementById("dlvry-outstand-5").value;
+    var dlvryodr5 = document.getElementById("dlvry-odr-5").value;
+    var dlvryDelivered5 = document.getElementById("dlvry-delivered-5").value;;
+    var dlvryStatus5 = document.getElementById("dlvry-outstand-5").value;
 
-$("#dlvry-descipt-5-g").append(dlvryDesc5);
-$("#dlvry-odr-5-g").append(dlvryodr5);
-$("#dlvry-delivered-5-g").append(dlvryDelivered5);
-$("#dlvry-outstand-5-g").append(dlvryStatus5);
-""
-document.getElementById("delivery-note-container").innerHTML = document.getElementById(applyDeliveryNoteData).innerHTML
+    $("#dlvry-descipt-5-g").append(dlvryDesc5);
+    $("#dlvry-odr-5-g").append(dlvryodr5);
+    $("#dlvry-delivered-5-g").append(dlvryDelivered5);
+    $("#dlvry-outstand-5-g").append(dlvryStatus5);
+    ""
+    document.getElementById("delivery-note-container").innerHTML = document.getElementById(applyDeliveryNoteData).innerHTML
 }
 
+// purchase order
+
+function generatePurchaseData(applyPurchaseData){
+// basic
+var purDate = document.getElementById("pur-date").value;
+var purPO = document.getElementById("pur-po").value;
+
+$("#pur-date-g").append(purDate);
+$("#pur-po-g").append(purPO);
+
+// vender info
+var purVenName = document.getElementById("pur-name").value;
+var purVenCompName = document.getElementById("pur-company-name").value;
+var purVenAddress = document.getElementById("pur-vender-address").value;
+var purVenCity = document.getElementById("pur-vender-city").value;
+var purVenPh = document.getElementById("pur-vender-phone").value;
+
+$("#pur-name-g").append(purVenName);
+$("#pur-company-name-g").append(purVenCompName);
+$("#pur-vender-address-g").append(purVenAddress);
+$("#pur-vender-city-g").append(purVenCity);
+$("#pur-vender-phone-g").append(purVenPh);
+
+// ship info
+var purShipName = document.getElementById("pur-ship-name").value;
+var purShipCompName = document.getElementById("pur-ship-company-name").value;
+var purShipAddress = document.getElementById("pur-ship-address").value;
+var purShipCity = document.getElementById("pur-ship-city").value;
+var purShipPh = document.getElementById("pur-ship-phone").value;
+
+$("#pur-ship-name-g").append(purShipName);
+$("#pur-ship-company-name-g").append(purShipCompName);
+$("#pur-ship-address-g").append(purShipAddress);
+$("#pur-ship-city-g").append(purShipCity);
+$("#pur-ship-phone-g").append(purShipPh);
+
+//shipping info
+var purRequsher = document.getElementById("pur-requs").value;
+var purShipVia = document.getElementById("pur-ship-via").value;
+var purFOB = document.getElementById("pur-fob").value;
+var purShipTerm = document.getElementById("pur-ship-term").value;
+
+$("#pur-requs-g").append(purRequsher);
+$("#pur-ship-via-g").append(purShipVia);
+$("#pur-fob-g").append(purFOB);
+$("#pur-ship-term-g").append(purShipTerm);
+
+
+document.getElementById("purchase-container").innerHTML = document.getElementById(applyPurchaseData).innerHTML
+}
+// purchase order end
