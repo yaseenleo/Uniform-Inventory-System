@@ -31,7 +31,8 @@
 /* table */
 
 .td-cells{
-    height: 34px !important;
+	/* height: 34px !important; */
+	padding: 0px !important;
 }
 
 .border-none{
@@ -63,6 +64,10 @@
 
 .packing-supply{
 	margin-bottom: 3em;
+}
+
+.packing-lists th{
+	font-size: 15px;
 }
 /* sales end */
 
