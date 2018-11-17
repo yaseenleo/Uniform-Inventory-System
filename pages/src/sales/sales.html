@@ -306,7 +306,7 @@
                         </tr>
 
                     <tbody id="create-lists">
-                        <tr>
+                         <!-- <tr>
                             <td scope="row">1</td>
                             <td class="category"></td>
                             <td class="description"></td>
@@ -334,11 +334,11 @@
                             <td class="qtyorder"></td>
                             <td class="unitprice"></td>
                             <td class="totalprice"></td>
-                        </tr>
-                        <tr>
+                        </tr> -->
+                        <!-- <tr> 
                             <td colspan="6">Total</td>
                             <td colspan="1" id="grandtotal"></td>
-                        </tr>
+                        </tr> -->
 
                     </tbody>
                     </thead>
@@ -419,124 +419,8 @@
 <script src="../../../js/app.js"></script>
 
 <script>
-    let index = 1;
-    function add_new(e) {
-        e = e || window.event;
-        console.log(e.key);
-        console.log(e);
-        if (e.key === "Enter") {
-            index++;
-
-            const rowDiv = document.createElement('div');
-            const col1Div = document.createElement('div');
-            const col2Div = document.createElement('div');
-            const col3Div = document.createElement('div');
-            const col4Div = document.createElement('div');
-            const col5Div = document.createElement('div');
-            const col6Div = document.createElement('div');
-
-            let para = document.createElement('h4');
-            let input1 = document.createElement('input');
-            let input2 = document.createElement('input');
-            let input3 = document.createElement('input');
-            let input4 = document.createElement('input');
-            let input5 = document.createElement('input');
-
-            var para1 = document.createTextNode(index + ".");
-            input1.setAttribute('type', 'text')
-            input1.setAttribute('class', 'form-control')
-            input1.setAttribute('id', 'proname'+index)
-
-            input2.setAttribute('type', 'text');
-            input2.setAttribute('class', 'form-control')
-            input2.setAttribute('id', 'prodesc'+index)
-
-            input3.setAttribute('type', 'text')
-            input3.setAttribute('class', 'form-control')
-            input3.setAttribute('id', 'proavail'+index)
-
-            input4.setAttribute('type', 'text')
-            input4.setAttribute('class', 'form-control')
-            input4.setAttribute('id', 'prodelivr'+index)
-
-            input5.setAttribute('type', 'text')
-            input5.setAttribute('class', 'form-control')
-            input5.setAttribute('id', 'proprice'+index)
-            input5.setAttribute('onkeypress', 'add_new(event)')
-
-            rowDiv.classList.add('row')
-            col1Div.classList.add('small-col')
-            col2Div.classList.add('col-2', 'bordered');
-            col3Div.classList.add('col-2', 'bordered');
-            col4Div.classList.add('col-2', 'bordered');
-            col5Div.classList.add('col-2', 'bordered');
-            col6Div.classList.add('col-2', 'bordered');
-
-            rowDiv.appendChild(col1Div)
-            rowDiv.appendChild(col2Div);
-            rowDiv.appendChild(col3Div);
-            rowDiv.appendChild(col4Div);
-            rowDiv.appendChild(col5Div);
-            rowDiv.appendChild(col6Div);
-
-            para.appendChild(para1)
-            col1Div.appendChild(para);
-            col2Div.appendChild(input1);
-            col3Div.appendChild(input2);
-            col4Div.appendChild(input3);
-            col5Div.appendChild(input4);
-            col6Div.appendChild(input5);
-            console.log(rowDiv);
-
-
-            document.getElementById('container').appendChild(rowDiv);
-            
-            function show(param_div_id) {
-
-            var listsPrint = document.getElementById("create-lists")
-            
-            var pInput1 = 
-            document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
-
-}
-            // let node = document.createElement("Div");
-            // let str = `  <div class="product-detail-list">
-            //                 <div class="row">
-            //                     <div class=" small-col">
-            //                         <h4>`+ index + "." + `</h4>
-            //                     </div>
-
-            //                     <div class="col-2">
-            //                         <input class="form-control" type="text" placeholder="Product Category" id="pro`+ index + `category">
-            //                     </div>
-
-            //                     <div class="col-2">
-            //                         <input class="form-control" type="text" placeholder="Product Description" id="pro`+ index + `description">
-            //                     </div>
-
-            //                     <div class="col-2">
-            //                         <input class="form-control" type="text" placeholder="Quantity Available" id="pro`+ index + `quantityavailable">
-            //                     </div>
-
-            //                     <div class="col-2">
-            //                         <input class="form-control" type="text" placeholder="Quantity Ordered" id="pro`+ index + `quantityorder">
-            //                     </div>
-
-            //                     <div class="col-2">
-            //                         <input class="form-control" type="text" placeholder="Unit Price" id="pro`+ index + `unitprice" onkeypress="add_new(event)">
-            //                     </div>
-            //                 </div>
-            //             </div>
-
-            //         </div>`;
-
-            // node.innerHTML = str;
-            // document.getElementById("product_list").appendChild(node)
-
-        }
-
-
-    }
+  //  let index = 1;
+    
 
 
 </script>

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#sidebarCollapse').on('click', function () {
+        $('#sidebarCollapse').on('click', function () {
         $('#sidebar').toggleClass('active');
     });
 });
@@ -134,7 +134,6 @@ function show(param_div_id) {
     $("#clientname").append(g);
     $("#status").append("Sales Order");
     $("#customerphones").append(d);
-
     document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
 
 }
