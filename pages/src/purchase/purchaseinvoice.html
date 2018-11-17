@@ -116,7 +116,7 @@
             <div class="invoice-container" id="invoice-main">
                 <div class="row">
                     <div class="col-12">
-                        <img src="../../../assets/img/optimized-logo.png" class="rounded float-right logo" alt="logo">
+                        <img src="../../../assets/img/optimized-logo.png" class="rounded float-right md-logo" alt="logo">
                     </div>
                 </div>
                 <div class="packing-slip-header">
@@ -320,7 +320,7 @@
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody id="pi-create-list">
                             <tr class="d-flex">
                                 <td class="td-cells col-2"><input id="invoice-item-id-1" type="text" class="form-control"></td>
                                 <td class="td-cells col-4"><input id="invoice-item-description-1" type="text" class="form-control"></td>
@@ -353,7 +353,7 @@
                                 <td class="td-cells col-4"><input id="invoice-item-description-4" type="text" class="form-control"></td>
                                 <td class="td-cells col-2"><input id="invoice-qty-4" type="text" class="form-control"></td>
                                 <td class="td-cells col-2"><input id="invoice-unit-price-4" type="text" class="form-control"></td>
-                                <td class="td-cells col-2"><input id="invoice-tax-4" type="text" class="form-control"></td>
+                                <td class="td-cells col-2"><input id="invoice-tax-4" type="text" class="form-control" onkeypress="pi_add_list(event)"></td>
                                 <!-- <td class="td-cells" id="invoice-total-4"></td> -->
                             </tr>
                         </tbody>
@@ -419,7 +419,7 @@
             <div class="invoice-container" id="generate-invoice" style="max-width: none; display: none;">
                 <div class="row">
                     <div class="col-12">
-                        <img src="../../../assets/img/optimized-logo.png" class="rounded float-right logo" alt="logo">
+                        <img src="../../../assets/img/optimized-logo.png" class="rounded float-right md-logo" alt="logo">
                     </div>
                 </div>
                 <div class="packing-slip-header">
@@ -690,5 +690,70 @@
     crossorigin="anonymous"></script>
 
 <script src="../../../js/app.js"></script>
+
+<script>
+
+    var piRow = 4
+    function pi_add_list(e) {
+        e = e || window.event;
+        console.log(e.key);
+        console.log(e);
+        if (e.key === "Enter") {
+            piRow++;
+    
+        var piTr = document.createElement('tr');
+        var piTd1 = document.createElement('td');
+        var piTd2 = document.createElement('td');
+        var piTd3 = document.createElement('td');
+        var piTd4 = document.createElement('td');
+        var piTd5 = document.createElement('td');
+    
+        piTr.classList.add('d-flex');
+        piTd1.classList.add('td-cells', 'col-2');
+        piTd2.classList.add('td-cells', 'col-4');
+        piTd3.classList.add('td-cells', 'col-2');
+        piTd4.classList.add('td-cells', 'col-2');
+        piTd5.classList.add('td-cells', 'col-2');
+    
+        var piInput1 = document.createElement('input');
+        var piInput2 = document.createElement('input');
+        var piInput3 = document.createElement('input');
+        var piInput4 = document.createElement('input');
+        var piInput5 = document.createElement('input');
+    
+        piInput1.classList.add('form-control');
+        piInput2.classList.add('form-control');
+        piInput3.classList.add('form-control');
+        piInput4.classList.add('form-control');
+        piInput5.classList.add('form-control');
+    
+        piInput1.setAttribute('id','invoice-item-id-'+piRow, 'type','text');
+        piInput1.setAttribute('type','text');
+        piInput2.setAttribute('id','invoice-item-description-'+piRow, 'type','text');
+        piInput2.setAttribute('type','text');    
+        piInput3.setAttribute('id','invoice-qty-'+piRow, 'type','number');
+        piInput3.setAttribute('type','number');
+        piInput4.setAttribute('id','invoice-unit-price-'+piRow, 'type','number');
+        piInput4.setAttribute('type','number');
+        piInput5.setAttribute('id','invoice-tax-'+piRow, 'type','number');
+        piInput5.setAttribute('type','number');
+    
+        piTd1.appendChild(piInput1);
+        piTd2.appendChild(piInput2);
+        piTd3.appendChild(piInput3);
+        piTd4.appendChild(piInput4);
+        piTd5.appendChild(piInput5);
+    
+        piTr.appendChild(piTd1);
+        piTr.appendChild(piTd2);
+        piTr.appendChild(piTd3);
+        piTr.appendChild(piTd4);
+        piTr.appendChild(piTd5);
+    
+        console.log(piTr);
+        document.getElementById('pi-create-list').appendChild(piTr)
+    }
+    }
+    </script>
 
 </html>
