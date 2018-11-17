@@ -154,6 +154,74 @@ function shows(param_div_id) {
 
 }
 
+function shower(param_div_id) {
+    let whole_total =0;
+    let tdata = '';
+    for(let i=1 ; i <= row ; i++){
+        sales_table_array.push({"category":document.getElementById('pro'+i+'category').value,
+                             "description":document.getElementById('pro'+i+'description').value,
+                             "quantityavailable":parseInt(document.getElementById('pro'+i+'quantityavailable').value),
+                             "quantitytorder":parseInt(document.getElementById('pro'+i+'quantityorder').value),
+                             "unitprice":parseInt(document.getElementById('pro'+i+'unitprice').value),
+                             "total":parseInt(document.getElementById('pro'+i+'quantityorder').value)*parseInt(document.getElementById('pro'+i+'unitprice').value)
+    });
+    whole_total += sales_table_array[i-1].total;
+    tdata += `<tr><td>`+i+`.</td>
+    <td>`+sales_table_array[i-1].category+`</td>
+    <td>`+sales_table_array[i-1].description+`</td>
+    <td>`+sales_table_array[i-1].quantityavailable+`</td>
+    <td>`+sales_table_array[i-1].quantitytorder+`</td>
+    <td>`+sales_table_array[i-1].unitprice+`</td>
+    <td>`+sales_table_array[i-1].total+`</td>
+    </tr>`
+    }
+    tdata += `<tr><td colspan="6">Total</td>
+    <td colspan="1" id="grandtotal">`+whole_total+`</td></tr>`
+    
+    document.getElementById("create-lists").innerHTML = tdata;
+    alert(JSON.stringify(sales_table_array));
+
+    var a = document.getElementById('name').value;
+    var c = document.getElementById('deliverydate').value;
+    // alert(param_div_id);
+    var d = document.getElementById('customerphone').value;
+    var e = document.getElementById('personalphone').value;
+    var f = document.getElementById('addressofdelivery').value;
+    var g = document.getElementById('nameofdev').value;
+  var b = document.getElementById('from').value;
+  
+    var h = document.getElementById('to').value;
+        
+    
+  
+  
+    //  var newarray = proarray.join('<br>');
+   // var grandtotal = (totprice * 2) + sectotprice;
+    
+    
+   
+    $("#customerphones").append(a);
+   
+    
+    
+    $("#recdate").append(c);
+    
+    $("#deldate").append(d);
+    //  $("#idk").append(c);
+    
+    $("#personalphones").append(e);
+    
+    $("#addressofdeliverys").append(f);
+    
+    $("#clientname").append(g);
+    
+    $("#fstatus").append(b);
+    $("#tstatus").append(h);
+    
+    document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
+
+}
+
 
 
 

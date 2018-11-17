@@ -91,434 +91,313 @@
         </nav>
 
         <!-- Page Content  -->
-        <div id="content">
+       <div class="container sales-container" id="main_place">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+                <div class="text-center doc-head-text">
+                    <h2>Goods Receiving Note</h2>
+                </div>
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
+                <h2 class="main-subject">Order Details</h2>
+                <div class="row form-group">
+                    <div class="col-2">
+                        <label class="form-control-label">Order Number</label>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control" id="name" type="text" placeholder="Order Number">
+
+                    </div>
+                    <div class="col-2">
+                        <label for="expire-date" class="form-control-label">Delivery Note No.</label>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control" id="deliverydate" type="date" placeholder="Delivery Note No.">
+                    </div>
 
                 </div>
-            </nav>
 
-            <div class="container gr-container">
+                <div class="row form-group">
+                    <div class="col-2">
+                        <label for="date" class=" form-control-label">Invoice Number</label>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control" id="customerphone" type="text" placeholder="Invoice Number">
+                    </div>
+                    <div class="col-2">
+                        <label for="expire-date" class=" form-control-label">Requisition Number</label>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control" id="personalphone" type="text" placeholder="Requisition Number">
+                    </div>
 
-                <h1 class="text-center doc-head-text">Goods Receiving Note</h1>
+                </div>
 
-                <div class="">
+                <div class="row form-group">
+                    <div class="col-2">
+                        <label class=" form-control-label">Requisition By</label>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control" id="addressofdelivery" type="text" placeholder="Requisition By">
+                    </div>
+                    <div class="col-2">
+                        <label for="expire-date" class=" form-control-label">Date</label>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control" id="nameofdev" type="date" placeholder="Writer Name">
+                    </div>
 
-                    <div class="gr-info">
+                </div>
 
+              
+
+                <div class="row form-group">
+                    <div class="col-2">
+                        <label for="date" class=" form-control-label">From</label>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control" id="from" type="text" placeholder="From">
+                    </div>
+                    <div class="col-2">
+                        <label for="expire-date" class=" form-control-label">To</label>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control" id="to" type="text" placeholder="To">
+                    </div>
+
+                </div>
+
+                <div class="product-detail-container" id="product_list">
+
+                    <h2 class="main-subject">Goods Details</h2>
+                    <div class="product-detail-list" id="container">
                         <div class="row">
-                            <div class="col-6">
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>From: </p>
-                                    </div>
-
-                                    <div class="col-8">
-                                        <select name="" id="">
-                                            <option value="supplier">Supplier</option>
-                                            <option value="delivery">Delivery</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>To: </p>
-                                    </div>
-
-                                    <div class="col-8">
-                                        <select name="" id="">
-                                            <option value="delivery">Delivery</option>
-                                            <option value="supplier">Supplier</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div>
-
-                                </div>
-
+                            <div class=" small-col">
+                                <h4>1.</h4>
                             </div>
 
-                            <div class="col-6">
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Order No:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <input type="text" id="gr-order-num">
-                                    </div>
-
-                                    <!--fetch order number from purchase order-->
-
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Delivery Note No:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <input type="text" id="gr-delivey-num">
-                                    </div>
-
-                                    <!--fetch delievry number-->
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Invoice No:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <input type="text" id="gr-invoice-num">
-                                    </div>
-
-                                    <!--fetch purchase invoice number-->
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Requisition No:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <input type="text" id="gr-requisition-num">
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Requisition By:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <input type="text" id="gr-requisition-by">
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Date :</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <input type="date" id="gr-date">
-                                    </div>
-
-                                    <!--good receiving note generate date-->
-                                </div>
+                            <div class="col-2">
+                                <input class="form-control" type="text" placeholder="Item Details" id="pro1category">
                             </div>
+
+                            <div class="col-2">
+                                <input class="form-control" type="text" placeholder="Qty ordered" id="pro1description">
+                            </div>
+
+                            <div class="col-2">
+                                <input class="form-control" type="text" placeholder="Qty received" id="pro1quantityavailable">
+                            </div>
+
+                            <div class="col-2">
+                                <input class="form-control" type="text" placeholder="Product Name" id="pro1quantityorder">
+                            </div>
+
+                            <div class="col-2">
+                                <input class="form-control" type="text" placeholder="Unit Cost" id="pro1unitprice"
+                                    onkeypress="add_new(event)">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- <input type="text" placeholder="Product type" id="pro1totalprice"> -->
+
+
+            </div>
+
+            <div class="forms" style="max-width: none; display: none;" id="operation1">
+                <form action="" method="post" class="form-horizontal">
+                    <div class="row form-group">
+                        
+                        <div class="col-2">
+                            <label for="password-input" class=" form-control-label"><b>Order Number</b></label>
+                        </div>
+                        <div class="col-3" id="customerphones">
+
                         </div>
 
                     </div>
 
-                    <div class="container">
-                        <table class="table table-bordered" width="100%">
-                            <tr class="d-flex">
-                                <th class="col-1">Item No</th>
-                                <th class="col-2">Item Code</th>
-                                <!--for each item their is a constant code of the specified item-->
-                                <th class="col-4">Item Specification</th>
-                                <th class="col-2">Unit</th>
-                                <th class="col-3">Qty <br> Ordered</th>
-                                <th class="col-3">Qty <br> Received</th>
-                                <th class="col-2">Unit Cost</th>
-                                <th class="col-2">Total Value</th>
-                                <th class="col-2">Balance</th>
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label for="date" class=" form-control-label">Delivery Note No.</label>
+                        </div>
+                        <div class="col-3" id="recdate">
+                        </div>
+                        <div class="col-2">
+                            <label for="expire-date" class=" form-control-label">Invoice Number</label>
+                        </div>
+                        <div class="col-3" id="deldate">
+                        </div>
 
-                            </tr>
+                    </div>
 
-                            <tr class="d-flex">
-                                <td class="col-1">1</td>
-                                <td class="col-2"><input class="form-control" type="text"></td>
-                                <td class="col-4"><input class="form-control" type="text"></td>
-                                <td class="col-2"><input class="form-control" type="number"></td>
-                                <td class="col-3"><input class="form-control" type="number"></td>
-                                <td class="col-3"><input class="form-control" type="number"></td>
-                                <td class="col-2"><input class="form-control" type="number"></td>
-                                <td class="col-2"><input class="form-control" type="number"></td>
-                                <td class="col-2"><input class="form-control" type="number"></td>
-                            </tr>
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label for="phone" class=" form-control-label">Requisition Number</label>
+                        </div>
+                        <div class="col-3" id="personalphones">
+                            <!-- <input type="number" name="phone" class="form-control"> -->
+                        </div>
+                        <div class="col-2">
+                            <label for="ship" class=" form-control-label">Requisition By</label>
+                        </div>
+                        <div class="col-3" id="addressofdeliverys">
 
-                            <tr class="d-flex">
-                                <td class="col-1">2</td>
-                                <td class="col-2"><input class="form-control" type="text"></td>
-                                <td class="col-4"><input class="form-control" type="text"></td>
-                                <td class="col-2"><input class="form-control" type="number"></td>
-                                <td class="col-3"><input class="form-control" type="number"></td>
-                                <td class="col-3"><input class="form-control" type="number"></td>
-                                <td class="col-2"><input class="form-control" type="number"></td>
-                                <td class="col-2"><input class="form-control" type="number"></td>
-                                <td class="col-2"><input class="form-control" type="number"></td>
-                            </tr>
+                        </div>
 
-                            <tr class="d-flex">
-                                    <td class="col-1">2</td>
-                                    <td class="col-2"><input class="form-control" type="text"></td>
-                                    <td class="col-4"><input class="form-control" type="text"></td>
-                                    <td class="col-2"><input class="form-control" type="number"></td>
-                                    <td class="col-3"><input class="form-control" type="number"></td>
-                                    <td class="col-3"><input class="form-control" type="number"></td>
-                                    <td class="col-2"><input class="form-control" type="number"></td>
-                                    <td class="col-2"><input class="form-control" type="number"></td>
-                                    <td class="col-2"><input class="form-control" type="number"></td>
-                                </tr>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label for="product-number" class=" form-control-label">Date</label>
+                        </div>
+                        <div class="col-3" id="clientname">
+                            <!-- <input type="number" name="phone" class="form-control"> -->
+                        </div>
+
+
+                        <div class="col-2">
+                            <label for="sales-order-status">From</label>
+                        </div>
+                        <div class="col-3" id="fstatus">
+                            <!-- <input type="text" class="form-control" id="sales-order-status" value="Open"> -->
+                        </div>
+                    </div>
+                    
+                    
+                    
+                     <div class="row form-group">
+                      
+
+
+                        <div class="col-2">
+                            <label for="sales-order-status">To</label>
+                        </div>
+                        <div class="col-3" id="tstatus">
+                            <!-- <input type="text" class="form-control" id="sales-order-status" value="Open"> -->
+                        </div>
+                    </div>
+                    
+                    
+                </form>
+
+                <!-- product list section -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td scope="col">S.no</td>
+                            <td scope="col">Product Category</td>
+                            <td scope="col">Description</td>
+                            <td scope="col">Qty Avail</td>
+                            <td scope="col">Qty Order</td>
+                            <td scope="col">Unit Price</td>
+                            <td scope="col">Total Price</td>
+                        </tr>
+
+                    <tbody id="create-lists">
+                         <!-- <tr>
+                            <td scope="row">1</td>
+                            <td class="category"></td>
+                            <td class="description"></td>
+                            <td class="qtyavailable"></td>
+                            <td class="qtyorder"></td>
+                            <td class="unitprice"></td>
+                            <td class="totalprice"></td>
+                        </tr>
+
+                        <tr>
+                            <td scope="row">2</td>
+                            <td id="na"></td>
+                            <td id="ma"></td>
+                            <td id="oa"></td>
+                            <td id="pa"></td>
+                            <td id="qa"></td>
+                            <td id="ra"></td>
+                        </tr>
+
+                        <tr>
+                            <td scope="row">3</td>
+                            <td class="category"></td>
+                            <td class="description"></td>
+                            <td class="qtyavailable"></td>
+                            <td class="qtyorder"></td>
+                            <td class="unitprice"></td>
+                            <td class="totalprice"></td>
+                        </tr> -->
+                        <!-- <tr> 
+                            <td colspan="6">Total</td>
+                            <td colspan="1" id="grandtotal"></td>
+                        </tr> -->
+
+                    </tbody>
+                    </thead>
+                </table>
+
+
+                <!-- payment -->
+                <form action="#">
+                    <!-- 
+                        <div>
+                            <label for="">Order Total:</label>
+                            <div id="grandtotal"></div>
+                        </div> -->
+
+                    <fieldset class="the-fieldset">
+                        <legend class="the-legend">
+                            Parment Method
+                        </legend>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <label for="">type</label>
+                                <select name="payment-type" id="payment-type">
+                                    <option value="cash">cash</option>
+                                    <option value="check">check</option>
+                                    <option value="dept-card">Dept Card</option>
+                                </select>
+                            </div>
+
+                            <div class="col-3">
+                                <label for="">Date</label>
+                                <input class=" pay-input" type="date" name="payment-date" id="payment-date">
+                            </div>
+
+                            <div class="col-3">
+                                <label for="">Ref:</label>
+                                <input type="text" class=" pay-input">
+                            </div>
+
+                            <div class="col-3">
+                                <label for="">Exp Date:</label>
+                                <input type="date">
+                            </div>
+                        </div>
+
+                        <br>
+                        <!-- <div class="row">
+                                <div class="col-3">
+                                    <label for="">Amount</label>
+                                    <input type="text" id="">
+                                </div>
+                            </div> -->
+                    </fieldset>
+                </form>
+
+            </div>
+            <section class="color-1 text-center">
+                <p>
+                    <button onclick="shower('operation1')" class="btn btn-1 btn-1d">Generate</button>
+                </p>
+            </section>
     
-                                <tr class="d-flex">
-                                        <td class="col-1">2</td>
-                                        <td class="col-2"><input class="form-control" type="text"></td>
-                                        <td class="col-4"><input class="form-control" type="text"></td>
-                                        <td class="col-2"><input class="form-control" type="number"></td>
-                                        <td class="col-3"><input class="form-control" type="number"></td>
-                                        <td class="col-3"><input class="form-control" type="number"></td>
-                                        <td class="col-2"><input class="form-control" type="number"></td>
-                                        <td class="col-2"><input class="form-control" type="number"></td>
-                                        <td class="col-2"><input class="form-control" type="number"></td>
-                                    </tr>
+            </div>
+    
         
-                            <tr class="d-flex">
-                                <td class="col-1">2</td>
-                                <td class="col-2"><input class="form-control" type="text"></td>
-                                <td class="col-4"><input class="form-control" type="text"></td>
-                                <td class="col-2"><input class="form-control" type="number"></td>
-                                <td class="col-3"><input class="form-control" type="number"></td>
-                                <td class="col-3"><input class="form-control" type="number"></td>
-                                <td class="col-2"><input class="form-control" type="number"></td>
-                                <td class="col-2"><input class="form-control" type="number"></td>
-                                <td class="col-2"><input class="form-control" type="number"></td>
-                            </tr>
-
-                                        
-
-                        </table>
-
-                        <div class="">
-                            <div class="row">
-                                <div class="col-2">
-                                    <p>Stores Officer: <span id="store-incharge-name"></span></p>
-                                </div>
-
-                                <div class="col-2">
-                                    <p>Name: <span id="responsible-person-name"></span></p>
-                                </div>
-
-                                <div class="col-2">
-                                    <p>Signature: <span id="signature"></span></p>
-                                </div>
-
-                                <div class="col-2">
-                                    <p>Designation: <span id="person-designation"></span></p>
-                                </div>
-
-                                <div class="col-2">
-                                    <p>Date: <span id="issue date"></span></p>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-2">
-                                    <p>Remarks:</p>
-                                </div>
-
-                                <div class="col-8">
-                                    <span>......................................................</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="gr-type">
-                            <p>Distribution:Original (White Copy) - Account, Duplicate (Green) - User, Triplicate
-                                (Pink) - Purchase, Quadruplicate (Blue) - Store</p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- result grnote form -->
-            <div class="container gr-container" style="display:none">
-
-                <h1 class="text-center doc-head-text">Goods Receiving Note</h1>
-
-                <div class="">
-
-                    <div class="gr-info">
-
-                        <div class="row">
-                            <div class="col-6">
-                                <div>
-                                    <p>From: Supplier <span id="gr-supplier"></span></p>
-                                    <p>To: Delivery <span id="gr-delivery"></span></p>
-                                </div>
-
-                            </div>
-
-                            <div class="col-6">
-                                <p>Order No: <span id="order-num"></span></p>
-                                <!--fetch order number from purchase order-->
-                                <p>Delivery Note No: <span id="delivey-num"></span></p>
-                                <!--fetch delievry number-->
-                                <p>Invoice No: <span id="invoice-num"></span></p>
-                                <!--fetch purchase invoice number-->
-                                <p>Requisition No: <span id="requisition-num"></span></p>
-                                <p>Requisition By: <span id="requisition-by"></span></p>
-                                <p>Date: <span id="date"></span></p>
-                                <!--good receiving note generate date-->
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div>
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>Item No</th>
-                                <th>Item Code</th>
-                                <!--for each item their is a constant code of the specified item-->
-                                <th>Item Specification</th>
-                                <th>Unit</th>
-                                <th>Qty <br> Ordered</th>
-                                <th>Qty <br> Received</th>
-                                <th>Unit Cost</th>
-                                <th>Total Value</th>
-                                <th>Balance</th>
-
-                            </tr>
-
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </table>
-
-                        <div class="">
-                            <div class="row">
-                                <div class="col-2">
-                                    <p>Stores Officer: <span id="store-incharge-name"></span></p>
-                                </div>
-
-                                <div class="col-2">
-                                    <p>Name: <span id="responsible-person-name"></span></p>
-                                </div>
-
-                                <div class="col-2">
-                                    <p>Signature: <span id="signature"></span></p>
-                                </div>
-
-                                <div class="col-2">
-                                    <p>Designation: <span id="person-designation"></span></p>
-                                </div>
-
-                                <div class="col-2">
-                                    <p>Date: <span id="issue date"></span></p>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-2">
-                                    <p>Remarks:</p>
-                                </div>
-
-                                <div class="col-8">
-                                    <span>......................................................</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="gr-type">
-                            <p>Distribution:Original (White Copy) - Account, Duplicate (Green) - User, Triplicate
-                                (Pink) - Purchase, Quadruplicate (Blue) - Store</p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-            <!-- result grnote form end -->
-        </div>
     </div>
-
+    <!-- <p id="n"></p> -->
+    <!-- <button onclick="waqaskhan();">Submit</button>
+<input type="button" id="create_pdf" value="Generate PDF">  -->
+   
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -529,5 +408,12 @@
     crossorigin="anonymous"></script>
 
 <script src="../../../js/app.js"></script>
+
+<script>
+  //  let index = 1;
+    
+
+
+</script>
 
 </html>
