@@ -45,7 +45,7 @@ function add_new(e) {
 
         input4.setAttribute('type', 'text')
         input4.setAttribute('class', 'form-control')
-        input4.setAttribute('id','pro'+row+'quantityorder')
+        input4.setAttribute('id','pro'+row+'unitprice')
         input4.setAttribute('onkeypress', 'add_new(event)')
 
         // input5.setAttribute('type', 'text')
@@ -83,6 +83,54 @@ function add_new(e) {
 
 // form data generate
 function shows(param_div_id) {
+
+
+    // basic
+    var purDate = document.getElementById("pur-date").value;
+    var purPO = document.getElementById("pur-po").value;
+    
+    $("#pur-date-g").append(purDate);
+    $("#pur-po-g").append(purPO);
+    
+    // vender info
+    var purVenName = document.getElementById("pur-name").value;
+    var purVenCompName = document.getElementById("pur-company-name").value;
+    var purVenAddress = document.getElementById("pur-vender-address").value;
+    var purVenCity = document.getElementById("pur-vender-city").value;
+    var purVenPh = document.getElementById("pur-vender-phone").value;
+    
+    $("#pur-name-g").append(purVenName);
+    $("#pur-company-name-g").append(purVenCompName);
+    $("#pur-vender-address-g").append(purVenAddress);
+    $("#pur-vender-city-g").append(purVenCity);
+    $("#pur-vender-phone-g").append(purVenPh);
+    
+    // ship info
+    var purShipName = document.getElementById("pur-ship-name").value;
+    var purShipCompName = document.getElementById("pur-ship-company-name").value;
+    var purShipAddress = document.getElementById("pur-ship-address").value;
+    var purShipCity = document.getElementById("pur-ship-city").value;
+    var purShipPh = document.getElementById("pur-ship-phone").value;
+    
+    $("#pur-ship-name-g").append(purShipName);
+    $("#pur-ship-company-name-g").append(purShipCompName);
+    $("#pur-ship-address-g").append(purShipAddress);
+    $("#pur-ship-city-g").append(purShipCity);
+    $("#pur-ship-phone-g").append(purShipPh);
+    
+    //shipping info
+    var purRequsher = document.getElementById("pur-requs").value;
+    var purShipVia = document.getElementById("pur-ship-via").value;
+    var purFOB = document.getElementById("pur-fob").value;
+    var purShipTerm = document.getElementById("pur-ship-term").value;
+    
+    $("#pur-requs-g").append(purRequsher);
+    $("#pur-ship-via-g").append(purShipVia);
+    $("#pur-fob-g").append(purFOB);
+    $("#pur-ship-term-g").append(purShipTerm);
+    
+
+
     let whole_total =0;
     let tdata = '';
     for(let i=1 ; i <= row ; i++){
@@ -94,55 +142,182 @@ function shows(param_div_id) {
                              "total":parseInt(document.getElementById('pro'+i+'quantityavailable').value)*parseInt(document.getElementById('pro'+i+'unitprice').value)
     });
     whole_total += sales_table_array[i-1].total;
-    tdata += `<tr><td>`+i+`.</td>
-    <td>`+sales_table_array[i-1].category+`</td>
-    <td>`+sales_table_array[i-1].description+`</td>
-    <td>`+sales_table_array[i-1].quantityavailable+`</td>
-    <td>`+sales_table_array[i-1].unitprice+`</td>
-    <td>`+sales_table_array[i-1].total+`</td>
+    tdata += `<tr class="d-flex"><td class="col-1">`+i+`.</td>
+    <td class="col-1">`+sales_table_array[i-1].category+`</td>
+    <td class="col-4">`+sales_table_array[i-1].description+`</td>
+    <td class="col-2">`+sales_table_array[i-1].quantityavailable+`</td>
+    <td class="col-2">`+sales_table_array[i-1].unitprice+`</td>
+    <td class="col-2">`+sales_table_array[i-1].total+`</td>
     </tr>`
     }
-    tdata += `<tr><td colspan="5">Total</td>
-    <td colspan="1" id="grandtotal">`+whole_total+`</td></tr>`
+    tdata += `<tr class="d-flex"><td class="col-10" colspan="5">Total</td>
+    <td class="col-2" colspan="1" id="grandtotal">`+whole_total+`</td></tr>`
     
     document.getElementById("create-lists").innerHTML = tdata;
     alert(JSON.stringify(sales_table_array));
 
-    var a = document.getElementById('name').value;
-    var b = document.getElementById('orderdate').value;
-    var c = document.getElementById('deliverydate').value;
-    // alert(param_div_id);
-    var d = document.getElementById('customerphone').value;
-    var e = document.getElementById('personalphone').value;
-    var f = document.getElementById('addressofdelivery').value;
-    var g = document.getElementById('nameofdev').value;
+//     var a = document.getElementById('name').value;
+//     var b = document.getElementById('orderdate').value;
+//     var c = document.getElementById('deliverydate').value;
+//     // alert(param_div_id);
+//     var d = document.getElementById('customerphone').value;
+//     var e = document.getElementById('personalphone').value;
+//     var f = document.getElementById('addressofdelivery').value;
+//     var g = document.getElementById('nameofdev').value;
     
     
     
-    var p = document.getElementById('vname').value;
-    var q = document.getElementById('vphone').value;
-    // alert(param_div_id);
-    var r = document.getElementById('vcname').value;
+//     var p = document.getElementById('vname').value;
+//     var q = document.getElementById('vphone').value;
+//     // alert(param_div_id);
+//     var r = document.getElementById('vcname').value;
   
-    //  var newarray = proarray.join('<br>');
-   // var grandtotal = (totprice * 2) + sectotprice;
+//     //  var newarray = proarray.join('<br>');
+//    // var grandtotal = (totprice * 2) + sectotprice;
     
     
-     $("#vstatus").append(q);
-    $("#vclientname").append(p);
-    $("#vcompany").append(r);
+//      $("#vstatus").append(q);
+//     $("#vclientname").append(p);
+//     $("#vcompany").append(r);
     
     
-    $("#waqas").append(a);
-    $("#recdate").append(b);
-    $("#deldate").append(c);
-    //  $("#idk").append(c);
-    $("#personalphones").append(e);
-    $("#addressofdeliverys").append(f);
-    $("#clientname").append(g);
+//     $("#waqas").append(a);
+//     $("#recdate").append(b);
+//     $("#deldate").append(c);
+//     //  $("#idk").append(c);
+//     $("#personalphones").append(e);
+//     $("#addressofdeliverys").append(f);
+//     $("#clientname").append(g);
     
-    $("#status").append("Purchase Order");
-    $("#customerphones").append(d);
+//     $("#status").append("Purchase Order");
+//     $("#customerphones").append(d);
+    document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
+
+}
+
+function purchaseInvoice(param_div_id) {
+
+
+    // basic
+    var purDate = document.getElementById("pur-date").value;
+    var purPO = document.getElementById("pur-po").value;
+    
+    $("#pur-date-g").append(purDate);
+    $("#pur-po-g").append(purPO);
+    
+    // vender info
+    var purVenName = document.getElementById("pur-name").value;
+    var purVenCompName = document.getElementById("pur-company-name").value;
+    var purVenAddress = document.getElementById("pur-vender-address").value;
+    var purVenCity = document.getElementById("pur-vender-city").value;
+    var purVenPh = document.getElementById("pur-vender-phone").value;
+    
+    $("#pur-name-g").append(purVenName);
+    $("#pur-company-name-g").append(purVenCompName);
+    $("#pur-vender-address-g").append(purVenAddress);
+    $("#pur-vender-city-g").append(purVenCity);
+    $("#pur-vender-phone-g").append(purVenPh);
+    
+    // ship info
+    var purShipName = document.getElementById("pur-ship-name").value;
+    var purShipCompName = document.getElementById("pur-ship-company-name").value;
+    var purShipAddress = document.getElementById("pur-ship-address").value;
+    var purShipCity = document.getElementById("pur-ship-city").value;
+    var purShipPh = document.getElementById("pur-ship-phone").value;
+    
+    $("#pur-ship-name-g").append(purShipName);
+    $("#pur-ship-company-name-g").append(purShipCompName);
+    $("#pur-ship-address-g").append(purShipAddress);
+    $("#pur-ship-city-g").append(purShipCity);
+    $("#pur-ship-phone-g").append(purShipPh);
+    
+    //shipping info
+    var purRequsher = document.getElementById("pur-requs").value;
+    var purShipVia = document.getElementById("pur-ship-via").value;
+    var purFOB = document.getElementById("pur-fob").value;
+    var purShipTerm = document.getElementById("pur-ship-term").value;
+    
+    $("#pur-requs-g").append(purRequsher);
+    $("#pur-ship-via-g").append(purShipVia);
+    $("#pur-fob-g").append(purFOB);
+    $("#pur-ship-term-g").append(purShipTerm);
+    
+// invoice ship data
+
+var invoiceSalesPerson = document.getElementById("invoice-sp").value;
+var invoiceProductOrder = document.getElementById("invoice-po").value;
+var invoiceShipDate = document.getElementById("invoice-ship-date").value;
+var invoiceShipVia = document.getElementById("invoice-ship-via").value;
+var InvoiceTerms = document.getElementById("invoice-terms").value;
+
+$("#invoice-sp-g").append(invoiceSalesPerson);
+$("#invoice-op-g").append(invoiceProductOrder);
+$("#invoice-ship-date-g").append(invoiceShipDate);
+$("#invoice-ship-via-g").append(invoiceShipVia);
+$("#invoice-terms-g").append(InvoiceTerms);
+
+// invoice ship data end
+
+    let whole_total =0;
+    let tdata = '';
+    for(let i=1 ; i <= row ; i++){
+        sales_table_array.push({"category":document.getElementById('pro'+i+'category').value,
+                             "description":document.getElementById('pro'+i+'description').value,
+                             "quantityavailable":parseInt(document.getElementById('pro'+i+'quantityavailable').value),
+                            //  "quantitytorder":parseInt(document.getElementById('pro'+i+'quantityorder').value),
+                             "unitprice":parseInt(document.getElementById('pro'+i+'unitprice').value),
+                             "total":parseInt(document.getElementById('pro'+i+'quantityavailable').value)*parseInt(document.getElementById('pro'+i+'unitprice').value)
+    });
+    whole_total += sales_table_array[i-1].total;
+    tdata += `<tr class="d-flex"><td class="col-1">`+i+`.</td>
+    <td class="col-1">`+sales_table_array[i-1].category+`</td>
+    <td class="col-4">`+sales_table_array[i-1].description+`</td>
+    <td class="col-2">`+sales_table_array[i-1].quantityavailable+`</td>
+    <td class="col-2">`+sales_table_array[i-1].unitprice+`</td>
+    <td class="col-2">`+sales_table_array[i-1].total+`</td>
+    </tr>`
+    }
+    tdata += `<tr class="d-flex"><td class="col-10" colspan="5">Total</td>
+    <td class="col-2" colspan="1" id="grandtotal">`+whole_total+`</td></tr>`
+    
+    document.getElementById("create-lists").innerHTML = tdata;
+    alert(JSON.stringify(sales_table_array));
+
+//     var a = document.getElementById('name').value;
+//     var b = document.getElementById('orderdate').value;
+//     var c = document.getElementById('deliverydate').value;
+//     // alert(param_div_id);
+//     var d = document.getElementById('customerphone').value;
+//     var e = document.getElementById('personalphone').value;
+//     var f = document.getElementById('addressofdelivery').value;
+//     var g = document.getElementById('nameofdev').value;
+    
+    
+    
+//     var p = document.getElementById('vname').value;
+//     var q = document.getElementById('vphone').value;
+//     // alert(param_div_id);
+//     var r = document.getElementById('vcname').value;
+  
+//     //  var newarray = proarray.join('<br>');
+//    // var grandtotal = (totprice * 2) + sectotprice;
+    
+    
+//      $("#vstatus").append(q);
+//     $("#vclientname").append(p);
+//     $("#vcompany").append(r);
+    
+    
+//     $("#waqas").append(a);
+//     $("#recdate").append(b);
+//     $("#deldate").append(c);
+//     //  $("#idk").append(c);
+//     $("#personalphones").append(e);
+//     $("#addressofdeliverys").append(f);
+//     $("#clientname").append(g);
+    
+//     $("#status").append("Purchase Order");
+//     $("#customerphones").append(d);
     document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
 
 }
@@ -422,21 +597,21 @@ function generateInvoiceData(applyInvoiceData) {
     $("#invoice-ship-phone-g").append(invoiceShipPhone);
 
 
-    // invoice ship data
+    // // invoice ship data
 
-    var invoiceSalesPerson = document.getElementById("invoice-sp").value;
-    var invoiceProductOrder = document.getElementById("invoice-po").value;
-    var invoiceShipDate = document.getElementById("invoice-ship-date").value;
-    var invoiceShipVia = document.getElementById("invoice-ship-via").value;
-    var InvoiceTerms = document.getElementById("invoice-terms").value;
+    // var invoiceSalesPerson = document.getElementById("invoice-sp").value;
+    // var invoiceProductOrder = document.getElementById("invoice-po").value;
+    // var invoiceShipDate = document.getElementById("invoice-ship-date").value;
+    // var invoiceShipVia = document.getElementById("invoice-ship-via").value;
+    // var InvoiceTerms = document.getElementById("invoice-terms").value;
 
-    $("#invoice-sp-g").append(invoiceSalesPerson);
-    $("#invoice-op-g").append(invoiceProductOrder);
-    $("#invoice-ship-date-g").append(invoiceShipDate);
-    $("#invoice-ship-via-g").append(invoiceShipVia);
-    $("#invoice-terms-g").append(InvoiceTerms);
+    // $("#invoice-sp-g").append(invoiceSalesPerson);
+    // $("#invoice-op-g").append(invoiceProductOrder);
+    // $("#invoice-ship-date-g").append(invoiceShipDate);
+    // $("#invoice-ship-via-g").append(invoiceShipVia);
+    // $("#invoice-terms-g").append(InvoiceTerms);
 
-    // invoice ship data end
+    // // invoice ship data end
 
     // invoice item list
 
@@ -701,52 +876,52 @@ document.getElementById("delivery-note-container").innerHTML = document.getEleme
 
 // purchase order
 
-function generatePurchaseData(applyPurchaseData){
-    // basic
-    var purDate = document.getElementById("pur-date").value;
-    var purPO = document.getElementById("pur-po").value;
+// function generatePurchaseData(applyPurchaseData){
+//     // basic
+//     var purDate = document.getElementById("pur-date").value;
+//     var purPO = document.getElementById("pur-po").value;
     
-    $("#pur-date-g").append(purDate);
-    $("#pur-po-g").append(purPO);
+//     $("#pur-date-g").append(purDate);
+//     $("#pur-po-g").append(purPO);
     
-    // vender info
-    var purVenName = document.getElementById("pur-name").value;
-    var purVenCompName = document.getElementById("pur-company-name").value;
-    var purVenAddress = document.getElementById("pur-vender-address").value;
-    var purVenCity = document.getElementById("pur-vender-city").value;
-    var purVenPh = document.getElementById("pur-vender-phone").value;
+//     // vender info
+//     var purVenName = document.getElementById("pur-name").value;
+//     var purVenCompName = document.getElementById("pur-company-name").value;
+//     var purVenAddress = document.getElementById("pur-vender-address").value;
+//     var purVenCity = document.getElementById("pur-vender-city").value;
+//     var purVenPh = document.getElementById("pur-vender-phone").value;
     
-    $("#pur-name-g").append(purVenName);
-    $("#pur-company-name-g").append(purVenCompName);
-    $("#pur-vender-address-g").append(purVenAddress);
-    $("#pur-vender-city-g").append(purVenCity);
-    $("#pur-vender-phone-g").append(purVenPh);
+//     $("#pur-name-g").append(purVenName);
+//     $("#pur-company-name-g").append(purVenCompName);
+//     $("#pur-vender-address-g").append(purVenAddress);
+//     $("#pur-vender-city-g").append(purVenCity);
+//     $("#pur-vender-phone-g").append(purVenPh);
     
-    // ship info
-    var purShipName = document.getElementById("pur-ship-name").value;
-    var purShipCompName = document.getElementById("pur-ship-company-name").value;
-    var purShipAddress = document.getElementById("pur-ship-address").value;
-    var purShipCity = document.getElementById("pur-ship-city").value;
-    var purShipPh = document.getElementById("pur-ship-phone").value;
+//     // ship info
+//     var purShipName = document.getElementById("pur-ship-name").value;
+//     var purShipCompName = document.getElementById("pur-ship-company-name").value;
+//     var purShipAddress = document.getElementById("pur-ship-address").value;
+//     var purShipCity = document.getElementById("pur-ship-city").value;
+//     var purShipPh = document.getElementById("pur-ship-phone").value;
     
-    $("#pur-ship-name-g").append(purShipName);
-    $("#pur-ship-company-name-g").append(purShipCompName);
-    $("#pur-ship-address-g").append(purShipAddress);
-    $("#pur-ship-city-g").append(purShipCity);
-    $("#pur-ship-phone-g").append(purShipPh);
+//     $("#pur-ship-name-g").append(purShipName);
+//     $("#pur-ship-company-name-g").append(purShipCompName);
+//     $("#pur-ship-address-g").append(purShipAddress);
+//     $("#pur-ship-city-g").append(purShipCity);
+//     $("#pur-ship-phone-g").append(purShipPh);
     
-    //shipping info
-    var purRequsher = document.getElementById("pur-requs").value;
-    var purShipVia = document.getElementById("pur-ship-via").value;
-    var purFOB = document.getElementById("pur-fob").value;
-    var purShipTerm = document.getElementById("pur-ship-term").value;
+//     //shipping info
+//     var purRequsher = document.getElementById("pur-requs").value;
+//     var purShipVia = document.getElementById("pur-ship-via").value;
+//     var purFOB = document.getElementById("pur-fob").value;
+//     var purShipTerm = document.getElementById("pur-ship-term").value;
     
-    $("#pur-requs-g").append(purRequsher);
-    $("#pur-ship-via-g").append(purShipVia);
-    $("#pur-fob-g").append(purFOB);
-    $("#pur-ship-term-g").append(purShipTerm);
+//     $("#pur-requs-g").append(purRequsher);
+//     $("#pur-ship-via-g").append(purShipVia);
+//     $("#pur-fob-g").append(purFOB);
+//     $("#pur-ship-term-g").append(purShipTerm);
     
     
-    document.getElementById("purchase-container").innerHTML = document.getElementById(applyPurchaseData).innerHTML
-    }
+//     document.getElementById("purchase-container").innerHTML = document.getElementById(applyPurchaseData).innerHTML
+//     }
     // purchase order end

@@ -5,20 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Purchase Invoice</title>
+    <title>Purchase Order</title>
 
     <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../../../css/salesStyle.css">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">	
 
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <!-- Font Awesome -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -26,7 +25,7 @@
     <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container">
             <div class="navbar-translate">
-                <a class="navbar-brand">Uniform Inventory</a>
+                <a href="../../../index.html" class="navbar-brand">Uniform Inventory</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     <span class="navbar-toggler-icon"></span>
@@ -36,7 +35,7 @@
             </div>
             <div class="collapse navbar-collapse justify-center">
                 <ul class="navbar-nav mx-auto">
-                    <li class="active nav-item">
+                    <li class="nav-item">
                         <a href="../sales/sales.html" class="nav-link">
                             Sales
                         </a>
@@ -46,18 +45,17 @@
                             Production
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="active nav-item">
                         <a href="purchase.html" class="nav-link">
                             Purchase
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#pablo" class="nav-link">
+                        <a href="../../../attendance.html" class="nav-link">
                             Documents
                         </a>
                     </li>
                 </ul>
-
             </div>
         </div>
     </nav>
@@ -66,7 +64,7 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Purchase Module</h3>
+                <h3>Sales Module</h3>
             </div>
 
             <ul class="list-unstyled components">
@@ -92,160 +90,421 @@
 
         </nav>
 
-        <!-- Page Content  -->
-        <div id="content">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+    <div id="content" class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span>Toggle Sidebar</span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+            </div>
+        </nav>
+
+        <div class="container sales-container" id="main_place">
+
+            <div class="row">
+                <div class="col-12">
+                    <img src="../../../assets/img/optimized-logo.png" class="rounded float-right md-logo" alt="logo">
+                </div>
+            </div>
+
+            <div class="packing-slip-header">
+
+                <div class="row">
+
+                    <div class="col-6">
+                        <h3>Company Name</h3>
+                        <p><address id="address">Street Address</address></p> <!-- fetch address -->
+                        <p><address id="city">City</address></p> <!-- fetch city -->
+                        <p>Phone: <span id="phone-no"></span></p> <!-- fetch phone number -->
+                        <p>Fax: <span id="fax-no"></span></p> <!-- fetch fax number -->
+                        <p>Website: <span id="phone-no"></span></p> <!-- fetch website name of company -->
+
+                    </div>
+
+                    <div class="col-6">
+                        <h3>PURCHASE INVOICE</h3>
+                        <div class="row">
+                            <div class="col-4">
+                                <p>Date:</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="date" class="form-control" id="pur-date">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                P.O #
+                            </div>
+                            <div class="col-8">
+                                <input type="text" class="form-control" id="pur-po">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- packing address section -->
+            <div class="supply-content">
+                <div class="row">
+                    <div class="col-6">
+                        <h3 class="main-subject">VENDOR:</h3>
+                        <div class="row">
+                            <div class="col-4">
+                                <p>Name:</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" name="vender-info" id="pur-name" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <p>Company Name:</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" name="vender-info" id="pur-company-name" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <p>Street Address</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" name="vender-info" id="pur-vender-address" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <p>City or ZIP:</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" name="vender-info" id="pur-vender-city" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <p>Phone:</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" name="vender-info" id="pur-vender-phone" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-6">
+                        <h3 class="main-subject">Ship To:</h3>
+                        <div class="row">
+                            <div class="col-4">
+                                <p>Name:</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" name="ship-info" id="pur-ship-name" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <p>Company Name:</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" name="ship-info" id="pur-ship-company-name" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <p>Street Address</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" name="ship-info" id="pur-ship-address" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <p>City or ZIP:</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" name="ship-info" id="pur-ship-city" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <p>Phone:</p>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" name="ship-info" id="pur-ship-phone" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
 
                 </div>
-            </nav>
+            </div>
 
-            <div class="invoice-container" id="invoice-main">
+            <div class="packling-supply">
+                <table class="table table-sm table-bordered ">
+                    <thead>
+                        <tr>
+                            <th>SALES PERSON</th>
+                            <th>P.O. #</th>
+                            <th>SHIP DATE</th>
+                            <th>SHIP VIA</th>
+                            <th>TERMS</th>
+                        </tr>
+
+                    <tbody>
+                        <tr>
+                            <td class="td-cells" id="invoice-sp"></td>
+                            <td class="td-cells" id="invoice-po"></td>
+                            <td class="td-cells" id="invoice-ship-date"></td>
+                            <td class="td-cells" id="invoice-ship-via"></td>
+                            <td class="td-cells" id="invoice-terms"></td>
+                        </tr>
+                    </tbody>
+                    </thead>
+                </table>
+            </div>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="d-flex">
+                        <td class="col-2">Item #</td>
+                        <td class="col-6">Description</td>
+                        <td class="col-2">Qty</td>
+                        <td class="col-2">Unit Price</td>
+                    </tr>
+                </thead>
+                <tbody id="container">
+                    <tr class="d-flex">
+                        <td class="col-2 td-cells">
+                            <input type="text" class="form-control" id="pro1category">
+                        </td>
+                        <td class="col-6 td-cells">
+                            <input type="text" class="form-control" id="pro1description">
+                        </td>
+                        <td class="col-2 td-cells">
+                            <input type="text" class="form-control" id="pro1quantityavailable">
+                        </td>
+                        <td class="col-2 td-cells">
+                            <input type="text" class="form-control" id="pro1unitprice" onkeypress="add_new(event)">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <!-- <div class="product-detail-container" id="product_list">
+
+                    <h2 class="main-subject">Product Details</h2>
+                    <div class="product-detail-list" id="container">
+                        <div class="row">
+                            <div class=" small-col">
+                                <h4>1.</h4>
+                            </div>
+
+                            <div class="col-2">
+                                <input class="form-control" type="text" placeholder="Product Category" id="pro1category">
+                            </div>
+
+                            <div class="col-2">
+                                <input class="form-control" type="text" placeholder="Product Description" id="pro1description">
+                            </div>
+
+                            <div class="col-2">
+                                <input class="form-control" type="text" placeholder="Quantity Available" id="pro1quantityavailable">
+                            </div>
+
+                            <div class="col-2">
+                                <input class="form-control" type="text" placeholder="Quantity Ordered" id="pro1quantityorder">
+                            </div>
+
+                            <div class="col-2">
+                                <input class="form-control" type="text" placeholder="Unit Price" id="pro1unitprice"
+                                    onkeypress="add_new(event)">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div> -->
+            <!-- <input type="text" placeholder="Product type" id="pro1totalprice"> -->
+            <section class="color-1 text-center">
+                <p>
+                    <button onclick="purchaseInvoice('operation1')" class="btn btn-1 btn-1d">Generate</button>
+                </p>
+            </section>
+
+        </div>
+
+        <div class="forms" style="max-width: none; display: none;" id="operation1">
+            
+            <div>
+
                 <div class="row">
                     <div class="col-12">
                         <img src="../../../assets/img/optimized-logo.png" class="rounded float-right md-logo" alt="logo">
                     </div>
                 </div>
-                <div class="packing-slip-header">
 
                 <div class="packing-slip-header">
-            
+
                     <div class="row">
+
                         <div class="col-6">
-                                <h3>Uniform Shop || Company Name</h3>
-                                <p><address id="address">Street Address: house no.L-212, street-3, NY</address> </p> <!-- fetch address -->
-                                <p><address id="city">City: <span>Brocklin</span></address></p> <!-- fetch city -->
-                                <p>Phone: <span>786-786-7845</span></p> <!-- fetch phone number -->
-                                <p>Fax: </p> <!-- fetch fax number -->
-                                <p>Website: <span>http://Uniformshop.com</span> <span id="phone-no"></span></p> <!-- fetch website name of company -->
-            
+                            <h3>Company Name</h3>
+                            <p><address id="address">Street Address</address></p> <!-- fetch address -->
+                            <p><address id="city">City</address></p> <!-- fetch city -->
+                            <p>Phone: <span id="phone-no"></span></p> <!-- fetch phone number -->
+                            <p>Fax: <span id="fax-no"></span></p> <!-- fetch fax number -->
+                            <p>Website: <span id="phone-no"></span></p> <!-- fetch website name of company -->
+
                         </div>
-            
+
                         <div class="col-6">
-                            <h3>Purchase Invoice</h3>
-                            <p>Date: <span><input id="invoice-date" type="date"></span></p> <!-- fetch date -->
-                            <p>INVOICE # <span id="invoice-num"></span></p> <!-- fetch date -->
-                            <p>Customer I.D: <span id="cust-id"></span></p> <!-- customer id -->                        </div>
+                            <h3>PURCHASE INVOICE</h3>
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Date:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="pur-date-g"></p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    P.O #
+                                </div>
+                                <div class="col-8">
+                                    <p id="pur-po-g"></p>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-            
+
                 <!-- packing address section -->
-                <div class="packing-address">
+                <div class="supply-content">
                     <div class="row">
-                            <div class="col-5">
-                                    <h3>Bill To:</h3>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>Name:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-bill-name" type="text">  <!-- responsible person name-->
-                                        </div>
-                                    </div>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>Company Name:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-bill-company" type="text">   <!-- bill company name-->
-                                        </div>
-                                    </div>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>Street Address:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-bill-address" type="text">   <!-- bill street address -->
-                                        </div>
-                                    </div>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>City or ZIP:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-bill-city" type="text">  <!-- bill city name -->
-                                        </div>
-                                    </div>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>Phone:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-bill-phone" type="tel">  <!-- phone -->
-                                        </div>
-                                    </div>
-            
+                        <div class="col-6">
+                            <h3 class="main-subject">VENDOR:</h3>
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Name:</p>
                                 </div>
-            
-                                <div class="col-5">
-                                    <h3>Ship To:</h3>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>Name:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-ship-name" type="text">  <!-- responsible person name-->
-                                        </div>
-                                    </div>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>Company Name:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-ship-company" type="text">   <!-- bill company name-->
-                                        </div>
-                                    </div>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>Street Address:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-ship-address" type="text">   <!-- bill street address -->
-                                        </div>
-                                    </div>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>City or ZIP:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-ship-city" type="text">  <!-- bill city name -->
-                                        </div>
-                                    </div>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>Phone:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-ship-phone" type="tel">  <!-- phone -->
-                                        </div>
-                                    </div>
-                                    
+                                <div class="col-8">
+                                    <p id="pur-name-g"></p>
                                 </div>
-            
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Company Name:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="pur-company-name-g"></p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Street Address</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="pur-vender-address-g"></p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>City or ZIP:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="pur-vender-city-g"></p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Phone:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="pur-vender-phone-g"></p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+                            <h3 class="main-subject">Ship To:</h3>
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Name:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="pur-ship-name"></p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Company Name:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="pur-ship-company-name-g"></p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Street Address</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="pur-vender-address-g"></p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>City or ZIP:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="pur-ship-vender-city-g"></p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Phone:</p>
+                                </div>
+                                <div class="col-8">
+                                    <p id="pur-ship-vender-phone-g"></p>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
-            
+
                 <div class="packling-supply">
                     <table class="table table-sm table-bordered ">
                         <thead>
@@ -256,417 +515,135 @@
                                 <th>SHIP VIA</th>
                                 <th>TERMS</th>
                             </tr>
-            
+
                         <tbody>
-                                <tr>
-                                        <td class="td-cells"> <input id="invoice-sp" type="text"> </td>
-                                        <td class="td-cells"> <input id="invoice-po" type="text"> </td>
-                                        <td class="td-cells"> <input id="invoice-ship-date" type="text"> </td>
-                                        <td class="td-cells"> <input id="invoice-ship-via" type="text"> </td>
-                                        <td class="td-cells"> <input id="invoice-terms" type="text"> </td>
-                                    </tr>
+                            <tr>
+                                <td class="td-cells" id="invoice-sp-g"></td>
+                                <td class="td-cells" id="invoice-po-g"></td>
+                                <td class="td-cells" id="invoice-ship-date-g"></td>
+                                <td class="td-cells" id="invoice-ship-via-g"></td>
+                                <td class="td-cells" id="invoice-terms-g"></td>
+                            </tr>
                         </tbody>
                         </thead>
                     </table>
                 </div>
-            
-                <div class="packing-lists">
-                    <table class="table table-responsive-sm table-bordered">
-                        <thead>
-                            <tr class="d-flex">
-                                <th class="col-2">ITEM.NO</th>
-                                <th class="col-4">DESCRIPTION</th>
-                                <th class="col-2">QTY</th>
-                                <th class="col-2">UNIT PRICE</th>
-                                <th class="col-2">TAX</th>
-                                <!-- <th>TOTAL</th> -->
-                            </tr>
-                        </thead>
 
-                        <tbody id="pi-create-list">
-                            <tr class="d-flex">
-                                <td class="td-cells col-2"><input id="invoice-item-id-1" type="text" class="form-control"></td>
-                                <td class="td-cells col-4"><input id="invoice-item-description-1" type="text" class="form-control"></td>
-                                <td class="td-cells col-2"><input id="invoice-qty-1" type="text" class="form-control"></td>
-                                <td class="td-cells col-2"><input id="invoice-unit-price-1" type="text" class="form-control"></td>
-                                <td class="td-cells col-2"><input id="invoice-tax-1" type="text" class="form-control"></td>
-                                <!-- <td class="td-cells" id="invoice-total-1"></td> -->
-                            </tr>
 
-                            <tr class="d-flex">
-                                <td class="td-cells col-2"><input id="invoice-item-id-2" type="text" class="form-control"></td>
-                                <td class="td-cells col-4"><input id="invoice-item-description-2" type="text" class="form-control"></td>
-                                <td class="td-cells col-2"><input id="invoice-qty-2" type="text" class="form-control"></td>
-                                <td class="td-cells col-2"><input id="invoice-unit-price-2" type="text" class="form-control"></td>
-                                <td class="td-cells col-2"><input id="invoice-tax-2" type="text" name="" id="" class="form-control"></td>
-                                <!-- <td class="td-cells" id="invoice-total-2"></td> -->
-                            </tr>
-
-                            <tr class="d-flex">
-                                <td class="td-cells col-2"><input id="invoice-item-id-3" type="text" class="form-control"></td>
-                                <td class="td-cells col-4"><input id="invoice-item-description-3" type="text" class="form-control"></td>
-                                <td class="td-cells col-2"><input id="invoice-qty-3" type="text" class="form-control"></td>
-                                <td class="td-cells col-2"><input id="invoice-unit-price-3" type="text" class="form-control"></td>
-                                <td class="td-cells col-2"><input id="invoice-tax-3" type="text" class="form-control"></td>
-                                <!-- <td class="td-cells" id="invoice-total-3"></td> -->
-                            </tr>
-
-                            <tr class="d-flex">
-                                <td class="td-cells col-2"><input id="invoice-item-id-4" type="text" class="form-control"></td>
-                                <td class="td-cells col-4"><input id="invoice-item-description-4" type="text" class="form-control"></td>
-                                <td class="td-cells col-2"><input id="invoice-qty-4" type="text" class="form-control"></td>
-                                <td class="td-cells col-2"><input id="invoice-unit-price-4" type="text" class="form-control"></td>
-                                <td class="td-cells col-2"><input id="invoice-tax-4" type="text" class="form-control" onkeypress="pi_add_list(event)"></td>
-                                <!-- <td class="td-cells" id="invoice-total-4"></td> -->
-                            </tr>
-                        </tbody>
-
-                        <!-- <tbody>
-                            <tr>
-                                <td class="td-cells" id="item-id">25312</td>
-                                <td class="td-cells" id="item-description">Product XYZ</td>
-                                <td class="td-cells" id="qty">15</td>
-                                <td class="td-cells" id="unit-price">150.00</td>
-                                <td class="td-cells" id="tax">x</td>
-                                <td class="td-cells" id="total-price">2,250.00</td>
-                            </tr>
-            
-                            <tr>
-                                <td class="td-cells" id="item-id">12121</td>
-                                <td class="td-cells" id="item-description">Product ABC</td>
-                                <td class="td-cells" id="qty">1</td>
-                                <td class="td-cells" id="unit-price">75.00</td>
-                                <td class="td-cells" id="tax">x</td>
-                                <td class="td-cells" id="total-price">75.00</td>
-                            </tr>
-            
-                            <tr>
-                                <td class="td-cells" id="item-id"></td>
-                                <td class="td-cells" id="item-description"></td>
-                                <td class="td-cells" id="qty"></td>
-                                <td class="td-cells" id="unit-price"></td>
-                                <td class="td-cells" id="tax"></td>
-                                <td class="td-cells" id="total-price"></td>
-                            </tr>
-            
-                            <tr>
-                                <td class="td-cells" id="item-id"></td>
-                                <td class="td-cells" id="item-description"></td>
-                                <td class="td-cells" id="qty"></td>
-                                <td class="td-cells" id="unit-price"></td>
-                                <td class="td-cells" id="tax"></td>
-                                <td class="td-cells" id="total-price"></td>
-                            </tr>
-                        </tbody> -->
-            
-                        <!-- <tfoot>
-                            <tr>
-                                <td class="td-cells border-none"></td>
-                                <td class="td-cells border-none"></td>
-                                <td class="td-cells border-none"></td>
-                                <td class="td-cells border-none"></td>
-                                <td class="td-cells border-none">Total</td>
-                                <td class="td-cells border-none">35</td>
-                            </tr>
-                        </tfoot> -->
-                    </table>
-                </div>
-                <section class="color-1 text-center">
-                    <p>
-                        <button onclick="generateInvoiceData('generate-invoice');" class=" btn btn-secondary">Generate</button>
-                    </p>
-                </section>
             </div>
 
+            <!-- product list section -->
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="d-flex">
+                        <td  class="col-1">S.no</td>
+                        <td  class="col-1">Item #</td>
+                        <td  class="col-4">Description</td>
+                        <td  class="col-2">Qty Avail</td>
+                        <!-- <td scope="col">Qty Order</td> -->
+                        <td  class="col-2">Unit Price</td>
+                        <td  class="col-2">Total Price</td>
+                    </tr>
 
-            <div class="invoice-container" id="generate-invoice" style="max-width: none; display: none;">
-                <div class="row">
-                    <div class="col-12">
-                        <img src="../../../assets/img/optimized-logo.png" class="rounded float-right md-logo" alt="logo">
-                    </div>
-                </div>
-                <div class="packing-slip-header">
+                <tbody id="create-lists">
+                    <!-- <tr>
+                            <td scope="row">1</td>
+                            <td class="category"></td>
+                            <td class="description"></td>
+                            <td class="qtyavailable"></td>
+                            <td class="qtyorder"></td>
+                            <td class="unitprice"></td>
+                            <td class="totalprice"></td>
+                        </tr>
+
+                        <tr>
+                            <td scope="row">2</td>
+                            <td id="na"></td>
+                            <td id="ma"></td>
+                            <td id="oa"></td>
+                            <td id="pa"></td>
+                            <td id="qa"></td>
+                            <td id="ra"></td>
+                        </tr>
+
+                        <tr>
+                            <td scope="row">3</td>
+                            <td class="category"></td>
+                            <td class="description"></td>
+                            <td class="qtyavailable"></td>
+                            <td class="qtyorder"></td>
+                            <td class="unitprice"></td>
+                            <td class="totalprice"></td>
+                        </tr> -->
+                    <!-- <tr> 
+                            <td colspan="6">Total</td>
+                            <td colspan="1" id="grandtotal"></td>
+                        </tr> -->
+
+                </tbody>
+                </thead>
+            </table>
+
+
+            <!-- payment -->
+            <form action="#">
+                <!-- 
+                        <div>
+                            <label for="">Order Total:</label>
+                            <div id="grandtotal"></div>
+                        </div> -->
+
+                <fieldset class="the-fieldset">
+                    <legend class="the-legend">
+                        Parment Method
+                    </legend>
 
                     <div class="row">
-                        <div class="col-6">
-                            <h3>Uniform Shop || Company Name</h3>
-                            <p><address id="address">Street Address: house no.L-212, street-3, NY</address> </p>
-                            <!-- fetch address -->
-                            <p><address id="city">City: <span>Brocklin</span></address></p> <!-- fetch city -->
-                            <p>Phone: <span>786-786-7845</span></p> <!-- fetch phone number -->
-                            <p>Fax: </p> <!-- fetch fax number -->
-                            <p>Website: <span>http://Uniformshop.com</span> <span id="phone-no"></span></p>
-                            <!-- fetch website name of company -->
-
+                        <div class="col-2">
+                            <label for="">type</label>
+                            <select name="payment-type" id="payment-type">
+                                <option value="cash">cash</option>
+                                <option value="check">check</option>
+                                <option value="dept-card">Dept Card</option>
+                            </select>
                         </div>
 
-                        <div class="col-6">
-                            <h3>Purchase INVOICE</h3>
-                            <p>Date: <span id="invoice-date-g"></span></p> <!-- fetch date -->
-                            <p>INVOICE # <span id="invoice-num-g"></span></p> <!-- fetch date -->
-                            <p>Customer I.D: <span id="cust-id-g"></span></p> <!-- customer id -->
+                        <div class="col-3">
+                            <label for="">Date</label>
+                            <input class=" pay-input" type="date" name="payment-date" id="payment-date">
+                        </div>
+
+                        <div class="col-3">
+                            <label for="">Ref:</label>
+                            <input type="text" class=" pay-input">
+                        </div>
+
+                        <div class="col-3">
+                            <label for="">Exp Date:</label>
+                            <input type="date">
                         </div>
                     </div>
-                </div>
-            
-            
-                <div class="invoice-container" id="generate-invoice" style="max-width: none; display: none;">
-            
-                        <div class="packing-slip-header">
-            
-                            <div class="row">
-                                <div class="col-6">
-                                        <h3>Uniform Shop || Company Name</h3>
-                                        <p><address id="address">Street Address: house no.L-212, street-3, NY</address> </p> <!-- fetch address -->
-                                        <p><address id="city">City: <span>Brocklin</span></address></p> <!-- fetch city -->
-                                        <p>Phone: <span>786-786-7845</span></p> <!-- fetch phone number -->
-                                        <p>Fax: </p> <!-- fetch fax number -->
-                                        <p>Website: <span>http://Uniformshop.com</span> <span id="phone-no"></span></p> <!-- fetch website name of company -->
-            
+
+                    <br>
+                    <!-- <div class="row">
+                                <div class="col-3">
+                                    <label for="">Amount</label>
+                                    <input type="text" id="">
                                 </div>
-            
-                                <div class="col-6">
-                                    <h3>Purchase INVOICE</h3>
-                                    <p>Date: <span id="invoice-date-g"></span></p> <!-- fetch date -->
-                                    <p>INVOICE # <span id="invoice-num-g"></span></p> <!-- fetch date -->
-                                    <p>Customer I.D: <span id="cust-id-g"></span></p> <!-- customer id -->
-                                </div>
-                            </div>
-                        </div>
-            
-                        <!-- packing address section -->
-                        <div class="packing-address">
-                            <div class="row">
-                                <div class="col-5">
-                                    <h3>Bill To:</h3>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>Name:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-bill-name-g" type="text">  <!-- responsible person name-->
-                                        </div>
-                                    </div>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>Company Name:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-bill-company-g" type="text">   <!-- bill company name-->
-                                        </div>
-                                    </div>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>Street Address:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-bill-address-g" type="text">   <!-- bill street address -->
-                                        </div>
-                                    </div>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>City or ZIP:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-bill-city-g" type="text">  <!-- bill city name -->
-                                        </div>
-                                    </div>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>Phone:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-bill-phone-g" type="tel">  <!-- phone -->
-                                        </div>
-                                    </div>
-                                </div>
-            
-                                <div class="col-5">
-                                    <h3>Ship To:</h3>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>Name:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-ship-name-g" type="text">  <!-- responsible person name-->
-                                        </div>
-                                    </div>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>Company Name:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-ship-company-g" type="text">   <!-- bill company name-->
-                                        </div>
-                                    </div>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>Street Address:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-ship-address-g" type="text">   <!-- bill street address -->
-                                        </div>
-                                    </div>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>City or ZIP:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-ship-city-g" type="text">  <!-- bill city name -->
-                                        </div>
-                                    </div>
-            
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <p>Phone:</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <input id="invoice-ship-phone-g" type="tel">  <!-- phone -->
-                                        </div>
-                                    </div>
-                                </div>
-            
-                            </div>
-                        </div>
-            
-                        <div class="packling-supply">
-                            <table class="table table-sm table-bordered ">
-                                <thead>
-                                    <tr>
-                                        <th>SALES PERSON</th>
-                                        <th>P.O. #</th>
-                                        <th>SHIP DATE</th>
-                                        <th>SHIP VIA</th>
-                                        <th>TERMS</th>
-                                    </tr>
-            
-                                <tbody>
-                                    <tr>
-                                        <td class="td-cells" id="invoice-sp-g"></td>
-                                        <td class="td-cells" id="invoice-po-g"></td>
-                                        <td class="td-cells" id="invoice-ship-date-g"></td>
-                                        <td class="td-cells" id="invoice-ship-via-g"></td>
-                                        <td class="td-cells" id="invoice-terms-g"></td>
-                                    </tr>
-                                </tbody>
-                                </thead>
-                            </table>
-                        </div>
-            
-                        <div class="packing-lists">
-                            <table class="table table-responsive-sm table-bordered">
-                                <thead>
-                                    <tr class="d-flex">
-                                        <th class="col-1">ITEM.NO</th>
-                                        <th class="col-4">DESCRIPTION</th>
-                                        <th class="col-2">QTY</th>
-                                        <th class="col-2">UNIT PRICE</th>
-                                        <th class="col-1">TAX</th>
-                                        <th class="col-2">TOTAL</th>
-                                    </tr>
-                                </thead>
-            
-                                <tbody>
-                                        <tr class="d-flex">
-                                            <td class="td-cells col-1" id="invoice-item-id-1-g"></td>
-                                            <td class="td-cells col-4" id="invoice-item-description-1-g"></td>
-                                            <td class="td-cells col-2" id="invoice-qty-1-g"></td>
-                                            <td class="td-cells col-2" id="invoice-unit-price-1-g"></td>
-                                            <td class="td-cells col-1" id="invoice-tax-1-g"></td>
-                                            <td class="td-cells col-2" id="invoice-total-1-g"></td>
-                                        </tr>
-            
-                                        <tr class="d-flex">
-                                            <td class="td-cells col-1" id="invoice-item-id-2-g"></td>
-                                            <td class="td-cells col-4" id="invoice-item-description-2-g"></td>
-                                            <td class="td-cells col-2" id="invoice-qty-2-g"></td>
-                                            <td class="td-cells col-2" id="invoice-unit-price-2-g"></td>
-                                            <td class="td-cells col-1" id="invoice-tax-2-g"></td>
-                                            <td class="td-cells col-2" id="invoice-total-2-g"></td>
-                                        </tr>
-            
-                                        <tr class="d-flex">
-                                            <td class="td-cells col-1" id="invoice-item-id-3-g"></td>
-                                            <td class="td-cells col-4" id="invoice-item-description-3-g"></td>
-                                            <td class="td-cells col-2" id="invoice-qty-3-g"></td>
-                                            <td class="td-cells col-2" id="invoice-unit-price-3-g"></td>
-                                            <td class="td-cells col-1" id="invoice-tax-3-g"></td>
-                                            <td class="td-cells col-2" id="invoice-total-3-g"></td>
-                                        </tr>
-            
-                                        <tr class="d-flex">
-                                            <td class="td-cells col-1" id="invoice-item-id-4-g"></td>
-                                            <td class="td-cells col-4" id="invoice-item-description-4-g"></td>
-                                            <td class="td-cells col-2" id="invoice-qty-4-g"></td>
-                                            <td class="td-cells col-2" id="invoice-unit-price-4-g"></td>
-                                            <td class="td-cells col-1" id="invoice-tax-4-g"></td>
-                                            <td class="td-cells col-2" id="invoice-total-4-g"></td>
-                                        </tr>
-                                    </tbody>
-            
-                                <!-- <tbody>
-                                    <tr>
-                                        <td class="td-cells" id="item-id">25312</td>
-                                        <td class="td-cells" id="item-description">Product XYZ</td>
-                                        <td class="td-cells" id="qty">15</td>
-                                        <td class="td-cells" id="unit-price">150.00</td>
-                                        <td class="td-cells" id="tax">x</td>
-                                        <td class="td-cells" id="total-price">2,250.00</td>
-                                    </tr>
-            
-                                    <tr>
-                                        <td class="td-cells" id="item-id">12121</td>
-                                        <td class="td-cells" id="item-description">Product ABC</td>
-                                        <td class="td-cells" id="qty">1</td>
-                                        <td class="td-cells" id="unit-price">75.00</td>
-                                        <td class="td-cells" id="tax">x</td>
-                                        <td class="td-cells" id="total-price">75.00</td>
-                                    </tr>
-            
-                                    <tr>
-                                        <td class="td-cells" id="item-id"></td>
-                                        <td class="td-cells" id="item-description"></td>
-                                        <td class="td-cells" id="qty"></td>
-                                        <td class="td-cells" id="unit-price"></td>
-                                        <td class="td-cells" id="tax"></td>
-                                        <td class="td-cells" id="total-price"></td>
-                                    </tr>
-            
-                                    <tr>
-                                        <td class="td-cells" id="item-id"></td>
-                                        <td class="td-cells" id="item-description"></td>
-                                        <td class="td-cells" id="qty"></td>
-                                        <td class="td-cells" id="unit-price"></td>
-                                        <td class="td-cells" id="tax"></td>
-                                        <td class="td-cells" id="total-price"></td>
-                                    </tr>
-                                </tbody> -->
-            
-                                <tfoot>
-                                    <tr class="d-flex">
-                                        <td class="col-1 td-cells border-none"></td>
-                                        <td class="col-4 td-cells border-none"></td>
-                                        <td class="col-2 td-cells border-none"></td>
-                                        <td class="col-2 td-cells border-none"></td>
-                                        <td class="col-1 td-cells border-none" class="float-right">Total</td>
-                                        <td class="col-2 td-cells border-none" id="invoice-total"></td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
-            
-                        </div>
+                            </div> -->
+                </fieldset>
+            </form>
+
         </div>
+        
+
     </div>
+
+
+    </div>
+    <!-- <p id="n"></p> -->
+    <!-- <button onclick="waqaskhan();">Submit</button>
+<input type="button" id="create_pdf" value="Generate PDF">  -->
 
 </body>
 
@@ -680,68 +657,10 @@
 <script src="../../../js/app.js"></script>
 
 <script>
+  //  let index = 1;
 
-    var piRow = 4
-    function pi_add_list(e) {
-        e = e || window.event;
-        console.log(e.key);
-        console.log(e);
-        if (e.key === "Enter") {
-            piRow++;
-    
-        var piTr = document.createElement('tr');
-        var piTd1 = document.createElement('td');
-        var piTd2 = document.createElement('td');
-        var piTd3 = document.createElement('td');
-        var piTd4 = document.createElement('td');
-        var piTd5 = document.createElement('td');
-    
-        piTr.classList.add('d-flex');
-        piTd1.classList.add('td-cells', 'col-2');
-        piTd2.classList.add('td-cells', 'col-4');
-        piTd3.classList.add('td-cells', 'col-2');
-        piTd4.classList.add('td-cells', 'col-2');
-        piTd5.classList.add('td-cells', 'col-2');
-    
-        var piInput1 = document.createElement('input');
-        var piInput2 = document.createElement('input');
-        var piInput3 = document.createElement('input');
-        var piInput4 = document.createElement('input');
-        var piInput5 = document.createElement('input');
-    
-        piInput1.classList.add('form-control');
-        piInput2.classList.add('form-control');
-        piInput3.classList.add('form-control');
-        piInput4.classList.add('form-control');
-        piInput5.classList.add('form-control');
-    
-        piInput1.setAttribute('id','invoice-item-id-'+piRow, 'type','text');
-        piInput1.setAttribute('type','text');
-        piInput2.setAttribute('id','invoice-item-description-'+piRow, 'type','text');
-        piInput2.setAttribute('type','text');    
-        piInput3.setAttribute('id','invoice-qty-'+piRow, 'type','number');
-        piInput3.setAttribute('type','number');
-        piInput4.setAttribute('id','invoice-unit-price-'+piRow, 'type','number');
-        piInput4.setAttribute('type','number');
-        piInput5.setAttribute('id','invoice-tax-'+piRow, 'type','number');
-        piInput5.setAttribute('type','number');
-    
-        piTd1.appendChild(piInput1);
-        piTd2.appendChild(piInput2);
-        piTd3.appendChild(piInput3);
-        piTd4.appendChild(piInput4);
-        piTd5.appendChild(piInput5);
-    
-        piTr.appendChild(piTd1);
-        piTr.appendChild(piTd2);
-        piTr.appendChild(piTd3);
-        piTr.appendChild(piTd4);
-        piTr.appendChild(piTd5);
-    
-        console.log(piTr);
-        document.getElementById('pi-create-list').appendChild(piTr)
-    }
-    }
-    </script>
+
+
+</script>
 
 </html>
