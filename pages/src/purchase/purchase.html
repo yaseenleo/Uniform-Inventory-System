@@ -14,8 +14,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <!-- Font Awesome -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -58,123 +60,148 @@
         </div>
     </nav>
 
-        <div id="content" class="container-fluid">
+    <div id="content" class="container-fluid">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span>Toggle Sidebar</span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+            </div>
+        </nav>
+
+        <div class="container sales-container" id="main_place">
+
+            <div class="text-center doc-head-text">
+                <h2>Purchase Order</h2>
+            </div>
+
+            <h2 class="main-subject">Client Details</h2>
+            <div class="row form-group">
+                <div class="col-2">
+                    <label class="form-control-label">Customer Name</label>
+                </div>
+                <div class="col-3">
+                    <input class="form-control" id="name" type="text" placeholder="Customer Name">
 
                 </div>
-            </nav>
-
-            <div class="container sales-container" id="main_place">
-
-                <div class="text-center doc-head-text">
-                    <h2>Purchase Order</h2>
+                <div class="col-2">
+                    <label for="expire-date" class="form-control-label">Delivery Date</label>
+                </div>
+                <div class="col-3">
+                    <input class="form-control" id="deliverydate" type="date" placeholder="Delivery Date">
                 </div>
 
-                <h2 class="main-subject">Client Details</h2>
-                <div class="row form-group">
-                    <div class="col-2">
-                        <label class="form-control-label">Customer Name</label>
-                    </div>
-                    <div class="col-3">
-                        <input class="form-control" id="name" type="text" placeholder="Customer Name">
+            </div>
 
-                    </div>
-                    <div class="col-2">
-                        <label for="expire-date" class="form-control-label">Delivery Date</label>
-                    </div>
-                    <div class="col-3">
-                        <input class="form-control" id="deliverydate" type="date" placeholder="Delivery Date">
-                    </div>
-
+            <div class="row form-group">
+                <div class="col-2">
+                    <label for="date" class=" form-control-label">Client Ph.Number</label>
+                </div>
+                <div class="col-3">
+                    <input class="form-control" id="customerphone" type="text" placeholder="Client Phone Number">
+                </div>
+                <div class="col-2">
+                    <label for="expire-date" class=" form-control-label">Personal Phone</label>
+                </div>
+                <div class="col-3">
+                    <input class="form-control" id="personalphone" type="text" placeholder="Personal Phone">
                 </div>
 
-                <div class="row form-group">
-                    <div class="col-2">
-                        <label for="date" class=" form-control-label">Client Ph.Number</label>
-                    </div>
-                    <div class="col-3">
-                        <input class="form-control" id="customerphone" type="text" placeholder="Client Phone Number">
-                    </div>
-                    <div class="col-2">
-                        <label for="expire-date" class=" form-control-label">Personal Phone</label>
-                    </div>
-                    <div class="col-3">
-                        <input class="form-control" id="personalphone" type="text" placeholder="Personal Phone">
-                    </div>
+            </div>
 
+            <div class="row form-group">
+                <div class="col-2">
+                    <label class=" form-control-label">Shipping Address</label>
+                </div>
+                <div class="col-3">
+                    <input class="form-control" id="addressofdelivery" type="text" placeholder="Shipping Address">
+                </div>
+                <div class="col-2">
+                    <label for="expire-date" class=" form-control-label">Writer Name</label>
+                </div>
+                <div class="col-3">
+                    <input class="form-control" id="nameofdev" type="text" placeholder="Writer Name">
                 </div>
 
-                <div class="row form-group">
-                    <div class="col-2">
-                        <label class=" form-control-label">Shipping Address</label>
-                    </div>
-                    <div class="col-3">
-                        <input class="form-control" id="addressofdelivery" type="text" placeholder="Shipping Address">
-                    </div>
-                    <div class="col-2">
-                        <label for="expire-date" class=" form-control-label">Writer Name</label>
-                    </div>
-                    <div class="col-3">
-                        <input class="form-control" id="nameofdev" type="text" placeholder="Writer Name">
-                    </div>
+            </div>
 
+            <div class="row form-group">
+                <div class="col-2">
+                    <label>Order Date</label>
                 </div>
-
-                <div class="row form-group">
-                    <div class="col-2">
-                        <label>Order Date</label>
-                    </div>
-                    <div class="col-3">
-                        <input type="date" id="orderdate" placeholder="Order Date" class="form-control">
-                    </div>
+                <div class="col-3">
+                    <input type="date" id="orderdate" placeholder="Order Date" class="form-control">
                 </div>
+            </div>
 
 
-               
-                  <h2 class="main-subject">Vendor Details</h2>
-                <div class="row form-group">
-                    <div class="col-2">
-                        <label class="form-control-label">Vendor Name</label>
-                    </div>
-                    <div class="col-3">
-                        <input class="form-control" id="vname" type="text" placeholder="Vendor Name">
 
-                    </div>
-                   
+            <h2 class="main-subject">Vendor Details</h2>
+            <div class="row form-group">
+                <div class="col-2">
+                    <label class="form-control-label">Vendor Name</label>
                 </div>
-
-                <div class="row form-group">
-                    <div class="col-2">
-                        <label for="date" class=" form-control-label">Vendor Ph.Number</label>
-                    </div>
-                    <div class="col-3">
-                        <input class="form-control" id="vphone" type="text" placeholder="Vendor Phone Number">
-                    </div>
-                    <div class="col-2">
-                        <label for="expire-date" class=" form-control-label">Company Name</label>
-                    </div>
-                    <div class="col-3">
-                        <input class="form-control" id="vcname" type="text" placeholder="Company Name">
-                    </div>
+                <div class="col-3">
+                    <input class="form-control" id="vname" type="text" placeholder="Vendor Name">
 
                 </div>
 
-             
-              
-               
-                <div class="product-detail-container" id="product_list">
+            </div>
+
+            <div class="row form-group">
+                <div class="col-2">
+                    <label for="date" class=" form-control-label">Vendor Ph.Number</label>
+                </div>
+                <div class="col-3">
+                    <input class="form-control" id="vphone" type="text" placeholder="Vendor Phone Number">
+                </div>
+                <div class="col-2">
+                    <label for="expire-date" class=" form-control-label">Company Name</label>
+                </div>
+                <div class="col-3">
+                    <input class="form-control" id="vcname" type="text" placeholder="Company Name">
+                </div>
+
+            </div>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="d-flex">
+                        <td class="col-2">Item #</td>
+                        <td class="col-6">Description</td>
+                        <td class="col-2">Qty</td>
+                        <td class="col-2">Unit Price</td>
+                    </tr>
+                </thead>
+                <tbody id="container">
+                    <tr class="d-flex">
+                        <td class="col-2 td-cells">
+                            <input type="text" class="form-control" id="pro1category">
+                        </td>
+                        <td class="col-6 td-cells">
+                            <input type="text" class="form-control" id="pro1description">
+                        </td>
+                        <td class="col-2 td-cells">
+                            <input type="text" class="form-control" id="pro1quantityavailable">
+                        </td>
+                        <td class="col-2 td-cells">
+                            <input type="text" class="form-control" id="pro1unitprice" onkeypress="add_new(event)">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <!-- <div class="product-detail-container" id="product_list">
 
                     <h2 class="main-subject">Product Details</h2>
                     <div class="product-detail-list" id="container">
@@ -207,125 +234,125 @@
                         </div>
                     </div>
 
+                </div> -->
+            <!-- <input type="text" placeholder="Product type" id="pro1totalprice"> -->
+
+
+        </div>
+
+        <div class="forms" style="max-width: none; display: none;" id="operation1">
+            <form action="" method="post" class="form-horizontal">
+                <div class="row form-group">
+                    <div class="col-2">
+                        <label for="customer-name" class=" form-control-label"><b>Customer Name</b></label>
+                    </div>
+                    <div class="col-3" id="waqas">
+
+                    </div>
+                    <div class="col-2">
+                        <label for="password-input" class=" form-control-label"><b>Client Phone</b></label>
+                    </div>
+                    <div class="col-3" id="customerphones">
+
+                    </div>
+
                 </div>
-                <!-- <input type="text" placeholder="Product type" id="pro1totalprice"> -->
 
+                <div class="row form-group">
+                    <div class="col-2">
+                        <label for="date" class=" form-control-label">Receiving Date</label>
+                    </div>
+                    <div class="col-3" id="recdate">
+                    </div>
+                    <div class="col-2">
+                        <label for="expire-date" class=" form-control-label">Delivery Date</label>
+                    </div>
+                    <div class="col-3" id="deldate">
+                    </div>
 
-            </div>
+                </div>
 
-            <div class="forms" style="max-width: none; display: none;" id="operation1">
-                <form action="" method="post" class="form-horizontal">
-                    <div class="row form-group">
-                        <div class="col-2">
-                            <label for="customer-name" class=" form-control-label"><b>Customer Name</b></label>
-                        </div>
-                        <div class="col-3" id="waqas">
-
-                        </div>
-                        <div class="col-2">
-                            <label for="password-input" class=" form-control-label"><b>Client Phone</b></label>
-                        </div>
-                        <div class="col-3" id="customerphones">
-
-                        </div>
+                <div class="row form-group">
+                    <div class="col-2">
+                        <label for="phone" class=" form-control-label">Company Phone</label>
+                    </div>
+                    <div class="col-3" id="personalphones">
+                        <!-- <input type="number" name="phone" class="form-control"> -->
+                    </div>
+                    <div class="col-2">
+                        <label for="ship" class=" form-control-label">Ship to</label>
+                    </div>
+                    <div class="col-3" id="addressofdeliverys">
 
                     </div>
 
-                    <div class="row form-group">
-                        <div class="col-2">
-                            <label for="date" class=" form-control-label">Receiving Date</label>
-                        </div>
-                        <div class="col-3" id="recdate">
-                        </div>
-                        <div class="col-2">
-                            <label for="expire-date" class=" form-control-label">Delivery Date</label>
-                        </div>
-                        <div class="col-3" id="deldate">
-                        </div>
+                </div>
 
+                <div class="row form-group">
+                    <div class="col-2">
+                        <label for="product-number" class=" form-control-label">Client Name</label>
+                    </div>
+                    <div class="col-3" id="clientname">
+                        <!-- <input type="number" name="phone" class="form-control"> -->
                     </div>
 
-                    <div class="row form-group">
-                        <div class="col-2">
-                            <label for="phone" class=" form-control-label">Company Phone</label>
-                        </div>
-                        <div class="col-3" id="personalphones">
-                            <!-- <input type="number" name="phone" class="form-control"> -->
-                        </div>
-                        <div class="col-2">
-                            <label for="ship" class=" form-control-label">Ship to</label>
-                        </div>
-                        <div class="col-3" id="addressofdeliverys">
 
-                        </div>
+                    <div class="col-2">
+                        <label for="sales-order-status">Status</label>
+                    </div>
+                    <div class="col-3" id="status">
+                        <!-- <input type="text" class="form-control" id="sales-order-status" value="Open"> -->
+                    </div>
+                </div>
 
+
+                <div class="row form-group">
+                    <div class="col-2">
+                        <label for="product-number" class=" form-control-label">Vendor Name</label>
+                    </div>
+                    <div class="col-3" id="vclientname">
+                        <!-- <input type="number" name="phone" class="form-control"> -->
                     </div>
 
-                    <div class="row form-group">
-                        <div class="col-2">
-                            <label for="product-number" class=" form-control-label">Client Name</label>
-                        </div>
-                        <div class="col-3" id="clientname">
-                            <!-- <input type="number" name="phone" class="form-control"> -->
-                        </div>
 
-
-                        <div class="col-2">
-                            <label for="sales-order-status">Status</label>
-                        </div>
-                        <div class="col-3" id="status">
-                            <!-- <input type="text" class="form-control" id="sales-order-status" value="Open"> -->
-                        </div>
+                    <div class="col-2">
+                        <label for="sales-order-status">Vendor phone</label>
                     </div>
-                    
-                    
-                      <div class="row form-group">
-                        <div class="col-2">
-                            <label for="product-number" class=" form-control-label">Vendor Name</label>
-                        </div>
-                        <div class="col-3" id="vclientname">
-                            <!-- <input type="number" name="phone" class="form-control"> -->
-                        </div>
-
-
-                        <div class="col-2">
-                            <label for="sales-order-status">Vendor phone</label>
-                        </div>
-                        <div class="col-3" id="vstatus">
-                            <!-- <input type="text" class="form-control" id="sales-order-status" value="Open"> -->
-                        </div>
-                        
+                    <div class="col-3" id="vstatus">
+                        <!-- <input type="text" class="form-control" id="sales-order-status" value="Open"> -->
                     </div>
-                    
-                      <div class="row form-group">
-                        <div class="col-2">
-                            <label for="product-number" class=" form-control-label">Company Name</label>
-                        </div>
-                        <div class="col-3" id="vcompany">
-                            <!-- <input type="number" name="phone" class="form-control"> -->
-                        </div>
 
+                </div>
 
+                <div class="row form-group">
+                    <div class="col-2">
+                        <label for="product-number" class=" form-control-label">Company Name</label>
                     </div>
-                    
-                    
-                </form>
+                    <div class="col-3" id="vcompany">
+                        <!-- <input type="number" name="phone" class="form-control"> -->
+                    </div>
 
-                <!-- product list section -->
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <td scope="col">S.no</td>
-                            <td scope="col">Product Category</td>
-                            <td scope="col">Description</td>
-                            <td scope="col">Qty Avail</td>
-                            <td scope="col">Qty Order</td>
-                            <td scope="col">Unit Price</td>
-                            <td scope="col">Total Price</td>
-                        </tr>
 
-                    <tbody id="create-lists">
-                         <!-- <tr>
+                </div>
+
+
+            </form>
+
+            <!-- product list section -->
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td scope="col">S.no</td>
+                        <td scope="col">Product Category</td>
+                        <td scope="col">Description</td>
+                        <td scope="col">Qty Avail</td>
+                        <!-- <td scope="col">Qty Order</td> -->
+                        <td scope="col">Unit Price</td>
+                        <td scope="col">Total Price</td>
+                    </tr>
+
+                <tbody id="create-lists">
+                    <!-- <tr>
                             <td scope="row">1</td>
                             <td class="category"></td>
                             <td class="description"></td>
@@ -354,80 +381,80 @@
                             <td class="unitprice"></td>
                             <td class="totalprice"></td>
                         </tr> -->
-                        <!-- <tr> 
+                    <!-- <tr> 
                             <td colspan="6">Total</td>
                             <td colspan="1" id="grandtotal"></td>
                         </tr> -->
 
-                    </tbody>
-                    </thead>
-                </table>
+                </tbody>
+                </thead>
+            </table>
 
 
-                <!-- payment -->
-                <form action="#">
-                    <!-- 
+            <!-- payment -->
+            <form action="#">
+                <!-- 
                         <div>
                             <label for="">Order Total:</label>
                             <div id="grandtotal"></div>
                         </div> -->
 
-                    <fieldset class="the-fieldset">
-                        <legend class="the-legend">
-                            Parment Method
-                        </legend>
+                <fieldset class="the-fieldset">
+                    <legend class="the-legend">
+                        Parment Method
+                    </legend>
 
-                        <div class="row">
-                            <div class="col-2">
-                                <label for="">type</label>
-                                <select name="payment-type" id="payment-type">
-                                    <option value="cash">cash</option>
-                                    <option value="check">check</option>
-                                    <option value="dept-card">Dept Card</option>
-                                </select>
-                            </div>
-
-                            <div class="col-3">
-                                <label for="">Date</label>
-                                <input class=" pay-input" type="date" name="payment-date" id="payment-date">
-                            </div>
-
-                            <div class="col-3">
-                                <label for="">Ref:</label>
-                                <input type="text" class=" pay-input">
-                            </div>
-
-                            <div class="col-3">
-                                <label for="">Exp Date:</label>
-                                <input type="date">
-                            </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <label for="">type</label>
+                            <select name="payment-type" id="payment-type">
+                                <option value="cash">cash</option>
+                                <option value="check">check</option>
+                                <option value="dept-card">Dept Card</option>
+                            </select>
                         </div>
 
-                        <br>
-                        <!-- <div class="row">
+                        <div class="col-3">
+                            <label for="">Date</label>
+                            <input class=" pay-input" type="date" name="payment-date" id="payment-date">
+                        </div>
+
+                        <div class="col-3">
+                            <label for="">Ref:</label>
+                            <input type="text" class=" pay-input">
+                        </div>
+
+                        <div class="col-3">
+                            <label for="">Exp Date:</label>
+                            <input type="date">
+                        </div>
+                    </div>
+
+                    <br>
+                    <!-- <div class="row">
                                 <div class="col-3">
                                     <label for="">Amount</label>
                                     <input type="text" id="">
                                 </div>
                             </div> -->
-                    </fieldset>
-                </form>
+                </fieldset>
+            </form>
 
-            </div>
-            <section class="color-1 text-center">
-                <p>
-                    <button onclick="shows('operation1')" class="btn btn-1 btn-1d">Generate</button>
-                </p>
-            </section>
-    
-            </div>
-    
-        
+        </div>
+        <section class="color-1 text-center">
+            <p>
+                <button onclick="shows('operation1')" class="btn btn-1 btn-1d">Generate</button>
+            </p>
+        </section>
+
+    </div>
+
+
     </div>
     <!-- <p id="n"></p> -->
     <!-- <button onclick="waqaskhan();">Submit</button>
 <input type="button" id="create_pdf" value="Generate PDF">  -->
-   
+
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -441,7 +468,7 @@
 
 <script>
   //  let index = 1;
-    
+
 
 
 </script>

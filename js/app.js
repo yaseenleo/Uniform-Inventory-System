@@ -17,22 +17,20 @@ function add_new(e) {
     if (e.key === "Enter") {
         row++;
 
-        const rowDiv = document.createElement('div');
-        const col1Div = document.createElement('div');
-        const col2Div = document.createElement('div');
-        const col3Div = document.createElement('div');
-        const col4Div = document.createElement('div');
-        const col5Div = document.createElement('div');
-        const col6Div = document.createElement('div');
-
-        let para = document.createElement('h4');
+        const pTr = document.createElement('tr');
+        const pTd1 = document.createElement('td');
+        const pTd2 = document.createElement('td');
+        const pTd3 = document.createElement('td');
+        const pTd4 = document.createElement('td');
+        
+        // let para = document.createElement('h4');
         let input1 = document.createElement('input');
         let input2 = document.createElement('input');
         let input3 = document.createElement('input');
         let input4 = document.createElement('input');
         let input5 = document.createElement('input');
 
-        var para1 = document.createTextNode(row + ".");
+        // var para1 = document.createTextNode(row + ".");
         input1.setAttribute('type', 'text')
         input1.setAttribute('class', 'form-control')
         input1.setAttribute('id','pro'+row+'category')
@@ -48,38 +46,34 @@ function add_new(e) {
         input4.setAttribute('type', 'text')
         input4.setAttribute('class', 'form-control')
         input4.setAttribute('id','pro'+row+'quantityorder')
+        input4.setAttribute('onkeypress', 'add_new(event)')
 
-        input5.setAttribute('type', 'text')
-        input5.setAttribute('class', 'form-control')
-        input5.setAttribute('id','pro'+row+'unitprice')
-        input5.setAttribute('onkeypress', 'add_new(event)')
+        // input5.setAttribute('type', 'text')
+        // input5.setAttribute('class', 'form-control')
+        // input5.setAttribute('id','pro'+row+'unitprice')
 
-        rowDiv.classList.add('row')
-        col1Div.classList.add('small-col')
-        col2Div.classList.add('col-2', 'bordered');
-        col3Div.classList.add('col-2', 'bordered');
-        col4Div.classList.add('col-2', 'bordered');
-        col5Div.classList.add('col-2', 'bordered');
-        col6Div.classList.add('col-2', 'bordered');
+        pTr.classList.add('d-flex')
+        pTd1.classList.add('col-2','td-cells')
+        pTd2.classList.add('col-6', 'td-cells');
+        pTd3.classList.add('col-2', 'td-cells');
+        pTd4.classList.add('col-2', 'td-cells');
 
-        rowDiv.appendChild(col1Div)
-        rowDiv.appendChild(col2Div);
-        rowDiv.appendChild(col3Div);
-        rowDiv.appendChild(col4Div);
-        rowDiv.appendChild(col5Div);
-        rowDiv.appendChild(col6Div);
-
-        para.appendChild(para1)
-        col1Div.appendChild(para);
-        col2Div.appendChild(input1);
-        col3Div.appendChild(input2);
-        col4Div.appendChild(input3);
-        col5Div.appendChild(input4);
-        col6Div.appendChild(input5);
-        console.log(rowDiv);
+        pTr.appendChild(pTd1)
+        pTr.appendChild(pTd2);
+        pTr.appendChild(pTd3);
+        pTr.appendChild(pTd4);
+        
+        // para.appendChild(para1)
+        // col1Div.appendChild(para);
+        pTd1.appendChild(input1);
+        pTd2.appendChild(input2);
+        pTd3.appendChild(input3);
+        pTd4.appendChild(input4);
+        // col6Div.appendChild(input5);
+        console.log(pTr);
 
 
-        document.getElementById('container').appendChild(rowDiv);
+        document.getElementById('container').appendChild(pTr);
 
     }
 
@@ -95,21 +89,20 @@ function shows(param_div_id) {
         sales_table_array.push({"category":document.getElementById('pro'+i+'category').value,
                              "description":document.getElementById('pro'+i+'description').value,
                              "quantityavailable":parseInt(document.getElementById('pro'+i+'quantityavailable').value),
-                             "quantitytorder":parseInt(document.getElementById('pro'+i+'quantityorder').value),
+                            //  "quantitytorder":parseInt(document.getElementById('pro'+i+'quantityorder').value),
                              "unitprice":parseInt(document.getElementById('pro'+i+'unitprice').value),
-                             "total":parseInt(document.getElementById('pro'+i+'quantityorder').value)*parseInt(document.getElementById('pro'+i+'unitprice').value)
+                             "total":parseInt(document.getElementById('pro'+i+'quantityavailable').value)*parseInt(document.getElementById('pro'+i+'unitprice').value)
     });
     whole_total += sales_table_array[i-1].total;
     tdata += `<tr><td>`+i+`.</td>
     <td>`+sales_table_array[i-1].category+`</td>
     <td>`+sales_table_array[i-1].description+`</td>
     <td>`+sales_table_array[i-1].quantityavailable+`</td>
-    <td>`+sales_table_array[i-1].quantitytorder+`</td>
     <td>`+sales_table_array[i-1].unitprice+`</td>
     <td>`+sales_table_array[i-1].total+`</td>
     </tr>`
     }
-    tdata += `<tr><td colspan="6">Total</td>
+    tdata += `<tr><td colspan="5">Total</td>
     <td colspan="1" id="grandtotal">`+whole_total+`</td></tr>`
     
     document.getElementById("create-lists").innerHTML = tdata;
