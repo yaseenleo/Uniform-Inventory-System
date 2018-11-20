@@ -154,7 +154,7 @@ function shows(param_div_id) {
     <td class="col-2" colspan="1" id="grandtotal">`+whole_total+`</td></tr>`
     
     document.getElementById("create-lists").innerHTML = tdata;
-    alert(JSON.stringify(sales_table_array));
+    // alert(JSON.stringify(sales_table_array));
 
 //     var a = document.getElementById('name').value;
 //     var b = document.getElementById('orderdate').value;
@@ -270,7 +270,7 @@ $("#invoice-terms-g").append(InvoiceTerms);
     <td class="col-2" colspan="1" id="grandtotal">`+whole_total+`</td></tr>`
     
     document.getElementById("create-lists").innerHTML = tdata;
-    alert(JSON.stringify(sales_table_array));
+    // alert(JSON.stringify(sales_table_array));
 
 //     var a = document.getElementById('name').value;
 //     var b = document.getElementById('orderdate').value;
@@ -388,7 +388,7 @@ $("#invoice-terms-g").append(InvoiceTerms);
     <td class="col-2" colspan="1" id="grandtotal">`+whole_total+`</td></tr>`
     
     document.getElementById("create-lists").innerHTML = tdata;
-    alert(JSON.stringify(sales_table_array));
+    // alert(JSON.stringify(sales_table_array));
 
 //     var a = document.getElementById('name').value;
 //     var b = document.getElementById('orderdate').value;
@@ -508,7 +508,7 @@ $("#pack-cust-num-g").append(packCustomerNum);
     <td class="col-2" colspan="1" id="grandship">`+whole_ship+`</td></tr>`
     
     document.getElementById("create-lists").innerHTML = tdata;
-    alert(JSON.stringify(sales_table_array));
+    // alert(JSON.stringify(sales_table_array));
 
 //     var a = document.getElementById('name').value;
 //     var b = document.getElementById('orderdate').value;
@@ -574,7 +574,7 @@ function shower(param_div_id) {
     <td colspan="1" id="grandtotal">`+whole_total+`</td></tr>`
     
     document.getElementById("create-lists").innerHTML = tdata;
-    alert(JSON.stringify(sales_table_array));
+    // alert(JSON.stringify(sales_table_array));
 
     var a = document.getElementById('name').value;
     var c = document.getElementById('deliverydate').value;
@@ -661,7 +661,7 @@ $("#pay-remarks-g").append(payRemarks);
     <td class="col-2" colspan="1" id="grandtotal">`+whole_total+`</td></tr>`
     
     document.getElementById("create-lists").innerHTML = tdata;
-    alert(JSON.stringify(sales_table_array));
+    // alert(JSON.stringify(sales_table_array));
 
 //     var a = document.getElementById('name').value;
 //     var b = document.getElementById('orderdate').value;
@@ -729,7 +729,7 @@ function show(param_div_id) {
     <td colspan="1" id="grandtotal">`+whole_total+`</td></tr>`
     
     document.getElementById("create-lists").innerHTML = tdata;
-    alert(JSON.stringify(sales_table_array));
+    // alert(JSON.stringify(sales_table_array));
 
     var a = document.getElementById('name').value;
     var b = document.getElementById('orderdate').value;
@@ -892,7 +892,7 @@ function delNote(param_div_id) {
     <td class="col-2"></td></tr>`
     
     document.getElementById("create-lists").innerHTML = tdata;
-    alert(JSON.stringify(sales_table_array));
+    // alert(JSON.stringify(sales_table_array));
 
     document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
 

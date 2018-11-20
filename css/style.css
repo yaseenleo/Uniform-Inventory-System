@@ -4,7 +4,6 @@ body{
 }
 .home-link{
     color: white;
-
 }
 .bg-img{
     background: url(../assets/img/fashion-1031469_1280.jpg);
@@ -50,10 +49,12 @@ body{
     color: black;
 }
 .doc-head-text{
-    color: #00bcd4;
+    color: #404444;
     text-transform: uppercase;
-    margin-bottom: 0.8em;
+    margin-bottom: 1em;
     text-align: center;
+    text-decoration: underline;
+    font-family: Georgia, 'Times New Roman', Times, serif
 }
 
 .main-subject{
