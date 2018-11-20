@@ -115,6 +115,9 @@
 .pay-type{
     margin: 2em 0 2em 0;
 }
+td{
+	overflow-wrap: break-word;
+}
 
 /* .pay-items-container{
     display: -moz-flex;

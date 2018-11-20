@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Purchase Order</title>
+    <title>Goods Receiving Note</title>
 
     <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../../../css/salesStyle.css">
@@ -52,7 +52,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="../../../attendance.html" class="nav-link">
-                            Documents
+                            Attendance
                         </a>
                     </li>
                 </ul>
@@ -64,7 +64,7 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Sales Module</h3>
+                <h3>Purchase Module</h3>
             </div>
 
             <ul class="list-unstyled components">
@@ -79,9 +79,7 @@
                         <li>
                             <a href="purchaseinvoice.html">Purchase Invoice</a>
                         </li>
-                        <li>
-                            <a href="vendoraccount.html">Vendor Receipt Account</a>
-                        </li>
+                        
                         <li>
                             <a href="vendorpay.html">Vendor Payment</a>
                         </li>
@@ -98,7 +96,7 @@
 
                 <button type="button" id="sidebarCollapse" class="btn btn-info">
                     <i class="fas fa-align-left"></i>
-                    <span>Toggle Sidebar</span>
+                    <span>Menu</span>
                 </button>
                 <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -344,93 +342,10 @@
                     </tr>
 
                 <tbody id="create-lists">
-                    <!-- <tr>
-                            <td scope="row">1</td>
-                            <td class="category"></td>
-                            <td class="description"></td>
-                            <td class="qtyavailable"></td>
-                            <td class="qtyorder"></td>
-                            <td class="unitprice"></td>
-                            <td class="totalprice"></td>
-                        </tr>
-
-                        <tr>
-                            <td scope="row">2</td>
-                            <td id="na"></td>
-                            <td id="ma"></td>
-                            <td id="oa"></td>
-                            <td id="pa"></td>
-                            <td id="qa"></td>
-                            <td id="ra"></td>
-                        </tr>
-
-                        <tr>
-                            <td scope="row">3</td>
-                            <td class="category"></td>
-                            <td class="description"></td>
-                            <td class="qtyavailable"></td>
-                            <td class="qtyorder"></td>
-                            <td class="unitprice"></td>
-                            <td class="totalprice"></td>
-                        </tr> -->
-                    <!-- <tr> 
-                            <td colspan="6">Total</td>
-                            <td colspan="1" id="grandtotal"></td>
-                        </tr> -->
 
                 </tbody>
                 </thead>
             </table>
-
-
-            <!-- payment -->
-            <form action="#">
-                <!-- 
-                        <div>
-                            <label for="">Order Total:</label>
-                            <div id="grandtotal"></div>
-                        </div> -->
-
-                <fieldset class="the-fieldset">
-                    <legend class="the-legend">
-                        Parment Method
-                    </legend>
-
-                    <div class="row">
-                        <div class="col-2">
-                            <label for="">type</label>
-                            <select name="payment-type" id="payment-type">
-                                <option value="cash">cash</option>
-                                <option value="check">check</option>
-                                <option value="dept-card">Dept Card</option>
-                            </select>
-                        </div>
-
-                        <div class="col-3">
-                            <label for="">Date</label>
-                            <input class=" pay-input" type="date" name="payment-date" id="payment-date">
-                        </div>
-
-                        <div class="col-3">
-                            <label for="">Ref:</label>
-                            <input type="text" class=" pay-input">
-                        </div>
-
-                        <div class="col-3">
-                            <label for="">Exp Date:</label>
-                            <input type="date">
-                        </div>
-                    </div>
-
-                    <br>
-                    <!-- <div class="row">
-                                <div class="col-3">
-                                    <label for="">Amount</label>
-                                    <input type="text" id="">
-                                </div>
-                            </div> -->
-                </fieldset>
-            </form>
 
         </div>
         
@@ -439,9 +354,6 @@
 
 
     </div>
-    <!-- <p id="n"></p> -->
-    <!-- <button onclick="waqaskhan();">Submit</button>
-<input type="button" id="create_pdf" value="Generate PDF">  -->
 
 </body>
 
