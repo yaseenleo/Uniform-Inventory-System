@@ -95,7 +95,8 @@
 .gr-type{
     border: 1px solid black;
     padding: 2px;
-    text-align: center;
+	text-align: center;
+	margin-top: 1em;
 }
 
 .gr-col-1{

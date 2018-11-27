@@ -79,6 +79,83 @@ function add_new(e) {
 
 }
 
+function sales_add_new(e) {
+    e = e || window.event;
+    console.log(e.key);
+    console.log(e);
+    if (e.key === "Enter") {
+        row++;
+
+        const pTr = document.createElement('tr');
+        const pTd1 = document.createElement('td');
+        const pTd2 = document.createElement('td');
+        const pTd3 = document.createElement('td');
+        const pTd4 = document.createElement('td');
+        const pTd5 = document.createElement('td');
+        
+        // let para = document.createElement('h4');
+        let input1 = document.createElement('input');
+        let input2 = document.createElement('input');
+        let input3 = document.createElement('input');
+        let input4 = document.createElement('input');
+        let input5 = document.createElement('input');
+
+        // var para1 = document.createTextNode(row + ".");
+        input1.setAttribute('type', 'text')
+        input1.setAttribute('class', 'form-control')
+        input1.setAttribute('id','pro'+row+'category')
+
+        input2.setAttribute('type', 'text');
+        input2.setAttribute('class', 'form-control')
+        input2.setAttribute('id','pro'+row+'description')
+
+        input3.setAttribute('type', 'text')
+        input3.setAttribute('class', 'form-control')
+        input3.setAttribute('id','pro'+row+'quantityavailable')
+
+        input4.setAttribute('type', 'text')
+        input4.setAttribute('class', 'form-control')
+        input4.setAttribute('id','pro'+row+'quantityorder')
+
+        input5.setAttribute('type', 'text')
+        input5.setAttribute('class', 'form-control')
+        input5.setAttribute('id','pro'+row+'unitprice')
+        input5.setAttribute('onkeypress', 'sales_add_new(event)')
+
+        // input5.setAttribute('type', 'text')
+        // input5.setAttribute('class', 'form-control')
+        // input5.setAttribute('id','pro'+row+'unitprice')
+
+        pTr.classList.add('d-flex')
+        pTd1.classList.add('col-2','td-cells')
+        pTd2.classList.add('col-4', 'td-cells');
+        pTd3.classList.add('col-2', 'td-cells');
+        pTd4.classList.add('col-2', 'td-cells');
+        pTd5.classList.add('col-2', 'td-cells');
+
+        pTr.appendChild(pTd1)
+        pTr.appendChild(pTd2);
+        pTr.appendChild(pTd3);
+        pTr.appendChild(pTd4);
+        pTr.appendChild(pTd5);
+        
+        // para.appendChild(para1)
+        // col1Div.appendChild(para);
+        pTd1.appendChild(input1);
+        pTd2.appendChild(input2);
+        pTd3.appendChild(input3);
+        pTd4.appendChild(input4);
+        pTd5.appendChild(input5);
+        // col6Div.appendChild(input5);
+        console.log(pTr);
+
+
+        document.getElementById('container').appendChild(pTr);
+
+    }
+
+}
+
 // side nav
 
 // form data generate
@@ -549,6 +626,79 @@ $("#pack-cust-num-g").append(packCustomerNum);
 
 }
 
+
+function salesOrder(param_div_id) {
+
+
+    // basic
+    var purDate = document.getElementById("pur-date").value;
+    var purPO = document.getElementById("pur-po").value;
+    
+    $("#pur-date-g").append(purDate);
+    $("#pur-po-g").append(purPO);
+    
+    // vender info
+    var purVenName = document.getElementById("pur-name").value;
+    var purVenCompName = document.getElementById("pur-company-name").value;
+    var purVenAddress = document.getElementById("pur-vender-address").value;
+    var purVenCity = document.getElementById("pur-vender-city").value;
+    var purVenPh = document.getElementById("pur-vender-phone").value;
+    
+    $("#pur-name-g").append(purVenName);
+    $("#pur-company-name-g").append(purVenCompName);
+    $("#pur-vender-address-g").append(purVenAddress);
+    $("#pur-vender-city-g").append(purVenCity);
+    $("#pur-vender-phone-g").append(purVenPh);
+    
+    // ship info
+    var purShipName = document.getElementById("pur-ship-name").value;
+    var purShipCompName = document.getElementById("pur-ship-company-name").value;
+    var purShipAddress = document.getElementById("pur-ship-address").value;
+    var purShipCity = document.getElementById("pur-ship-city").value;
+    var purShipPh = document.getElementById("pur-ship-phone").value;
+    
+    $("#pur-ship-name-g").append(purShipName);
+    $("#pur-ship-company-name-g").append(purShipCompName);
+    $("#pur-ship-address-g").append(purShipAddress);
+    $("#pur-ship-city-g").append(purShipCity);
+    $("#pur-ship-phone-g").append(purShipPh);
+  
+
+// packing order info data end
+
+// invoice ship data end
+
+    let total =0;
+    let tdata = '';
+    for(let i=1 ; i <= row ; i++){
+        sales_table_array.push({"category":document.getElementById('pro'+i+'category').value,
+                             "description":document.getElementById('pro'+i+'description').value,
+                             "quantityavailable":parseInt(document.getElementById('pro'+i+'quantityavailable').value),
+                             "quantitytorder":parseInt(document.getElementById('pro'+i+'quantityorder').value),
+                             "unitprice":parseInt(document.getElementById('pro'+i+'unitprice').value),
+                             "total":parseInt(document.getElementById('pro'+i+'quantityorder').value)*parseInt(document.getElementById('pro'+i+'unitprice').value)
+    });
+    total += sales_table_array[i-1].total;
+    tdata += `<tr class="d-flex"><td class="col-1">`+i+`.</td>
+    <td class="col-2">`+sales_table_array[i-1].category+`</td>
+    <td class="col-4">`+sales_table_array[i-1].description+`</td>
+    <td class="col-1">`+sales_table_array[i-1].quantityavailable+`</td>
+    <td class="col-1">`+sales_table_array[i-1].quantitytorder+`</td>
+    <td class="col-1">`+sales_table_array[i-1].unitprice+`</td>
+    <td class="col-2">`+sales_table_array[i-1].total+`</td>
+
+    </tr>`
+    }
+    tdata += `<tr class="d-flex"><td class="col-10" colspan="5">Total</td>
+    <td class="col-2" colspan="2" id="grandtotal">`+total+`</td></tr>`
+    
+    document.getElementById("create-lists").innerHTML = tdata;
+    // alert(JSON.stringify(sales_table_array));
+
+    document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
+
+}
+
 function shower(param_div_id) {
     let whole_total =0;
     let tdata = '';
@@ -663,46 +813,81 @@ $("#pay-remarks-g").append(payRemarks);
     document.getElementById("create-lists").innerHTML = tdata;
     // alert(JSON.stringify(sales_table_array));
 
-//     var a = document.getElementById('name').value;
-//     var b = document.getElementById('orderdate').value;
-//     var c = document.getElementById('deliverydate').value;
-//     // alert(param_div_id);
-//     var d = document.getElementById('customerphone').value;
-//     var e = document.getElementById('personalphone').value;
-//     var f = document.getElementById('addressofdelivery').value;
-//     var g = document.getElementById('nameofdev').value;
-    
-    
-    
-//     var p = document.getElementById('vname').value;
-//     var q = document.getElementById('vphone').value;
-//     // alert(param_div_id);
-//     var r = document.getElementById('vcname').value;
-  
-//     //  var newarray = proarray.join('<br>');
-//    // var grandtotal = (totprice * 2) + sectotprice;
-    
-    
-//      $("#vstatus").append(q);
-//     $("#vclientname").append(p);
-//     $("#vcompany").append(r);
-    
-    
-//     $("#waqas").append(a);
-//     $("#recdate").append(b);
-//     $("#deldate").append(c);
-//     //  $("#idk").append(c);
-//     $("#personalphones").append(e);
-//     $("#addressofdeliverys").append(f);
-//     $("#clientname").append(g);
-    
-//     $("#status").append("Purchase Order");
-//     $("#customerphones").append(d);
     document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
 
 }
 
+function grNote(param_div_id) {
 
+
+   grFrom = document.getElementById("gr-from").value;
+   grTo = document.getElementById("gr-to").value;
+
+   $("#gr-from-g").append(grFrom);
+   $("#gr-to-g").append(grTo);
+
+//    goods data
+
+    grOrderNum = document.getElementById("gr-order-num").value;
+    grDelivNum = document.getElementById("gr-delivey-num").value;
+    grInvoiceNum = document.getElementById("gr-invoice-num").value;
+    grRequishNum = document.getElementById("gr-requisition-num").value;
+    grRequishBy = document.getElementById("gr-requisition-by").value;
+    grDate = document.getElementById("gr-date").value;
+
+    $("#gr-order-num-g").append(grOrderNum);
+    $("#gr-delivey-num-g").append(grDelivNum);
+    $("#gr-invoice-num-g").append(grInvoiceNum);
+    $("#gr-requisition-num-g").append(grRequishNum);
+    $("#gr-requisition-by-g").append(grRequishBy);
+    $("#gr-date-g").append(grDate);
+
+// goods data end
+
+// goods other info
+
+    storeOfficer = document.getElementById("store-incharge-name").value;
+    inchareName = document.getElementById("responsible-person-name").value;
+    designation = document.getElementById("person-designation").value;
+    issueDate = document.getElementById("issue-date").value;
+
+    $("#store-incharge-name-g").append(storeOfficer);
+    $("#responsible-person-name-g").append(inchareName);
+    $("#person-designation-g").append(designation);
+    $("#issue-date-g").append(issueDate);
+
+// goods other info end
+
+    let total =0;
+    let tdata = '';
+    for(let i=1 ; i <= row ; i++){
+        sales_table_array.push({"category":document.getElementById('pro'+i+'category').value,
+                             "description":document.getElementById('pro'+i+'description').value,
+                             "quantityavailable":parseInt(document.getElementById('pro'+i+'quantityavailable').value),
+                             "quantitytorder":parseInt(document.getElementById('pro'+i+'quantityorder').value),
+                             "unitprice":parseInt(document.getElementById('pro'+i+'unitprice').value),
+                             "total":parseInt(document.getElementById('pro'+i+'quantityorder').value)*parseInt(document.getElementById('pro'+i+'unitprice').value)
+    });
+    total += sales_table_array[i-1].total;
+    tdata += `<tr class="d-flex"><td class="col-1">`+i+`.</td>
+    <td class="col-2">`+sales_table_array[i-1].category+`</td>
+    <td class="col-4">`+sales_table_array[i-1].description+`</td>
+    <td class="col-1">`+sales_table_array[i-1].quantityavailable+`</td>
+    <td class="col-1">`+sales_table_array[i-1].quantitytorder+`</td>
+    <td class="col-1">`+sales_table_array[i-1].unitprice+`</td>
+    <td class="col-2">`+sales_table_array[i-1].total+`</td>
+
+    </tr>`
+    }
+    tdata += `<tr class="d-flex"><td class="col-10" colspan="5">Total</td>
+    <td class="col-2" colspan="2" id="grandtotal">`+total+`</td></tr>`
+    
+    document.getElementById("create-lists").innerHTML = tdata;
+    // alert(JSON.stringify(sales_table_array));
+
+    document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
+
+}
 
 function show(param_div_id) {
     let whole_total =0;
