@@ -120,10 +120,16 @@ rootref.on("child_added", snap=> {
 var name= snap.child("nameofmember").val();
 // var phone= snap.child("phoneno").val();
 
-$("#para").append(`<tr><td>` +name+ `</td><td><input type="text"></td></tr>`);
+$("#para").append(`<tr><td>` +name+ `</td><td><Button class="btn-space btn btn-primary btn-sm" onClick='attend("present",this)'>Present</button><Button class="btn-space btn btn-warning btn-sm" onClick='attend("absent",this)'>absent</button></td></tr>`);
 
 });
-
+function attend(attend , e)
+{
+    console.log(e.parentNode);
+    let parent = e.parentNode;
+    parent.innerHTML="<span>"+attend+"</span>";
+    // alert(attend);
+}
 
 </script>
 
@@ -147,7 +153,7 @@ function exportToExcel(para){
     tab_text= tab_text+"</table>";
     tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, ""); //remove if u want links in your table
     tab_text= tab_text.replace(/<img[^>]*>/gi,""); //remove if u want images in your table
-    tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); //remove input params
+   // tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); //remove input params
 
     var ua = window.navigator.userAgent;
     var msie = ua.indexOf("MSIE ");
@@ -186,7 +192,7 @@ function addemployee(){
   var updates = {};
   updates['/staff/employee/' + uid2] = dataaa;
   firebase.database().ref().update(updates);
-  alert("Done");
+//   alert("Done");
 }
 }
 
