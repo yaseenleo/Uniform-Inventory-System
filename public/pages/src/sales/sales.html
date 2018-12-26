@@ -22,7 +22,7 @@
 
 <body onload="fill()">
 
-    <nav class="navbar navbar-expand-lg bg-primary">
+    <!-- <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container">
             <div class="navbar-translate">
                 <a href="../../../index.html" class="navbar-brand">Uniform Inventory</a>
@@ -68,38 +68,93 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
-    <div class="wrapper container-fluid">
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Sales Module</h3>
+    <div class="nav-side-menu">
+            <div class="brand brand-color">
+                <h4>Uniform Inventory</h4>
             </div>
+            <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+            <div class="menu-list" id="menu-content">
+    
+                <ul id="accordion1" class="menu-content collapse out">
+    
+    
+                    <li data-toggle="collapse" data-parent="#accordion1" href="#firstLink"> <a> <i></i> Purchase</a>
+    
+                        <ul id="firstLink" class="collapse sub-list">
+                            <li>
+                                <a href="../purchase/purchase.html">Purchase Order</a>
+                            </li>
+                            <li>
+                                <a href="../purchase/grnote.html">Good Receiving Note</a>
+                            </li>
+                            <li>
+                                <a href="../purchase/purchaseinvoice.html">Purchase Invoice</a>
+                            </li>
+                            <li>
+                                <a href="../purchase/vendorpay.html">Vendor Payment</a>
+                            </li>
+                        </ul>
+    
+                    </li>
+                    <li data-toggle="collapse" data-parent="#accordion1" href="#secondLink"> <a> <i></i> Production</a>
+    
+                        <ul id="secondLink" class="collapse sub-list">
+                            <li>
+                                <a href="../production/index.html">Document</a>
+                            </li>
+    
+                        </ul>
+                    </li>
+    
+                    <li data-toggle="collapse" data-parent="#accordion1" href="#thirdLink"> <a> <i></i> Sales</a>
+    
+                        <ul id="thirdLink" class="collapse sub-list">
+                            <li>
+                                <a href="sales/sales.html">Sales Order</a>
+                            </li>
+                            <li>
+                                <a href="sales/salesinvoiceslip.html">Sales Invoice</a>
+                            </li>
+                            <li>
+                                <a href="packinglistslip.html">Packing Slip</a>
+                            </li>
+                            <li>
+                                <a href="deliverynote.html">Delivery Note</a>
+                            </li>
+                            <li>
+                                <a href="payreceipt.html">Pay Receipt</a>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <li>
+                        <a href="../../../master.html">
+                            <i></i> Master Control
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a href="../../../master_view.html">
+                            <i></i> Master View
+    
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a href="../../../attendance.html">
+                            <i></i> Attendance
+                        </a>
+                    </li>
+    
+                </ul>
+    
+            </div>
+        </div>
+    
 
-            <ul class="list-unstyled components">
-                <li class="active">
-                    <ul class="list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="sales.html">Sales Order</a>
-                        </li>
-                        <li>
-                            <a href="packinglistslip.html">Packing List Slip</a>
-                        </li>
-                        <li>
-                            <a href="salesinvoiceslip.html">Commercial Invoice Slip</a>
-                        </li>
-                        <li>
-                            <a href="deliverynote.html">Delivery Note</a>
-                        </li>
-                        <li>
-                            <a href="payreceipt.html">Payment receipt</a>
-                        </li>
-                    </ul>
-                </li>
-
-        </nav>
-
+    <div id="main" class="wrapper container-fluid">
 
         <div id="content" class="container-fluid">
 
@@ -135,9 +190,11 @@
                             <h3>ABBAS ALI & SONS</h3>
                             <p><address id="address"></address></p> <!-- fetch address -->
                             <p><address id="city">karachi,pk</address></p> <!-- fetch city -->
-                            <p>Phone: <span id="phone-no">+923452462819,+923452965650</span></p> <!-- fetch phone number -->
+                            <p>Phone: <span id="phone-no">+923452462819,+923452965650</span></p>
+                            <!-- fetch phone number -->
                             <p>Tel: <span id="fax-no">+92-31-3-4242673</span></p> <!-- fetch fax number -->
-                            <p>Website: <span id="phone-no">www.abbasaliandsons.com</span></p> <!-- fetch website name of company -->
+                            <p>Website: <span id="phone-no">www.abbasaliandsons.com</span></p>
+                            <!-- fetch website name of company -->
 
                         </div>
 
@@ -171,14 +228,14 @@
                             <h3 class="main-subject">Bill To:</h3>
 
                             <div class="row">
-                                    <div class="col-5">
-                                        <p>Company Name:</p>
-                                    </div>
-                                    <div class="col-7">
-                                        <select  name="vender-info" id="pur-company-name" class="form-control" onchange="fill_client()">
-                  
-                                        </select>    
-                                    </div>
+                                <div class="col-5">
+                                    <p>Company Name:</p>
+                                </div>
+                                <div class="col-7">
+                                    <select name="vender-info" id="pur-company-name" class="form-control" onchange="fill_client()">
+
+                                    </select>
+                                </div>
                             </div>
 
                             <div class="row">
@@ -271,8 +328,18 @@
                     </div>
                 </div>
                 <table class='table table-bordered col-md-4'>
-                    <thead><tr><th>Sales Tax %</th><th>Discount</th></tr></thead>
-                    <tbody><tr><td><input class='form-control' id='tax' type="number"/></td><td><input class="form-control" id='discount' type='number' /></td></tr></tbody>
+                    <thead>
+                        <tr>
+                            <th>Sales Tax %</th>
+                            <th>Discount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input class='form-control' id='tax' type="number" /></td>
+                            <td><input class="form-control" id='discount' type='number' /></td>
+                        </tr>
+                    </tbody>
                 </table>
                 <table class="table table-bordered">
                     <thead>
@@ -284,24 +351,24 @@
                             <td class="col-2">Unit Price</td>
                         </tr>
                     </thead>
-                    <tbody  id="items_table">
+                    <tbody id="items_table">
                         <tr class="d-flex">
                             <td class="col-2 td-cells">
-                                <select  class="form-control" id="pro1category" onclick="load_items(this)" onchange="set_item(this)">
+                                <select class="form-control" id="pro1category" onclick="load_items(this)" onchange="set_item(this)">
                                     <option>Select Product</option>
-                                 </select>   
+                                </select>
                             </td>
                             <td class="col-4 td-cells">
                                 <input type="text" class="form-control" id="pro1description">
                             </td>
                             <td class="col-2 td-cells">
-                                <select  class="form-control" id="pro1quantityavailable">
-                                   <option value="S">S</option>
-                                   <option value="M">M</option>
-                                   <option value="L">L</option>
-                                   <option value="XL">XL</option>
+                                <select class="form-control" id="pro1quantityavailable">
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
 
-                                 </select>
+                                </select>
                             </td>
                             <td class="col-2 td-cells">
                                 <input type="text" class="form-control" id="pro1quantityorder">
@@ -315,7 +382,8 @@
 
                 <section class="color-1 text-center">
                     <p>
-                       <a class='btn btn-primary' data-toggle="modal" data-target="#myModal">Terms and Condition</a>     <button onclick="generate_lpo(this)" class="btn btn-primary " disabled  id='lpo_btn'  >Generate</button>
+                        <a class='btn btn-primary' data-toggle="modal" data-target="#myModal">Terms and Condition</a>
+                        <button onclick="generate_lpo(this)" class="btn btn-primary " disabled id='lpo_btn'>Generate</button>
 
                         <!-- <button onclick="salesOrder('operation1')" class="btn btn-primary ">Generate</button> -->
                     </p>
@@ -504,33 +572,39 @@
 
     </div>
     <!--- modal-->
-        <!-- The Modal -->
-<div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-  
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Terms and Conditions</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Terms and Conditions</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p>Eiusmod irure Lorem amet mollit dolore cillum occaecat laboris quis voluptate occaecat
+                        consequat. Incididunt culpa cillum do deserunt officia. Officia est occaecat elit reprehenderit
+                        amet magna enim officia adipisicing nostrud. Officia dolore velit minim elit non veniam sunt
+                        voluptate fugiat consequat fugiat in.</p>
+                    <p>Eiusmod irure Lorem amet mollit dolore cillum occaecat laboris quis voluptate occaecat
+                        consequat. Incididunt culpa cillum do deserunt officia. Officia est occaecat elit reprehenderit
+                        amet magna enim officia adipisicing nostrud. Officia dolore velit minim elit non veniam sunt
+                        voluptate fugiat consequat fugiat in.</p>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="activate_btn()">Accept Terms & Conditions</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
         </div>
-  
-        <!-- Modal body -->
-        <div class="modal-body">
-         <p>Eiusmod irure Lorem amet mollit dolore cillum occaecat laboris quis voluptate occaecat consequat. Incididunt culpa cillum do deserunt officia. Officia est occaecat elit reprehenderit amet magna enim officia adipisicing nostrud. Officia dolore velit minim elit non veniam sunt voluptate fugiat consequat fugiat in.</p>
-         <p>Eiusmod irure Lorem amet mollit dolore cillum occaecat laboris quis voluptate occaecat consequat. Incididunt culpa cillum do deserunt officia. Officia est occaecat elit reprehenderit amet magna enim officia adipisicing nostrud. Officia dolore velit minim elit non veniam sunt voluptate fugiat consequat fugiat in.</p>
-        </div>
-  
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success"  onclick="activate_btn()">Accept Terms & Conditions</button>  
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-  
-      </div>
     </div>
-  </div>
-  
+
     <!---  modal-->
     <!-- <p id="n"></p> -->
     <!-- <button onclick="waqaskhan();">Submit</button>
@@ -548,177 +622,175 @@
 <script src="../../../js/app.js"></script>
 
 <script>
-  let clients,items ,styles;  
- function fill(){
-     let select_client = document.getElementById('pur-company-name');
-     document.getElementById('pur-po').value = Math.floor(Math.random()*100000);
+    let clients, items, styles;
+    function fill() {
+        let select_client = document.getElementById('pur-company-name');
+        document.getElementById('pur-po').value = Math.floor(Math.random() * 100000);
 
-    let select_item = document.getElementById('pro1category');
-     var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      let str='<option value="null">Select Company</option>';  
-      clients = JSON.parse(this.responseText).clients;
-      clients.forEach(client => {
-         str += `<option value='`+client.company_name+`'>`+client.company_name+`</option>`
-     });
-     select_client.innerHTML = str;
-      console.log(clients);
-    }
-  };
-  xhttp.open("GET", "/get_clients", true);
-  xhttp.send(); 
-  var xhttp2 = new XMLHttpRequest();
-  xhttp2.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      let str='<option value="null">Select Product</option>';  
-      items = JSON.parse(this.responseText).items;
-      items.forEach(item => {
-         str += `<option value='`+item.name+`'>`+item.name+`</option>`
-     });
-     select_item.innerHTML = str;
-      console.log(items);
-    }
-  };
-  xhttp2.open("GET", "/get_items", true);
-  xhttp2.send(); 
-////////////////////////////// select styles
-// let sel = document.getElementById("pro1quantityavailable");
-// var xhttp3 = new XMLHttpRequest();
-//   xhttp3.onreadystatechange = function() {
-//     if (this.readyState == 4 && this.status == 200) {
-//       let str='<option value="null">Select Style</option>';  
-//       styles = JSON.parse(this.responseText).styles;
-//       styles.forEach(style => {
-//          str += `<option value='`+style.title+`'>`+style.title+`</option>`
-//      });
-//      sel.innerHTML = str;
-//     }
-//   };
-//   xhttp3.open("GET", "/get_styles", true);
-//   xhttp3.send();
+        let select_item = document.getElementById('pro1category');
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let str = '<option value="null">Select Company</option>';
+                clients = JSON.parse(this.responseText).clients;
+                clients.forEach(client => {
+                    str += `<option value='` + client.company_name + `'>` + client.company_name + `</option>`
+                });
+                select_client.innerHTML = str;
+                console.log(clients);
+            }
+        };
+        xhttp.open("GET", "/get_clients", true);
+        xhttp.send();
+        var xhttp2 = new XMLHttpRequest();
+        xhttp2.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let str = '<option value="null">Select Product</option>';
+                items = JSON.parse(this.responseText).items;
+                items.forEach(item => {
+                    str += `<option value='` + item.name + `'>` + item.name + `</option>`
+                });
+                select_item.innerHTML = str;
+                console.log(items);
+            }
+        };
+        xhttp2.open("GET", "/get_items", true);
+        xhttp2.send();
+        ////////////////////////////// select styles
+        // let sel = document.getElementById("pro1quantityavailable");
+        // var xhttp3 = new XMLHttpRequest();
+        //   xhttp3.onreadystatechange = function() {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //       let str='<option value="null">Select Style</option>';  
+        //       styles = JSON.parse(this.responseText).styles;
+        //       styles.forEach(style => {
+        //          str += `<option value='`+style.title+`'>`+style.title+`</option>`
+        //      });
+        //      sel.innerHTML = str;
+        //     }
+        //   };
+        //   xhttp3.open("GET", "/get_styles", true);
+        //   xhttp3.send();
 
-///////////////////////////////////// select styles
-    
- }
- function activate_btn(){
- document.getElementById('lpo_btn').disabled = false;
- }
- function set_item(e){
-    // alert(e.value);
-     let value = e.value;
-     let detail = e.parentNode.parentNode.getElementsByTagName('td')[1].getElementsByTagName('input')[0];
-     let price = e.parentNode.parentNode.getElementsByTagName('td')[4].getElementsByTagName('input')[0];
-
-     items.forEach((item)=>{
-         if(item.name===value){
-          detail.value = item.detail;
-          price.value = item.price;
-         }
-     })
- }
- function load_items(e){
-     let str = '<option value="null">Select Product</option>';
-     console.log(items);
-     if(e.innerHTML.length<10){
-        items.forEach((item)=>{
-        str += `<option>`+item.name+`</option>`;
-    });
-    e.innerHTML = str;
-     }
-    
-    
-  
- }
-
- function fill_client(){
-    let name = document.getElementById('pur-company-name').value;
-    if(name==="null"){
-        document.getElementById('pur-name').value='';
-             document.getElementById('pur-vender-address').value='';
-             document.getElementById('pur-vender-city').value='';
-             document.getElementById('pur-vender-phone').value='';
-    }
-    else{   
-        clients.forEach((client)=>{
-         if(name===client.company_name){
-             document.getElementById('pur-name').value=client.name;
-             document.getElementById('pur-vender-address').value=client.street;
-             document.getElementById('pur-vender-city').value=client.city;
-             document.getElementById('pur-vender-phone').value=client.phone;
-
-         }
-     })
+        ///////////////////////////////////// select styles
 
     }
-  
- }
- function generate_lpo(e){
-     e.disabled = true;
-     let pur_name = document.getElementById('pur-name').value;
-     let pur_vendor_address=document.getElementById('pur-vender-address').value;
-     let pur_vendor_city=document.getElementById('pur-vender-city').value;
-     let pur_vendor_phone = document.getElementById('pur-vender-phone').value ;
-     let pur_company_name = document.getElementById('pur-company-name').value;
-     let pur_ship_name = document.getElementById('pur-ship-name').value;
-     let pur_ship_address=document.getElementById('pur-ship-address').value;
-     let pur_ship_city=document.getElementById('pur-ship-city').value;
-     let pur_ship_phone = document.getElementById('pur-ship-phone').value ;
-     let pur_ship_company_name = document.getElementById('pur-ship-company-name').value;
-    
-     let lpo_number = document.getElementById('pur-po').value;
-     let date = document.getElementById('pur-date').value;
-     let ref = "lpo/"+pur_company_name+"/"+lpo_number;
-     if(pur_company_name.length<2 || pur_ship_name.length<2 || pur_ship_company_name.length<2 || date.length<2)
-     {
-         alert('please fill all fields');
-
-     }
-     else{
-        let items_array = [],total=0;
-     let table = document.getElementById('items_table');
-     console.log("table:"+table);
-     let tr = table.getElementsByTagName('tr');
-     let item,description,size,quantity,price,obj;
-     let tax = document.getElementById("tax").value;
-     let discount = document.getElementById("discount").value;
-     for(let i=0 ; i < tr.length ; i++)
-     {  
-         item = tr[i].getElementsByTagName('td')[0].getElementsByTagName('select')[0].value;
-         description = tr[i].getElementsByTagName('td')[1].getElementsByTagName('input')[0].value;
-         size = tr[i].getElementsByTagName('td')[2].getElementsByTagName('select')[0].value;
-         quantity = tr[i].getElementsByTagName('td')[3].getElementsByTagName('input')[0].value;
-         price = tr[i].getElementsByTagName('td')[4].getElementsByTagName('input')[0].value;
-
-         obj = {item:item,description:description,size:size,quantity:quantity,price:price};
-         total += quantity * price;
-         items_array.push(obj);
-
-     };
-     total = total + (total * (tax/100));
-     total = total - discount;
-     items_array = JSON.stringify(items_array);
-     var xhttp = new XMLHttpRequest();
-     xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-     alert(this.responseText);
-     e.disabled = false;
-     
-     
+    function activate_btn() {
+        document.getElementById('lpo_btn').disabled = false;
     }
-  };
-    xhttp.open("POST", "/add_lpo", true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("client="+pur_company_name+"&lpo_num="+lpo_number+"&date="+date+"&ref="+ref+"&items_array="+items_array+"&total="+total+"&tax="+
-    tax+"&discount="+discount+ "&pur_name="+pur_name+"&pur_vendor_address="+pur_vendor_address+"&pur_vendor_city="+pur_vendor_city+"&pur_vendor_phone="+
-     pur_vendor_phone+"&pur_ship_name="+pur_ship_name+"&pur_ship_address="+pur_ship_address+"&pur_ship_city="+pur_ship_city+
-     "&pur_ship_phone="+pur_ship_phone+"&pur_ship_company_name="+pur_ship_company_name);
- 
+    function set_item(e) {
+        // alert(e.value);
+        let value = e.value;
+        let detail = e.parentNode.parentNode.getElementsByTagName('td')[1].getElementsByTagName('input')[0];
+        let price = e.parentNode.parentNode.getElementsByTagName('td')[4].getElementsByTagName('input')[0];
+
+        items.forEach((item) => {
+            if (item.name === value) {
+                detail.value = item.detail;
+                price.value = item.price;
+            }
+        })
+    }
+    function load_items(e) {
+        let str = '<option value="null">Select Product</option>';
+        console.log(items);
+        if (e.innerHTML.length < 10) {
+            items.forEach((item) => {
+                str += `<option>` + item.name + `</option>`;
+            });
+            e.innerHTML = str;
+        }
 
 
-     }
-     
- }
+
+    }
+
+    function fill_client() {
+        let name = document.getElementById('pur-company-name').value;
+        if (name === "null") {
+            document.getElementById('pur-name').value = '';
+            document.getElementById('pur-vender-address').value = '';
+            document.getElementById('pur-vender-city').value = '';
+            document.getElementById('pur-vender-phone').value = '';
+        }
+        else {
+            clients.forEach((client) => {
+                if (name === client.company_name) {
+                    document.getElementById('pur-name').value = client.name;
+                    document.getElementById('pur-vender-address').value = client.street;
+                    document.getElementById('pur-vender-city').value = client.city;
+                    document.getElementById('pur-vender-phone').value = client.phone;
+
+                }
+            })
+
+        }
+
+    }
+    function generate_lpo(e) {
+        e.disabled = true;
+        let pur_name = document.getElementById('pur-name').value;
+        let pur_vendor_address = document.getElementById('pur-vender-address').value;
+        let pur_vendor_city = document.getElementById('pur-vender-city').value;
+        let pur_vendor_phone = document.getElementById('pur-vender-phone').value;
+        let pur_company_name = document.getElementById('pur-company-name').value;
+        let pur_ship_name = document.getElementById('pur-ship-name').value;
+        let pur_ship_address = document.getElementById('pur-ship-address').value;
+        let pur_ship_city = document.getElementById('pur-ship-city').value;
+        let pur_ship_phone = document.getElementById('pur-ship-phone').value;
+        let pur_ship_company_name = document.getElementById('pur-ship-company-name').value;
+
+        let lpo_number = document.getElementById('pur-po').value;
+        let date = document.getElementById('pur-date').value;
+        let ref = "lpo/" + pur_company_name + "/" + lpo_number;
+        if (pur_company_name.length < 2 || pur_ship_name.length < 2 || pur_ship_company_name.length < 2 || date.length < 2) {
+            alert('please fill all fields');
+
+        }
+        else {
+            let items_array = [], total = 0;
+            let table = document.getElementById('items_table');
+            console.log("table:" + table);
+            let tr = table.getElementsByTagName('tr');
+            let item, description, size, quantity, price, obj;
+            let tax = document.getElementById("tax").value;
+            let discount = document.getElementById("discount").value;
+            for (let i = 0; i < tr.length; i++) {
+                item = tr[i].getElementsByTagName('td')[0].getElementsByTagName('select')[0].value;
+                description = tr[i].getElementsByTagName('td')[1].getElementsByTagName('input')[0].value;
+                size = tr[i].getElementsByTagName('td')[2].getElementsByTagName('select')[0].value;
+                quantity = tr[i].getElementsByTagName('td')[3].getElementsByTagName('input')[0].value;
+                price = tr[i].getElementsByTagName('td')[4].getElementsByTagName('input')[0].value;
+
+                obj = { item: item, description: description, size: size, quantity: quantity, price: price };
+                total += quantity * price;
+                items_array.push(obj);
+
+            };
+            total = total + (total * (tax / 100));
+            total = total - discount;
+            items_array = JSON.stringify(items_array);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert(this.responseText);
+                    e.disabled = false;
+
+
+                }
+            };
+            xhttp.open("POST", "/add_lpo", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("client=" + pur_company_name + "&lpo_num=" + lpo_number + "&date=" + date + "&ref=" + ref + "&items_array=" + items_array + "&total=" + total + "&tax=" +
+                tax + "&discount=" + discount + "&pur_name=" + pur_name + "&pur_vendor_address=" + pur_vendor_address + "&pur_vendor_city=" + pur_vendor_city + "&pur_vendor_phone=" +
+                pur_vendor_phone + "&pur_ship_name=" + pur_ship_name + "&pur_ship_address=" + pur_ship_address + "&pur_ship_city=" + pur_ship_city +
+                "&pur_ship_phone=" + pur_ship_phone + "&pur_ship_company_name=" + pur_ship_company_name);
+
+
+
+        }
+
+    }
 
 
 

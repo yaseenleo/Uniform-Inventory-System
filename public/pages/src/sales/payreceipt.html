@@ -20,9 +20,9 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body onload="fill()" >
+<body onload="fill()">
 
-    <nav class="navbar navbar-expand-lg bg-primary">
+    <!-- <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container">
             <div class="navbar-translate">
                 <a href="../../../index.html" class="navbar-brand">Uniform Inventory</a>
@@ -68,84 +68,125 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
-    <div class="wrapper container-fluid">
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Sales Module</h3>
+    <div class="nav-side-menu">
+            <div class="brand brand-color">
+                <h4>Uniform Inventory</h4>
             </div>
+            <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+            <div class="menu-list" id="menu-content">
+    
+                <ul id="accordion1" class="menu-content collapse out">
+    
+    
+                    <li data-toggle="collapse" data-parent="#accordion1" href="#firstLink"> <a> <i></i> Purchase</a>
+    
+                        <ul id="firstLink" class="collapse sub-list">
+                            <li>
+                                <a href="../purchase/purchase.html">Purchase Order</a>
+                            </li>
+                            <li>
+                                <a href="../purchase/grnote.html">Good Receiving Note</a>
+                            </li>
+                            <li>
+                                <a href="../purchase/purchaseinvoice.html">Purchase Invoice</a>
+                            </li>
+                            <li>
+                                <a href="../purchase/vendorpay.html">Vendor Payment</a>
+                            </li>
+                        </ul>
+    
+                    </li>
+                    <li data-toggle="collapse" data-parent="#accordion1" href="#secondLink"> <a> <i></i> Production</a>
+    
+                        <ul id="secondLink" class="collapse sub-list">
+                            <li>
+                                <a href="../production/index.html">Document</a>
+                            </li>
+    
+                        </ul>
+                    </li>
+    
+                    <li data-toggle="collapse" data-parent="#accordion1" href="#thirdLink"> <a> <i></i> Sales</a>
+    
+                        <ul id="thirdLink" class="collapse sub-list">
+                            <li>
+                                <a href="sales/sales.html">Sales Order</a>
+                            </li>
+                            <li>
+                                <a href="sales/salesinvoiceslip.html">Sales Invoice</a>
+                            </li>
+                            <li>
+                                <a href="packinglistslip.html">Packing Slip</a>
+                            </li>
+                            <li>
+                                <a href="deliverynote.html">Delivery Note</a>
+                            </li>
+                            <li>
+                                <a href="payreceipt.html">Pay Receipt</a>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <li>
+                        <a href="../../../master.html">
+                            <i></i> Master Control
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a href="../../../master_view.html">
+                            <i></i> Master View
+    
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a href="../../../attendance.html">
+                            <i></i> Attendance
+                        </a>
+                    </li>
+    
+                </ul>
+    
+            </div>
+        </div>
+    
 
-            <ul class="list-unstyled components">
-                <li class="active">
-                    <ul class="list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="sales.html">Sales Order</a>
-                        </li>
-                        <li>
-                            <a href="packinglistslip.html">Packing List Slip</a>
-                        </li>
-                        <li>
-                            <a href="salesinvoiceslip.html">Commercial Invoice Slip</a>
-                        </li>
-                        <li>
-                            <a href="deliverynote.html">Delivery Note</a>
-                        </li>
-                        <li>
-                            <a href="payreceipt.html">Payment receipt</a>
-                        </li>
-                    </ul>
-                </li>
-
-        </nav>
-
+    <div id="main" class="wrapper container-fluid">
 
         <div id="content" class="container-fluid">
-
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Menu</span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
-
-                </div>
-            </nav>
 
             <div class="container sales-container" id="main_place">
 
                 <div class="container payscript-container">
                     <h1 class="doc-head-text">Payment Receipt</h1>
+                    <div class="row">
                         <div class="row">
-                                <div class="row">
-                                        <div class="col-md-4" >
-                                                L.P.O Ref
-                                             </div>
-                                             <div class="col-md-8">
-                                                 <select class="form-control"  id="lpo_ref" onchange="fill_items(this)">
-                                                     <option value="">Select Lpo</option>
-                                                 </select>    
-                                             </div>
-                                </div>
+                            <div class="col-md-4">
+                                L.P.O Ref
+                            </div>
+                            <div class="col-md-8">
+                                <select class="form-control" id="lpo_ref" onchange="fill_items(this)">
+                                    <option value="">Select Lpo</option>
+                                </select>
+                            </div>
                         </div>
-                        
-                        
+                    </div>
+
+
                     <div class="row">
 
                         <div class="col-6 pay-receipt-info">
                             <h3>ABBAS ALI & SONS</h3>
                             <p><address id="address"></address></p> <!-- fetch address -->
                             <p><address id="city">karachi,pk</address></p> <!-- fetch city -->
-                            <p>Phone: <span id="phone-no">+923452462819,+923452965650</span></p> <!-- fetch phone number -->
+                            <p>Phone: <span id="phone-no">+923452462819,+923452965650</span></p>
+                            <!-- fetch phone number -->
                             <p>Tel: <span id="fax-no">+92-31-3-4242673</span></p> <!-- fetch fax number -->
-                            <p>Website: <span id="phone-no">www.abbasaliandsons.com</span></p> <!-- fetch website name of company -->
+                            <p>Website: <span id="phone-no">www.abbasaliandsons.com</span></p>
+                            <!-- fetch website name of company -->
 
 
                         </div>
@@ -172,9 +213,9 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="td-cells"><span  id="buyer-organization-name" ></span></td>
-                            <td class="td-cells"><span  id="buyer-address" ></span></td>
-                            <td class="td-cells"><span  id="buyer-number" ></span></td>
+                            <td class="td-cells"><span id="buyer-organization-name"></span></td>
+                            <td class="td-cells"><span id="buyer-address"></span></td>
+                            <td class="td-cells"><span id="buyer-number"></span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -186,23 +227,23 @@
                             <td>CHECK NO. OR LAST FOUR OF CC</td>
                             <td>REMARKS</td>
                         </tr>
-                        <tbody>
-                            <tr>
-                                <td class="td-cells">
-                                    <select name="pay" id="pay-method" class="form-control">
-                                        <option value="cash">Cash</option>
-                                        <option value="check">Check</option>
-                                        <option value="dept-card">Dept Card</option>
-                                    </select>
-                                </td>
-                                <td class="td-cells">
-                                    <input type="text" id="pay-no" class="form-control">
-                                </td>
-                                <td class="td-cells">
-                                    <input type="text" id="pay-remarks" class="form-control">
-                                </td>
-                            </tr>
-                        </tbody>
+                    <tbody>
+                        <tr>
+                            <td class="td-cells">
+                                <select name="pay" id="pay-method" class="form-control">
+                                    <option value="cash">Cash</option>
+                                    <option value="check">Check</option>
+                                    <option value="dept-card">Dept Card</option>
+                                </select>
+                            </td>
+                            <td class="td-cells">
+                                <input type="text" id="pay-no" class="form-control">
+                            </td>
+                            <td class="td-cells">
+                                <input type="text" id="pay-remarks" class="form-control">
+                            </td>
+                        </tr>
+                    </tbody>
                     </thead>
                 </table>
 
@@ -219,7 +260,7 @@
                         </tr>
                     </thead>
                     <tbody id="container">
-                       
+
                     </tbody>
                 </table>
 
@@ -286,19 +327,19 @@
                             <td>CHECK NO. OR LAST FOUR OF CC</td>
                             <td>REMARKS</td>
                         </tr>
-                        <tbody>
-                            <tr>
-                                <td id="pay-method-g">
-                                    
-                                </td>
-                                <td id="pay-no-g">
-                                    
-                                </td>
-                                <td id="pay-remarks-g">
+                    <tbody>
+                        <tr>
+                            <td id="pay-method-g">
 
-                                </td>
-                            </tr>
-                        </tbody>
+                            </td>
+                            <td id="pay-no-g">
+
+                            </td>
+                            <td id="pay-remarks-g">
+
+                            </td>
+                        </tr>
+                    </tbody>
                     </thead>
                 </table>
 
@@ -316,7 +357,7 @@
                         </tr>
 
                     <tbody id="create-lists">
-                        
+
                     </tbody>
                     </thead>
                 </table>
@@ -331,91 +372,91 @@
 
 </body>
 <script>
- let client,lpos;  
- function fill(){
-     
-
-  //// lpos get 
-  var xhttp3 = new XMLHttpRequest();
-  xhttp3.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-     lpos = JSON.parse(this.responseText).lpos;
-      str = '<option value="">Select L.P.O</option>';
-    // alert(e.innerHTML.length)
-        lpos.forEach((lpo)=>{
-        str += `<option value="`+lpo.ref+`">`+lpo.ref+`</option>`;
-    });
-    document.getElementById('lpo_ref').innerHTML = str;
-    
-     console.log(lpos)
-    }
-  };
-  xhttp3.open("GET", "/get_lpos", true);
-  xhttp3.send(); 
+    let client, lpos;
+    function fill() {
 
 
- }
- function fill_items(e){
-   let value = e.value;
-       set_client(value);
-       set_list(value);
-   
- }
-function set_client(val){
-    let value = val;
-    if(value.length > 0 ){
-        var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-     console.log(this.responseText);
-      client = JSON.parse(this.responseText).client;
-      document.getElementById('buyer-organization-name').innerHTML = client.company_name;
-      document.getElementById('buyer-address').innerHTML = client.street + "," + client.city;
-      document.getElementById('buyer-number').innerHTML = client.phone
-    }
-  };
-  xhttp.open("GET", "/get_client?lpo="+val, true);
-  xhttp.send();
-    }
-    else{
-        alert("null")
-        document.getElementById('buyer-organization-name').value = '';
-      document.getElementById('buyer-address').value = '';
-      document.getElementById('buyer-number').value = '';
-    }
-    
+        //// lpos get 
+        var xhttp3 = new XMLHttpRequest();
+        xhttp3.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                lpos = JSON.parse(this.responseText).lpos;
+                str = '<option value="">Select L.P.O</option>';
+                // alert(e.innerHTML.length)
+                lpos.forEach((lpo) => {
+                    str += `<option value="` + lpo.ref + `">` + lpo.ref + `</option>`;
+                });
+                document.getElementById('lpo_ref').innerHTML = str;
 
-}
-function set_list(val){
-lpos.forEach((lpo)=>{
-    if(lpo.ref===val){
-        str=``;
-        let table = document.getElementById('container');
-        let items = JSON.parse(lpo.items_array);
-        items.forEach((item)=>{
-               str += `<tr class="d-flex">
+                console.log(lpos)
+            }
+        };
+        xhttp3.open("GET", "/get_lpos", true);
+        xhttp3.send();
+
+
+    }
+    function fill_items(e) {
+        let value = e.value;
+        set_client(value);
+        set_list(value);
+
+    }
+    function set_client(val) {
+        let value = val;
+        if (value.length > 0) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
+                    client = JSON.parse(this.responseText).client;
+                    document.getElementById('buyer-organization-name').innerHTML = client.company_name;
+                    document.getElementById('buyer-address').innerHTML = client.street + "," + client.city;
+                    document.getElementById('buyer-number').innerHTML = client.phone
+                }
+            };
+            xhttp.open("GET", "/get_client?lpo=" + val, true);
+            xhttp.send();
+        }
+        else {
+            alert("null")
+            document.getElementById('buyer-organization-name').value = '';
+            document.getElementById('buyer-address').value = '';
+            document.getElementById('buyer-number').value = '';
+        }
+
+
+    }
+    function set_list(val) {
+        lpos.forEach((lpo) => {
+            if (lpo.ref === val) {
+                str = ``;
+                let table = document.getElementById('container');
+                let items = JSON.parse(lpo.items_array);
+                items.forEach((item) => {
+                    str += `<tr class="d-flex">
                             <td class="col-2 td-cells">
-                                `+item.item+`
+                                `+ item.item + `
                             </td>
                             <td class="col-4 td-cells">
-                                `+item.description+`
+                                `+ item.description + `
                             </td>
                             <td class="col-2 td-cells">
-                                `+item.quantity+`
+                                `+ item.quantity + `
                             </td>
                             <td class="col-2 td-cells">
-                                `+item.price+`
+                                `+ item.price + `
                             </td>
                             <td class="col-2 td-cells">
-                                `+((item.quantity)*(item.price))+`
+                                `+ ((item.quantity) * (item.price)) + `
                             </td>
-                        </tr>`;               
-           });
-           table.innerHTML = str;
+                        </tr>`;
+                });
+                table.innerHTML = str;
 
+            }
+        })
     }
-})
-}
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>

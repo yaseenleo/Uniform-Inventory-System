@@ -21,74 +21,90 @@
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg bg-primary">
-        <div class="container">
-            <div class="navbar-translate">
-                <a href="../../../index.html" class="navbar-brand">Uniform Inventory</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse justify-center">
-                <ul class="navbar-nav mx-auto">
-                    <li class="active nav-item">
-                        <a href="sales/sales.html" class="nav-link">
-                            Sales
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../production/productionLine.html" class="nav-link">
-                            Production
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../purchase/purchase.html" class="nav-link">
-                            Purchase
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../../../attendance.html" class="nav-link">
-                            Attendance
-                        </a>
-                    </li>
-                </ul>
-            </div>
+    <div class="nav-side-menu">
+        <div class="brand brand-color">
+            <h4>Uniform Inventory</h4>
         </div>
-    </nav>
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list" id="menu-content">
 
-    <div class="wrapper container-fluid">
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Sales Module</h3>
-            </div>
+            <ul id="accordion1" class="menu-content collapse out">
 
-            <ul class="list-unstyled components">
-                <li class="active">
-                    <ul class="list-unstyled" id="homeSubmenu">
+
+                <li data-toggle="collapse" data-parent="#accordion1" href="#firstLink"> <a> <i></i> Purchase</a>
+
+                    <ul id="firstLink" class="collapse sub-list">
                         <li>
-                            <a href="sales.html">Sales Order</a>
+                            <a href="../purchase/purchase.html">Purchase Order</a>
                         </li>
                         <li>
-                            <a href="packinglistslip.html">Packing List Slip</a>
+                            <a href="../purchase/grnote.html">Good Receiving Note</a>
                         </li>
                         <li>
-                            <a href="salesinvoiceslip.html">Commercial Invoice Slip</a>
+                            <a href="../purchase/purchaseinvoice.html">Purchase Invoice</a>
+                        </li>
+                        <li>
+                            <a href="../purchase/vendorpay.html">Vendor Payment</a>
+                        </li>
+                    </ul>
+
+                </li>
+                <li data-toggle="collapse" data-parent="#accordion1" href="#secondLink"> <a> <i></i> Production</a>
+
+                    <ul id="secondLink" class="collapse sub-list">
+                        <li>
+                            <a href="../production/index.html">Document</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li data-toggle="collapse" data-parent="#accordion1" href="#thirdLink"> <a> <i></i> Sales</a>
+
+                    <ul id="thirdLink" class="collapse sub-list">
+                        <li>
+                            <a href="sales/sales.html">Sales Order</a>
+                        </li>
+                        <li>
+                            <a href="sales/salesinvoiceslip.html">Sales Invoice</a>
+                        </li>
+                        <li>
+                            <a href="packinglistslip.html">Packing Slip</a>
                         </li>
                         <li>
                             <a href="deliverynote.html">Delivery Note</a>
                         </li>
                         <li>
-                            <a href="payreceipt.html">Payment receipt</a>
+                            <a href="payreceipt.html">Pay Receipt</a>
                         </li>
                     </ul>
                 </li>
 
-        </nav>
+                <li>
+                    <a href="../../../master.html">
+                        <i></i> Master Control
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../../../master_view.html">
+                        <i></i> Master View
+
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../../../attendance.html">
+                        <i></i> Attendance
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+
+    <div id="main" class="wrapper container-fluid">
 
         <div id="content" class="container-fluid">
 

@@ -22,7 +22,7 @@
 
 <body onload="fill()">
 
-    <nav class="navbar navbar-expand-lg bg-primary">
+    <!-- <nav class="navbar navbar-expand-lg bg-primary">
         <div class="container">
             <div class="navbar-translate">
                 <a href="../../../index.html" class="navbar-brand">Uniform Inventory</a>
@@ -73,52 +73,95 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
-    <div class="wrapper container-fluid">
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Purchase Module</h3>
+    <div class="nav-side-menu">
+            <div class="brand brand-color">
+                <h4>Uniform Inventory</h4>
             </div>
+            <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+            <div class="menu-list" id="menu-content">
+    
+                <ul id="accordion1" class="menu-content collapse out">
+    
+    
+                    <li data-toggle="collapse" data-parent="#accordion1" href="#firstLink"> <a> <i></i> Purchase</a>
+    
+                        <ul id="firstLink" class="collapse sub-list">
+                            <li>
+                                <a href="purchase.html">Purchase Order</a>
+                            </li>
+                            <li>
+                                <a href="grnote.html">Good Receiving Note</a>
+                            </li>
+                            <li>
+                                <a href="purchaseinvoice.html">Purchase Invoice</a>
+                            </li>
+                            <li>
+                                <a href="vendorpay.html">Vendor Payment</a>
+                            </li>
+                        </ul>
+    
+                    </li>
+                    <li data-toggle="collapse" data-parent="#accordion1" href="#secondLink"> <a> <i></i> Production</a>
+    
+                        <ul id="secondLink" class="collapse sub-list">
+                            <li>
+                                <a href="../production/index.html">Document</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+    
+                    <li data-toggle="collapse" data-parent="#accordion1" href="#thirdLink"> <a> <i></i> Sales</a>
+    
+                        <ul id="thirdLink" class="collapse sub-list">
+                            <li>
+                                <a href="../sales/sales.html">Sales Order</a>
+                            </li>
+                            <li>
+                                <a href="../sales/salesinvoiceslip.html">Sales Invoice</a>
+                            </li>
+                            <li>
+                                <a href="../sales/packinglistslip.html">Packing Slip</a>
+                            </li>
+                            <li>
+                                <a href="../sales/deliverynote.html">Delivery Note</a>
+                            </li>
+                            <li>
+                                <a href="../sales/payreceipt.html">Pay Receipt</a>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <li>
+                        <a href="../../../master.html">
+                            <i></i> Master Control
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a href="../../../master_view.html">
+                            <i></i> Master View
+    
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a href="../../../attendance.html">
+                            <i></i> Attendance
+                        </a>
+                    </li>
+    
+                </ul>
+    
+            </div>
+        </div>
 
-            <ul class="list-unstyled components">
-                <li class="active">
-                    <ul class="list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="purchase.html">Purchase Order</a>
-                        </li>
-                        <li>
-                            <a href="grnote.html">Good Receiving Note</a>
-                        </li>
-                        <li>
-                            <a href="purchaseinvoice.html">Purchase Invoice</a>
-                        </li>
-                        <li>
-                            <a href="vendorpay.html">Vendor Payment</a>
-                        </li>
-                    </ul>
-                </li>
-
-        </nav>
-
+    <div id="main" class="wrapper container-fluid">
+ 
         <div id="content" class="container-fluid">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Menu</span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
-
-                </div>
-            </nav>
         <!-- Page Content  -->
        <div class="container sales-container" id="main_place">
 
