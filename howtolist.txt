@@ -1,5 +1,0 @@
-1- Ask for details for sale order 
-2- Create a sale order 
-3- save sale order in storage of firebase and save a link in database
-4- search engine for sale order
-5- save the details of sale order to create a packing order etc
