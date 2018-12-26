@@ -270,7 +270,10 @@
 
                     </div>
                 </div>
-
+                <table class='table table-bordered col-md-4'>
+                    <thead><tr><th>Sales Tax %</th><th>Discount</th></tr></thead>
+                    <tbody><tr><td><input class='form-control' id='tax' type="number"/></td><td><input class="form-control" id='discount' type='number' /></td></tr></tbody>
+                </table>
                 <table class="table table-bordered">
                     <thead>
                         <tr class="d-flex">
@@ -312,7 +315,7 @@
 
                 <section class="color-1 text-center">
                     <p>
-                            <button onclick="generate_lpo(this)" class="btn btn-primary ">Generate</button>
+                       <a class='btn btn-primary' data-toggle="modal" data-target="#myModal">Terms and Condition</a>     <button onclick="generate_lpo(this)" class="btn btn-primary " disabled  id='lpo_btn'  >Generate</button>
 
                         <!-- <button onclick="salesOrder('operation1')" class="btn btn-primary ">Generate</button> -->
                     </p>
@@ -500,6 +503,35 @@
 
 
     </div>
+    <!--- modal-->
+        <!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Terms and Conditions</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+         <p>Eiusmod irure Lorem amet mollit dolore cillum occaecat laboris quis voluptate occaecat consequat. Incididunt culpa cillum do deserunt officia. Officia est occaecat elit reprehenderit amet magna enim officia adipisicing nostrud. Officia dolore velit minim elit non veniam sunt voluptate fugiat consequat fugiat in.</p>
+         <p>Eiusmod irure Lorem amet mollit dolore cillum occaecat laboris quis voluptate occaecat consequat. Incididunt culpa cillum do deserunt officia. Officia est occaecat elit reprehenderit amet magna enim officia adipisicing nostrud. Officia dolore velit minim elit non veniam sunt voluptate fugiat consequat fugiat in.</p>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success"  onclick="activate_btn()">Accept Terms & Conditions</button>  
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
+    <!---  modal-->
     <!-- <p id="n"></p> -->
     <!-- <button onclick="waqaskhan();">Submit</button>
 <input type="button" id="create_pdf" value="Generate PDF">  -->
@@ -568,6 +600,9 @@
 
 ///////////////////////////////////// select styles
     
+ }
+ function activate_btn(){
+ document.getElementById('lpo_btn').disabled = false;
  }
  function set_item(e){
     // alert(e.value);
@@ -645,6 +680,8 @@
      console.log("table:"+table);
      let tr = table.getElementsByTagName('tr');
      let item,description,size,quantity,price,obj;
+     let tax = document.getElementById("tax").value;
+     let discount = document.getElementById("discount").value;
      for(let i=0 ; i < tr.length ; i++)
      {  
          item = tr[i].getElementsByTagName('td')[0].getElementsByTagName('select')[0].value;
@@ -658,6 +695,8 @@
          items_array.push(obj);
 
      };
+     total = total + (total * (tax/100));
+     total = total - discount;
      items_array = JSON.stringify(items_array);
      var xhttp = new XMLHttpRequest();
      xhttp.onreadystatechange = function() {
@@ -670,8 +709,8 @@
   };
     xhttp.open("POST", "/add_lpo", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("client="+pur_company_name+"&lpo_num="+lpo_number+"&date="+date+"&ref="+ref+"&items_array="+items_array+"&total="+total+
-     "&pur_name="+pur_name+"&pur_vendor_address="+pur_vendor_address+"&pur_vendor_city="+pur_vendor_city+"&pur_vendor_phone="+
+    xhttp.send("client="+pur_company_name+"&lpo_num="+lpo_number+"&date="+date+"&ref="+ref+"&items_array="+items_array+"&total="+total+"&tax="+
+    tax+"&discount="+discount+ "&pur_name="+pur_name+"&pur_vendor_address="+pur_vendor_address+"&pur_vendor_city="+pur_vendor_city+"&pur_vendor_phone="+
      pur_vendor_phone+"&pur_ship_name="+pur_ship_name+"&pur_ship_address="+pur_ship_address+"&pur_ship_city="+pur_ship_city+
      "&pur_ship_phone="+pur_ship_phone+"&pur_ship_company_name="+pur_ship_company_name);
  
