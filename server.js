@@ -290,6 +290,7 @@ app.post('/create_job_slip',(req,res)=>{
       company_name = req.body.company_name ,
        product = req.body.product,
        quantity = req.body.quantity ,
+       client = req.body.client,
       style = req.body.style ;
        let unique = Math.floor(Math.random()*9999999999 +  Math.random()*9999999999);
        let last_number = parseInt(starting_number)+parseInt(quantity)-1;
@@ -309,11 +310,87 @@ app.post('/add_lpo',(req,res)=>{
     let ref = req.body.ref;
     let items_array = req.body.items_array;
    let parsed_items = JSON.parse(items_array);
-   let str ;
+   let str,total_q = 0 ;
    parsed_items.forEach((item,index)=>{
-       str += `<tr><td>`+(index+1)+`</td><td>`+item.item+`</td><td>`+item.description+`</td><td>`+item.size+`</td><td>`+item.quantity+`</td><td>`+item.price+`</td><td>`+(parseInt(item.price)*parseInt(item.quantity))+`</td></tr>` ;
+       str += `<tr><th colspan="1">`+item.quantity+`</th><th colspan="3" >`+item.item+"-"+ item.description+"-"+item.size+`</th><th>`+item.price+`</th><th>`+(parseInt(item.price)*parseInt(item.quantity))+`</th></tr>` ;
+       total_q += item.quantity;  
     })
-    str += '<tr><td>Total</td><td>'+total+'</td></tr>' ;
+    str += `<tr>
+    <th colspan="1"> &nbsp; </th>
+    <th colspan="3">&nbsp;</th>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="1">&nbsp;</th>
+</tr>
+<tr>
+    <th colspan="1"> &nbsp; </th>
+    <td colspan="3"><b>Bank Details</b></td>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="1">&nbsp;</th>
+</tr>
+<tr>
+    <th colspan="1"> &nbsp; </th>
+    <td colspan="3"><b>UBL METROVILLE SITE BRANCH KARACHI PAKISTAN</b></td>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="1">&nbsp;</th>
+</tr>
+<tr>
+    <th colspan="1"> &nbsp; </th>
+    <td colspan="3"><b>TITLE OF ACCOUNT: ABBAS ALI & SONS </b></td>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="1">&nbsp;</th>
+</tr>
+<tr>
+    <th colspan="1"> &nbsp; </th>
+    <td colspan="3"><b>ACCOUNT NO: 215820921 </b></td>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="1">&nbsp;</th>
+</tr>
+<tr>
+    <th colspan="1"> &nbsp; </th>
+    <td colspan="3"><b>BRANCH CODE 0418 </b></td>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="1">&nbsp;</th>
+</tr>
+<tr>
+    <th colspan="1"> &nbsp; </th>
+    <td colspan="3"><b>SWIFT CODE: UNILPKKA </b></td>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="1">&nbsp;</th>
+</tr>
+<tr>
+    <th colspan="1"> &nbsp; </th>
+    <td colspan="3"><b>IBAN: PK98UNIL0109000215820921 </b></td>
+    </td>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="1">&nbsp;</th>
+</tr>
+<tr>
+    <th colspan="1"> &nbsp; </th>
+    <td colspan="3">&nbsp; </td>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="1">&nbsp;</th>
+</tr>
+<tr>
+    <th colspan="1"> &nbsp; </th>
+    <td colspan="3">&nbsp; </td>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="1">&nbsp;</th>
+</tr>
+<tr>
+    <th colspan="1"> &nbsp; </th>
+    <td colspan="3">&nbsp; </td>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="1">&nbsp;</th>
+</tr>
+<tr>
+    <th colspan="1"> &nbsp; </th>
+    <td colspan="3">&nbsp; </td>
+    <th colspan="1">&nbsp;</th>
+    <th colspan="1">&nbsp;</th>
+</tr>
+`;
+    str += '<tr><th colspan="1">'+total_q+'</th><th colspan="4" > total in words </th><th colspan="1" >'+total+'</th></tr>';
+   
     console.log(client);
     console.log(lpo_num);
     console.log(date);
@@ -321,188 +398,189 @@ app.post('/add_lpo',(req,res)=>{
     console.log(items_array);
     // GENERATING PDF FILE
     var options = { format: 'A4' };
-let html = `<html><head></head><body>
-<div>
+let html = `<html>
 
-                    <div style="width:100%;display:block;max-width:100%;height:230px">
-                        <div class="col-12" style="width:100%;display:block;max-width:100%;">
-                            <img src="`+path.normalize('file://'+__dirname+'/public/assets/img/optimized-logo.png') +`" style='float:right;border-radius:5px' class="rounded float-right md-logo" alt="logo">
-                        </div>
-                    </div>
-                    <hr>
+<head></head>
 
-                    <div style="width:100%;display:block;max-width:100%;height:210px">
+<body>
+    <div style="padding:30px;padding-left: 60px ">
 
-                        <div style="width:100%;display:block;max-width:100%">
+        <div style="width:100%;display:block;max-width:100%;height:100px;background-color: black">
+            <center style="width:100%;display:block;max-width:100%;">
+                <img src="`+path.normalize('file://'+__dirname+'/public/assets/img/aa-logo.jpg') +`" style='border-radius:5px;height:80%' alt="logo">
+                <p style="color: white;font-weight: 600;margin-top:0px">ABBAS ALI & SONS TEXTILE AND UNIFORMS MFG. CO.</p>
+            </center>
+        </div>
+        <div style="width:100%;display:block;max-width:100%;margin-top: 50px">
+            <center>
+                <h3 style="text-decoration-line: underline">SALES ORDER</h3>
+            </center>
 
-                            <div style="width:50%;display:inline;float:left">
-                            <h3>ABBAS ALI & SONS check</h3>
-                            <p><address id="address"></address></p> <!-- fetch address -->
-                            <p><address id="city">karachi,pk</address></p> <!-- fetch city -->
-                            <p>Phone: <span id="phone-no">+923452462819,+923452965650</span></p> <!-- fetch phone number -->
-                            <p>Tel: <span id="fax-no">+92-31-3-4242673</span></p> <!-- fetch fax number -->
-                            <p>Website: <span id="phone-no">www.abbasaliandsons.com</span></p> <!-- fetch website name of company -->
+        </div>
 
-                            </div>
+        <div style="width: 100%;display: block">
+            <table style="width: 100%" border="1">
+                <tr>
+                    <th>INVOICE No</th>
+                    <th>AAS/DU/0328/2018</th>
+                    <th>L.P.O</th>
+                    <th>`+ref+`</th>
+                    <th>Invoice Date</th>
+                    <th>`+date+`</th>
+                </tr>
+            </table>
+        </div>
 
-                            <div style="width:50%;display:inline;float:right">
-                                <h3>Packing Slip</h3>
-                                <div style='width:100%;display:block'>
-                                    <div class="col-4" style='width:33%;display:inline'>
-                                        <p>Date:</p>
-                                    </div>
-                                    <div class="col-8" style='width:66%;display:inline'>
-                                        <p id="pur-date-g">`+req.body.date+`</p>
-                                    </div>
-                                </div>
+        <div style="width: 100%;display: block;margin-top: 15px">
+            <table style="width: 100%" border="1">
+                <tr>
+                    <th rowspan="5" style="width: 200px">BY ORDER FOR ACCOUNT AND RISK OF MESSERS</th>
+                    <th colspan="3">`+client+`</th>
+                    <th rowspan="2" style="width:200px">SHIPPING MARKS AND NUMBERS</th>
+                </tr>
+                <tr>
+                    <th colspan="3">`+req.body.pur_vendor_address+`</th>
+                </tr>
+                <tr>
+                    <th colspan="3">`+req.body.pur_vendor_city+`</th>
+                    <th>AS PER</th>
+                </tr>
+                <tr>
+                    <th colspan="3"></th>
+                    <th>CUSTOMER</th>
+                </tr>
+                <tr>
+                    <th colspan="3">`+req.body.pur_vendor_phone+`</th>
+                    <th>REQUIREMENT</th>
+                </tr>
+                <tr>
+                    <th colspan="4"> &nbsp;</th>
+                    <th colspan="1"> &nbsp;</th>
+                </tr>
+                <tr>
+                    <th colspan="1"> &nbsp;</th>
+                    <th colspan="1"> &nbsp;</th>
+                    <th colspan="1"> &nbsp;</th>
+                    <th colspan="1"> &nbsp;</th>
+                    <th colspan="1"> &nbsp;</th>
+                </tr>
+                <tr>
+                    <th colspan="1"> Shipment Mode</th>
+                    <td colspan="1"> By Sea</td>
+                    <th colspan="1"> Origin</th>
+                    <td colspan="1"> Karachi,Pakistan</td>
+                    <th colspan="1"> &nbsp;</th>
+                </tr>
+                <tr>
+                    <th colspan="1"> Freight Term</th>
+                    <td colspan="1"> DOOR TO DOOR</td>
+                    <th colspan="1"> Port of discharge</th>
+                    <td colspan="1"> Karachi,Pakistan</td>
+                    <th colspan="1"> &nbsp;</th>
+                </tr>
+                <tr>
+                    <th colspan="1"> Port of loading</th>
+                    <td colspan="1"> Karachi,Pakistan</td>
+                    <th colspan="1"> Place of delivery</th>
+                    <td colspan="1"> Dubair,UAE</td>
+                    <th colspan="1"> &nbsp;</th>
+                </tr>
+                <tr>
+                    <th colspan="1"> Vessel</th>
+                    <td colspan="1"> &nbsp; </td>
+                    <th colspan="1"> Voyage</th>
+                    <td colspan="1"> &nbsp;</td>
+                    <th colspan="1"> &nbsp;</th>
+                </tr>
+                <tr>
+                    <th colspan="1"> Container No:</th>
+                    <td colspan="1"> Consolidated shipment </td>
+                    <th colspan="1"> BL Date</th>
+                    <td colspan="1"> &nbsp;</td>
+                    <th colspan="1"> &nbsp;</th>
+                </tr>
+                <tr>
+                    <th colspan="1"> MID CODE</th>
+                    <td colspan="1"> &nbsp; </td>
+                    <th colspan="1"> TOTAL CTN</th>
+                    <th colspan="1"> NET WT</th>
+                    <th colspan="1"> GROSS WT</th>
+                </tr>
+                <tr>
+                    <th colspan="1">HTS CODE</th>
+                    <td colspan="1">
+                        <table border="1" style="width: 100%">
+                            <tr>
+                                <td style="width: 50%">&nbsp;</td>
+                                <td style="width: 50%">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 50%">&nbsp;</td>
+                                <td style="width: 50%">&nbsp;</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <th colspan="1"> </th>
+                    <td colspan="1"> </td>
+                    <th colspan="1"> </th>
+                </tr>
 
-                                <div class="row">
-                                    <div class="col-4">
-                                        P.O #
-                                    </div>
-                                    <div class="col-8">
-                                        <p id="pur-po-g">`+req.body.lpo_num+`</p>
-                                    </div>
-                                </div>
+            </table>
+        </div>
 
-                            </div>
-                        </div>
-                    </div>
+        
+        <div style="width: 100%;display: block;margin-top: 15px">
+            <table border="1" style="width: 100%;max-width: 100%;">
+                <tr>
+                    <th colspan="1" style="padding:10px">QUANTITY</th>
+                    <th colspan="3" style="padding:10px">DESCRIPTION OF GOOD</th>
+                    <th colspan="1" style="padding:10px">UNIT PRICE</th>
+                    <th colspan="1" style="padding:10px">EXTENDED COST</th>
+                </tr>
+               `+str+`
+            </table>
+        </div>
 
-                    <!-- packing address section -->
-                    <div class="supply-content" style="width:100%;display:block;max-width:100%;height:250px">
-                        <div class="row" style="width:100%;display:block;max-width:100%">
-                            <div class="col-6" style="width:50%;display:inline;float:left">
-                                <h3 class="main-subject">Bill To:</h3>
-                                <div class="row">
-                                    <div class="col-5">
-                                        <p>Name:</p>
-                                    </div>
-                                    <div class="col-7">
-                                        <p id="pur-name-g">`+req.body.pur_name+`</p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-5">
-                                        <p>Company Name:</p>
-                                    </div>
-                                    <div class="col-7">
-                                        <p id="pur-company-name-g">`+req.body.client+`</p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-5">
-                                        <p>Street Address</p>
-                                    </div>
-                                    <div class="col-7">
-                                        <p id="pur-vender-address-g">`+req.body.pur_vendor_address+`</p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-5">
-                                        <p>City or ZIP:</p>
-                                    </div>
-                                    <div class="col-7">
-                                        <p id="pur-vender-city-g">`+req.body.pur_vendor_city+`</p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-5">
-                                        <p>Phone:</p>
-                                    </div>
-                                    <div class="col-7">
-                                        <p id="pur-vender-phone-g">`+req.body.pur_vendor_phone+`</p>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="col-6" style="width:50%;display:inline;float:right">
-                                <h3 class="main-subject">Ship To:</h3>
-                                <div class="row">
-                                    <div class="col-5">
-                                        <p>Name:</p>
-                                    </div>
-                                    <div class="col-7">
-                                        <p id="pur-ship-name-g">`+req.body.pur_ship_name+`</p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-5">
-                                        <p>Company Name:</p>
-                                    </div>
-                                    <div class="col-7">
-                                        <p id="pur-ship-company-name-g">`+req.body.pur_ship_company_name+`</p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-5">
-                                        <p>Street Address</p>
-                                    </div>
-                                    <div class="col-7">
-                                        <p id="pur-ship-address-g">`+req.body.pur_ship_address+`</p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-5">
-                                        <p>City or ZIP:</p>
-                                    </div>
-                                    <div class="col-7">
-                                        <p id="pur-ship-city-g">`+req.body.pur_ship_city+`</p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-5">
-                                        <p>Phone:</p>
-                                    </div>
-                                    <div class="col-7">
-                                        <p id="pur-ship-phone-g">`+req.body.pur_ship_phone+`</p>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-
+        <div style="width: 100%;display: block;margin-top: 10px;height: 170px;">
+                <div style="width: 50%;display: inline;">
+                    <p style="float:left"><b>" WE HEREBY CERTIFY THAT THIS SHIPMENT 
+                        DOES NOT CONTAIN ANY SOLID WOOD PACKING MATERIAL"
+                        </b></p>
                 </div>
+                <div style="width: 50%;display: inline;">
+                    <div style="float:right;padding-right: 50px"><p><b>For Abbas ali & Sons</b></p>
+                        <p style="margin-top:120px"><b>Authorized signature</b></p>
+                    </div>
+                    
+                </div>
+         </div>
+         
+         <div style="width: 100%;display: block;margin-top: 15px;background-color: black">
+            <center style="width:100%">
+                <h5 style="color: white;"><b>Sector 9B, Plot No. 156, Saeedabad, Near Mezan Bank, Baldia Town, Karachi, Pakistan</b></h5>
+                <h5 style="color: white"><b>Mobile:+92-345-2462819 Office:+92-21-3-4242673</b></h5>
+                <h5 style="color: white"><b>info@abbasaliandsons.com www.abbasaliandsons.com  
+                        AAS</b></h5>
+            </center>
+            
+               
+             
+         </div>
+       
 
-                <!-- product list section -->
-                <table class="table table-bordered" style='display:block;width:100%;max-width:100%'>
-                    <thead>
-                        <tr class="d-flex">
-                            <td class="col-1">S.no</td>
-                            <td class="col-2">Product Category</td>
-                            <td class="col-4">Description</td>
-                            <td class="col-1">Size</td>
-                            <td class="col-1">Order Qty</td>
-                            <td class="col-1">Unit Price</td>
-                            <td class="col-2">Total Price</td>
-                        </tr>
+    </div>
 
-                    <tbody id="create-lists">
-                    `+str+`
+   
+</body>
 
-                    </tbody>
-                    </thead>
-                </table>
-
-</body></html>`
-pdf.create(html, options).toFile('./test.pdf', function(err, resp) {
+</html>`;
+pdf.create(html, options).toFile('./file.pdf', function(err, resp) {
     if (err) return console.log(err);
     console.log(resp); // { filename: '/app/businesscard.pdf' }
-    let attachments = [{ filename: 'lpo.pdf', path: __dirname + '/test.pdf', contentType: 'application/pdf' }];
+    let attachments = [{ filename: 'Sales Order.pdf', path: __dirname + '/file.pdf', contentType: 'application/pdf' }];
     var mailOptions = {
         from: "Neural stack <rapshek@gmail.com>",
-        to: "info@abbasaliandsons.com", // riazkhan@abbasaliandsons.com
+        to: "rapshek@gmail.com", // riazkhan@abbasaliandsons.com
         subject: "local Purchasing Order",
         attachments: attachments,
         html: "<h1>lpo</h1>"
@@ -516,8 +594,10 @@ pdf.create(html, options).toFile('./test.pdf', function(err, resp) {
        // transporter.close();
     });
      new Lpos({client:client,lpo_number:lpo_num,date:date,ref:ref,items_array:items_array,flag:'order_phase'}).save((err,lpo)=>{
-        res.json({success:true,lpo:lpo});
-        res.end();
+       res.setHeader( 'Content-Type', 'application/pdf');
+       res.sendFile(path.join(__dirname,"file.pdf"));
+       // res.json({success:true,lpo:lpo});
+       // res.end();
     })  ;
     
   });
@@ -526,6 +606,238 @@ pdf.create(html, options).toFile('./test.pdf', function(err, resp) {
    
     
 });
+app.get("/pdf",(req,res)=>{
+    res.setHeader( 'Content-Type', 'application/pdf');
+    res.sendFile(path.join(__dirname,"file.pdf"));
+})
+
+// app.post('/add_lpo',(req,res)=>{
+//     let total = req.body.total;
+//     let client = req.body.client;
+//     let lpo_num = req.body.lpo_num;
+//     let date = req.body.date;
+//     let ref = req.body.ref;
+//     let items_array = req.body.items_array;
+//    let parsed_items = JSON.parse(items_array);
+//    let str ;
+//    parsed_items.forEach((item,index)=>{
+//        str += `<tr><td>`+(index+1)+`</td><td>`+item.item+`</td><td>`+item.description+`</td><td>`+item.size+`</td><td>`+item.quantity+`</td><td>`+item.price+`</td><td>`+(parseInt(item.price)*parseInt(item.quantity))+`</td></tr>` ;
+//     })
+//     str += '<tr><td>Salex tax%</td><td>'+req.body.tax+'</td></tr>';
+//     str += '<tr><td>Discounted Amount</td><td>'+req.body.discount+'</td></tr>';
+//     str += '<tr><td>Total</td><td>'+total+'</td></tr>' ;
+//     console.log(client);
+//     console.log(lpo_num);
+//     console.log(date);
+//     console.log(ref);
+//     console.log(items_array);
+//     // GENERATING PDF FILE
+//     var options = { format: 'A4' };
+// let html = `<html><head></head><body>
+// <div>
+
+//                     <div style="width:100%;display:block;max-width:100%;height:230px">
+//                         <div class="col-12" style="width:100%;display:block;max-width:100%;">
+//                             <img src="`+path.normalize('file://'+__dirname+'/public/assets/img/optimized-logo.png') +`" style='float:right;border-radius:5px' class="rounded float-right md-logo" alt="logo">
+//                         </div>
+//                     </div>
+//                     <hr>
+
+//                     <div style="width:100%;display:block;max-width:100%;height:210px">
+
+//                         <div style="width:100%;display:block;max-width:100%">
+
+//                             <div style="width:50%;display:inline;float:left">
+//                             <h3>ABBAS ALI & SONS check</h3>
+//                             <p><address id="address"></address></p> <!-- fetch address -->
+//                             <p><address id="city">karachi,pk</address></p> <!-- fetch city -->
+//                             <p>Phone: <span id="phone-no">+923452462819,+923452965650</span></p> <!-- fetch phone number -->
+//                             <p>Tel: <span id="fax-no">+92-31-3-4242673</span></p> <!-- fetch fax number -->
+//                             <p>Website: <span id="phone-no">www.abbasaliandsons.com</span></p> <!-- fetch website name of company -->
+
+//                             </div>
+
+//                             <div style="width:50%;display:inline;float:right">
+//                                 <h3>Packing Slip</h3>
+//                                 <div style='width:100%;display:block'>
+//                                     <div class="col-4" style='width:33%;display:inline'>
+//                                         <p>Date:</p>
+//                                     </div>
+//                                     <div class="col-8" style='width:66%;display:inline'>
+//                                         <p id="pur-date-g">`+req.body.date+`</p>
+//                                     </div>
+//                                 </div>
+
+//                                 <div class="row">
+//                                     <div class="col-4">
+//                                         P.O #
+//                                     </div>
+//                                     <div class="col-8">
+//                                         <p id="pur-po-g">`+req.body.lpo_num+`</p>
+//                                     </div>
+//                                 </div>
+
+//                             </div>
+//                         </div>
+//                     </div>
+
+//                     <!-- packing address section -->
+//                     <div class="supply-content" style="width:100%;display:block;max-width:100%;height:250px">
+//                         <div class="row" style="width:100%;display:block;max-width:100%">
+//                             <div class="col-6" style="width:50%;display:inline;float:left">
+//                                 <h3 class="main-subject">Bill To:</h3>
+//                                 <div class="row">
+//                                     <div class="col-5">
+//                                         <p>Name:</p>
+//                                     </div>
+//                                     <div class="col-7">
+//                                         <p id="pur-name-g">`+req.body.pur_name+`</p>
+//                                     </div>
+//                                 </div>
+
+//                                 <div class="row">
+//                                     <div class="col-5">
+//                                         <p>Company Name:</p>
+//                                     </div>
+//                                     <div class="col-7">
+//                                         <p id="pur-company-name-g">`+req.body.client+`</p>
+//                                     </div>
+//                                 </div>
+
+//                                 <div class="row">
+//                                     <div class="col-5">
+//                                         <p>Street Address</p>
+//                                     </div>
+//                                     <div class="col-7">
+//                                         <p id="pur-vender-address-g">`+req.body.pur_vendor_address+`</p>
+//                                     </div>
+//                                 </div>
+
+//                                 <div class="row">
+//                                     <div class="col-5">
+//                                         <p>City or ZIP:</p>
+//                                     </div>
+//                                     <div class="col-7">
+//                                         <p id="pur-vender-city-g">`+req.body.pur_vendor_city+`</p>
+//                                     </div>
+//                                 </div>
+
+//                                 <div class="row">
+//                                     <div class="col-5">
+//                                         <p>Phone:</p>
+//                                     </div>
+//                                     <div class="col-7">
+//                                         <p id="pur-vender-phone-g">`+req.body.pur_vendor_phone+`</p>
+//                                     </div>
+//                                 </div>
+
+//                             </div>
+
+//                             <div class="col-6" style="width:50%;display:inline;float:right">
+//                                 <h3 class="main-subject">Ship To:</h3>
+//                                 <div class="row">
+//                                     <div class="col-5">
+//                                         <p>Name:</p>
+//                                     </div>
+//                                     <div class="col-7">
+//                                         <p id="pur-ship-name-g">`+req.body.pur_ship_name+`</p>
+//                                     </div>
+//                                 </div>
+
+//                                 <div class="row">
+//                                     <div class="col-5">
+//                                         <p>Company Name:</p>
+//                                     </div>
+//                                     <div class="col-7">
+//                                         <p id="pur-ship-company-name-g">`+req.body.pur_ship_company_name+`</p>
+//                                     </div>
+//                                 </div>
+
+//                                 <div class="row">
+//                                     <div class="col-5">
+//                                         <p>Street Address</p>
+//                                     </div>
+//                                     <div class="col-7">
+//                                         <p id="pur-ship-address-g">`+req.body.pur_ship_address+`</p>
+//                                     </div>
+//                                 </div>
+
+//                                 <div class="row">
+//                                     <div class="col-5">
+//                                         <p>City or ZIP:</p>
+//                                     </div>
+//                                     <div class="col-7">
+//                                         <p id="pur-ship-city-g">`+req.body.pur_ship_city+`</p>
+//                                     </div>
+//                                 </div>
+
+//                                 <div class="row">
+//                                     <div class="col-5">
+//                                         <p>Phone:</p>
+//                                     </div>
+//                                     <div class="col-7">
+//                                         <p id="pur-ship-phone-g">`+req.body.pur_ship_phone+`</p>
+//                                     </div>
+//                                 </div>
+
+//                             </div>
+
+//                         </div>
+//                     </div>
+
+//                 </div>
+
+//                 <!-- product list section -->
+//                 <table class="table table-bordered" style='display:block;width:100%;max-width:100%'>
+//                     <thead>
+//                         <tr class="d-flex">
+//                             <td class="col-1">S.no</td>
+//                             <td class="col-2">Product Category</td>
+//                             <td class="col-4">Description</td>
+//                             <td class="col-1">Size</td>
+//                             <td class="col-1">Order Qty</td>
+//                             <td class="col-1">Unit Price</td>
+//                             <td class="col-2">Total Price</td>
+//                         </tr>
+
+//                     <tbody id="create-lists">
+//                     `+str+`
+
+//                     </tbody>
+//                     </thead>
+//                 </table>
+
+// </body></html>`
+// pdf.create(html, options).toFile('./test.pdf', function(err, resp) {
+//     if (err) return console.log(err);
+//     console.log(resp); // { filename: '/app/businesscard.pdf' }
+//     let attachments = [{ filename: 'lpo.pdf', path: __dirname + '/test.pdf', contentType: 'application/pdf' }];
+//     var mailOptions = {
+//         from: "Neural stack <rapshek@gmail.com>",
+//         to: "info@abbasaliandsons.com", // riazkhan@abbasaliandsons.com
+//         subject: "local Purchasing Order",
+//         attachments: attachments,
+//         html: "<h1>lpo</h1>"
+//     };
+
+//     // send mail with defined transport object
+//     transporter.sendMail(mailOptions, function(error, response){
+//         if(error) console.log(error);
+//         else console.log("Message sent: " + response.messageId);
+//         // shut down the connection pool, no more messages
+//        // transporter.close();
+//     });
+//      new Lpos({client:client,lpo_number:lpo_num,date:date,ref:ref,items_array:items_array,flag:'order_phase'}).save((err,lpo)=>{
+//         res.json({success:true,lpo:lpo});
+//         res.end();
+//     })  ;
+    
+//   });
+
+// // GENERATING PDF FILE
+   
+    
+// });
 app.post("/update_lpo_2",(req,res)=>{
     let flag;
     let po_num= req.body.ref;

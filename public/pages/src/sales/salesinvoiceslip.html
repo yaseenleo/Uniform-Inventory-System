@@ -49,31 +49,26 @@
                     </ul>
 
                 </li>
-                <li data-toggle="collapse" data-parent="#accordion1" href="#secondLink"> <a> <i></i> Production</a>
-
-                    <ul id="secondLink" class="collapse sub-list">
-                        <li>
-                            <a href="../production/index.html">Document</a>
-                        </li>
-
-                    </ul>
+                <li>
+                    <a href="../production/index.html">
+                        <i></i>Pruduction</a>
                 </li>
 
                 <li data-toggle="collapse" data-parent="#accordion1" href="#thirdLink"> <a> <i></i> Sales</a>
 
                     <ul id="thirdLink" class="collapse sub-list">
                         <li>
-                            <a href="sales/sales.html">Sales Order</a>
+                            <a href="sales.html">Sales Order</a>
                         </li>
                         <li>
-                            <a href="sales/salesinvoiceslip.html">Sales Invoice</a>
+                            <a href="salesinvoiceslip.html">Sales Invoice</a>
                         </li>
                         <li>
                             <a href="packinglistslip.html">Packing Slip</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="deliverynote.html">Delivery Note</a>
-                        </li>
+                        </li> -->
                         <li>
                             <a href="payreceipt.html">Pay Receipt</a>
                         </li>
@@ -128,7 +123,7 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <img src="../../../assets/img/optimized-logo.png" class="rounded float-right md-logo" alt="logo">
+                        <img src="../../../assets/img/aa-logo.jpg" class="rounded float-right md-logo" alt="logo">
                     </div>
                 </div>
 
@@ -136,405 +131,35 @@
 
                     <div class="row">
 
-                        <div class="col-6">
-                            <h3>Company Name</h3>
-                            <p><address id="address">Street Address</address></p> <!-- fetch address -->
-                            <p><address id="city">City</address></p> <!-- fetch city -->
-                            <p>Phone: <span id="phone-no"></span></p> <!-- fetch phone number -->
-                            <p>Fax: <span id="fax-no"></span></p> <!-- fetch fax number -->
-                            <p>Website: <span id="phone-no"></span></p> <!-- fetch website name of company -->
-
-                        </div>
-
+                        
                         <div class="col-6">
                             <h3>Sales Invoice</h3>
+                            <br>
                             <div class="row">
                                 <div class="col-4">
-                                    <p>Date:</p>
+                                    L.P.O #
                                 </div>
                                 <div class="col-8">
-                                    <input type="date" class="form-control" id="pur-date">
+                                    <select  class="form-control" id="lpo_ref" onchange="check(this)">
+
+                                    </select>   
                                 </div>
                             </div>
-
+                            <br>
                             <div class="row">
-                                <div class="col-4">
-                                    P.O #
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" class="form-control" id="pur-po">
+                                <div class="col-4"></div>
+                                <div class="col-8"> 
+                                    <button class='btn btn-primary' disabled="true" id='btn'>Generate Sales Invoice</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- packing address section -->
-                <div class="supply-content">
-                    <div class="row">
-                        <div class="col-6">
-                            <h3 class="main-subject">VENDOR:</h3>
-                            <div class="row">
-                                <div class="col-4">
-                                    <p>Name:</p>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" name="vender-info" id="pur-name" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-4">
-                                    <p>Company Name:</p>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" name="vender-info" id="pur-company-name" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-4">
-                                    <p>Street Address</p>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" name="vender-info" id="pur-vender-address" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-4">
-                                    <p>City or ZIP:</p>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" name="vender-info" id="pur-vender-city" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-4">
-                                    <p>Phone:</p>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" name="vender-info" id="pur-vender-phone" class="form-control">
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="col-6">
-                            <h3 class="main-subject">Ship To:</h3>
-                            <div class="row">
-                                <div class="col-4">
-                                    <p>Name:</p>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" name="ship-info" id="pur-ship-name" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-4">
-                                    <p>Company Name:</p>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" name="ship-info" id="pur-ship-company-name" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-4">
-                                    <p>Street Address</p>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" name="ship-info" id="pur-ship-address" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-4">
-                                    <p>City or ZIP:</p>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" name="ship-info" id="pur-ship-city" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-4">
-                                    <p>Phone:</p>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" name="ship-info" id="pur-ship-phone" class="form-control">
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="packing-supply">
-                    <table class="table table-sm table-bordered ">
-                        <thead>
-                            <tr>
-                                <th>SALES PERSON</th>
-                                <th>P.O. #</th>
-                                <th>SHIP DATE</th>
-                                <th>SHIP VIA</th>
-                                <th>TERMS</th>
-                            </tr>
-
-                        <tbody>
-                            <tr>
-                                <td class="td-cells"> <input id="invoice-sp" type="text" class="form-control"> </td>
-                                <td class="td-cells"> <input id="invoice-po" type="text" class="form-control"> </td>
-                                <td class="td-cells"> <input id="invoice-ship-date" type="text" class="form-control">
-                                </td>
-                                <td class="td-cells"> <input id="invoice-ship-via" type="text" class="form-control">
-                                </td>
-                                <td class="td-cells"> <input id="invoice-terms" type="text" class="form-control"> </td>
-                            </tr>
-                        </tbody>
-                        </thead>
-                    </table>
-                </div>
-
-
-
-                <table class="table table-bordered">
-                    <thead>
-                        <tr class="d-flex">
-                            <td class="col-2">Item #</td>
-                            <td class="col-6">Description</td>
-                            <td class="col-2">Qty</td>
-                            <td class="col-2">Unit Price</td>
-                        </tr>
-                    </thead>
-                    <tbody id="container">
-                        <tr class="d-flex">
-                            <td class="col-2 td-cells">
-                                <input type="text" class="form-control" id="pro1category">
-                            </td>
-                            <td class="col-6 td-cells">
-                                <input type="text" class="form-control" id="pro1description">
-                            </td>
-                            <td class="col-2 td-cells">
-                                <input type="text" class="form-control" id="pro1quantityavailable">
-                            </td>
-                            <td class="col-2 td-cells">
-                                <input type="text" class="form-control" id="pro1unitprice" onkeypress="add_new(event)">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <section class="color-1 text-center">
-                    <p>
-                        <button onclick="salesInvoice('operation1')" class="btn btn-primary">Generate</button>
-                    </p>
-                </section>
-
+              
             </div>
 
-            <div class="forms" style="max-width: none; display: none;" id="operation1">
-
-                <div>
-
-                    <div class="row">
-                        <div class="col-12">
-                            <img src="../../../assets/img/optimized-logo.png" class="rounded float-right md-logo" alt="logo">
-                        </div>
-                    </div>
-
-                    <div class="packing-slip-header">
-
-                        <div class="row">
-
-                            <div class="col-6">
-                                <h3>Company Name</h3>
-                                <p><address id="address">Street Address</address></p> <!-- fetch address -->
-                                <p><address id="city">City</address></p> <!-- fetch city -->
-                                <p>Phone: <span id="phone-no"></span></p> <!-- fetch phone number -->
-                                <p>Fax: <span id="fax-no"></span></p> <!-- fetch fax number -->
-                                <p>Website: <span id="phone-no"></span></p> <!-- fetch website name of company -->
-
-                            </div>
-
-                            <div class="col-6">
-                                <h3>PURCHASE ORDER</h3>
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Date:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <p id="pur-date-g"></p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        P.O #
-                                    </div>
-                                    <div class="col-8">
-                                        <p id="pur-po-g"></p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- packing address section -->
-                    <div class="supply-content">
-                        <div class="row">
-                            <div class="col-6">
-                                <h3 class="main-subject">VENDOR:</h3>
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Name:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <p id="pur-name-g"></p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Company Name:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <p id="pur-company-name-g"></p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Street Address</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <p id="pur-vender-address-g"></p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>City or ZIP:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <p id="pur-vender-city-g"></p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Phone:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <p id="pur-vender-phone-g"></p>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="col-6">
-                                <h3 class="main-subject">Ship To:</h3>
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Name:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <p id="pur-ship-name-g"></p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Company Name:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <p id="pur-ship-company-name-g"></p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Street Address</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <p id="pur-ship-address-g"></p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>City or ZIP:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <p id="pur-ship-city-g"></p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        <p>Phone:</p>
-                                    </div>
-                                    <div class="col-8">
-                                        <p id="pur-ship-phone-g"></p>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="packing-supply">
-                        <table class="table table-sm table-bordered ">
-                            <thead>
-                                <tr>
-                                    <th>SALES PERSON</th>
-                                    <th>P.O. #</th>
-                                    <th>SHIP DATE</th>
-                                    <th>SHIP VIA</th>
-                                    <th>TERMS</th>
-                                </tr>
-
-                            <tbody>
-                                <tr>
-                                    <td class="td-cells" id="invoice-sp-g"></td>
-                                    <td class="td-cells" id="invoice-po-g"></td>
-                                    <td class="td-cells" id="invoice-ship-date-g"></td>
-                                    <td class="td-cells" id="invoice-ship-via-g"></td>
-                                    <td class="td-cells" id="invoice-terms-g"></td>
-                                </tr>
-                            </tbody>
-                            </thead>
-                        </table>
-                    </div>
-
-
-                </div>
-
-                <!-- product list section -->
-                <table class="table table-bordered">
-                    <thead>
-                        <tr class="d-flex">
-                            <td class="col-1">S.no</td>
-                            <td class="col-1">Item #</td>
-                            <td class="col-4">Description</td>
-                            <td class="col-2">Qty Avail</td>
-                            <!-- <td scope="col">Qty Order</td> -->
-                            <td class="col-2">Unit Price</td>
-                            <td class="col-2">Total Price</td>
-                        </tr>
-
-                    <tbody id="create-lists">
-
-                    </tbody>
-                    </thead>
-                </table>
-
-            </div>
+           
 
 
         </div>
@@ -543,7 +168,43 @@
     </div>
 
 </body>
+<script>
+    function check(e){
+        if(e.value !== "")
+        {
+            document.getElementById('btn').disabled = false
+        }
+        else{
+            document.getElementById('btn').disabled = true
+        }
+    }
+ let client, lpos;
+    function fill() {
 
+
+        //// lpos get 
+        var xhttp3 = new XMLHttpRequest();
+        xhttp3.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                lpos = JSON.parse(this.responseText).lpos;
+                str = '<option value="">Select L.P.O</option>';
+                // alert(e.innerHTML.length)
+                lpos.forEach((lpo) => {
+                    str += `<option value="` + lpo.ref + `">` + lpo.ref + `</option>`;
+                });
+                document.getElementById('lpo_ref').innerHTML = str;
+
+                console.log(lpos)
+            }
+        };
+        xhttp3.open("GET", "/get_lpos", true);
+        xhttp3.send();
+
+
+    }
+    fill();
+    
+</script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"

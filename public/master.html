@@ -13,7 +13,7 @@
         crossorigin="anonymous">
 </head>
 <body>
-        <nav class="navbar navbar-expand-lg bg-primary">
+        <!-- <nav class="navbar navbar-expand-lg bg-primary">
                 <div class="container">
                     <div class="navbar-translate">
                         <a href="index.html" class="navbar-brand home-link">Uniform Inventory</a>
@@ -60,143 +60,138 @@
         
                     </div>
                 </div>
-            </nav>
-    <div class="container-fluid">
-        <div class="container">
+            </nav> -->
+   
+   <!--- side nav-->
+   <div class="nav-side-menu">
+        <div class="brand brand-color">
+            <h4>Uniform Inventory</h4>
+        </div>
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list" id="menu-content">
 
-        <div class="row">
-                <div class="col-12 text-center">
-                    <img src="assets/img/logo.png" class="rounded mx-auto sub-logo-img" alt="logo">
-                </div>
-            </div>
-        <div class="container-fluid">
-            <!-- Nav pills -->
-<ul class="nav nav-pills">
-        <li class="nav-item">
-          <a class="nav-link active" data-toggle="pill" href="#add_product">Add Product</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="pill" href="#add_raw">Add Raw Item</a>
-        </li>
-        <li class="nav-item">
-                <a class="nav-link" data-toggle="pill" href="#add_style">Add Style</a>
-         </li>
-         <li class="nav-item">
-             <a class="nav-link" data-toggle="pill" href="#add_fabric">Add Fabric</a>
-         </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="pill" href="#add_vendor">Add Vendor</a>
-        </li>
-        <li class="nav-item">
-                <a class="nav-link" data-toggle="pill" href="#add_client">Add Client</a>
-              </li>
-      </ul>
-      <hr>
-      
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div class="tab-pane container active" id="add_home">   <!---- Add Item  -->
-            <div class="container-fluid">
-                <h4>Add Product</h4>
-                <div class="container">
-                    <form action='/add_item' method="POST">
-                            <div class="form-group">
-                                    <label class="form-control-label">Item Name:</label>
-                                    <input type="text" name="name" class="form-control" />
-                                </div>
-                                <div class="form-group">
-                                        <label class="form-control-label">Item Description:</label>
-                                        <input type="text" name="detail" class="form-control" />
-                                </div>
-                                <div class="form-group">
-                                            <label class="form-control-label">Unit Price:</label>
-                                            <input type="text" name="price" class="form-control" />
-                                 </div>  
-                                 <button class="btn btn-primary">Add</button> 
-                    </form>
-                     
+            <ul id="accordion1" class="menu-content collapse out">
 
-                </div>
-            </div>
-            <hr>
 
-             <!---- Add Item  -->
-         
+                <li data-toggle="collapse" data-parent="#accordion1" href="#firstLink"> <a> <i></i> Purchase</a>
+
+                    <ul id="firstLink" class="collapse sub-list">
+                        <li>
+                            <a href="/pages/src/purchase/purchase.html">Purchase Order</a>
+                        </li>
+                        <li>
+                            <a href="/pages/src/purchase/grnote.html">Good Receiving Note</a>
+                        </li>
+                        <li>
+                            <a href="/pages/src/purchase/purchaseinvoice.html">Purchase Invoice</a>
+                        </li>
+                        <li>
+                            <a href="/pages/src/purchase/vendorpay.html">Vendor Payment</a>
+                        </li>
+                    </ul>
+
+                </li>
+                <li>
+                    <a href="/pages/src/production/index.html">
+                        <i></i>Production</a>
+                </li>
+
+                <li data-toggle="collapse" data-parent="#accordion1" href="#thirdLink"> <a> <i></i> Sales</a>
+
+                    <ul id="thirdLink" class="collapse sub-list">
+                        <li>
+                            <a href="/pages/src/sales/sales.html">Sales Order</a>
+                        </li>
+                        <li>
+                            <a href="/pages/src/sales/salesinvoiceslip.html">Sales Invoice</a>
+                        </li>
+                        <li>
+                            <a href="../sales/packinglistslip.html">Packing Slip</a>
+                        </li>
+                        <!-- <li>
+                            <a href="../sales/deliverynote.html">Delivery Note</a>
+                        </li> -->
+                        <li>
+                            <a href="../sales/payreceipt.html">Pay Receipt</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="../../../master.html">
+                        <i></i> Master Control
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../../../master_view.html">
+                        <i></i> Master View
+
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../../../attendance.html">
+                        <i></i> Attendance
+                    </a>
+                </li>
+
+            </ul>
 
         </div>
-        <div class="tab-pane container fade" id="add_raw"> <!---- Add Raw Item  -->
+    </div>
+   <!--- side nav-->
+    <div id="main">
             <div class="container-fluid">
-                    <h4>Add Raw Item</h4>
                     <div class="container">
-                        <form action='/add_raw_item' method="POST">
-                                <div class="form-group">
-                                        <label class="form-control-label">Item Name:</label>
-                                        <input type="text" name="name" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                            <label class="form-control-label">Item Description:</label>
-                                            <input type="text" name="detail" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                                <label class="form-control-label">Unit Price:</label>
-                                                <input type="text" name="price" class="form-control" />
-                                     </div>  
-                                     <button class="btn btn-primary">Add</button> 
-                        </form>
-                         
-    
-                    </div>
-                </div>
-                <hr>
-    
-                 <!---- Add Raw Item  --></div>
-         <div class="tab-pane container fade" id="add_style"> <!---- Add style  -->
+            
+                    <div class="row">
+                            <div class="col-12 text-center">
+                                <img src="assets/img/logo.png" class="rounded mx-auto sub-logo-img" alt="logo">
+                            </div>
+                        </div>
                     <div class="container-fluid">
-                            <h4>Add Style</h4>
+                        <!-- Nav pills -->
+            <ul class="nav nav-pills">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-toggle="pill" href="#add_product">Add Product</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#add_raw">Add Raw Item</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#add_style">Add Style</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link" data-toggle="pill" href="#add_fabric">Add Fabric</a>
+                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#add_vendor">Add Vendor</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#add_client">Add Client</a>
+                          </li>
+                  </ul>
+                  <hr>
+                  
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div class="tab-pane container active" id="add_home">   <!---- Add Item  -->
+                        <div class="container-fluid">
+                            <h4>Add Product</h4>
                             <div class="container">
-                                <form action='/add_style' method="POST">
+                                <form action='/add_item' method="POST">
                                         <div class="form-group">
-                                                <label class="form-control-label">Title:</label>
-                                                <input type="text" name="title" class="form-control" />
+                                                <label class="form-control-label">Item Name:</label>
+                                                <input type="text" name="name" class="form-control" />
                                             </div>
                                             <div class="form-group">
-                                                    <label class="form-control-label">Fabric Code:</label>
-                                                    <select id="fabrics_select" name="fabric_code" class="form-control" >
-                                                     </select>    
+                                                    <label class="form-control-label">Item Description:</label>
+                                                    <input type="text" name="detail" class="form-control" />
                                             </div>
                                             <div class="form-group">
-                                                    <label class="form-control-label">Gender:</label>
-                                                    <select  name="gender" class="form-control" >
-                                                        <option value="male" >Male</option>
-                                                        <option value="female" >Female</option>
-                                                    </select>
-
-                                                    
-                                            </div>
-                                            <div class="form-group">
-                                                    <label class="form-control-label">Size:</label>
-                                                    <select type="text" name="size" class="form-control" >
-                                                        <option value='S'>Small </option>
-                                                        <option value='M'>Medium </option>
-                                                        <option value='L'>Large </option>
-                                                        <option value='XL'>eXtra Large </option>
-                                                    </select>    
-                                                </div>
-                                                <div class="form-group">
-                                                        <label class="form-control-label">Details:</label>
-                                                        <input type="text" name="details" class="form-control" />
-                                                </div>
-                                                <div class="form-group">
-                                                        <label class="form-control-label">Measurements:</label>
-                                                        <input type="text" name="measurements" class="form-control" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                            <label class="form-control-label">Embroidry:</label>
-                                                            <input type="text" name="embroidry" class="form-control" />
-                                                    </div>
-                                            <div class="form-group">
-                                                        <label class="form-control-label">Logo:</label>
-                                                        <input type="text" name="logo" class="form-control" />
+                                                        <label class="form-control-label">Unit Price:</label>
+                                                        <input type="text" name="price" class="form-control" />
                                              </div>  
                                              <button class="btn btn-primary">Add</button> 
                                 </form>
@@ -206,123 +201,211 @@
                         </div>
                         <hr>
             
-              <!---- Add style   --></div>
-              <div class="tab-pane container fade" id="add_fabric"> <!---- Add fabric  -->
-                <div class="container-fluid">
-                        <h4>Add Fabric</h4>
-                        <div class="container">
-                            <form action='/add_fabric' method="POST">
-                                    <div class="form-group">
-                                            <label class="form-control-label">Name:</label>
-                                            <input type="text" name="name" class="form-control" />
-                                        </div>
-                                        <div class="form-group">
-                                                <label class="form-control-label">Fabric Code:</label>
-                                                <input type="text" name="fabric_code" class="form-control" />
-                                        </div>
-                                    
-                                        <div class="form-group">
-                                                <label class="form-control-label">Description:</label>
-                                                <textarea class="form-control" name='detail'></textarea>
-                                         </div>
+                         <!---- Add Item  -->
+                     
+            
+                    </div>
+                    <div class="tab-pane container fade" id="add_raw"> <!---- Add Raw Item  -->
+                        <div class="container-fluid">
+                                <h4>Add Raw Item</h4>
+                                <div class="container">
+                                    <form action='/add_raw_item' method="POST">
                                             <div class="form-group">
-                                                    <label class="form-control-label">Width:</label>
-                                                    <input type='number' name="width" class="form-control" />
+                                                    <label class="form-control-label">Item Name:</label>
+                                                    <input type="text" name="name" class="form-control" />
+                                                </div>
+                                                <div class="form-group">
+                                                        <label class="form-control-label">Item Description:</label>
+                                                        <input type="text" name="detail" class="form-control" />
+                                                </div>
+                                                <div class="form-group">
+                                                            <label class="form-control-label">Unit Price:</label>
+                                                            <input type="text" name="price" class="form-control" />
+                                                 </div>  
+                                                 <button class="btn btn-primary">Add</button> 
+                                    </form>
+                                     
+                
+                                </div>
+                            </div>
+                            <hr>
+                
+                             <!---- Add Raw Item  --></div>
+                     <div class="tab-pane container fade" id="add_style"> <!---- Add style  -->
+                                <div class="container-fluid">
+                                        <h4>Add Style</h4>
+                                        <div class="container">
+                                            <form action='/add_style' method="POST">
+                                                    <div class="form-group">
+                                                            <label class="form-control-label">Title:</label>
+                                                            <input type="text" name="title" class="form-control" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <label class="form-control-label">Fabric Code:</label>
+                                                                <select id="fabrics_select" name="fabric_code" class="form-control" >
+                                                                 </select>    
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <label class="form-control-label">Gender:</label>
+                                                                <select  name="gender" class="form-control" >
+                                                                    <option value="male" >Male</option>
+                                                                    <option value="female" >Female</option>
+                                                                </select>
+            
+                                                                
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <label class="form-control-label">Size:</label>
+                                                                <select type="text" name="size" class="form-control" >
+                                                                    <option value='S'>Small </option>
+                                                                    <option value='M'>Medium </option>
+                                                                    <option value='L'>Large </option>
+                                                                    <option value='XL'>eXtra Large </option>
+                                                                </select>    
+                                                            </div>
+                                                            <div class="form-group">
+                                                                    <label class="form-control-label">Details:</label>
+                                                                    <input type="text" name="details" class="form-control" />
+                                                            </div>
+                                                            <div class="form-group">
+                                                                    <label class="form-control-label">Measurements:</label>
+                                                                    <input type="text" name="measurements" class="form-control" />
+                                                                </div>
+                                                                <div class="form-group">
+                                                                        <label class="form-control-label">Embroidry:</label>
+                                                                        <input type="text" name="embroidry" class="form-control" />
+                                                                </div>
+                                                        <div class="form-group">
+                                                                    <label class="form-control-label">Logo:</label>
+                                                                    <input type="text" name="logo" class="form-control" />
+                                                         </div>  
+                                                         <button class="btn btn-primary">Add</button> 
+                                            </form>
+                                             
+                        
+                                        </div>
+                                    </div>
+                                    <hr>
+                        
+                          <!---- Add style   --></div>
+                          <div class="tab-pane container fade" id="add_fabric"> <!---- Add fabric  -->
+                            <div class="container-fluid">
+                                    <h4>Add Fabric</h4>
+                                    <div class="container">
+                                        <form action='/add_fabric' method="POST">
+                                                <div class="form-group">
+                                                        <label class="form-control-label">Name:</label>
+                                                        <input type="text" name="name" class="form-control" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                            <label class="form-control-label">Fabric Code:</label>
+                                                            <input type="text" name="fabric_code" class="form-control" />
+                                                    </div>
+                                                
+                                                    <div class="form-group">
+                                                            <label class="form-control-label">Description:</label>
+                                                            <textarea class="form-control" name='detail'></textarea>
+                                                     </div>
+                                                        <div class="form-group">
+                                                                <label class="form-control-label">Width:</label>
+                                                                <input type='number' name="width" class="form-control" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <label class="form-control-label">Color:</label>
+                                                                <input type="text" name="color" class="form-control" />
+                                                     </div>
+                                                            
+                                                     <button class="btn btn-primary">Add</button> 
+                                        </form>
+                                         
+                    
+                                    </div>
+                                </div>
+                                <hr>
+                    
+                      <!---- Add fabric   --></div>     
+                    <div class="tab-pane container fade" id="add_vendor">
+                         <!--- Add Vendor -->
+                         <div class="container-fluid">
+                                <h4>Add Vendor</h4>
+                                <div class="container">
+                                    <form action='/add_vendor' method="POST">
+                                            <div class="form-group">
+                                                    <label class="form-control-label">Name:</label>
+                                                    <input type="text" name="name" class="form-control" />
+                                                </div>
+                                                <div class="form-group">
+                                                        <label class="form-control-label">Company Name:</label>
+                                                        <input type="text" name="company_name" class="form-control" />
+                                                </div>
+                                                <div class="form-group">
+                                                            <label class="form-control-label">Street Address:</label>
+                                                            <input type="text" name="street" class="form-control" />
+                                                 </div>
+                                                 <div class="form-group">
+                                                        <label class="form-control-label">City:</label>
+                                                        <input type="text" name="city" class="form-control" />
+                                                 </div>
+                                                 <div class="form-group">
+                                                        <label class="form-control-label">Phone:</label>
+                                                        <input type="text" name="phone" class="form-control" />
+                                                 </div>  
+                                                 <button class="btn btn-primary">Add</button> 
+                                    </form>
+                                     
+                
+                                </div>
+                            </div>
+                            <hr>
+                        <!--- Add Vendor -->
+                    </div>
+                    <div class="tab-pane container fade" id="add_client">
+                        <!--- Add Client -->
+                        <div class="container-fluid">
+                                <h4>Add Client</h4>
+                                <div class="container">
+                                    <form action='/add_client' method="POST">
+                                        <div class="form-group">
+                                                <label class="form-control-label">Name:</label>
+                                                <input type="text" name="name" class="form-control" />
                                             </div>
                                             <div class="form-group">
-                                                    <label class="form-control-label">Color:</label>
-                                                    <input type="text" name="color" class="form-control" />
-                                         </div>
-                                                
-                                         <button class="btn btn-primary">Add</button> 
-                            </form>
-                             
-        
+                                                    <label class="form-control-label">Company Name:</label>
+                                                    <input type="text" name="company_name" class="form-control" />
+                                            </div>
+                                            <div class="form-group">
+                                                        <label class="form-control-label">Street Address:</label>
+                                                        <input type="text" name="street" class="form-control" />
+                                             </div>
+                                             <div class="form-group">
+                                                    <label class="form-control-label">City:</label>
+                                                    <input type="text" name="city" class="form-control" />
+                                             </div>
+                                             <div class="form-group">
+                                                    <label class="form-control-label">Phone:</label>
+                                                    <input type="text" name="phone" class="form-control" />
+                                             </div>        <button class="btn btn-primary">Add</button> 
+                                    </form>
+                                     
+                
+                                </div>
+                            </div>
+                            <hr>
+                        <!--- Add Client -->
+            
+            
+                    </div>
+            
+                  </div>
+                          
+                        
+                        
+                    </div>    
                         </div>
-                    </div>
-                    <hr>
-        
-          <!---- Add fabric   --></div>     
-        <div class="tab-pane container fade" id="add_vendor">
-             <!--- Add Vendor -->
-             <div class="container-fluid">
-                    <h4>Add Vendor</h4>
-                    <div class="container">
-                        <form action='/add_vendor' method="POST">
-                                <div class="form-group">
-                                        <label class="form-control-label">Name:</label>
-                                        <input type="text" name="name" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                            <label class="form-control-label">Company Name:</label>
-                                            <input type="text" name="company_name" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                                <label class="form-control-label">Street Address:</label>
-                                                <input type="text" name="street" class="form-control" />
-                                     </div>
-                                     <div class="form-group">
-                                            <label class="form-control-label">City:</label>
-                                            <input type="text" name="city" class="form-control" />
-                                     </div>
-                                     <div class="form-group">
-                                            <label class="form-control-label">Phone:</label>
-                                            <input type="text" name="phone" class="form-control" />
-                                     </div>  
-                                     <button class="btn btn-primary">Add</button> 
-                        </form>
-                         
-    
-                    </div>
-                </div>
-                <hr>
-            <!--- Add Vendor -->
-        </div>
-        <div class="tab-pane container fade" id="add_client">
-            <!--- Add Client -->
-            <div class="container-fluid">
-                    <h4>Add Client</h4>
-                    <div class="container">
-                        <form action='/add_client' method="POST">
-                            <div class="form-group">
-                                    <label class="form-control-label">Name:</label>
-                                    <input type="text" name="name" class="form-control" />
-                                </div>
-                                <div class="form-group">
-                                        <label class="form-control-label">Company Name:</label>
-                                        <input type="text" name="company_name" class="form-control" />
-                                </div>
-                                <div class="form-group">
-                                            <label class="form-control-label">Street Address:</label>
-                                            <input type="text" name="street" class="form-control" />
-                                 </div>
-                                 <div class="form-group">
-                                        <label class="form-control-label">City:</label>
-                                        <input type="text" name="city" class="form-control" />
-                                 </div>
-                                 <div class="form-group">
-                                        <label class="form-control-label">Phone:</label>
-                                        <input type="text" name="phone" class="form-control" />
-                                 </div>        <button class="btn btn-primary">Add</button> 
-                        </form>
-                         
-    
-                    </div>
-                </div>
-                <hr>
-            <!--- Add Client -->
-
-
-        </div>
-
-      </div>
-              
             
-            
-        </div>    
-            </div>
-
-            </div>
+                        </div>
+    </div>
+           
 
      
 <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>

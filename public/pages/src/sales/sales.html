@@ -112,19 +112,17 @@
     
                         <ul id="thirdLink" class="collapse sub-list">
                             <li>
-                                <a href="sales/sales.html">Sales Order</a>
+                                <a href="#">Sales Order</a>
                             </li>
                             <li>
-                                <a href="sales/salesinvoiceslip.html">Sales Invoice</a>
+                                <a href="./salesinvoiceslip.html">Sales Invoice</a>
                             </li>
                             <li>
-                                <a href="packinglistslip.html">Packing Slip</a>
+                                <a href="./packinglistslip.html">Packing Slip</a>
                             </li>
+                            
                             <li>
-                                <a href="deliverynote.html">Delivery Note</a>
-                            </li>
-                            <li>
-                                <a href="payreceipt.html">Pay Receipt</a>
+                                <a href="./payreceipt.html">Pay Receipt</a>
                             </li>
                         </ul>
                     </li>
@@ -178,7 +176,7 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <img src="../../../assets/img/optimized-logo.png" class="rounded float-right md-logo" alt="logo">
+                        <img src="../../../assets/img/aa-logo.jpg" class="rounded float-right md-logo" alt="logo">
                     </div>
                 </div>
 
@@ -773,9 +771,13 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    alert(this.responseText);
+                    alert("Sales Order is Generated");
                     e.disabled = false;
-
+                   
+                    var link = document.createElement("a");
+                    link.download = 'sales order.pdf';
+                     link.href = '/pdf';
+                     link.click();
 
                 }
             };
@@ -792,6 +794,7 @@
 
     }
 
+ 
 
 
 </script>
