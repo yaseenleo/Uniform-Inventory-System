@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
   var LpoSchema = new Schema({
     client:  String,
     date: String,
+    due_date: String,
     lpo_number:   String,
     ref: String,
     items_array: String,

@@ -297,6 +297,7 @@
                                       <tr>
                                         <th>Name</th>
                                         <th>description</th>
+                                        <th>Unit</th>
                                         <th>Unit Price</th>
                                       </tr>
                                     </thead>
@@ -323,24 +324,24 @@
                                           </div>
                                           <input type="text" class="form-control" placeholder="search query?" id='styles_q'  onkeyup="search('styles_q','styles_table')">
                                         </div>
-                               <table class="table table-dark table-striped">
-                                       <thead>
-                                         <tr>
-                                           <th>Title</th>
-                                           <th>Fabric Code</th>
-                                           <th>Size</th>
-                                           <th>Gender</th>
-                                           <th>Details</th>
-                                           <th>Measurements</th>
-                                           <th>Embroidry</th>
-                                           <th>Logo</th>
-                                         </tr>
-                                       </thead>
-                                       <tbody id='styles_table'>
-                                        
-                                       </tbody>
-                                     </table>
-       
+                           <div class="row">
+                                <table class="table table-dark table-striped">
+                                        <thead>
+                                          <tr>
+                                            <th style="width:20%">Title</th>
+                                            <th style="width:15%">Gender</th>
+                                            <th style="width:45%">Style Detail</th>
+                                            <th style="width:20%">Picture</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody id='styles_table'>
+                                         
+                                        </tbody>
+                                      </table>
+        
+                           </div>
+                           
+                               
                        </div>
                    </div>
                    <hr>
@@ -385,7 +386,7 @@
                                 <div class="input-group-prepend">
                                         <span class="input-group-text">Search</span>
                                       </div>
-                                      <input type="text" class="form-control" placeholder="search query?" id='vendors_q'  onkeyup="search('vendors_q','vandors_table')">
+                                      <input type="text" class="form-control" placeholder="search query?" id='vendors_q'  onkeyup="search('vendors_q','vendors_table')">
                                     </div>
                            <table class="table table-dark table-striped">
                                    <thead>
@@ -395,6 +396,7 @@
                                        <th>Street Address</th>
                                        <th>City</th>
                                        <th>Phone</th>
+                                       <th>Email</th>
                                      </tr>
                                    </thead>
                                    <tbody id='vendors_table'>
@@ -425,6 +427,7 @@
                                         <th>Street Address</th>
                                         <th>City</th>
                                         <th>Phone</th>
+                                        <th>Email</th>
                                       </tr>
                                     </thead>
                                     <tbody id='clients_table'>
@@ -522,7 +525,8 @@
       let table=document.getElementById('items_table');
       let str='';
       items.forEach((item)=>{
-       str += '<tr><td>'+item.name+'</td><td>'+item.detail+'</td><td>'+item.price+'</td></tr>'
+       str += '<tr><td>'+item.name+'<input type="hidden" value="'+item.name+
+       '"></td><td><input value="'+item.detail+'"  class="form-control" ></td><td><input value="'+item.price+'" type="number" class="form-control"></td><td><button class="btn btn-primary" onclick="edit_product(this)">Edit</button></td></tr></form>'
       });
       table.innerHTML = str;
      console.log(items);
@@ -530,6 +534,22 @@
   };
   xhttp.open("GET", "/get_items", true);
   xhttp.send(); 
+   }
+   function edit_product(e){
+    let product = e.parentNode.parentNode.getElementsByTagName('td')[0].getElementsByTagName('input')[0].value,
+    details = e.parentNode.parentNode.getElementsByTagName('td')[1].getElementsByTagName('input')[0].value,
+    price = e.parentNode.parentNode.getElementsByTagName('td')[2].getElementsByTagName('input')[0].value;
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        alert("product information is updated");
+        window.location.reload();
+    
+    }
+  };
+  xhttp.open("POST", "/edit_item", true);
+  xhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+  xhttp.send("name="+product+"&details="+details+"&price="+price); 
    }
    function load_raw_items(){
     var xhttp = new XMLHttpRequest();
@@ -539,7 +559,13 @@
       let table=document.getElementById('raw_items_table');
       let str='';
       raw_items.forEach((raw_item)=>{
-       str += '<tr><td>'+raw_item.name+'</td><td>'+raw_item.detail+'</td><td>'+raw_item.price+'</td></tr>'
+      //  <tr><td>'+item.name+'<input type="hidden" value="'+item.name+
+      // '"></td><td><input value="'+item.detail+'"  class="form-control" ></td><td><input value="'+item.price+'" type="number" class="form-control"></td><td><button class="btn btn-primary" onclick="edit_product(this)">Edit</button></td></tr></form>'
+    
+       str += '<tr><td>'+raw_item.name+'('+raw_item.unit+')<input type="hidden" value="'+raw_item.name+
+       '"></td><td><input value="'+raw_item.detail+
+        '"  class="form-control" > </td><td><input value="'+raw_item.price
+            +'"  class="form-control" ></td><td><button class="btn btn-primary" onclick="edit_raw_item(this)">Edit</button></td></tr>'
       });
       table.innerHTML = str;
      console.log(raw_items);
@@ -548,7 +574,23 @@
   xhttp.open("GET", "/get_raw_items", true);
   xhttp.send(); 
    }
- 
+   function edit_raw_item(e){
+    let product = e.parentNode.parentNode.getElementsByTagName('td')[0].getElementsByTagName('input')[0].value,
+    details = e.parentNode.parentNode.getElementsByTagName('td')[1].getElementsByTagName('input')[0].value,
+    price = e.parentNode.parentNode.getElementsByTagName('td')[2].getElementsByTagName('input')[0].value;
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        alert("product information is updated");
+        window.location.reload();
+    
+    }
+  };
+  xhttp.open("POST", "/edit_raw_item", true);
+  xhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+  xhttp.send("name="+product+"&details="+details+"&price="+price); 
+      
+   }
    function load_styles(){
    
     var xhttp = new XMLHttpRequest();
@@ -560,9 +602,22 @@
 
       let table=document.getElementById('styles_table');
       let str='';
+    //  str += '<tr><td>'+style.title+'</td><td>'+style.fabric_code+'</td><td>'+style.product+'</td><td>'+
+      //      style.gender+'</td><td>'+style.details+'</td><td>'+style.measurements+
+        //        '</td><td>'+style.logo+'</td><td><image src="'+style.picture+'" width="100px" /></td></tr>'
+    
       styles.forEach((style)=>{
-       str += '<tr><td>'+style.title+'</td><td>'+style.fabric_code+'</td><td>'+style.size+'</td><td>'+
-            style.gender+'</td><td>'+style.details+'</td><td>'+style.measurements+'</td><td>'+style.embroidry+'</td><td>'+style.logo+'</td></tr>'
+          console.log(style);
+          let product_list = JSON.parse(style.product);
+          let pro_text ='';
+          product_list.forEach((product)=>{
+            pro_text += `<div style='border:1px solid white'><div style="width:20%;display:inline;border:1px solid green">`+product.product+
+                `</div><div style="width:20%;display:inline;border:1px solid green">`+product.fabric_code+
+                `</div><div style="width:40%;display:inline;border:1px solid green">`+product.details+
+                    `</div><div style="width:20%;display:inline;border:1px solid green" >`+product.logo+`</div></div><br>`
+          })
+       str += '<tr><td>'+style.title+'</td><td>'+style.gender+
+        '</td><td style="overflow-x:scroll">'+pro_text+'</td><td><image src="'+style.picture+'" width="100px" /></td></tr>'
       });
       table.innerHTML = str;
     }
@@ -600,7 +655,7 @@
       let table=document.getElementById('clients_table');
       let str='';
       clients.forEach((client)=>{
-       str += '<tr><td>'+client.name+'</td><td>'+client.company_name+'</td><td>'+client.street+'</td><td>'+client.city+'</td><td>'+client.phone+'</td></tr>'
+       str += '<tr><td>'+client.name+'</td><td>'+client.company_name+'</td><td>'+client.street+'</td><td>'+client.city+'</td><td>'+client.phone+'</td><td>'+client.email+'</td></tr>'
       });
       table.innerHTML = str;
      console.log(clients);
@@ -617,7 +672,7 @@
       let table=document.getElementById('vendors_table');
       let str='';
       vendors.forEach((vendor)=>{
-       str += '<tr><td>'+vendor.name+'</td><td>'+vendor.company_name+'</td><td>'+vendor.street+'</td><td>'+vendor.city+'</td><td>'+vendor.phone+'</td></tr>'
+       str += '<tr><td>'+vendor.name+'</td><td>'+vendor.company_name+'</td><td>'+vendor.street+'</td><td>'+vendor.city+'</td><td>'+vendor.phone+'</td><td>'+vendor.email+'</td></tr>'
       });
       table.innerHTML = str;
      console.log(vendors);

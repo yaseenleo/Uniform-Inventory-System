@@ -22,59 +22,7 @@
 
 <body onload="fill()">
 
-    <!-- <nav class="navbar navbar-expand-lg bg-primary">
-        <div class="container">
-            <div class="navbar-translate">
-                <a href="../../../index.html" class="navbar-brand">Uniform Inventory</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse justify-center">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a href="../sales/sales.html" class="nav-link">
-                            Sales
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../production/productionLine.html" class="nav-link">
-                            Production
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a href="purchase.html" class="nav-link">
-                            Purchase
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../../../attendance.html" class="nav-link">
-                            Attendence
-                        </a>
-                    </li>
-                    <li class=" nav-item">
-                            <a href="../../../master.html" class="nav-link">
-                                Master Control
-                            </a>
-                        </li>
-                        <li class=" nav-item">
-                            <a href="../../../master_view.html" class="nav-link">
-                                Master View
-                            </a>
-                        </li>
-                        <li class=" nav-item">
-                            <a href="../../../attendance.html" class="nav-link">
-                                Attendance
-                            </a>
-                        </li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
-
+  
     <div class="nav-side-menu">
             <div class="brand brand-color">
                 <h4>Uniform Inventory</h4>
@@ -94,9 +42,7 @@
                             <li>
                                 <a href="grnote.html">Good Receiving Note</a>
                             </li>
-                            <li>
-                                <a href="purchaseinvoice.html">Purchase Invoice</a>
-                            </li>
+                          
                             <li>
                                 <a href="vendorpay.html">Vendor Payment</a>
                             </li>
@@ -155,79 +101,49 @@
 
     <div id="main" class="wrapper container-fluid">
  
-        <div id="content" class="container-fluid">
+        <div class="container-fluid">
 
         <!-- Page Content  -->
-       <div class="container sales-container" id="main_place">
+       <div class="container sales-container"  >
 
                 <div class="text-center doc-head-text">
-                    <h2>Goods Receiving Note</h2>
-                    <div class="form-inline text-center">
-                        <label class="form-control-label">L.P.O Ref/P.O#:</label>
-                        <select class="form-control" id="lpo_ref" onchange="set_items(this)"></select>
-                    </div>
+                    <h2>Goods Receiving Note / Purchase Invoice</h2>
+                    
                 </div>
 
                 <div class="gr-info">
 
                     <div class="row">
-                        <div class="col-6">
-
-                            <div class="row">
-                                <div class="col-4">
-                                    <p>From: </p>
+                        <div class="col-7">
+                                <div class="row">
+                                        <div class="col-md-2">
+                                                <label class='form-control-label'>Vendors</label>
+                        
+                                        </div>
+                                        <div class="col-md-4">
+                                            <select id='vendors_select' name='number' onChange="po_set(this)" class='form-control' ></select>
+                                        </div>          
+                                       
+        
                                 </div>
-
-                                <div class="col-8">
-                                    <select name="" id="gr-from" class="form-control">
-                                        <option value="supplier">Supplier</option>
-                                        <option value="delivery">Delivery</option>
-                                    </select>
+                                <br><br>
+                                <div class="row">
+                                        <div class="col-md-2">
+                                                <label class='form-control-label'>PO Ref#</label>
+                        
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select id='s_po_select' class='form-control' onchange="set_items(this)" ></select>
+                                        </div>
                                 </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-4">
-                                    <p>To: </p>
-                                </div>
-
-                                <div class="col-8">
-                                    <select name="" id="gr-to" class="form-control">
-                                        <option value="delivery">Delivery</option>
-                                        <option value="supplier">Supplier</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div>
-
-                            </div>
 
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-5">
 
-                            <div class="row">
-                                <div class="col-4">
-                                    <p>Order No:</p>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" id="gr-order-num" class="form-control">
-                                </div>
+                           
 
-                                <!--fetch order number from purchase order-->
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-4">
-                                    <p>Delivery Note No:</p>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" id="gr-delivey-num" class="form-control">
-                                </div>
-
-                                <!--fetch delievry number-->
-                            </div>
+                          
 
                             <div class="row">
                                 <div class="col-4">
@@ -242,24 +158,6 @@
 
                             <div class="row">
                                 <div class="col-4">
-                                    <p>Requisition No:</p>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" id="gr-requisition-num" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-4">
-                                    <p>Requisition By:</p>
-                                </div>
-                                <div class="col-8">
-                                    <input type="text" id="gr-requisition-by" class="form-control">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-4">
                                     <p>Date :</p>
                                 </div>
                                 <div class="col-8">
@@ -268,6 +166,16 @@
 
                                 <!--good receiving note generate date-->
                             </div>
+                            <div class="row">
+                                    <div class="col-4">
+                                        <p>Recieved By :</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" id="recieved_by" class="form-control">
+                                    </div>
+    
+                                    <!--good receiving note generate date-->
+                             </div>
                         </div>
                     </div>
 
@@ -279,7 +187,7 @@
                             <td class="col-2">Product Category</td>
                             <td class="col-4">Description</td>
                             <td class="col-2">Recieved Qty</td>
-                            <td class="col-2">Order Qty</td>
+                            <td class="col-2">Total Qty</td>
                             <td class="col-2">Unit Price</td>
                         </tr>
                     </thead>
@@ -304,163 +212,17 @@
                     </tbody>
                 </table>
 
-                <div class="">
-                    <div class="row">
-                        <div class="col-2">
-                            <p>Store Officer</p>
-                        </div>
-                        <div class="col-4">
-                            <input type="text" class="form-control" id="store-incharge-name">
-                        </div>
-
-                        <div class="col-2">
-                                <p>Name:</p>
-                            </div>
-                            <div class="col-4">
-                                <input type="text" class="form-control" id="responsible-person-name">
-                            </div>
-                    </div>
-
-                    <div class="row">
-                            <div class="col-2">
-                                <p>Designation:</p>
-                            </div>
-                            <div class="col-4">
-                                <input type="text" class="form-control" id="person-designation">
-                            </div>
-    
-                            <div class="col-2">
-                                    <p>Date:</p>
-                                </div>
-                                <div class="col-4">
-                                    <input type="date" class="form-control" id="issue-date">
-                                </div>
-                        </div>
-
-                </div>
-
-                <!-- <div class="gr-type">
-                    <p>Distribution:Original (White Copy) - Account, Duplicate (Green) - User, Triplicate
-                        (Pink) - Purchase, Quadruplicate (Blue) - Store</p>
-                </div> -->
 
                 <section class="color-1 text-center">
                     <p>
-                        <button onclick="grNote('operation1')" class="btn btn-primary ">Generate</button>
+                        <button onclick="generate_gr_note(this)" class="btn btn-primary ">Generate</button>
                     </p>
                 </section>
 
 
             </div>
 
-            <div class="forms" style="max-width: none; display: none;" id="operation1">
-              
-                <div class="gr-info">
-
-                    <div class="row">
-                        <div class="col-6">
-                            <div>
-                                <p>From: Supplier <span id="gr-from-g"></span></p>
-                                <p>To: Delivery <span id="gr-to-g"></span></p>
-                            </div>
-
-                        </div>
-
-                        <div class="col-6">
-                            <p>Order No: <span id="gr-order-num-g"></span></p>
-                            <!--fetch order number from purchase order-->
-                            <p>Delivery Note No: <span id="gr-delivey-num-g"></span></p>
-                            <!--fetch delievry number-->
-                            <p>Invoice No: <span id="gr-invoice-num-g"></span></p>
-                            <!--fetch purchase invoice number-->
-                            <p>Requisition No: <span id="gr-requisition-num-g"></span></p>
-                            <p>Requisition By: <span id="gr-requisition-by-g"></span></p>
-                            <p>Date: <span id="gr-date-g"></span></p>
-                            <!--good receiving note generate date-->
-
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- product list section -->
-                <table class="table table-bordered">
-                        <thead>
-                            <tr class="d-flex">
-                                <td class="col-1">S.no</td>
-                                <td class="col-2">Product Category</td>
-                                <td class="col-4">Description</td>
-                                <td class="col-1">Recieved Qty</td>
-                                <td class="col-1">Order Qty</td>
-                                <td class="col-1">Unit Price</td>
-                                <td class="col-2">Total Price</td>
-                            </tr>
-    
-                        <tbody id="create-lists">
-    
-                        </tbody>
-                        </thead>
-                    </table>
-               
-                <div class="">
-                    <div class="row">
-                        <div class="col-3">
-                            <p>Stores Officer:</p>
-                        </div>
-                        <div class="col-3">
-                            <p id="store-incharge-name-g"></p>
-                        </div>
-                        <div class="col-3">
-                                <p>Name:</p>
-                            </div>
-                            <div class="col-3">
-                                <p id="responsible-person-name-g"></p>
-                            </div>
-                    </div>
-
-                        <div class="row">
-                                <div class="col-3">
-                                    <p>Designation:</p>
-                                </div>
-                                <div class="col-3">
-                                    <p id="person-designation-g"></p>
-                                </div>
-
-                                <div class="col-3">
-                                        <p>Date:</p>
-                                    </div>
-                                    <div class="col-3">
-                                        <p id="issue-date-g"></p>
-                                    </div>
-                            </div>
-<div class="row">
-        <div class="col-2">
-                <p>Signature:</p>
-            </div>
-            <div class="col-3">
-                <p>__________________</p>
-            </div>
-</div>
-                    
-
-                    <div class="row">
-                        <div class="col-2">
-                            <p>Remarks:</p>
-                        </div>
-
-                        <div class="col-8">
-                            <span>_______________________________________________________________________________________________</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- <div class="gr-type">
-                    <p>Distribution:Original (White Copy) - Account, Duplicate (Green) - User, Triplicate
-                        (Pink) - Purchase, Quadruplicate (Blue) - Store</p>
-                </div> -->
-
-            </div>
-            
+           
     
             </div>
     
@@ -503,8 +265,45 @@
   xhttp3.send(); 
 
   //// lpos get
+
+ 
+
+  //// vendors get ///
+
+  var xhttp6 = new XMLHttpRequest();
+        xhttp6.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+               vendors = JSON.parse(this.responseText).vendors;
+                let c_text = '<option value="">Select Vendor</option>';
+                // alert(e.innerHTML.length)
+                vendors.forEach((vendor) => {
+                    c_text += `<option value='`+vendor.company_name+`'>` + vendor.company_name+ `</option>`;
+                });
+                document.getElementById('vendors_select').innerHTML = c_text;
+
+            }
+        };
+        xhttp6.open("GET", "/get_vendors", true);
+        xhttp6.send();
+
+
+  //// vendors get
  
   }
+  function po_set(e){
+       let select = document.getElementById("s_po_select");
+       let pos_txt = '<option value="">Select PO</option>';
+       let company_name = e.value;
+       console.log("pos",pos);
+       pos.forEach((po)=>{
+        if(po.vendor===company_name)
+            {
+               pos_txt += `<option value="`+po.po_num+`">`+po.ref+"/"+po.po_num+`</option>` 
+            }
+       });
+       select.innerHTML = pos_txt;
+    }
+  
   function set_items(e){
      // console.log("clicked");
   let value = e.value;
@@ -512,10 +311,8 @@
   if(value !== null){
       pos.forEach((po)=>{
           if(po.po_num===value){
-              document.getElementById('gr-order-num').value = po.po_num;
-              document.getElementById('gr-requisition-by').value = po.requisitioner;
-              document.getElementById('gr-order-num').value = po.po_num;
-              console.log(po.requisitioner);
+             
+              console.log(JSON.stringify(po.purchase_array));
               let purchase_item = JSON.parse(po.purchase_array);
               document.getElementById('container').innerHTML='';
               purchase_item.forEach((item,index)=>{
@@ -546,24 +343,47 @@
       })
   }
   }
- function update_lpo_2(){
-let ref = document.getElementById('lpo_ref').value;     
+ function generate_gr_note(e){
+  let  invoice_num = document.getElementById("gr-invoice-num").value;
+   let date = document.getElementById("gr-date").value;
+   let vendor = document.getElementById("vendors_select").value;
+   let recieved_by = document.getElementById("recieved_by").value;
+   let po_ref = document.getElementById("s_po_select").value;
+
 let table = document.getElementById('container');
 let tr = table.getElementsByTagName('tr');
 let qtys=[];
+let items_array = [];
 for(let i=0; i < tr.length ; i++){
  qtys[i]  = tr[i].getElementsByTagName('td')[2].getElementsByTagName('input')[0].value;
 }
+
+for (let i = 0; i < tr.length; i++) {
+                item = tr[i].getElementsByTagName('td')[0].getElementsByTagName('input')[0].value;
+                description = tr[i].getElementsByTagName('td')[1].getElementsByTagName('input')[0].value;
+                recieved = tr[i].getElementsByTagName('td')[2].getElementsByTagName('input')[0].value;
+                quantity = tr[i].getElementsByTagName('td')[3].getElementsByTagName('input')[0].value;
+                price = tr[i].getElementsByTagName('td')[4].getElementsByTagName('input')[0].value;
+
+                obj = { item: item, description: description,  quantity: quantity, price: price,recieved:recieved };
+                items_array.push(obj);
+
+            };
 qtys = JSON.stringify(qtys);
 var xhttp3 = new XMLHttpRequest();
   xhttp3.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-    alert(this.responseText);
-    }
+        alert("Goods Recieving Note is Generated");
+                    e.disabled = false; 
+                    var link = document.createElement("a");
+                    link.download = 'goods_recieving_note.xlsx';
+                     link.href = '/gr_note_report';
+                     link.click();
+                     document.location.reload();    }
   };
-  xhttp3.open("POST", "/update_lpo_2", true);
+  xhttp3.open("POST", "/generate_gr_note", true);
     xhttp3.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp3.send("ref="+ref+"&qtys="+qtys);
+    xhttp3.send("qtys="+qtys+"&po_num="+po_ref+"&vendor="+vendor+"&date="+date+"&invoice_num="+invoice_num+"&recieved_by="+recieved_by+"&items_list="+JSON.stringify(items_array));
     
 
 

@@ -2,7 +2,10 @@ var mongoose = require('mongoose');
   var Schema = mongoose.Schema;
 
   var InfoSchema = new Schema({
-    last_number:  Number
+    last_number:  Number,
+    po_num:Number,
+    sales_terms:String,
+    purchase_terms:String
     
   });
 

@@ -83,9 +83,6 @@
                             <a href="/pages/src/purchase/grnote.html">Good Receiving Note</a>
                         </li>
                         <li>
-                            <a href="/pages/src/purchase/purchaseinvoice.html">Purchase Invoice</a>
-                        </li>
-                        <li>
                             <a href="/pages/src/purchase/vendorpay.html">Vendor Payment</a>
                         </li>
                     </ul>
@@ -108,9 +105,7 @@
                         <li>
                             <a href="../sales/packinglistslip.html">Packing Slip</a>
                         </li>
-                        <!-- <li>
-                            <a href="../sales/deliverynote.html">Delivery Note</a>
-                        </li> -->
+                       
                         <li>
                             <a href="../sales/payreceipt.html">Pay Receipt</a>
                         </li>
@@ -170,7 +165,13 @@
                     </li>
                     <li class="nav-item">
                             <a class="nav-link" data-toggle="pill" href="#add_client">Add Client</a>
-                          </li>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#sales_terms">Sales Terms</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#purchase_terms">Purchase Terms</a>
+                    </li>
                   </ul>
                   <hr>
                   
@@ -183,15 +184,15 @@
                                 <form action='/add_item' method="POST">
                                         <div class="form-group">
                                                 <label class="form-control-label">Item Name:</label>
-                                                <input type="text" name="name" class="form-control" />
+                                                <input required type="text" name="name" class="form-control" />
                                             </div>
                                             <div class="form-group">
                                                     <label class="form-control-label">Item Description:</label>
-                                                    <input type="text" name="detail" class="form-control" />
+                                                    <input required type="text" name="detail" class="form-control" />
                                             </div>
                                             <div class="form-group">
                                                         <label class="form-control-label">Unit Price:</label>
-                                                        <input type="text" name="price" class="form-control" />
+                                                        <input required type="text" name="price" class="form-control" />
                                              </div>  
                                              <button class="btn btn-primary">Add</button> 
                                 </form>
@@ -204,7 +205,7 @@
                          <!---- Add Item  -->
                      
             
-                    </div>
+                       </div>
                     <div class="tab-pane container fade" id="add_raw"> <!---- Add Raw Item  -->
                         <div class="container-fluid">
                                 <h4>Add Raw Item</h4>
@@ -212,15 +213,19 @@
                                     <form action='/add_raw_item' method="POST">
                                             <div class="form-group">
                                                     <label class="form-control-label">Item Name:</label>
-                                                    <input type="text" name="name" class="form-control" />
+                                                    <input required type="text" name="name" class="form-control" />
                                                 </div>
                                                 <div class="form-group">
                                                         <label class="form-control-label">Item Description:</label>
-                                                        <input type="text" name="detail" class="form-control" />
+                                                        <input required type="text" name="detail" class="form-control" />
                                                 </div>
                                                 <div class="form-group">
+                                                        <label class="form-control-label">Unit Type:</label>
+                                                        <input required type="text" name="unit" class="form-control" placeholder="meters,gz,yards,kg?"/>
+                                                 </div>  
+                                                <div class="form-group">
                                                             <label class="form-control-label">Unit Price:</label>
-                                                            <input type="text" name="price" class="form-control" />
+                                                            <input required type="text" name="price" class="form-control" />
                                                  </div>  
                                                  <button class="btn btn-primary">Add</button> 
                                     </form>
@@ -235,15 +240,10 @@
                                 <div class="container-fluid">
                                         <h4>Add Style</h4>
                                         <div class="container">
-                                            <form action='/add_style' method="POST">
-                                                    <div class="form-group">
-                                                            <label class="form-control-label">Title:</label>
-                                                            <input type="text" name="title" class="form-control" />
-                                                        </div>
+                                            <form action='/add_style' method="POST" enctype="multipart/form-data">
                                                         <div class="form-group">
-                                                                <label class="form-control-label">Fabric Code:</label>
-                                                                <select id="fabrics_select" name="fabric_code" class="form-control" >
-                                                                 </select>    
+                                                            <label class="form-control-label">Title:</label>
+                                                            <input required type="text" name="title" class="form-control" />
                                                         </div>
                                                         <div class="form-group">
                                                                 <label class="form-control-label">Gender:</label>
@@ -255,30 +255,70 @@
                                                                 
                                                         </div>
                                                         <div class="form-group">
-                                                                <label class="form-control-label">Size:</label>
-                                                                <select type="text" name="size" class="form-control" >
-                                                                    <option value='S'>Small </option>
-                                                                    <option value='M'>Medium </option>
-                                                                    <option value='L'>Large </option>
-                                                                    <option value='XL'>eXtra Large </option>
-                                                                </select>    
+                                                            <label class="form-control-label">Picture:</label>
+                                                            <input required type="file" name="picture" class="form-control" accept="image/jpeg,image/jpg,image/png" >
+                                                    </div>
+                                                        <div class="container">
+                                                            <table class="table table-light">
+                                                                <thead ><tr><th>Product</th><th>Fabric Code</th><th>Details</th><th>Logo/Embroidry</th><th>&nbsp;</th></tr>
+                                                                
+                                                                    <tr><td><select id="product_select"  class="form-control" style="width:120px"  >
+                                                                        </select></td>
+                                                                        <td><select id="fabrics_select"  class="form-control" style="width:140px" >
+                                                                            </select></td>
+                                                                        <td><textarea required type="text" id="p_d"  class="form-control" rows="4"></textarea></td>
+                                                                        <td><textarea required type="text" id="p_l"  class="form-control" rows="4"></textarea></td>
+                                                                        <td><button  style="font-size: 24px;font-weight: 800" type="button" onclick="add(this)"> + </button></td></tr>
+                                                                </thead>
+                                                                <tbody id="pro_list">
+
+                                                                </tbody>
+                                                            </table>
                                                             </div>
-                                                            <div class="form-group">
-                                                                    <label class="form-control-label">Details:</label>
-                                                                    <input type="text" name="details" class="form-control" />
-                                                            </div>
-                                                            <div class="form-group">
-                                                                    <label class="form-control-label">Measurements:</label>
-                                                                    <input type="text" name="measurements" class="form-control" />
-                                                                </div>
-                                                                <div class="form-group">
-                                                                        <label class="form-control-label">Embroidry:</label>
-                                                                        <input type="text" name="embroidry" class="form-control" />
-                                                                </div>
+                                                        <script>
+                                                            function add(e){
+                                                                       let item = document.getElementById("product_select").value,
+                                                                        fabric_code = document.getElementById("fabrics_select"),
+                                                                        details =  document.getElementById("p_d"), 
+                                                                        logo =  document.getElementById("p_l"), 
+                                                                        input = document.getElementById("product_list2");
+                                                                        if(input.value===""){
+                                                                            let arr_obj = [{product:item,fabric_code:fabric_code.value,
+                                                                                details:details.value,logo:logo.value}];
+
+                                                                            input.value = JSON.stringify(arr_obj);
+                                                                            show_products(arr_obj);
+                                                                        }
+                                                                         else{
+                                                                             let old_arr = JSON.parse(input.value);
+                                                                              old_arr.push({product:item,fabric_code:fabric_code.value,
+                                                                                details:details.value,logo:logo.value});
+                                                                             input.value = JSON.stringify(old_arr);
+                                                                             show_products(old_arr);
+                                                                         }
+
+                                                            }
+                                                            function show_products(arr){
+                                                               let table = document.getElementById("pro_list");
+                                                               let str=''
+                                                               arr.forEach((item)=>{
+                                                                str += `<tr><td>`+item.product+`</td>
+                                                                    <td>`+item.fabric_code+`</td>
+                                                                    <td>`+item.details+`</td>
+                                                                    <td>`+item.logo+`</td>
+                                                                    <td> &nbsp;</td>
+                                                                    </tr>`
+                                                               })
+                                                               table.innerHTML = str;
+                            
+                                                            }
+                                                        </script>
                                                         <div class="form-group">
-                                                                    <label class="form-control-label">Logo:</label>
-                                                                    <input type="text" name="logo" class="form-control" />
-                                                         </div>  
+                                                            <input type="hidden"  id="product_list2" name="product" required>
+                                                
+                                                        </div>
+                                                        
+                                                                  
                                                          <button class="btn btn-primary">Add</button> 
                                             </form>
                                              
@@ -288,18 +328,18 @@
                                     <hr>
                         
                           <!---- Add style   --></div>
-                          <div class="tab-pane container fade" id="add_fabric"> <!---- Add fabric  -->
+                     <div class="tab-pane container fade" id="add_fabric"> <!---- Add fabric  -->
                             <div class="container-fluid">
                                     <h4>Add Fabric</h4>
                                     <div class="container">
                                         <form action='/add_fabric' method="POST">
                                                 <div class="form-group">
                                                         <label class="form-control-label">Name:</label>
-                                                        <input type="text" name="name" class="form-control" />
+                                                        <input required type="text" name="name" class="form-control" />
                                                     </div>
                                                     <div class="form-group">
                                                             <label class="form-control-label">Fabric Code:</label>
-                                                            <input type="text" name="fabric_code" class="form-control" />
+                                                            <input required type="text" name="fabric_code" class="form-control" />
                                                     </div>
                                                 
                                                     <div class="form-group">
@@ -308,11 +348,11 @@
                                                      </div>
                                                         <div class="form-group">
                                                                 <label class="form-control-label">Width:</label>
-                                                                <input type='number' name="width" class="form-control" />
+                                                                <input required type='number' name="width" class="form-control" />
                                                         </div>
                                                         <div class="form-group">
                                                                 <label class="form-control-label">Color:</label>
-                                                                <input type="text" name="color" class="form-control" />
+                                                                <input required type="text" name="color" class="form-control" />
                                                      </div>
                                                             
                                                      <button class="btn btn-primary">Add</button> 
@@ -332,23 +372,27 @@
                                     <form action='/add_vendor' method="POST">
                                             <div class="form-group">
                                                     <label class="form-control-label">Name:</label>
-                                                    <input type="text" name="name" class="form-control" />
+                                                    <input required type="text" name="name" class="form-control" />
                                                 </div>
                                                 <div class="form-group">
                                                         <label class="form-control-label">Company Name:</label>
-                                                        <input type="text" name="company_name" class="form-control" />
+                                                        <input required type="text" name="company_name" class="form-control" />
                                                 </div>
                                                 <div class="form-group">
                                                             <label class="form-control-label">Street Address:</label>
-                                                            <input type="text" name="street" class="form-control" />
+                                                            <input required type="text" name="street" class="form-control" />
                                                  </div>
                                                  <div class="form-group">
                                                         <label class="form-control-label">City:</label>
-                                                        <input type="text" name="city" class="form-control" />
+                                                        <input required type="text" name="city" class="form-control" />
                                                  </div>
                                                  <div class="form-group">
                                                         <label class="form-control-label">Phone:</label>
-                                                        <input type="text" name="phone" class="form-control" />
+                                                        <input required type="text" name="phone" class="form-control" />
+                                                 </div> 
+                                                 <div class="form-group">
+                                                    <label class="form-control-label">Email:</label>
+                                                    <input required type="email" name="email" class="form-control" />
                                                  </div>  
                                                  <button class="btn btn-primary">Add</button> 
                                     </form>
@@ -367,24 +411,29 @@
                                     <form action='/add_client' method="POST">
                                         <div class="form-group">
                                                 <label class="form-control-label">Name:</label>
-                                                <input type="text" name="name" class="form-control" />
+                                                <input required type="text" name="name" class="form-control" />
                                             </div>
                                             <div class="form-group">
                                                     <label class="form-control-label">Company Name:</label>
-                                                    <input type="text" name="company_name" class="form-control" />
+                                                    <input required type="text" name="company_name" class="form-control" />
                                             </div>
                                             <div class="form-group">
                                                         <label class="form-control-label">Street Address:</label>
-                                                        <input type="text" name="street" class="form-control" />
+                                                        <input required type="text" name="street" class="form-control" />
                                              </div>
                                              <div class="form-group">
                                                     <label class="form-control-label">City:</label>
-                                                    <input type="text" name="city" class="form-control" />
+                                                    <input required type="text" name="city" class="form-control" />
                                              </div>
                                              <div class="form-group">
                                                     <label class="form-control-label">Phone:</label>
-                                                    <input type="text" name="phone" class="form-control" />
-                                             </div>        <button class="btn btn-primary">Add</button> 
+                                                    <input required type="text" name="phone" class="form-control" />
+                                             </div> 
+                                             <div class="form-group">
+                                                <label class="form-control-label">Email:</label>
+                                                <input required type="email" name="email" class="form-control" />
+                                         </div> 
+                                             <button class="btn btn-primary">Add</button> 
                                     </form>
                                      
                 
@@ -395,6 +444,46 @@
             
             
                     </div>
+                    <div class="tab-pane container fade" id="sales_terms">
+                        <!--- sales terms -->
+                        <div class="container-fluid">
+                                <h4>Sales Terms</h4>
+                                <div class="container">
+                                    <form action='/update_sales_terms' method="POST">
+                                        
+                                            <div class="form-group">
+                                                    <textarea required type="text" name="sales_terms" id="sales_terms_input" class="form-control" rows="20" cols="80" >
+                                                    </textarea>    
+                                            </div>
+                                            
+                                             <button class="btn btn-primary">Update</button> 
+                                    </form>
+                                </div>
+                            </div>
+                            <hr>
+                        <!--- Sales Terms -->
+             
+                    </div>
+                    <div class="tab-pane container fade" id="purchase_terms">
+                            <!--- purchase terms -->
+                            <div class="container-fluid">
+                                    <h4>Purchase Terms</h4>
+                                    <div class="container">
+                                        <form action='/update_purchase_terms' method="POST">
+                                            
+                                                <div class="form-group">
+                                                        <textarea required type="text" name="purchase_terms" id="purchase_terms_input" class="form-control" rows="20" cols="80" >
+                                                        </textarea>    
+                                                </div>
+                                                
+                                                 <button class="btn btn-primary">Update</button> 
+                                        </form>
+                                    </div>
+                                </div>
+                                <hr>
+                            <!--- purchase Terms -->
+                 
+                        </div>
             
                   </div>
                           
@@ -454,67 +543,11 @@ function attend(attend , e)
 </script>
 
 
-<script>
 
-function exportToExcel(para){
-    var tab_text="<table border='2px'><tr bgcolor='#87AFC6' style='height: 75px; text-align: center; width: 250px'>";
-    var textRange; var j=0;
-    tab = document.getElementById('para'); // id of table
-
-    for(j = 0 ; j < tab.rows.length ; j++)
-    {
-
-        tab_text=tab_text;
-
-        tab_text=tab_text+tab.rows[j].innerHTML.toUpperCase()+"</tr>";
-        //tab_text=tab_text+"</tr>";
-    }
-
-    tab_text= tab_text+"</table>";
-    tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, ""); //remove if u want links in your table
-    tab_text= tab_text.replace(/<img[^>]*>/gi,""); //remove if u want images in your table
-   // tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); //remove input params
-
-    var ua = window.navigator.userAgent;
-    var msie = ua.indexOf("MSIE ");
-
-    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
-
-    {
-        txtArea1.document.open("txt/html","replace");
-        txtArea1.document.write( 'sep=,\r\n' + tab_text);
-        txtArea1.document.close();
-        txtArea1.focus();
-        sa=txtArea1.document.execCommand("SaveAs",true,"sudhir123.txt");
-    }
-
-    else {
-       sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));
-    }
-    
-    return (sa);
-}
-
-
-
-
-</script>
 
 <script>
 
-function addemployee(){
-    var namestaff = document.getElementById('staff').value;
-    var uid2 = firebase.database().ref().child('use').push().key;
-    if(namestaff == ""){alert("Fill Name");}
-    else{
-    var dataaa = {
-  nameofmember : namestaff}
-  var updates = {};
-  updates['/staff/employee/' + uid2] = dataaa;
-  firebase.database().ref().update(updates);
-//   alert("Done");
-}
-}
+
 function load_fabrics(){
    
    var xhttp = new XMLHttpRequest();
@@ -535,6 +568,42 @@ function load_fabrics(){
  xhttp.open("GET", "/get_fabrics", true);
  xhttp.send(); 
   }
+  function load_terms(){
+    var xhttp = new XMLHttpRequest();
+ xhttp.onreadystatechange = function() {
+   if (this.readyState == 4 && this.status == 200) {
+     
+       let info = JSON.parse(this.responseText).info[0];
+       
+        document.getElementById("sales_terms_input").value = info.sales_terms;
+        document.getElementById("purchase_terms_input").value = info.purchase_terms;
+
+   }
+ };
+ xhttp.open("GET", "/get_info", true);
+ xhttp.send();    
+  }
+  load_terms();
+  function load_products(){
+    var xhttp = new XMLHttpRequest();
+ xhttp.onreadystatechange = function() {
+   if (this.readyState == 4 && this.status == 200) {
+     
+       let products = JSON.parse(this.responseText).items;
+       console.log("products",products);
+
+     let select=document.getElementById('product_select');
+     let str='';
+     products.forEach((product)=>{
+      str += '<option value="'+product.name+'"> '+product.name+' </option>'
+     });
+     select.innerHTML = str;
+   }
+ };
+ xhttp.open("GET", "/get_items", true);
+ xhttp.send();
+  };
+  load_products();
   load_fabrics();
 
 

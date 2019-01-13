@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 
   var PoSchema = new Schema({
     date: String,
+    p_date:String,
     lpo_number:   String,
     ref: String,
     flag:String,

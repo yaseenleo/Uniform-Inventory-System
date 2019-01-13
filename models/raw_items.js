@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
   var Raw_ItemSchema = new Schema({
     name:  String,
     price: String,
+    unit: String,
     detail:   String
   });
 

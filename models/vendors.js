@@ -6,7 +6,9 @@ var mongoose = require('mongoose');
     company_name: String,
     street:   String,
     city:   String,
-    phone:   String
+    phone:   String,
+    email:   String
+
 
   });
 

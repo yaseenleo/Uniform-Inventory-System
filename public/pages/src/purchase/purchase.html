@@ -87,10 +87,7 @@
                             <a href="purchase.html">Purchase Order</a>
                         </li>
                         <li>
-                            <a href="grnote.html">Good Receiving Note</a>
-                        </li>
-                        <li>
-                            <a href="purchaseinvoice.html">Purchase Invoice</a>
+                            <a href="grnote.html">Good Receiving Note / Invoice </a>
                         </li>
                         <li>
                             <a href="vendorpay.html">Vendor Payment</a>
@@ -108,16 +105,13 @@
                     <ul id="thirdLink" class="collapse sub-list">
                         <li>
                             <a href="../sales/sales.html">Sales Order</a>
+                        </li>  
+                        <li>
+                                <a href="../sales/packinglistslip.html">Packing Slip</a>
                         </li>
                         <li>
                             <a href="../sales/salesinvoiceslip.html">Sales Invoice</a>
-                        </li>
-                        <li>
-                            <a href="../sales/packinglistslip.html">Packing Slip</a>
-                        </li>
-                        <li>
-                            <a href="../sales/deliverynote.html">Delivery Note</a>
-                        </li>
+                        </li>          
                         <li>
                             <a href="../sales/payreceipt.html">Pay Receipt</a>
                         </li>
@@ -183,23 +177,34 @@
                                 <input type="date" class="form-control" id="pur-date">
                             </div>
                         </div>
+                        <br>
+                        <div class="row">
+                                <div class="col-4">
+                                    <p>Payment Due Date:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="date" class="form-control" id="payment_date">
+                                </div>
+                        </div>
 
+                       
                         <div class="row">
                             <div class="col-4">
-                                P.O #
+                                V.P.O #
                             </div>
                             <div class="col-8">
-                                <input type="text" class="form-control" id="pur-po">
+                                <p class="form-control" id="pur-po">
+                                </p>   
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-4">
-                                L.P.O Ref
+                                C.P.O Ref
                             </div>
                             <div class="col-8">
                                 <select class="form-control" id="lpo_ref">
-                                    <option>Select Lpo</option>
+                                    <option>Select C.P.O</option>
                                 </select>
                             </div>
                         </div>
@@ -268,16 +273,7 @@
                                 <p>Name:</p>
                             </div>
                             <div class="col-8">
-                                <input type="text" name="ship-info" id="pur-ship-name" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-4">
-                                <p>Company Name:</p>
-                            </div>
-                            <div class="col-8">
-                                <input type="text" name="ship-info" id="pur-ship-company-name" class="form-control">
+                                <input type="text"  id="pur-ship-name" class="form-control">
                             </div>
                         </div>
 
@@ -286,7 +282,7 @@
                                 <p>Street Address</p>
                             </div>
                             <div class="col-8">
-                                <input type="text" name="ship-info" id="pur-ship-address" class="form-control">
+                                <input type="text"  id="pur-ship-address" class="form-control">
                             </div>
                         </div>
 
@@ -313,29 +309,7 @@
                 </div>
             </div>
 
-            <div class="purchase-supply supply-info">
-                <table class="table table-sm table-bordered ">
-                    <thead>
-                        <tr>
-                            <th class="head-text-sec">REQUISITIONER</th>
-                            <th class="head-text-sec">SHIP VIA</th>
-                            <th class="head-text-sec">F.O.B</th>
-                            <th class="head-text-sec">SHIPPING TERMS</th>
-                        </tr>
-
-                    <tbody>
-                        <tr>
-                            <td class="td-cells"><input type="text" id="pur-requs" class="form-control"></td>
-                            <td class="td-cells"><input type="text" id="pur-ship-via" class="form-control"></td>
-                            <td class="td-cells"><input type="text" id="pur-fob" class="form-control"></td>
-                            <td class="td-cells"><input type="text" id="pur-ship-term" class="form-control"></td>
-                        </tr>
-                    </tbody>
-                    </thead>
-                </table>
-            </div>
-
-
+        
 
             <table class="table table-bordered">
                 <thead>
@@ -348,15 +322,16 @@
                 </thead>
                 <tbody id="container">
                     <tr class="d-flex">
-                        <td class="col-2 td-cells">
+                        <td class="col-3 td-cells">
                             <select class="form-control" id="pro1category" onclick="load_items(this)" onchange="set_item(this)">
                             </select>
                         </td>
-                        <td class="col-6 td-cells">
+                        <td class="col-5 td-cells">
                             <input type="text" class="form-control" id="pro1description">
                         </td>
                         <td class="col-2 td-cells">
-                            <input type="text" class="form-control" id="pro1quantityavailable">
+                            <input type="text" class="form-control" id="pro1quantityavailable" style="display: inline;width: 50%;float: left;">
+                            <span></span>
                         </td>
                         <td class="col-2 td-cells">
                             <input type="text" class="form-control" id="pro1unitprice" onkeypress="add_new(event)">
@@ -366,8 +341,8 @@
             </table>
 
             <section class="color-1 text-center">
-                <p>
-                    <button onclick="shows('operation1')" class="btn btn-primary">Generate</button>
+                <p> <a class='btn btn-primary' data-toggle="modal" data-target="#myModal">Terms and Condition</a>
+                    <button onclick="generate_purchase_order(this)" class="btn btn-primary" id='proceed_btn' disabled>Generate</button>
                 </p>
             </section>
 
@@ -603,12 +578,44 @@
             </table>
 
         </div>
-
+        
 
     </div>
+     <!-- The Modal -->
+     <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Terms and Conditions</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p id="purchase_terms">Loading...</p>
+                   
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="activate_btn()" data-dismiss="modal">Accept Terms & Conditions</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!---  modal-->
 
 </body>
-
+<script>
+    function activate_btn() {
+        document.getElementById('proceed_btn').disabled = false;
+    }
+</script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -623,7 +630,6 @@
     function fill() {
         let select = document.getElementById('pur-company-name');
         let select_item = document.getElementById('pro1category');
-        document.getElementById('pur-po').value = Math.floor((Math.random() * 100000) + (Math.random() * 100000));
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
@@ -659,7 +665,7 @@
         xhttp3.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 lpos = JSON.parse(this.responseText).lpos;
-                str = '<option>Select L.P.O</option>';
+                str = '<option>Select C.P.O</option>';
                 // alert(e.innerHTML.length)
                 lpos.forEach((lpo) => {
                     str += `<option>` + lpo.ref + `</option>`;
@@ -673,6 +679,16 @@
         xhttp3.send();
 
         //// lpos get
+        var xhttp4 = new XMLHttpRequest();
+        xhttp4.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById('pur-po').innerHTML = new Date().getFullYear() + "/" + JSON.parse(this.responseText).info[0].po_num;
+               document.getElementById("purchase_terms").innerHTML = JSON.parse(this.responseText).info[0].purchase_terms;
+            }
+        };
+        xhttp4.open("GET", "/get_info", true);
+        xhttp4.send();
+
     }
     function fill_vendor() {
         let name = document.getElementById('pur-company-name').value;
@@ -681,6 +697,10 @@
             document.getElementById('pur-vender-address').value = '';
             document.getElementById('pur-vender-city').value = '';
             document.getElementById('pur-vender-phone').value = '';
+            document.getElementById('pur-ship-name').value = '';
+            document.getElementById('pur-ship-address').value = '';
+            document.getElementById('pur-ship-city').value = '';
+            document.getElementById('pur-ship-phone').value = '';
         }
         else {
             vendors.forEach((vendor) => {
@@ -689,6 +709,10 @@
                     document.getElementById('pur-vender-address').value = vendor.street;
                     document.getElementById('pur-vender-city').value = vendor.city;
                     document.getElementById('pur-vender-phone').value = vendor.phone;
+                    document.getElementById('pur-ship-name').value = vendor.name;
+                    document.getElementById('pur-ship-address').value = vendor.street;
+                    document.getElementById('pur-ship-city').value = vendor.city;
+                    document.getElementById('pur-ship-phone').value = vendor.phone;
 
                 }
 
@@ -716,11 +740,13 @@
         let value = e.value;
         let detail = e.parentNode.parentNode.getElementsByTagName('td')[1].getElementsByTagName('input')[0];
         let price = e.parentNode.parentNode.getElementsByTagName('td')[3].getElementsByTagName('input')[0];
+        let unit = e.parentNode.parentNode.getElementsByTagName('td')[2].getElementsByTagName("span")[0];
 
         raw_items.forEach((item) => {
             if (item.name === value) {
                 detail.value = item.detail;
                 price.value = item.price;
+                unit.innerHTML = item.unit;
             }
         })
     }
@@ -737,11 +763,20 @@
 
 
     }
-    function update_lpo_1() {
+    function generate_purchase_order(e) {
+        e.disabled = true;
         let ref = document.getElementById('lpo_ref').value;
-        let po_num = document.getElementById('pur-po').value;
+        let po_num = document.getElementById('pur-po').innerHTML;
         let vendor = document.getElementById('pur-company-name').value;
-        let requisitioner = document.getElementById('pur-requs').value;
+        let date = document.getElementById("pur-date").value;
+        let p_date = document.getElementById("payment_date").value;
+        let p_type = document.getElementById("payment_type").value;
+       
+
+        let ship_info = {name: document.getElementById("pur-ship-name").value
+            ,address:document.getElementById("pur-ship-address").value
+            ,city:document.getElementById("pur-ship-city").value
+            ,phone:document.getElementById("pur-ship-phone").value};
         let items_array = [];
         let table = document.getElementById('container');
         let tr = table.getElementsByTagName('tr');
@@ -760,13 +795,20 @@
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                alert(this.responseText);
+                alert("Purchase Order is Generated");
+                    e.disabled = false;
+                   
+                    var link = document.createElement("a");
+                    link.download = 'purchase order.xlsx';
+                     link.href = '/purchase_order_report';
+                     link.click();
+                     document.location.reload();
 
             }
         };
-        xhttp.open("POST", "/update_lpo_1", true);
+        xhttp.open("POST", "/purchase_order", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("vendor=" + vendor + "&ref=" + ref + "&po_num=" + po_num + "&requisitioner=" + requisitioner + "&purchase_array=" + items_array);
+        xhttp.send("ref=" + ref + "&po_num=" + po_num  + "&date="+date+"&p_date="+p_date+"&p_type="+p_type+"&purchase_array=" + items_array+"&ship_info="+JSON.stringify(ship_info)+"&vendor=" +vendor);
 
     }
 

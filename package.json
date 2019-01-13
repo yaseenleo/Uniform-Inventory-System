@@ -12,9 +12,11 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
+    "exceljs": "^1.6.3",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "firebase": "^5.7.0",
+    "formidable": "^1.2.1",
     "html-pdf": "^2.2.0",
     "jsbarcode": "^3.11.0",
     "mongoose": "^5.3.15",

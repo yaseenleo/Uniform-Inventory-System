@@ -4,12 +4,12 @@ var mongoose = require('mongoose');
   var StyleSchema = new Schema({
     title:  String,
     fabric_code: String,
-    size:   String,
+    product:   String,
     details: String,
     measurements:   String,
-    embroidry: String,
+    picture: String,
     logo:   String,
-    gender:String
+    gender: String
 
   });
 

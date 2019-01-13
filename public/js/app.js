@@ -4,9 +4,9 @@ $(document).ready(function () {
     });
 });
 
-$(document).ready(function () {
-    $('body').bootstrapMaterialDesign();
-});
+// $(document).ready(function () {
+//     $('body').bootstrapMaterialDesign();
+// });
 let row = 1;
 let sales_table_array=[];
 /// adding new row in sales page //
@@ -27,6 +27,7 @@ function add_new(e) {
         let input1 = document.createElement('select');
         let input2 = document.createElement('input');
         let input3 = document.createElement('input');
+        let span = document.createElement("span");
         let input4 = document.createElement('input');
 
         // var para1 = document.createTextNode(row + ".");
@@ -42,6 +43,8 @@ function add_new(e) {
         input3.setAttribute('type', 'text')
         input3.setAttribute('class', 'form-control')
         input3.setAttribute('id','pro'+row+'quantityavailable')
+        input3.setAttribute('style', 'width:50%;float:left');
+
 
         input4.setAttribute('type', 'text')
         input4.setAttribute('class', 'form-control')
@@ -68,6 +71,7 @@ function add_new(e) {
         pTd1.appendChild(input1);
         pTd2.appendChild(input2);
         pTd3.appendChild(input3);
+        pTd3.appendChild(span);
         pTd4.appendChild(input4);
         // col6Div.appendChild(input5);
         console.log(pTr);
@@ -89,17 +93,12 @@ function sales_add_new(e) {
         const pTr = document.createElement('tr');
         const pTd1 = document.createElement('td');
         const pTd2 = document.createElement('td');
-        const pTd3 = document.createElement('td');
         const pTd4 = document.createElement('td');
         const pTd5 = document.createElement('td');
         
         // let para = document.createElement('h4');
         let input1 = document.createElement('select');
         let input2 = document.createElement('input');
-        let input3 = document.createElement('select');
-        input3.innerHTML=`<option>S</option>
-        <option>M</option><option>L</option><option>X L</option`;
-
         let input4 = document.createElement('input');
         let input5 = document.createElement('input');
 
@@ -112,9 +111,6 @@ function sales_add_new(e) {
         input2.setAttribute('type', 'text');
         input2.setAttribute('class', 'form-control')
         input2.setAttribute('id','pro'+row+'description')
-
-        input3.setAttribute('class', 'form-control')
-        input3.setAttribute('id','pro'+row+'quantityavailable')
 
         input4.setAttribute('type', 'text')
         input4.setAttribute('class', 'form-control')
@@ -130,15 +126,13 @@ function sales_add_new(e) {
         // input5.setAttribute('id','pro'+row+'unitprice')
 
         pTr.classList.add('d-flex')
-        pTd1.classList.add('col-2','td-cells')
-        pTd2.classList.add('col-4', 'td-cells');
-        pTd3.classList.add('col-2', 'td-cells');
+        pTd1.classList.add('col-3','td-cells')
+        pTd2.classList.add('col-5', 'td-cells');
         pTd4.classList.add('col-2', 'td-cells');
         pTd5.classList.add('col-2', 'td-cells');
 
         pTr.appendChild(pTd1)
         pTr.appendChild(pTd2);
-        pTr.appendChild(pTd3);
         pTr.appendChild(pTd4);
         pTr.appendChild(pTd5);
         
@@ -146,7 +140,6 @@ function sales_add_new(e) {
         // col1Div.appendChild(para);
         pTd1.appendChild(input1);
         pTd2.appendChild(input2);
-        pTd3.appendChild(input3);
         pTd4.appendChild(input4);
         pTd5.appendChild(input5);
         // col6Div.appendChild(input5);
