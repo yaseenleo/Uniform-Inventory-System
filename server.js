@@ -730,7 +730,7 @@ app.get('/get_pos',(req,res)=>{
         res.end();
     })
 });
-app.get('/get_invoices',(req,res)=>{
+app.get('/get_gr_notes',(req,res)=>{
     GR_Note.find({},(err,invoices)=>{
         res.json({invoices:invoices});
         res.end();
@@ -879,6 +879,8 @@ app.post('/generate_packing_list',(req,res)=>{
      let obj = {lpo_ref:lpo_ref,number:invoice_num,ref:invoice_ref,date:date,company:company,items_list:req.body.packing_list};
     generate_packing_list(packing_list,company,lpo_ref,invoice_ref,date,()=>{
         new Invoices(obj).save();
+        Info.findOneAndUpdate({},{$inc:{invoice_num:1}},()=>{});
+
         res.json({success:true});
         res.end();    
     })
@@ -955,16 +957,24 @@ app.post('/generate_sales_invoice',(req,res)=>{
                 phone = client.phone;
                 console.log("client detail",client);
                 /// sales_invoice_html
-                let str =``,total=0,total_q=0;
+               // let str =``,total=0,total_q=0;
                 // items_list.forEach((item,index)=>{
                 //     str += `<tr><th colspan="1">`+item.qty+`</th><th colspan="3" >`+item.item+"-"+item.size+`</th><th>`+item.price+`</th><th>`+(parseInt(item.price)*parseInt(item.qty))+`</th></tr>` ;
                 //     total_q += parseInt(item.qty);  
                 //     total += parseInt(item.price)*parseInt(item.qty);
                 //  })
+                let total=0;
+                items_list.forEach((item,index)=>{
+                    total += parseFloat(item.price) * parseFloat(item.qty);
+                })
                      generate_sales_invoice(items_list,client,date,ref,lpo_ref,sm,ft,pol,o,pod,plod,()=>{
-                        res.json({success:true});
+                        Invoices.findOneAndUpdate({ref,ref},{$set:{payment:total.toFixed(2).toString()}},(err,invoice)=>{
+                           console.log("invoice:",invoice);
+                            res.json({success:true});
                           res.end();
                           console.log("invoice created");
+                        })
+                        
                  })
                 
   
@@ -1077,6 +1087,10 @@ app.get("/sales_invoice_report",(req,res)=>{
 app.get("/payment_voucher_report",(req,res)=>{
     res.setHeader( 'Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
     res.sendFile(path.join(__dirname,"public/reports/payment_voucher_g.xlsx"));
+});
+app.get("/reciept_voucher_report",(req,res)=>{
+    res.setHeader( 'Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    res.sendFile(path.join(__dirname,"public/reports/reciept_voucher_g.xlsx"));
 });
 app.get("/gr_note_report",(req,res)=>{
     res.setHeader( 'Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
@@ -1285,6 +1299,7 @@ async function generate_payment_voucher(vendor,invoice_num,invoice_date,po_num,p
     
     workbook.xlsx.writeFile(path.join(__dirname,"/public/reports/payment_voucher_g.xlsx")).then(cb);
 }
+
 app.post('/payment_voucher',(req,res)=>{
     let invoice_id = req.body.invoice_id,
     p_type= req.body.p_type,
@@ -1314,7 +1329,61 @@ app.post('/payment_voucher',(req,res)=>{
 
 
 
-})
+});
+async function generate_reciept_voucher(vendor,invoice_num,invoice_date,po_num,paying,total,balance,cb) {
+   console.log("/////////////////////////////////////");
+    console.log(vendor);
+    console.log(invoice_num);
+    console.log(invoice_date);
+    console.log(po_num);
+    console.log(paying);
+    console.log(total);
+    console.log(balance);
+    console.log("/////////////////////////////////////");
+
+
+
+    let workbook = new Excel.Workbook();
+    workbook = await workbook.xlsx.readFile(path.join(__dirname,"/public/reports/reciept_voucher.xlsx")); // replace question_39869739.xls with your file
+    let worksheet = workbook.getWorksheet('Sheet1'); // replace sheetname with actual sheet name
+    worksheet.getRow(6).getCell(2).value = vendor.company_name;
+    worksheet.getRow(7).getCell(2).value = vendor.street + "/"+ vendor.city;
+    worksheet.getRow(8).getCell(2).value = vendor.name;
+    worksheet.getRow(9).getCell(2).value = vendor.phone;
+    worksheet.getRow(6).getCell(7).value = invoice_num;
+    worksheet.getRow(7).getCell(7).value = invoice_date;
+    worksheet.getRow(8).getCell(7).value = po_num;
+    worksheet.getRow(12).getCell(4).value = paying;
+    worksheet.getRow(12).getCell(5).value = total;
+    worksheet.getRow(12).getCell(6).value = balance;
+    worksheet.getRow(11).getCell(5).value = "Total Payment";    
+    workbook.xlsx.writeFile(path.join(__dirname,"/public/reports/reciept_voucher_g.xlsx")).then(cb);
+}
+app.post('/reciept_voucher',(req,res)=>{
+    let invoice_id = req.body.invoice_id,
+    paying=req.body.paying,
+    total=req.body.total,
+    balance=req.body.balance;
+    Invoices.findById(invoice_id,(err,invoice)=>{
+        console.log(invoice);
+         Clients.findOne({company_name: invoice.company},(err,company)=>{
+             generate_reciept_voucher(company,invoice.ref,invoice.date,invoice.lpo_ref,
+                 paying,total,balance,()=>{
+                      console.log("reciept voucher is generated");
+                      res.json({success:true});
+                      res.end();
+                 })
+         })
+    })
+    console.log(invoice_id);
+    console.log(paying)
+    console.log(total)
+    console.log(balance)
+
+
+
+});
+
 app.post('/purchase_order',(req,res)=>{
     let vendor = req.body.vendor;
     let po_num = req.body.po_num;

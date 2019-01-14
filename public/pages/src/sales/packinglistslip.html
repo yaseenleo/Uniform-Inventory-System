@@ -161,7 +161,7 @@
                                     Invoice#
                                 </div>
                                 <div class="col-md-8">
-                                    <input class="form-control"  id="invoice_ref" type="number"/>
+                                    <input class="form-control"  id="invoice_ref" type="text"/>
                                         
                                     
                                 </div>
@@ -241,7 +241,6 @@
      let client, lpos;
     function fill() {
 
-        document.getElementById("invoice_ref").value = Math.floor(Math.random()*99999 + Math.random()*99999)
         //// lpos get 
         var xhttp3 = new XMLHttpRequest();
         xhttp3.onreadystatechange = function () {
@@ -260,6 +259,17 @@
         xhttp3.open("GET", "/get_lpos", true);
         xhttp3.send();
 
+        var xhttp4 = new XMLHttpRequest();
+        xhttp4.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let d = new Date();
+                document.getElementById("invoice_ref").value = d.getFullYear() + "/" + JSON.parse(this.responseText).info[0].invoice_num;
+
+                console.log(this.responseText)
+            }
+        };
+        xhttp4.open("GET", "/get_info", true);
+        xhttp4.send();
 
     }
     function fill_items(e) {

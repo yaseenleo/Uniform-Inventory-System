@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
   var InfoSchema = new Schema({
     last_number:  Number,
     po_num:Number,
+    invoice_num:Number,
     sales_terms:String,
     purchase_terms:String
     

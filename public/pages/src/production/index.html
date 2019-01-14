@@ -652,14 +652,7 @@
                                                             </div>
                                                         </div>  
                                                         
-                                                <div class='row'>
-                                                   
-                                                        <div class="col-md-4">
-                                                                <button class='btn btn-primary' onClick='generate_slip()'>Generate Job Slip</button>
-
-                                                        </div>
-                                                        
-                                                    </div>
+                                               
                                                         <br>
                                                         <div class='row'>
                                                    
@@ -683,8 +676,11 @@
                                                 </div>  
                                                 
                                                 <div class='row'>
-                                                   
                                                         <div class="col-md-4">
+                                                                <button class='btn btn-primary' onClick='generate_slip()'>Generate Job Slip</button>
+
+                                                        </div>
+                                                        <div class="col-md-4" style="margin-left:30px;">
                                                                 <button class='btn btn-primary' onClick='generate_slips()'>Generate Barcode Stickers</button>
 
                                                         </div>
@@ -1008,7 +1004,8 @@
 <script> 
          function generate_slip(){
              let number =  document.getElementById('js_select_1').value;
-             
+             let start = document.getElementById('printing_start_number').value;
+           let quantity =  document.getElementById('printing_quantity').value;
              job_slips.reverse().forEach((job_slip)=>{
                 if(job_slip.number===number)
                 {   let d = new Date(),str='';
@@ -1016,7 +1013,7 @@
                   let date = d.getDate() +"/"+ (d.getMonth() + 1) +"/"+ d.getFullYear(), 
                     item = job_slip.product,
                     lpo = job_slip.ref,
-                    js_num = job_slip.number,
+                    //js_num = job_slip.number,
                     person = job_slip.person,
                     size = job_slip.size,
                     company = job_slip.ref.split("/")[1],
@@ -1027,7 +1024,11 @@
                             style_details = style_.details
                         }
                       });
-                      str += `
+                      for( let i = 1 ; i<=quantity ; i ++)
+                      {
+                        js_num = parseInt(start) + (i-1);
+
+                        str += `
                     <div style="width: 900px;">
                     <div style="width: 100%;display: block;border-bottom: 1px dashed black;">
                     <h2 style="text-align: center">DREAM UNIFORM LLC</h2>
@@ -1066,11 +1067,14 @@
                         <div style="width:50%;display: inline;float: right;">JOB SLIP PRINT DATE <span> ${date}</span></div>
                 </div>
             </div>
-   </div>`;
+   </div>
+   <br><hr>`;
+                      }
+                      
                     document.getElementById("printing_area").innerHTML = str;  
                     document.getElementById("print_btn").disabled = false;
                    // alert(JSON.stringify(job_slip));
-                    alert("Master Job Slip is ready to be printed");
+                
               };
             })
 

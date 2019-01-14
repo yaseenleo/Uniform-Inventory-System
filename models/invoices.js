@@ -7,7 +7,8 @@ var mongoose = require('mongoose');
     items_list:String,
     date:String,
     ref:String,
-    company:String
+    company:String,
+    payment:String
 
   });
 
