@@ -22,129 +22,96 @@
 
 <body onload="fill()">
 
-    <!-- <nav class="navbar navbar-expand-lg bg-primary">
-        <div class="container">
-            <div class="navbar-translate">
-                <a href="../../../index.html" class="navbar-brand">Uniform Inventory</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse justify-center">
-                <ul class="navbar-nav mx-auto">
-                    <li class="active nav-item">
-                        <a href="sales.html" class="nav-link">
-                            Sales
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../production/index.html" class="nav-link">
-                            Production
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../purchase/purchase.html" class="nav-link">
-                            Purchase
-                        </a>
-                    </li>
-                    <li class=" nav-item">
-                            <a href="../../../master.html" class="nav-link">
-                                Master Control
-                            </a>
-                        </li>
-                        <li class=" nav-item">
-                            <a href="../../../master_view.html" class="nav-link">
-                                Master View
-                            </a>
-                        </li>
-                        <li class=" nav-item">
-                            <a href="../../../attendance.html" class="nav-link">
-                                Attendance
-                            </a>
-                        </li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
-
     <div class="nav-side-menu">
-            <div class="brand brand-color">
-                <h4>Uniform Inventory</h4>
-            </div>
-            <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-            <div class="menu-list" id="menu-content">
-    
-                <ul id="accordion1" class="menu-content collapse out">
-    
-    
-                    <li data-toggle="collapse" data-parent="#accordion1" href="#firstLink"> <a> <i></i> Purchase</a>
-    
-                        <ul id="firstLink" class="collapse sub-list">
-                            <li>
-                                <a href="../purchase/purchase.html">Purchase Order</a>
-                            </li>
-                            <li>
-                                <a href="../purchase/grnote.html">Good Receiving Note</a>
-                            </li>
-                           
-                            <li>
-                                <a href="../purchase/vendorpay.html">Vendor Payment</a>
-                            </li>
-                        </ul>
-    
-                    </li>
-                    <li>
-                        <a href="../production/index.html">
-                            <i></i> Production</a>
-                    </li>
-    
-                    <li data-toggle="collapse" data-parent="#accordion1" href="#thirdLink"> <a> <i></i> Sales</a>
-    
-                        <ul id="thirdLink" class="collapse sub-list">
-                            <li>
-                                <a href="#">Sales Order</a>
-                            </li>
-                            <li>
-                                <a href="./packinglistslip.html">Packing Slip</a>
-                            </li>
-                            <li>
-                                <a href="./salesinvoiceslip.html">Sales Invoice</a>
-                            </li>
-                            
-                            
-                            <li>
-                                <a href="./payreceipt.html">Reciept Voucher</a>
-                            </li>
-                        </ul>
-                    </li>
-    
-                    <li>
-                        <a href="../../../master.html">
-                            <i></i> Master Control
-                        </a>
-                    </li>
-    
-                    <li>
-                        <a href="../../../master_view.html">
-                            <i></i> Master View
-    
-                        </a>
-                    </li>
-    
-                    <li>
-                        <a href="../../../attendance.html">
+        <div class="brand brand-color">
+            <h4>Uniform Inventory</h4>
+        </div>
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list" id="menu-content">
+
+            <ul id="accordion1" class="menu-content collapse out">
+
+                <li data-toggle="collapse" data-parent="#accordion1" href="#thirdLink"> <a> <i></i> Sales</a>
+
+                    <ul id="thirdLink" class="collapse sub-list">
+                        <li>
+                            <a href="/sale/sales_order">Sales Order</a>
+                        </li>
+                        <li>
+                            <a href="/sale/packing_list">Packing List</a>
+                        </li>
+                        <li>
+                            <a href="/sale/commercial_invoice">Commercial Invoice</a>
+                        </li>
+                        <li>
+                            <a href="/sale/reciept_voucher">Reciept Voucher</a>
+                        </li>
+                    </ul>
+                </li>
+                <li data-toggle="collapse" data-parent="#accordion1" href="#firstLink"> <a> <i></i> Purchase</a>
+
+                    <ul id="firstLink" class="collapse sub-list">
+                        <li>
+                            <a href="/purchase/purchase_order">Purchase Order</a>
+                        </li>
+                        <li>
+                            <a href="/purchase/gr_note">Good Receiving Note / Invoice</a>
+                        </li>
+
+                        <li>
+                            <a href="/purchase/payment_voucher">Vendor Payment</a>
+                        </li>
+                    </ul>
+
+                </li>
+                <li>
+                    <a href="/production">
+                        <i></i> Production</a>
+                </li>
+                <li data-toggle="collapse" data-parent="#accordion1" href="#reports"> <a> <i></i> Reports</a>
+
+                    <ul id="reports" class="collapse sub-list">
+                        <li>
+                            <a href="/reports/sales_report">Sales Report</a>
+                        </li>
+                        <li>
+                            <a href="/reports/purchase_report">Purchases Report</a>
+                        </li>
+
+                        <li>
+                            <a href="/reports/production_report">Productions Report</a>
+                        </li>
+                        <li>
+                            <a href="/reports/accounts_report">Accounts Report</a>
+                        </li>
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a href="/master">
+                        <i></i> Master Control
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/master_view">
+                        <i></i> Master View
+
+                    </a>
+                </li>
+
+                <!-- <li>
+                        <a href="/attendance">
                             <i></i> Attendance
                         </a>
-                    </li>
-    
-                </ul>
-    
-            </div>
+                    </li> -->
+
+            </ul>
+
         </div>
-    
+    </div>
+
 
     <div id="main" class="wrapper container-fluid">
 
@@ -188,13 +155,13 @@
                             </div>
 
                             <div class="row">
-                                    <div class="col-5">
-                                        <p>Due Date(Upto):</p>
-                                    </div>
-                                    <div class="col-7">
-                                        <input type="date" class="form-control" id="pur-date-2">
-                                    </div>
+                                <div class="col-5">
+                                    <p>Due Date(Upto):</p>
                                 </div>
+                                <div class="col-7">
+                                    <input type="date" class="form-control" id="pur-date-2">
+                                </div>
+                            </div>
 
                             <div class="row">
                                 <div class="col-5">
@@ -323,8 +290,8 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input class='form-control' id='tax' type="number" value=0 min="0" max="30"/></td>
-                            <td><input class="form-control" id='discount' type='number' value=0 min="0" max="999999"/></td>
+                            <td><input class='form-control' id='tax' type="number" value=0 min="0" max="30" /></td>
+                            <td><input class="form-control" id='discount' type='number' value=0 min="0" max="999999" /></td>
                         </tr>
                     </tbody>
                 </table>
@@ -563,12 +530,13 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <p id="sales_terms">Loading....</p>
-                    
+
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" onclick="activate_btn()" data-dismiss="modal">Accept Terms & Conditions</button>
+                    <button type="button" class="btn btn-success" onclick="activate_btn()" data-dismiss="modal">Accept
+                        Terms & Conditions</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
 
@@ -636,25 +604,8 @@
         };
         xhttp3.open("GET", "/get_info", true);
         xhttp3.send();
-       
-        ////////////////////////////// select styles
-        // let sel = document.getElementById("pro1quantityavailable");
-        // var xhttp3 = new XMLHttpRequest();
-        //   xhttp3.onreadystatechange = function() {
-        //     if (this.readyState == 4 && this.status == 200) {
-        //       let str='<option value="null">Select Style</option>';  
-        //       styles = JSON.parse(this.responseText).styles;
-        //       styles.forEach(style => {
-        //          str += `<option value='`+style.title+`'>`+style.title+`</option>`
-        //      });
-        //      sel.innerHTML = str;
-        //     }
-        //   };
-        //   xhttp3.open("GET", "/get_styles", true);
-        //   xhttp3.send();
 
-        ///////////////////////////////////// select styles
-
+      
     }
     function activate_btn() {
         document.getElementById('lpo_btn').disabled = false;
@@ -756,7 +707,7 @@
                 quantity = tr[i].getElementsByTagName('td')[2].getElementsByTagName('input')[0].value;
                 price = tr[i].getElementsByTagName('td')[3].getElementsByTagName('input')[0].value;
 
-                obj = { item: item, description: description,  quantity: quantity, price: price };
+                obj = { item: item, description: description, quantity: quantity, price: price };
                 total += quantity * price;
                 items_array.push(obj);
 
@@ -769,17 +720,17 @@
                 if (this.readyState == 4 && this.status == 200) {
                     alert("Sales Order is Generated");
                     e.disabled = false;
-                   
+
                     var link = document.createElement("a");
                     link.download = 'sales order.xlsx';
-                     link.href = '/sales_order_report';
-                     link.click();
-                     document.location.reload();
+                    link.href = '/sales_order_report';
+                    link.click();
+                    document.location.reload();
                 }
             };
             xhttp.open("POST", "/add_lpo", true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send("client=" + pur_company_name + "&lpo_num=" + lpo_number + "&date=" + date +"&due_date="+ due_date+ "&ref=" + ref + "&items_array=" + items_array + "&total=" + total + "&tax=" +
+            xhttp.send("client=" + pur_company_name + "&lpo_num=" + lpo_number + "&date=" + date + "&due_date=" + due_date + "&ref=" + ref + "&items_array=" + items_array + "&total=" + total + "&tax=" +
                 tax + "&discount=" + discount + "&pur_name=" + pur_name + "&v_address=" + pur_vendor_address + "&v_city=" + pur_vendor_city + "&v_phone=" +
                 pur_vendor_phone + "&s_name=" + pur_ship_name + "&s_address=" + pur_ship_address + "&s_city=" + pur_ship_city +
                 "&s_phone=" + pur_ship_phone + "&pur_ship_company_name=" + pur_ship_company_name);
@@ -790,7 +741,7 @@
 
     }
 
- 
+
 
 
 </script>

@@ -42,7 +42,7 @@
 						<img class="card-img-top" src="assets/img/download.jpg" alt="Card image cap">
 						<div class="card-body card-custom text-center">
 							<h5 class="card-title">Sales Module</h5>
-							<a href="pages/src/sales/sales.html" class="btn btn-primary">Proceed</a>
+							<a href="/sale/sales_order" class="btn btn-primary">Proceed</a>
 						</div>
 					</div>
 				</div>
@@ -52,7 +52,7 @@
 						<img class="card-img-top" src="assets/img/purchase.png" alt="Card image cap" style="height:220px;">
 						<div class="card-body card-custom text-center">
 							<h5 class="card-title">Purchase Module</h5>
-							<a href="pages/src/purchase/purchase.html" class="btn btn-primary">Proceed</a>
+							<a href="/purchase/purchase_order" class="btn btn-primary">Proceed</a>
 						</div>
 					</div>
 				</div>
@@ -62,7 +62,7 @@
 						<img class="card-img-top" src="assets/img/Optimized-mark-516277_640.jpg" alt="Card image cap" style="height:220px;">
 						<div class="card-body card-custom text-center">
 							<h5 class="card-title">Production Module</h5>
-							<a href="pages/src/production/index.html" class="btn btn-primary">Proceed</a>
+							<a href="/production" class="btn btn-primary">Proceed</a>
 						</div>
 					</div>
 				</div>
@@ -72,7 +72,7 @@
 						<img class="card-img-top" src="assets/img/Optimized-mark-516277_640.jpg" alt="Card image cap" style="height:220px;">
 						<div class="card-body card-custom text-center">
 							<h5 class="card-title">Master Control</h5>
-							<a href="master.html" class="btn btn-primary">Proceed</a>
+							<a href="/master" class="btn btn-primary">Proceed</a>
 						</div>
 					</div>
 				</div>
@@ -80,58 +80,9 @@
 		</div>
 	</div>
 
-	<!-- <div class="container"> -->
-	<!-- Top Navigation -->
-	<!-- <h2 style="color: white; position: relative; left: 250px;top: 70px;">WELCOME TO POINT OF SALE MANAGEMENT SYSTEM</h2> -->
-	<!-- </div> -->
-	<!-- /container -->
-	<!-- <button class="btn btn-4 btn-4a icon-arrow-right" style="position: relative; bottom: 350px; left: 370px;"><a href="pages/src/sales/sales.html">Sales
-			Module</a></button>
-	<button class="btn btn-4 btn-4a icon-arrow-right" style="position: relative; bottom: 250px; left: 49px;"><a href="pages/src/purchase/purchase.html">Purchase
-			Module</a></button>
-	<button class="btn btn-4 btn-4a icon-arrow-right" style="position: relative; bottom: 250px; left: 280px;">Production
-		Module</button>
-	<button class="btn btn-4 btn-4a icon-arrow-right" style="position: relative; bottom: 150px; left: 0px;">Attendance
-		System</button> -->
-
 </body>
 
 <script src="pages/src/sales/js/modernizr.custom.js"></script>
-<!-- <script src="pages/src/sales/js/classie.js"></script> -->
-<!-- <script>
-	var buttons7Click = Array.prototype.slice.call(document.querySelectorAll('#btn-click button')),
-		buttons9Click = Array.prototype.slice.call(document.querySelectorAll('button.btn-8g')),
-		totalButtons7Click = buttons7Click.length,
-		totalButtons9Click = buttons9Click.length;
-
-	buttons7Click.forEach(function (el, i) { el.addEventListener('click', activate, false); });
-	buttons9Click.forEach(function (el, i) { el.addEventListener('click', activate, false); });
-
-	function activate() {
-		var self = this, activatedClass = 'btn-activated';
-
-		if (classie.has(this, 'btn-7h')) {
-			// if it is the first of the two btn-7h then activatedClass = 'btn-error';
-			// if it is the second then activatedClass = 'btn-success'
-			activatedClass = buttons7Click.indexOf(this) === totalButtons7Click - 2 ? 'btn-error' : 'btn-success';
-		}
-		else if (classie.has(this, 'btn-8g')) {
-			// if it is the first of the two btn-8g then activatedClass = 'btn-success3d';
-			// if it is the second then activatedClass = 'btn-error3d'
-			activatedClass = buttons9Click.indexOf(this) === totalButtons9Click - 2 ? 'btn-success3d' : 'btn-error3d';
-		}
-
-		if (!classie.has(this, activatedClass)) {
-			classie.add(this, activatedClass);
-			setTimeout(function () { classie.remove(self, activatedClass) }, 1000);
-		}
-	}
-
-	// document.querySelector('.btn-7i').addEventListener('click', function () {
-	// 	classie.add(document.querySelector('#trash-effect'), 'trash-effect-active');
-	// }, false);
-</script> -->
-
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
  crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"

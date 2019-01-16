@@ -96,6 +96,143 @@ app.get("/", (req, res) => {
         res.redirect("/login");
     }
 });
+// routes
+app.get('/sale/sales_order',(req,res)=>{
+    if(req.cookies.user)
+    {
+        res.sendFile(path.join(__dirname,'/public/pages/src/sales/sales.html'));
+    }
+    else{
+        res.redirect("/login"); 
+    }
+});
+app.get('/sale/packing_list',(req,res)=>{
+    if(req.cookies.user)
+    {
+        res.sendFile(path.join(__dirname,'/public/pages/src/sales/packinglistslip.html'));
+    }
+    else{
+        res.redirect("/login"); 
+    }
+});
+app.get('/sale/commercial_invoice',(req,res)=>{
+    if(req.cookies.user)
+    {
+        res.sendFile(path.join(__dirname,'/public/pages/src/sales/salesinvoiceslip.html'));
+    }
+    else{
+        res.redirect("/login"); 
+    }
+});
+app.get('/sale/reciept_voucher',(req,res)=>{
+    if(req.cookies.user)
+    {
+        res.sendFile(path.join(__dirname,'/public/pages/src/sales/payreceipt.html'));
+    }
+    else{
+        res.redirect("/login"); 
+    }
+});
+app.get('/purchase/purchase_order',(req,res)=>{
+    if(req.cookies.user)
+    {
+        res.sendFile(path.join(__dirname,'/public/pages/src/purchase/purchase.html'));
+    }
+    else{
+        res.redirect("/login"); 
+    }
+});
+app.get('/purchase/gr_note',(req,res)=>{
+    if(req.cookies.user)
+    {
+        res.sendFile(path.join(__dirname,'/public/pages/src/purchase/grnote.html'));
+    }
+    else{
+        res.redirect("/login"); 
+    }
+});
+app.get('/purchase/payment_voucher',(req,res)=>{
+    if(req.cookies.user)
+    {
+        res.sendFile(path.join(__dirname,'/public/pages/src/purchase/vendorpay.html'));
+    }
+    else{
+        res.redirect("/login"); 
+    }
+});
+app.get('/reports/sales_report',(req,res)=>{
+    if(req.cookies.user)
+    {
+        res.sendFile(path.join(__dirname,'/public/pages/src/reports/sales_report.html'));
+    }
+    else{
+        res.redirect("/login"); 
+    }
+});
+app.get('/reports/purchase_report',(req,res)=>{
+    if(req.cookies.user)
+    {
+        res.sendFile(path.join(__dirname,'/public/pages/src/reports/purchase_report.html'));
+    }
+    else{
+        res.redirect("/login"); 
+    }
+});
+app.get('/reports/production_report',(req,res)=>{
+    if(req.cookies.user)
+    {
+        res.sendFile(path.join(__dirname,'/public/pages/src/reports/production_report.html'));
+    }
+    else{
+        res.redirect("/login"); 
+    }
+});
+app.get('/reports/accounts_report',(req,res)=>{
+    if(req.cookies.user)
+    {
+        res.sendFile(path.join(__dirname,'/public/pages/src/reports/accounts_report.html'));
+    }
+    else{
+        res.redirect("/login"); 
+    }
+});
+app.get('/production',(req,res)=>{
+    if(req.cookies.user)
+    {
+        res.sendFile(path.join(__dirname,'/public/pages/src/production/index.html'));
+    }
+    else{
+        res.redirect("/login"); 
+    }
+});
+app.get('/master',(req,res)=>{
+    if(req.cookies.user)
+    {
+        res.sendFile(path.join(__dirname,'/public/master.html'));
+    }
+    else{
+        res.redirect("/login"); 
+    }
+});
+app.get('/master_view',(req,res)=>{
+    if(req.cookies.user)
+    {
+        res.sendFile(path.join(__dirname,'/public/master_view.html'));
+    }
+    else{
+        res.redirect("/login"); 
+    }
+});
+app.get('/attendance',(req,res)=>{
+    if(req.cookies.user)
+    {
+        res.sendFile(path.join(__dirname,'/public/attendance.html'));
+    }
+    else{
+        res.redirect("/login"); 
+    }
+});
+// routes
 app.get("/logout",(req,res)=>{
     res.clearCookie("user");
     res.redirect("/");
@@ -999,18 +1136,21 @@ app.post('/add_lpo',(req,res)=>{
     let discount = req.body.discount;
     let items_array = req.body.items_array;
    let parsed_items = JSON.parse(items_array);
-   let str,total_q = 0 ;
+   let str,total = 0 ;
     console.log("address",company.address);
     console.log("city",company.city);
     console.log("phone",company.phone);
    parsed_items.forEach((item,index)=>{
-       str += `<tr><th colspan="1">`+item.quantity+`</th><th colspan="3" >`+item.item+"-"+ item.description+"-"+item.size+`</th><th>`+item.price+`</th><th>`+(parseInt(item.price)*parseInt(item.quantity))+`</th></tr>` ;
-       total_q += item.quantity;  
+     //  str += `<tr><th colspan="1">`+item.quantity+`</th><th colspan="3" >`+item.item+"-"+ item.description+"-"+item.size+`</th><th>`+item.price+`</th><th>`+(parseInt(item.price)*parseInt(item.quantity))+`</th></tr>` ;
+       total += parseInt(item.quantity)* parseFloat(item.price);  
     })
+    total = total - discount;
+    total = total + (parseFloat(tax)/100)*total;
+    total = total.toFixed(2);
   
 generate_sales_order(parsed_items,discount,tax,company,ship,lpo_num,date,due_date,ref,()=>{
     console.log("file is generated");
-    new Lpos({client:company.name,lpo_number:lpo_num,date:date,due_date:due_date,ref:ref,items_array:items_array,flag:'order_phase'}).save((err,lpo)=>{
+    new Lpos({client:company.name,lpo_number:lpo_num,date:date,due_date:due_date,ref:ref,items_array:items_array,flag:'order_phase',total:total}).save((err,lpo)=>{
               //  res.setHeader( 'Content-Type', 'application/pdf');
                // res.sendFile(path.join(__dirname,"sales_order.pdf"));
                  res.json({success:true,lpo:lpo});
@@ -1253,8 +1393,8 @@ async function generate_purchase_order(items_list,company,ship,lpo_num,date,p_da
         worksheet.getRow(19+index).getCell(2).value = item.item+"_"+item.description; 
         worksheet.getRow(19+index).getCell(6).value = item.quantity; 
         worksheet.getRow(19+index).getCell(7).value = item.price; 
-        worksheet.getRow(19+index).getCell(8).value = parseInt(item.quantity) * parseInt(item.price); 
-        g_total += parseInt(item.quantity) * parseInt(item.price);
+        worksheet.getRow(19+index).getCell(8).value = item.quantity * item.price; 
+        g_total += item.quantity * item.price;
     })
     
     worksheet.getRow(37).getCell(8).value = g_total; 
@@ -1398,7 +1538,12 @@ app.post('/purchase_order',(req,res)=>{
     console.log(ref);
     console.log(ship_info);
     console.log(p_date);
-
+    let g_total;
+    purchase_array.forEach((item , index)=>{
+        g_total += parseFloat(item.quantity) * parseFloat(item.price);
+    });
+     g_total = g_total.toFixed(2);
+   
     Vendors.findOne({company_name:vendor},(err,company)=>{
         generate_purchase_order(purchase_array,company,ship_info,ref,date,p_date,po_ref,()=>{
             console.log("purchase order created");
@@ -1409,7 +1554,8 @@ app.post('/purchase_order',(req,res)=>{
         lpo.flag = 'order_phase';
         Info.findOneAndUpdate({},{$inc:{po_num:1}},()=>{});
         lpo.save((err,lpo)=>{
-            new Pos({ref:ref,vendor:vendor,po_num:po_ref,date:date,p_date:p_date,purchase_array:req.body.purchase_array}).save();
+
+            new Pos({ref:ref,vendor:vendor,po_num:po_ref,date:date,p_date:p_date,purchase_array:req.body.purchase_array,total:g_total}).save();
             res.json({success:true});
             res.end();
     

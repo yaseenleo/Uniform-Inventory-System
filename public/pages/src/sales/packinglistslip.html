@@ -21,44 +21,6 @@
 </head>
 
 <body onload="fill()">
-
-    <!-- <nav class="navbar navbar-expand-lg bg-primary">
-        <div class="container">
-            <div class="navbar-translate">
-                <a href="../../../index.html" class="navbar-brand">Uniform Inventory</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse justify-center">
-                <ul class="navbar-nav mx-auto">
-                    <li class="active nav-item">
-                        <a href="sales.html" class="nav-link">
-                            Sales
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../production/productionLine.html" class="nav-link">
-                            Production
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../purchase/purchase.html" class="nav-link">
-                            Purchase
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../../../attendance.html" class="nav-link">
-                            Attendance
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
     <div class="nav-side-menu">
             <div class="brand brand-color">
                 <h4>Uniform Inventory</h4>
@@ -66,74 +28,86 @@
             <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
             <div class="menu-list" id="menu-content">
     
-                <ul id="accordion1" class="menu-content collapse out">
-    
-    
-                    <li data-toggle="collapse" data-parent="#accordion1" href="#firstLink"> <a> <i></i> Purchase</a>
-    
-                        <ul id="firstLink" class="collapse sub-list">
-                            <li>
-                                <a href="../purchase/purchase.html">Purchase Order</a>
+                    <ul id="accordion1" class="menu-content collapse out">
+
+                            <li data-toggle="collapse" data-parent="#accordion1" href="#thirdLink"> <a> <i></i> Sales</a>
+            
+                                <ul id="thirdLink" class="collapse sub-list">
+                                    <li>
+                                        <a href="/sale/sales_order">Sales Order</a>
+                                    </li>
+                                    <li>
+                                        <a href="/sale/packing_list">Packing List</a>
+                                    </li>
+                                    <li>
+                                        <a href="/sale/commercial_invoice">Commercial Invoice</a>
+                                    </li>
+                                    <li>
+                                        <a href="/sale/reciept_voucher">Reciept Voucher</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-toggle="collapse" data-parent="#accordion1" href="#firstLink"> <a> <i></i> Purchase</a>
+            
+                                <ul id="firstLink" class="collapse sub-list">
+                                    <li>
+                                        <a href="/purchase/purchase_order">Purchase Order</a>
+                                    </li>
+                                    <li>
+                                        <a href="/purchase/gr_note">Good Receiving Note / Invoice</a>
+                                    </li>
+            
+                                    <li>
+                                        <a href="/purchase/payment_voucher">Vendor Payment</a>
+                                    </li>
+                                </ul>
+            
                             </li>
                             <li>
-                                <a href="../purchase/grnote.html">Good Receiving Note</a>
+                                <a href="/production">
+                                    <i></i> Production</a>
                             </li>
+                            <li data-toggle="collapse" data-parent="#accordion1" href="#reports"> <a> <i></i> Reports</a>
+            
+                                <ul id="reports" class="collapse sub-list">
+                                    <li>
+                                        <a href="/reports/sales_report">Sales Report</a>
+                                    </li>
+                                    <li>
+                                        <a href="/reports/purchase_report">Purchases Report</a>
+                                    </li>
+            
+                                    <li>
+                                        <a href="/reports/production_report">Productions Report</a>
+                                    </li>
+                                    <li>
+                                        <a href="/reports/accounts_report">Accounts Report</a>
+                                    </li>
+                                </ul>
+            
+                            </li>
+            
                             <li>
-                                <a href="../purchase/purchaseinvoice.html">Purchase Invoice</a>
+                                <a href="/master">
+                                    <i></i> Master Control
+                                </a>
                             </li>
+            
                             <li>
-                                <a href="../purchase/vendorpay.html">Vendor Payment</a>
+                                <a href="/master_view">
+                                    <i></i> Master View
+            
+                                </a>
                             </li>
-                        </ul>
-    
-                    </li>
-                    <li>
-                        <a href="../production/index.html">
-                            <i></i>Production</a>
-                    </li>
-    
-                    <li data-toggle="collapse" data-parent="#accordion1" href="#thirdLink"> <a> <i></i> Sales</a>
-    
-                        <ul id="thirdLink" class="collapse sub-list">
-                            <li>
-                                <a href="sales.html">Sales Order</a>
-                            </li>
-                            <li>
-                                <a href="packinglistslip.html">Packing List</a>
-                            </li>
-                            <li>
-                                <a href="salesinvoiceslip.html">Sales Invoice</a>
-                            </li>
-                            
+            
                             <!-- <li>
-                                <a href="deliverynote.html">Delivery Note</a>
-                            </li> -->
-                            <li>
-                                <a href="payreceipt.html">Receipt Voucher</a>
-                            </li>
+                                    <a href="/attendance">
+                                        <i></i> Attendance
+                                    </a>
+                                </li> -->
+            
                         </ul>
-                    </li>
-    
-                    <li>
-                        <a href="../../../master.html">
-                            <i></i> Master Control
-                        </a>
-                    </li>
-    
-                    <li>
-                        <a href="../../../master_view.html">
-                            <i></i> Master View
-    
-                        </a>
-                    </li>
-    
-                    <li>
-                        <a href="../../../attendance.html">
-                            <i></i> Attendance
-                        </a>
-                    </li>
-    
-                </ul>
+            
     
             </div>
         </div>

@@ -22,80 +22,97 @@
 
 <body onload="fill()">
 
-  
+
     <div class="nav-side-menu">
-            <div class="brand brand-color">
-                <h4>Uniform Inventory</h4>
-            </div>
-            <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-            <div class="menu-list" id="menu-content">
-    
-                <ul id="accordion1" class="menu-content collapse out">
-    
-    
-                    <li data-toggle="collapse" data-parent="#accordion1" href="#firstLink"> <a> <i></i> Purchase</a>
-    
-                        <ul id="firstLink" class="collapse sub-list">
-                            <li>
-                                <a href="../purchase/purchase.html">Purchase Order</a>
-                            </li>
-                            <li>
-                                <a href="../purchase/grnote.html">Good Receiving Note</a>
-                            </li>
-                            <li>
-                                <a href="../purchase/vendorpay.html">Vendor Payment</a>
-                            </li>
-                        </ul>
-    
-                    </li>
-                    <li>
-                        <a href="../production/index.html">
-                            <i></i>Production</a>
-                    </li>
-    
-                    <li data-toggle="collapse" data-parent="#accordion1" href="#thirdLink"> <a> <i></i> Sales</a>
-    
-                        <ul id="thirdLink" class="collapse sub-list">
-                            <li>
-                                <a href="./sales.html">Sales Order</a>
-                            </li>
-                            <li>
-                                <a href="./salesinvoiceslip.html">Sales Invoice</a>
-                            </li>
-                            <li>
-                                <a href="./packinglistslip.html">Packing Slip</a>
-                            </li>
-                            
-                            <li>
-                                <a href="#">Receipt Voucher</a>
-                            </li>
-                        </ul>
-                    </li>
-    
-                    <li>
-                        <a href="../../../master.html">
-                            <i></i> Master Control
-                        </a>
-                    </li>
-    
-                    <li>
-                        <a href="../../../master_view.html">
-                            <i></i> Master View
-    
-                        </a>
-                    </li>
-    
-                    <li>
-                        <a href="../../../attendance.html">
-                            <i></i> Attendance
-                        </a>
-                    </li>
-    
-                </ul>
-    
-            </div>
+        <div class="brand brand-color">
+            <h4>Uniform Inventory</h4>
         </div>
-    
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list" id="menu-content">
+
+            <ul id="accordion1" class="menu-content collapse out">
+
+                <li data-toggle="collapse" data-parent="#accordion1" href="#thirdLink"> <a> <i></i> Sales</a>
+
+                    <ul id="thirdLink" class="collapse sub-list">
+                        <li>
+                            <a href="/sale/sales_order">Sales Order</a>
+                        </li>
+                        <li>
+                            <a href="/sale/packing_list">Packing List</a>
+                        </li>
+                        <li>
+                            <a href="/sale/commercial_invoice">Commercial Invoice</a>
+                        </li>
+                        <li>
+                            <a href="/sale/reciept_voucher">Reciept Voucher</a>
+                        </li>
+                    </ul>
+                </li>
+                <li data-toggle="collapse" data-parent="#accordion1" href="#firstLink"> <a> <i></i> Purchase</a>
+
+                    <ul id="firstLink" class="collapse sub-list">
+                        <li>
+                            <a href="/purchase/purchase_order">Purchase Order</a>
+                        </li>
+                        <li>
+                            <a href="/purchase/gr_note">Good Receiving Note / Invoice</a>
+                        </li>
+
+                        <li>
+                            <a href="/purchase/payment_voucher">Vendor Payment</a>
+                        </li>
+                    </ul>
+
+                </li>
+                <li>
+                    <a href="/production">
+                        <i></i> Production</a>
+                </li>
+                <li data-toggle="collapse" data-parent="#accordion1" href="#reports"> <a> <i></i> Reports</a>
+
+                    <ul id="reports" class="collapse sub-list">
+                        <li>
+                            <a href="/reports/sales_report">Sales Report</a>
+                        </li>
+                        <li>
+                            <a href="/reports/purchase_report">Purchases Report</a>
+                        </li>
+
+                        <li>
+                            <a href="/reports/production_report">Productions Report</a>
+                        </li>
+                        <li>
+                            <a href="/reports/accounts_report">Accounts Report</a>
+                        </li>
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a href="/master">
+                        <i></i> Master Control
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/master_view">
+                        <i></i> Master View
+
+                    </a>
+                </li>
+
+                <!-- <li>
+                                    <a href="/attendance">
+                                        <i></i> Attendance
+                                    </a>
+                                </li> -->
+
+            </ul>
+
+        </div>
+    </div>
+
 
     <div id="main" class="wrapper container-fluid">
 
@@ -107,35 +124,35 @@
                     <h1 class="doc-head-text">Receipt Voucher</h1>
                     <div class="row">
                         <div class="col-4">
-                            <div class="col-md-4" >
-                                    Customers
-                                 </div>
-                                 <div class="col-md-8">
-                                     <select class="form-control"  id="clients_select" onchange="fill_lpos(this)">
-                                         <option value="">Select Customer</option>
-                                     </select>    
-                                 </div>
-                    </div>
-                    <div class="col-4">
-                            <div class="col-md-4" >
-                                    C.P.O Ref
-                                 </div>
-                                 <div class="col-12">
-                                     <select class="form-control"  id="lpos_select" onchange="fill_invoices(this)">
-                                         <option value="">Select C.P.O#</option>
-                                     </select>    
-                                 </div>
-                    </div>
-                    <div class="col-4" >
-                            <div class="col-md-6" >
-                                    Invoice Ref
-                                 </div>
-                                 <div class="col-md-12">
-                                     <select class="form-control"  id="invoices_select" onchange="fill_items(this)">
-                                         <option value="">Select Invoice</option>
-                                     </select>    
-                                 </div>
-                    </div>
+                            <div class="col-md-4">
+                                Customers
+                            </div>
+                            <div class="col-md-8">
+                                <select class="form-control" id="clients_select" onchange="fill_lpos(this)">
+                                    <option value="">Select Customer</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="col-md-4">
+                                C.P.O Ref
+                            </div>
+                            <div class="col-12">
+                                <select class="form-control" id="lpos_select" onchange="fill_invoices(this)">
+                                    <option value="">Select C.P.O#</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="col-md-6">
+                                Invoice Ref
+                            </div>
+                            <div class="col-md-12">
+                                <select class="form-control" id="invoices_select" onchange="fill_items(this)">
+                                    <option value="">Select Invoice</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
 
 
@@ -154,7 +171,7 @@
 
                         </div>
 
-                        
+
                     </div>
 
                 </div>
@@ -173,26 +190,29 @@
                     <tbody>
                         <tr>
                             <td class="td-cells"><input type="text" class="form-control" id="paying" onkeyup="balance()"></td>
-                            <td class="td-cells"><p class="form-control" id="total_payment"></p></td>
-                            <td class="td-cells"><p class="form-control" id="balance"></p></td>
+                            <td class="td-cells">
+                                <p class="form-control" id="total_payment"></p>
+                            </td>
+                            <td class="td-cells">
+                                <p class="form-control" id="balance"></p>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
 
                 <script>
-                function balance(){
-                    let paying = parseFloat(document.getElementById("paying").value),
-                        total = parseFloat(document.getElementById("total_payment").innerHTML),
-                        balance = document.getElementById("balance");
+                    function balance() {
+                        let paying = parseFloat(document.getElementById("paying").value),
+                            total = parseFloat(document.getElementById("total_payment").innerHTML),
+                            balance = document.getElementById("balance");
                         console.log(paying);
                         console.log(total);
                         balance.innerHTML = (total - paying).toFixed(2);
-                        if(paying===null)
-                        {
+                        if (paying === null) {
                             balance.innerHTML = (0).toFixed(2);
 
                         }
-                }
+                    }
                 </script>
 
                 <section class="color-1 text-center">
@@ -212,20 +232,20 @@
 
 </body>
 <script>
-    let clients, lpos,invoices;
+    let clients, lpos, invoices;
     function fill() {
-         /// clients get
-         var xhttp6 = new XMLHttpRequest();
+        /// clients get
+        var xhttp6 = new XMLHttpRequest();
         xhttp6.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-               clients = JSON.parse(this.responseText).clients;
+                clients = JSON.parse(this.responseText).clients;
                 let c_text = '<option value="">Select Customer</option>';
                 // alert(e.innerHTML.length)
                 clients.forEach((client) => {
-                    c_text += `<option value='`+client.company_name+`'>` + client.company_name+ `</option>`;
+                    c_text += `<option value='` + client.company_name + `'>` + client.company_name + `</option>`;
                 });
                 document.getElementById('clients_select').innerHTML = c_text;
-                console.log("clients:",clients);
+                console.log("clients:", clients);
 
             }
         };
@@ -235,65 +255,63 @@
         /// clients get
 
         //// invoices get      ///
-  var xhttp3 = new XMLHttpRequest();
+        var xhttp3 = new XMLHttpRequest();
         xhttp3.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-               invoices = JSON.parse(this.responseText).invoices;
-               console.log("invoices:",invoices);
+                invoices = JSON.parse(this.responseText).invoices;
+                console.log("invoices:", invoices);
             }
         };
         xhttp3.open("GET", "/get_invoices", true);
         xhttp3.send();
 
-  //// invoices get      ///
- 
+        //// invoices get      ///
+
         //// lpos get 
         var xhttp3 = new XMLHttpRequest();
         xhttp3.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 lpos = JSON.parse(this.responseText).lpos;
-                console.log("lpos",lpos)
+                console.log("lpos", lpos)
             }
         };
         xhttp3.open("GET", "/get_lpos", true);
         xhttp3.send();
-       
+
     }
-    function fill_lpos(e){
+    function fill_lpos(e) {
         let lpos_select = document.getElementById("lpos_select");
         let lpos_text = '<option value="">Select C.P.O#</option>'
-       // alert(e.value);
-        lpos.forEach((lpo)=>{
-            if(lpo.client===e.value)
-            {
-                lpos_text += `<option value="`+lpo.ref+`">`+lpo.ref+`</option>`
+        // alert(e.value);
+        lpos.forEach((lpo) => {
+            if (lpo.client === e.value) {
+                lpos_text += `<option value="` + lpo.ref + `">` + lpo.ref + `</option>`
             }
         });
         lpos_select.innerHTML = lpos_text;
     }
-    function fill_invoices(e){
+    function fill_invoices(e) {
         let invoices_select = document.getElementById("invoices_select");
         let invoices_text = '<option value="">Select invoice</option>'
-       // alert(e.value);
-        invoices.forEach((invoice)=>{
-            if(invoice.lpo_ref===e.value)
-            {
-                invoices_text += `<option value="`+invoice._id+`">`+invoice.ref+`</option>`
+        // alert(e.value);
+        invoices.forEach((invoice) => {
+            if (invoice.lpo_ref === e.value) {
+                invoices_text += `<option value="` + invoice._id + `">` + invoice.ref + `</option>`
             }
         });
         invoices_select.innerHTML = invoices_text;
     }
-    
+
     function fill_items(e) {
         let value = e.value;
-     // alert(value);
-      let total = document.getElementById("total_payment");
-      invoices.forEach((invoice)=>{
-          if(invoice._id===value){
-              total.innerHTML = invoice.payment;
-          }
-      })   
-     
+        // alert(value);
+        let total = document.getElementById("total_payment");
+        invoices.forEach((invoice) => {
+            if (invoice._id === value) {
+                total.innerHTML = invoice.payment;
+            }
+        })
+
 
     }
     function set_client(val) {
@@ -351,39 +369,39 @@
             }
         })
     }
-    function generate(e){
-   // e.disabled = true;
-   let invoice_id = document.getElementById("invoices_select").value;
-   let paying = document.getElementById("paying").value;
-   let total = document.getElementById("total_payment").innerHTML;
-   let balance = document.getElementById("balance").innerHTML;
-   console.log(invoice_id);
-   console.log(paying);
-   console.log(total);
-   console.log(balance);
-  
+    function generate(e) {
+        // e.disabled = true;
+        let invoice_id = document.getElementById("invoices_select").value;
+        let paying = document.getElementById("paying").value;
+        let total = document.getElementById("total_payment").innerHTML;
+        let balance = document.getElementById("balance").innerHTML;
+        console.log(invoice_id);
+        console.log(paying);
+        console.log(total);
+        console.log(balance);
 
-   var xhttp = new XMLHttpRequest();
+
+        var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 alert("Payment Voucher is Generated");
-                    e.disabled = false;
-                   
-                    var link = document.createElement("a");
-                    link.download = 'reciept voucher.xlsx';
-                     link.href = '/reciept_voucher_report';
-                     link.click();
-                     document.location.reload();
+                e.disabled = false;
+
+                var link = document.createElement("a");
+                link.download = 'reciept voucher.xlsx';
+                link.href = '/reciept_voucher_report';
+                link.click();
+                document.location.reload();
 
             }
         };
         xhttp.open("POST", "/reciept_voucher", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("invoice_id="+invoice_id+
-            "&paying="+paying+"&total="+total+"&balance="+balance);
+        xhttp.send("invoice_id=" + invoice_id +
+            "&paying=" + paying + "&total=" + total + "&balance=" + balance);
 
-   }
-  
+    }
+
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>

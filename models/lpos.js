@@ -13,7 +13,8 @@ var mongoose = require('mongoose');
     purchase_array :String,
     recieved_array:String,
     po_num: String,
-    requisitioner: String	
+    requisitioner: String,
+    total:String
     
   });
 
