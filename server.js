@@ -96,6 +96,93 @@ app.get("/", (req, res) => {
         res.redirect("/login");
     }
 });
+// reports generation
+async function sales_report(arr,total_lpo,g_total,cb){
+    console.log(g_total);
+    console.log(total_lpo);
+    let workbook = new Excel.Workbook();
+          
+         workbook = await workbook.xlsx.readFile(path.join(__dirname,"/public/reports/sales_report.xlsx")); // replace question_39869739.xls with your file
+         let worksheet = workbook.getWorksheet('Sheet1'); // replace sheetname with actual sheet name
+         let d = new Date();
+         worksheet.getRow(2).getCell(2).value = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() ;
+        
+     
+     
+         arr.forEach((item , index)=>{
+             worksheet.getRow(6+index).getCell(1).value = index+1; 
+             worksheet.getRow(6+index).getCell(2).value = item[0]; 
+             worksheet.getRow(6+index).getCell(3).value = item[1]; 
+             worksheet.getRow(6+index).getCell(4).value = item[2]; 
+             worksheet.getRow(6+index).getCell(5).value = item[3];
+             if(index=== (total_lpo-1))
+             {  console.log('check')
+                worksheet.getRow(index+7).getCell(4).value ="Total Amount";
+                 worksheet.getRow(index+7).getCell(5).value =g_total;
+             }
+     
+         })
+             
+
+     
+         
+         workbook.xlsx.writeFile(path.join(__dirname,"/public/reports/sales_report_g.xlsx")).then(cb)
+}
+ app.post('/sales_report',(req,res)=>{
+     let array = JSON.parse(req.body.array),
+         total_lpo = req.body.total_lpo,
+         g_total = req.body.g_total;
+         sales_report(array,total_lpo,g_total,()=>{
+            console.log('sales report generated');
+             res.json({success:true});
+             res.end();
+         })
+         
+ })
+ async function purchase_report(arr,total_lpo,g_total,cb){
+    console.log(g_total);
+    console.log(total_lpo);
+    let workbook = new Excel.Workbook();
+          
+         workbook = await workbook.xlsx.readFile(path.join(__dirname,"/public/reports/purchase_report.xlsx")); // replace question_39869739.xls with your file
+         let worksheet = workbook.getWorksheet('Sheet1'); // replace sheetname with actual sheet name
+         let d = new Date();
+         worksheet.getRow(2).getCell(2).value = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() ;
+        
+     
+     
+         arr.forEach((item , index)=>{
+             worksheet.getRow(6+index).getCell(1).value = index+1; 
+             worksheet.getRow(6+index).getCell(2).value = item[0]; 
+             worksheet.getRow(6+index).getCell(3).value = item[1]; 
+             worksheet.getRow(6+index).getCell(4).value = item[2]; 
+             worksheet.getRow(6+index).getCell(5).value = item[3];
+             if(index=== (total_lpo-1))
+             {  console.log('check')
+                worksheet.getRow(index+7).getCell(4).value ="Total Amount";
+                 worksheet.getRow(index+7).getCell(5).value =g_total;
+             }
+     
+         })
+             
+
+     
+         
+         workbook.xlsx.writeFile(path.join(__dirname,"/public/reports/purchase_report_g.xlsx")).then(cb)
+}
+ app.post('/purchase_report',(req,res)=>{
+     let array = JSON.parse(req.body.array),
+         total_lpo = req.body.total_lpo,
+         g_total = req.body.g_total;
+         purchase_report(array,total_lpo,g_total,()=>{
+            console.log('purchase report generated');
+             res.json({success:true});
+             res.end();
+         })
+         
+ })
+
+// reports generation
 // routes
 app.get('/sale/sales_order',(req,res)=>{
     if(req.cookies.user)
@@ -1253,7 +1340,14 @@ app.get("/pdf_sales_invoice",(req,res)=>{
     res.setHeader( 'Content-Type', 'application/pdf');
     res.sendFile(path.join(__dirname,"sales_invoice.pdf"));
 })
-
+app.get("/sales_report",(req,res)=>{
+    res.setHeader( 'Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    res.sendFile(path.join(__dirname,"public/reports/sales_report_g.xlsx"));
+})
+app.get("/purchase_report",(req,res)=>{
+    res.setHeader( 'Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    res.sendFile(path.join(__dirname,"public/reports/purchase_report_g.xlsx"));
+})
 async function generate_gr_note(items_list,company,date,invoice_ref,recieved_by,po_ref,cb) {
     let workbook = new Excel.Workbook();
     workbook = await workbook.xlsx.readFile(path.join(__dirname,"/public/reports/goods_recieving_note.xlsx")); // replace question_39869739.xls with your file

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sales Report</title>
+    <title>Purchase Report</title>
 
     <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../../../css/salesStyle.css">
@@ -132,6 +132,11 @@
             <div class="container">
 
                 <div class="container">
+                        <div class="row">
+                                <div class="col-6">
+                                    <button class='btn btn-primary' onclick="print(this)">Download Printable</button>
+                                </div>
+                            </div>
                     <!---  input search -->
                     <div class="row">
                         <div class="col-6">
@@ -191,11 +196,11 @@
                                     <option value='end'>Upto</option>
                                     <option value='range'>Range</option>
                                 </select>
-                                <select class="form-control" id='clients_select'>
+                                <select class="form-control" id='vendors_select'>
 
                                 </select>
                                 <div class="input-group-prepend">
-                                    <button class="input-group-text" onClick='select_client()'>Clients Result</button>
+                                    <button class="input-group-text" onClick='select_vendor()'>Vendors Result</button>
                                 </div>
 
                             </div>
@@ -206,8 +211,7 @@
                     <table class="table table-light table-striped">
                         <thead>
                             <tr>
-                                <th>po#</th>
-                                <th>LPO Ref</th>
+                                <th>V.P.O#</th>
                                 <th>Vendor</th>
                                 <th>Date</th>
                                 <th>Amount</th>
@@ -218,6 +222,17 @@
 
                         </tbody>
                     </table>
+                    <table class='table table-dark'>
+                            <tbody>
+                                <tr>
+                                    <td> total Purchase Orders: <span id='total_lpo'></span></td>
+                                    <td>  &nbsp; </td>
+                                    <td> &nbsp; </td>
+                                    <td > &nbsp;</td>
+                                    <td ><span style='float:right'>Total Amount: <span id='g_total'></span></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
 
 
 
@@ -260,15 +275,15 @@
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                clients = JSON.parse(this.responseText).clients;
+                vendors = JSON.parse(this.responseText).vendors;
                 let txt = '<option value="all">All</option>';
-                clients.forEach((client) => {
-                    txt += `<option value="` + client.company_name + `">` + client.company_name + `</option>`;
+                vendors.forEach((vendor) => {
+                    txt += `<option value="` + vendor.company_name + `">` + vendor.company_name + `</option>`;
                 });
-                document.getElementById("clients_select").innerHTML = txt;
+                document.getElementById("vendors_select").innerHTML = txt;
             }
         };
-        xhttp.open("GET", "/get_clients", true);
+        xhttp.open("GET", "/get_vendors", true);
         xhttp.send();
     }
     function load_lpos() {
@@ -279,9 +294,10 @@
                 let table = document.getElementById('lpos_table');
                 let str = '';
                 pos.forEach((po) => {
-                    str += '<tr><td>' + po.po_num + '</td><td>' + po.ref + '</td><td>' + po.company_name + '</td><td>' + po.date + '</td><td>' + po.total + '</td></tr>'
+                    str += '<tr><td>' + po.po_num + '</td><td>' + po.vendor + '</td><td>' + po.date + '</td><td>' + po.total + '</td></tr>'
                 });
                 table.innerHTML = str;
+                update();
             }
         };
         xhttp.open("GET", "/get_pos", true);
@@ -335,11 +351,11 @@
     load_pos();
 </script>
 <script>
-    function select_client() {
+    function select_vendor() {
         let s_date = document.getElementsByClassName('s_date')[1].value;
         let e_date = document.getElementsByClassName('e_date')[1].value;
         let date_type = document.getElementById("date_type").value;
-        let client = document.getElementById("clients_select").value;
+        let client = document.getElementById("vendors_select").value;
         //table info //
         var found, table, tr, td, i, j;
         table = document.getElementById('lpos_table');
@@ -353,13 +369,14 @@
 
 
                     tr[i].style.display = "";
+                    console.log(i,tr[i].getElementsByTagName('td')[1].innerHTML);
 
                 }
             }
             else {
                 for (i = 0; i < tr.length; i++) {
 
-                    if (tr[i].getElementsByTagName('td')[2].innerHTML === client) {
+                    if (tr[i].getElementsByTagName('td')[1].innerHTML === client) {
                         tr[i].style.display = "";
 
                     }
@@ -379,7 +396,7 @@
                  if(client==="all")
                  {
                     for (i = 0; i < tr.length; i++) {
-                        let lpo_date = tr[i].getElementsByTagName('td')[3].innerHTML;
+                        let lpo_date = tr[i].getElementsByTagName('td')[2].innerHTML;
                          found = date_check(lpo_date); 
                     if (found) {
                         tr[i].style.display = "";
@@ -393,9 +410,9 @@
                  }
                  else{
                     for (i = 0; i < tr.length; i++) {
-                        let lpo_date = tr[i].getElementsByTagName('td')[3].innerHTML;
+                        let lpo_date = tr[i].getElementsByTagName('td')[2].innerHTML;
                          found = date_check(lpo_date); 
-                    if (found && tr[i].getElementsByTagName('td')[2].innerHTML === client) {
+                    if (found && tr[i].getElementsByTagName('td')[1].innerHTML === client) {
                         tr[i].style.display = "";
 
                     }
@@ -412,10 +429,28 @@
         console.log(s_date);
         console.log(e_date);
         console.log(date_type);
-
+        update();
 
         // alert("Ss")
     }
+    function update(){
+        let total_lpo=0,total=0;
+        table = document.getElementById('lpos_table');
+        tr = table.getElementsByTagName("tr");
+        for(i=0; i < tr.length ; i++)
+        {   
+            if(tr[i].style.display!=='none')
+            {
+                total_lpo++;
+                total += parseFloat(tr[i].getElementsByTagName('td')[3].innerHTML);
+                console.log(tr[i]);
+
+            }
+        }
+        document.getElementById('total_lpo').innerHTML = total_lpo;
+        document.getElementById('g_total').innerHTML = total.toFixed(2);
+    }
+   
     function date_check(lpo_date){
         let date_type = document.getElementById('date_type').value
         let s_date = new Date(document.getElementsByClassName('s_date')[1].value).getTime();
@@ -441,6 +476,46 @@
     //    l_y = lpo_date.split("-")[0];
     //    var date = new Date(s_date); 
     //     c
+    }
+    function print(e){
+        e.disabled = true;
+        let table= document.getElementById('lpos_table');
+        let tr = table.getElementsByTagName('tr');
+        let total_lpo = document.getElementById('total_lpo').innerHTML,
+        g_total = document.getElementById('g_total').innerHTML;
+        let array =[];
+        for(let i=0; i < tr.length ; i++){
+            if(tr[i].style.display!=='none')
+            {
+                array.push([
+               tr[i].getElementsByTagName('td')[0].innerHTML,
+               tr[i].getElementsByTagName('td')[1].innerHTML,
+               tr[i].getElementsByTagName('td')[2].innerHTML,
+               tr[i].getElementsByTagName('td')[3].innerHTML 
+            ])
+            }
+           
+        }
+        array = JSON.stringify(array);
+        console.log(array);
+        console.log(total_lpo);
+        console.log(g_total);
+        var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert("Purchase Report is Generated");
+                    e.disabled = false;
+                    var link = document.createElement("a");
+                    link.download = 'purchase report.xlsx';
+                    link.href = '/purchase_report';
+                    link.click();
+                }
+            };
+            xhttp.open("POST", "/purchase_report", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("array="+array+"&total_lpo="+total_lpo+"&g_total="+g_total);
+
+
     }
     let s_date = '2019-1-1'; 
     var date = new Date(s_date).getTime(); 

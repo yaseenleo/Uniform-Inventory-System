@@ -132,6 +132,11 @@
             <div class="container">
 
                 <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <button class='btn btn-primary' onclick="print()">Download Printable</button>
+                        </div>
+                    </div>
                     <!---  input search -->
                     <div class="row">
                         <div class="col-6">
@@ -206,8 +211,7 @@
                     <table class="table table-light table-striped">
                         <thead>
                             <tr>
-                                <th>lpo#</th>
-                                <th>Ref</th>
+                                <th>C.P.O#</th>
                                 <th>Client</th>
                                 <th>Date</th>
                                 <th>Amount</th>
@@ -216,6 +220,17 @@
                         </thead>
                         <tbody id='lpos_table'>
 
+                        </tbody>
+                    </table>
+                    <table class='table table-dark'>
+                        <tbody>
+                            <tr>
+                                <td> total Sales Orders: <span id='total_lpo'></span></td>
+                                <td>  &nbsp; </td>
+                                <td> &nbsp; </td>
+                                <td > &nbsp;</td>
+                                <td ><span style='float:right'>Total Amount: <span id='g_total'></span></span></td>
+                            </tr>
                         </tbody>
                     </table>
 
@@ -279,9 +294,10 @@
                 let table = document.getElementById('lpos_table');
                 let str = '';
                 lpos.forEach((lpo) => {
-                    str += '<tr><td>' + lpo.lpo_number + '</td><td>' + lpo.ref + '</td><td>' + lpo.client + '</td><td>' + lpo.date + '</td><td>' + lpo.total + '</td></tr>'
+                    str += '<tr><td>' + lpo.ref + '</td><td>' + lpo.client + '</td><td>' + lpo.date + '</td><td>' + lpo.total + '</td></tr>'
                 });
                 table.innerHTML = str;
+                update();
             }
         };
         xhttp.open("GET", "/get_lpos", true);
@@ -359,7 +375,7 @@
             else {
                 for (i = 0; i < tr.length; i++) {
 
-                    if (tr[i].getElementsByTagName('td')[2].innerHTML === client) {
+                    if (tr[i].getElementsByTagName('td')[1].innerHTML === client) {
                         tr[i].style.display = "";
 
                     }
@@ -379,7 +395,7 @@
                  if(client==="all")
                  {
                     for (i = 0; i < tr.length; i++) {
-                        let lpo_date = tr[i].getElementsByTagName('td')[3].innerHTML;
+                        let lpo_date = tr[i].getElementsByTagName('td')[2].innerHTML;
                          found = date_check(lpo_date); 
                     if (found) {
                         tr[i].style.display = "";
@@ -393,9 +409,9 @@
                  }
                  else{
                     for (i = 0; i < tr.length; i++) {
-                        let lpo_date = tr[i].getElementsByTagName('td')[3].innerHTML;
+                        let lpo_date = tr[i].getElementsByTagName('td')[2].innerHTML;
                          found = date_check(lpo_date); 
-                    if (found && tr[i].getElementsByTagName('td')[2].innerHTML === client) {
+                    if (found && tr[i].getElementsByTagName('td')[1].innerHTML === client) {
                         tr[i].style.display = "";
 
                     }
@@ -413,8 +429,25 @@
         console.log(e_date);
         console.log(date_type);
 
-
+        update();
         // alert("Ss")
+    }
+    function update(){
+        let total_lpo=0,total=0;
+        table = document.getElementById('lpos_table');
+        tr = table.getElementsByTagName("tr");
+        for(i=0; i < tr.length ; i++)
+        {   
+            if(tr[i].style.display!=='none')
+            {
+                total_lpo++;
+                total += parseFloat(tr[i].getElementsByTagName('td')[3].innerHTML);
+                console.log(tr[i]);
+
+            }
+        }
+        document.getElementById('total_lpo').innerHTML = total_lpo;
+        document.getElementById('g_total').innerHTML = total.toFixed(2);
     }
     function date_check(lpo_date){
         let date_type = document.getElementById('date_type').value
@@ -445,6 +478,45 @@
     let s_date = '2019-1-1'; 
     var date = new Date(s_date).getTime(); 
         console.log(date);
+    function print(){
+        let table= document.getElementById('lpos_table');
+        let tr = table.getElementsByTagName('tr');
+        let total_lpo = document.getElementById('total_lpo').innerHTML,
+        g_total = document.getElementById('g_total').innerHTML;
+        let array =[];
+        for(let i=0; i < tr.length ; i++){
+            if(tr[i].style.display!=='none')
+            {
+                array.push([
+               tr[i].getElementsByTagName('td')[0].innerHTML,
+               tr[i].getElementsByTagName('td')[1].innerHTML,
+               tr[i].getElementsByTagName('td')[2].innerHTML,
+               tr[i].getElementsByTagName('td')[3].innerHTML 
+            ])
+            }
+           
+        }
+        array = JSON.stringify(array);
+        console.log(array);
+        console.log(total_lpo);
+        console.log(g_total);
+        var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert("Sales Report is Generated");
+
+                    var link = document.createElement("a");
+                    link.download = 'sales report.xlsx';
+                    link.href = '/sales_report';
+                    link.click();
+                }
+            };
+            xhttp.open("POST", "/sales_report", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("array="+array+"&total_lpo="+total_lpo+"&g_total="+g_total);
+
+
+    }    
 </script>
 
 </html>

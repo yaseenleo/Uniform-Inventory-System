@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Production Report</title>
+    <title>Sales Report</title>
 
     <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../../../css/salesStyle.css">
@@ -39,84 +39,88 @@
 
             <ul id="accordion1" class="menu-content collapse out">
 
-                <li data-toggle="collapse" data-parent="#accordion1" href="#thirdLink"> <a> <i></i> Sales</a>
 
-                    <ul id="thirdLink" class="collapse sub-list">
-                        <li>
-                            <a href="/sale/sales_order">Sales Order</a>
-                        </li>
-                        <li>
-                            <a href="/sale/packing_list">Packing List</a>
-                        </li>
-                        <li>
-                            <a href="/sale/commercial_invoice">Commercial Invoice</a>
-                        </li>
-                        <li>
-                            <a href="/sale/reciept_voucher">Reciept Voucher</a>
-                        </li>
-                    </ul>
-                </li>
                 <li data-toggle="collapse" data-parent="#accordion1" href="#firstLink"> <a> <i></i> Purchase</a>
 
                     <ul id="firstLink" class="collapse sub-list">
                         <li>
-                            <a href="/purchase/purchase_order">Purchase Order</a>
+                            <a href="../purchase/purchase.html">Purchase Order</a>
                         </li>
                         <li>
-                            <a href="/purchase/gr_note">Good Receiving Note / Invoice</a>
+                            <a href="../purchase/grnote.html">Good Receiving Note</a>
                         </li>
 
                         <li>
-                            <a href="/purchase/payment_voucher">Vendor Payment</a>
+                            <a href="../purchase/vendorpay.html">Vendor Payment</a>
                         </li>
                     </ul>
 
                 </li>
                 <li>
-                    <a href="/production">
+                    <a href="../production/index.html">
                         <i></i> Production</a>
                 </li>
-                <li data-toggle="collapse" data-parent="#accordion1" href="#reports"> <a> <i></i> Reports</a>
 
+                <li data-toggle="collapse" data-parent="#accordion1" href="#thirdLink"> <a> <i></i> Sales</a>
+
+                    <ul id="thirdLink" class="collapse sub-list">
+                        <li>
+                            <a href="/pages/src/sales/sales.html">Sales Order</a>
+                        </li>
+                        <li>
+                            <a href="./packinglistslip.html">Packing Slip</a>
+                        </li>
+                        <li>
+                            <a href="./salesinvoiceslip.html">Sales Invoice</a>
+                        </li>
+
+
+                        <li>
+                            <a href="./payreceipt.html">Reciept Voucher</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li data-toggle="collapse" data-parent="#accordion1" href="#reports"> <a> <i></i> Reports</a>
+    
                     <ul id="reports" class="collapse sub-list">
                         <li>
-                            <a href="/reports/sales_report">Sales Report</a>
+                            <a href="../../../sales_report.html">Sales Report</a>
                         </li>
                         <li>
-                            <a href="/reports/purchase_report">Purchases Report</a>
+                            <a href="../../../purchase_report.html">Purchases Report</a>
                         </li>
-
+                       
                         <li>
-                            <a href="/reports/production_report">Productions Report</a>
+                            <a href="../purchase/vendorpay.html">Productions Report</a>
                         </li>
                         <li>
-                            <a href="/reports/accounts_report">Accounts Report</a>
+                            <a href="../purchase/vendorpay.html">Accounts Report</a>
                         </li>
                     </ul>
 
                 </li>
 
                 <li>
-                    <a href="/master">
+                    <a href="../../../master.html">
                         <i></i> Master Control
                     </a>
                 </li>
 
                 <li>
-                    <a href="/master_view">
+                    <a href="../../../master_view.html">
                         <i></i> Master View
 
                     </a>
                 </li>
 
-                <!-- <li>
-                                <a href="/attendance">
-                                    <i></i> Attendance
-                                </a>
-                            </li> -->
+                <li>
+                    <a href="../../../attendance.html">
+                        <i></i> Attendance
+                    </a>
+                </li>
 
             </ul>
-
 
         </div>
     </div>
@@ -126,7 +130,7 @@
 
         <div id="content" class="container-fluid">
 
-            <h2 class="text-center">PRODUCTION REPORTS</h2>
+            <h2 class="text-center">PURCHASE REPORTS</h2>
             <hr>
             <br>
             <div class="container">
@@ -206,9 +210,9 @@
                     <table class="table table-light table-striped">
                         <thead>
                             <tr>
-                                <th>lpo#</th>
-                                <th>Ref</th>
-                                <th>Client</th>
+                                <th>po#</th>
+                                <th>LPO Ref</th>
+                                <th>Vendor</th>
                                 <th>Date</th>
                                 <th>Amount</th>
 
@@ -275,16 +279,16 @@
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                let lpos = JSON.parse(this.responseText).lpos;
+                let pos = JSON.parse(this.responseText).pos;
                 let table = document.getElementById('lpos_table');
                 let str = '';
-                lpos.forEach((lpo) => {
-                    str += '<tr><td>' + lpo.lpo_number + '</td><td>' + lpo.ref + '</td><td>' + lpo.client + '</td><td>' + lpo.date + '</td><td>' + lpo.total + '</td></tr>'
+                pos.forEach((po) => {
+                    str += '<tr><td>' + po.po_num + '</td><td>' + po.ref + '</td><td>' + po.company_name + '</td><td>' + po.date + '</td><td>' + po.total + '</td></tr>'
                 });
                 table.innerHTML = str;
             }
         };
-        xhttp.open("GET", "/get_lpos", true);
+        xhttp.open("GET", "/get_pos", true);
         xhttp.send();
     }
     function load_pos() {
@@ -376,35 +380,36 @@
                 alert("please select the dates")
             }
             else {
-                if (client === "all") {
+                 if(client==="all")
+                 {
                     for (i = 0; i < tr.length; i++) {
                         let lpo_date = tr[i].getElementsByTagName('td')[3].innerHTML;
-                        found = date_check(lpo_date);
-                        if (found) {
-                            tr[i].style.display = "";
+                         found = date_check(lpo_date); 
+                    if (found) {
+                        tr[i].style.display = "";
 
-                        }
-                        else {
-                            tr[i].style.display = "none";
+                    }
+                    else {
+                        tr[i].style.display = "none";
 
-                        }
                     }
                 }
-                else {
+                 }
+                 else{
                     for (i = 0; i < tr.length; i++) {
                         let lpo_date = tr[i].getElementsByTagName('td')[3].innerHTML;
-                        found = date_check(lpo_date);
-                        if (found && tr[i].getElementsByTagName('td')[2].innerHTML === client) {
-                            tr[i].style.display = "";
+                         found = date_check(lpo_date); 
+                    if (found && tr[i].getElementsByTagName('td')[2].innerHTML === client) {
+                        tr[i].style.display = "";
 
-                        }
-                        else {
-                            tr[i].style.display = "none";
+                    }
+                    else {
+                        tr[i].style.display = "none";
 
-                        }
                     }
                 }
-
+                 }
+               
             }
         }
 
@@ -415,34 +420,35 @@
 
         // alert("Ss")
     }
-    function date_check(lpo_date) {
+    function date_check(lpo_date){
         let date_type = document.getElementById('date_type').value
         let s_date = new Date(document.getElementsByClassName('s_date')[1].value).getTime();
         let e_date = new Date(document.getElementsByClassName('e_date')[1].value).getTime();
         let c_date = new Date(lpo_date).getTime();
-        if ((date_type === "any") ||
-            (date_type === "start" && c_date >= s_date) ||
-            (date_type === "end" && c_date < e_date) ||
-            (date_type === "range" && c_date < e_date && c_date >= s_date)) {
+        if((date_type === "any" )||
+        (date_type === "start" && c_date >= s_date )||
+        (date_type === "end" && c_date < e_date) ||
+        (date_type === "range" && c_date < e_date && c_date >= s_date))
+        {
             return true;
         }
-        else {
+        else{
             return false;
         }
-        //    let date_type = document.getElementById("date_type").value;
-        //    let s_d,s_m,s_y,l_d,l_m,l_y;
-        //    s_d = s_date.split("-")[2];
-        //    s_m = s_date.split("-")[1];
-        //    s_y = s_date.split("-")[0];
-        //    l_d = lpo_date.split("-")[2];
-        //    l_m = lpo_date.split("-")[1];
-        //    l_y = lpo_date.split("-")[0];
-        //    var date = new Date(s_date); 
-        //     c
+    //    let date_type = document.getElementById("date_type").value;
+    //    let s_d,s_m,s_y,l_d,l_m,l_y;
+    //    s_d = s_date.split("-")[2];
+    //    s_m = s_date.split("-")[1];
+    //    s_y = s_date.split("-")[0];
+    //    l_d = lpo_date.split("-")[2];
+    //    l_m = lpo_date.split("-")[1];
+    //    l_y = lpo_date.split("-")[0];
+    //    var date = new Date(s_date); 
+    //     c
     }
-    let s_date = '2019-1-1';
-    var date = new Date(s_date).getTime();
-    console.log(date);
+    let s_date = '2019-1-1'; 
+    var date = new Date(s_date).getTime(); 
+        console.log(date);
 </script>
 
 </html>
