@@ -181,6 +181,97 @@ async function sales_report(arr,total_lpo,g_total,cb){
          })
          
  })
+ async function production_report(arr,cb){
+    let workbook = new Excel.Workbook();
+          
+         workbook = await workbook.xlsx.readFile(path.join(__dirname,"/public/reports/production_report.xlsx")); // replace question_39869739.xls with your file
+         let worksheet = workbook.getWorksheet('Sheet1'); // replace sheetname with actual sheet name
+         let d = new Date();
+         worksheet.getRow(2).getCell(2).value = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() ;
+        
+     
+     
+         arr.forEach((item , index)=>{
+             worksheet.getRow(6+index).getCell(1).value = index+1; 
+             worksheet.getRow(6+index).getCell(2).value = item[0]; 
+             worksheet.getRow(6+index).getCell(3).value = item[1]; 
+             worksheet.getRow(6+index).getCell(4).value = item[2]; 
+             worksheet.getRow(6+index).getCell(5).value = item[3];
+             worksheet.getRow(6+index).getCell(6).value = item[4];
+             worksheet.getRow(6+index).getCell(7).value = item[5];
+             worksheet.getRow(6+index).getCell(8).value = item[6];
+             worksheet.getRow(6+index).getCell(9).value = item[7];
+             worksheet.getRow(6+index).getCell(10).value = item[8];
+             worksheet.getRow(6+index).getCell(11).value = item[9];
+             worksheet.getRow(6+index).getCell(12).value = item[10];
+             worksheet.getRow(6+index).getCell(13).value = item[11];
+             worksheet.getRow(6+index).getCell(14).value = item[12];
+             worksheet.getRow(6+index).getCell(15).value = item[13];
+             worksheet.getRow(6+index).getCell(16).value = item[14];
+             worksheet.getRow(6+index).getCell(16).value = item[15];
+            
+            
+            
+     
+         })
+             
+
+     
+         
+         workbook.xlsx.writeFile(path.join(__dirname,"/public/reports/production_report_g.xlsx")).then(cb)
+}
+ app.post('/production_report',(req,res)=>{
+     let array = JSON.parse(req.body.array);
+     console.log(array);
+         production_report(array,()=>{
+            console.log('Production report generated');
+             res.json({success:true});
+             res.end();
+         })
+         
+ })
+ async function accounts_report(r_arr,p_arr,cb){
+    let workbook = new Excel.Workbook();
+          
+         workbook = await workbook.xlsx.readFile(path.join(__dirname,"/public/reports/accounts_report.xlsx")); // replace question_39869739.xls with your file
+         let worksheet = workbook.getWorksheet('Sheet1'); // replace sheetname with actual sheet name
+         let d = new Date();
+         worksheet.getRow(2).getCell(2).value = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() ;
+         r_arr.forEach((item , index)=>{
+             worksheet.getRow(6+index).getCell(1).value = index+1; 
+             worksheet.getRow(6+index).getCell(2).value = item[0]; 
+             worksheet.getRow(6+index).getCell(3).value = item[1]; 
+             worksheet.getRow(6+index).getCell(4).value = item[2]; 
+             worksheet.getRow(6+index).getCell(5).value = item[3];
+             worksheet.getRow(6+index).getCell(6).value = item[4];
+     
+         })
+         p_arr.forEach((item,index)=>{
+            worksheet.getRow(6+index).getCell(7).value = index+1; 
+            worksheet.getRow(6+index).getCell(8).value = item[0]; 
+            worksheet.getRow(6+index).getCell(9).value = item[1]; 
+            worksheet.getRow(6+index).getCell(10).value = item[2]; 
+            worksheet.getRow(6+index).getCell(11).value = item[3];
+            worksheet.getRow(6+index).getCell(12).value = item[4];
+    
+         })
+             
+
+     
+         
+         workbook.xlsx.writeFile(path.join(__dirname,"/public/reports/accounts_report_g.xlsx")).then(cb)
+}
+ app.post('/accounts_report',(req,res)=>{
+     let r_array = JSON.parse(req.body.r_array),
+        p_array = JSON.parse(req.body.p_array);
+         
+         accounts_report(r_array,p_array,()=>{
+            console.log('Accounts report generated');
+             res.json({success:true});
+             res.end();
+         })
+         
+ })
 
 // reports generation
 // routes
@@ -1099,6 +1190,10 @@ app.post('/generate_packing_list',(req,res)=>{
     let invoice_ref = "iv/"+company+ "/" + invoice_num
     let date = req.body.date;
     let packing_list = JSON.parse(req.body.packing_list);
+    let g_total = 0;
+    packing_list.forEach((item)=>{
+        g_total += parseFlaot(item)
+    })
     let html ='',str='';
      let obj = {lpo_ref:lpo_ref,number:invoice_num,ref:invoice_ref,date:date,company:company,items_list:req.body.packing_list};
     generate_packing_list(packing_list,company,lpo_ref,invoice_ref,date,()=>{
@@ -1347,6 +1442,14 @@ app.get("/sales_report",(req,res)=>{
 app.get("/purchase_report",(req,res)=>{
     res.setHeader( 'Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
     res.sendFile(path.join(__dirname,"public/reports/purchase_report_g.xlsx"));
+})
+app.get("/production_report",(req,res)=>{
+    res.setHeader( 'Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    res.sendFile(path.join(__dirname,"public/reports/production_report_g.xlsx"));
+});
+app.get("/accounts_report",(req,res)=>{
+    res.setHeader( 'Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    res.sendFile(path.join(__dirname,"public/reports/accounts_report_g.xlsx"));
 })
 async function generate_gr_note(items_list,company,date,invoice_ref,recieved_by,po_ref,cb) {
     let workbook = new Excel.Workbook();
@@ -1632,7 +1735,7 @@ app.post('/purchase_order',(req,res)=>{
     console.log(ref);
     console.log(ship_info);
     console.log(p_date);
-    let g_total;
+    let g_total=0;
     purchase_array.forEach((item , index)=>{
         g_total += parseFloat(item.quantity) * parseFloat(item.price);
     });

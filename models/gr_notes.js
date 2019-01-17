@@ -8,7 +8,8 @@ var mongoose = require('mongoose');
     recieved_by:String,
     items_list:String,
     vendor : String,
-    payment : String
+    payment : {type:String,default:'0.00'},
+    total : {type:String,default:'0.00'}
   });
 
   module.exports = mongoose.model('gr_notes',GR_NoteSchema);

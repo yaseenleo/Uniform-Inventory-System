@@ -8,7 +8,8 @@ var mongoose = require('mongoose');
     date:String,
     ref:String,
     company:String,
-    payment:String
+    payment : {type:String,default:'0.00'},
+    total : {type:String,default:'0.00'}
 
   });
 

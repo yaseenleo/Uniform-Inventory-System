@@ -29,6 +29,7 @@
 </head>
 
 <body onload="fill()">
+   
 
     <div class="nav-side-menu">
         <div class="brand brand-color">
@@ -132,89 +133,58 @@
             <div class="container">
 
                 <div class="container">
+                        <div class="row">
+                                <div class="col-6">
+                                    <button class='btn btn-primary' onclick="print(this)">Download Printable</button>
+                                </div>
+                            </div>
+                        <div class='row'>
+                                <div class="col-4">&nbsp;</div>
+                                <div class="col-8" style='float:right'>
+                                        <div class="input-group mb-3">
+
+                                                <div class="input-group-prepend">
+                                                    <span class='input-group-text'>Client</span>
+                                                </div>
+                                                <select id='clients_select'  onChange="cpo_set(this)" class='form-control'>
+                                                 </select>
+                                                 <div class="input-group-prepend">
+                                                        <span class='input-group-text'>C.P.O #</span>
+                                                    </div>
+                                                    <select id='s_lpo_select'  onChange="update()" class='form-control'>
+                                                     </select>
+                                        </div>             
+                                </div>
+                            </div>
+                           
+                           
                     <!---  input search -->
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="input-group mb-3">
-
-                                <div class="input-group-prepend s_date">
-                                    <span class='input-group-text'>Start Date</span>
-                                </div>
-                                <input type='date' class='form-control s_date'>
-                                <div class="input-group-prepend e_date">
-                                    <span class='input-group-text'>End Date</span>
-                                </div>
-                                <input type='date' class='form-control e_date'>
-
-                            </div>
-                        </div>
-                        <script>
-                            function date_type(e) {
-                                if (e.value === "any") {
-                                    document.getElementsByClassName("s_date")[0].style.display = "none";
-                                    document.getElementsByClassName("s_date")[1].style.display = "none";
-                                    document.getElementsByClassName("e_date")[0].style.display = "none";
-                                    document.getElementsByClassName("e_date")[1].style.display = "none";
-
-                                }
-                                else if (e.value === "start") {
-                                    document.getElementsByClassName("s_date")[0].style.display = "block";
-                                    document.getElementsByClassName("s_date")[1].style.display = "block";
-                                    document.getElementsByClassName("e_date")[0].style.display = "none";
-                                    document.getElementsByClassName("e_date")[1].style.display = "none";
-
-                                }
-                                else if (e.value === "end") {
-                                    document.getElementsByClassName("s_date")[0].style.display = "none";
-                                    document.getElementsByClassName("s_date")[1].style.display = "none";
-                                    document.getElementsByClassName("e_date")[0].style.display = "block";
-                                    document.getElementsByClassName("e_date")[1].style.display = "block";
-
-                                }
-                                else if (e.value === "range") {
-                                    document.getElementsByClassName("s_date")[0].style.display = "block";
-                                    document.getElementsByClassName("s_date")[1].style.display = "block";
-                                    document.getElementsByClassName("e_date")[0].style.display = "block";
-                                    document.getElementsByClassName("e_date")[1].style.display = "block";
-
-                                }
-                            }
-                        </script>
-                        <div class="col-6">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class='input-group-text'>Date Range</span>
-                                </div>
-                                <select class='form-control' onChange="date_type(this)" style='max-width:200px' id='date_type'>
-                                    <option value='any'>Any</option>
-                                    <option value='start'>Starting from</option>
-                                    <option value='end'>Upto</option>
-                                    <option value='range'>Range</option>
-                                </select>
-                                <select class="form-control" id='clients_select'>
-
-                                </select>
-                                <div class="input-group-prepend">
-                                    <button class="input-group-text" onClick='select_client()'>Clients Result</button>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                   
 
                     <!----- input search  -->
                     <table class="table table-light table-striped">
                         <thead>
                             <tr>
-                                <th>lpo#</th>
-                                <th>Ref</th>
                                 <th>Client</th>
-                                <th>Date</th>
-                                <th>Amount</th>
+                                <th>C.P.O#</th>
+                                <th>Job Slip Range</th>
+                                <th>Product</th>
+                                <th>Style</th>
+                                <th>Quantity</th>
+                                <th>Cutting Done</th>
+                                <th>Cutting Detail</th>
+                                <th>Stitching Done</th>
+                                <th>Stitching Detail</th>
+                                <th>Finalized</th>
+                                <th>Finalizing Detail</th>
+                                <th>Packing Done</th>
+                                <th>Packing Detail</th>
+                                <th>Delivering Done</th>
+                                <th>Delivery Remaining</th>
 
                             </tr>
                         </thead>
-                        <tbody id='lpos_table'>
+                        <tbody id='js_table'>
 
                         </tbody>
                     </table>
@@ -255,7 +225,7 @@
 <script src="../../../js/app.js"></script>
 
 <script>
-    var clients;
+    var clients , lpos;
     function fill() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -270,45 +240,49 @@
         };
         xhttp.open("GET", "/get_clients", true);
         xhttp.send();
+        // lpos
+        var xhttp2 = new XMLHttpRequest();
+        xhttp2.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                lpos = JSON.parse(this.responseText).lpos;
+              
+            }
+        };
+        xhttp2.open("GET", "/get_lpos", true);
+        xhttp2.send();
     }
-    function load_lpos() {
+    function load_js() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                let lpos = JSON.parse(this.responseText).lpos;
-                let table = document.getElementById('lpos_table');
-                let str = '';
-                lpos.forEach((lpo) => {
-                    str += '<tr><td>' + lpo.lpo_number + '</td><td>' + lpo.ref + '</td><td>' + lpo.client + '</td><td>' + lpo.date + '</td><td>' + lpo.total + '</td></tr>'
-                });
-                table.innerHTML = str;
+             job_slips = JSON.parse(this.responseText).job_slips;
+             let txt='';
+             job_slips.forEach((js)=>{
+                 let vendor = js.ref.split("/")[1];
+                txt += `<tr><td>`+vendor+`</td>
+                            <td>`+js.ref+`</td>
+                            <td>`+js.starting_number+`-`+(js.starting_number + js.quantity -1)+`</td>
+                            <td>`+js.product+`</td>
+                            <td>`+js.style+`</td>
+                            <td>`+js.quantity+`</td>
+                            <td>`+js.cutting+`</td>
+                            <td>`+js.cutting_by+` cut on `+js.cutting_on+`</td>
+                            <td>`+js.stitching+`</td>
+                            <td>`+js.stitching_by+` stitched on `+js.stitching_on+`</td>                                <td>`+js.qc+`</td>
+                            <td>`+js.qc_by+` finalized on `+js.qc_on+`</td>
+                            <td>`+js.packing+`</td>
+                            <td>`+js.packing_by+` packing on `+js.packing_on+`</td>
+                            <td>`+js.delivered+`</td>
+                            <td>`+(js.quantity - js.delivered)+`</td></tr>`
+             })
+             document.getElementById('js_table').innerHTML = txt;
+                
             }
         };
-        xhttp.open("GET", "/get_lpos", true);
+        xhttp.open("GET", "/get_job_slips", true);
         xhttp.send();
     }
-    function load_pos() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                let pos = JSON.parse(this.responseText).pos;
-                let table = document.getElementById('pos_table');
-                let str = '';
-                pos.forEach((po) => {
-                    let str1 = `<table  style='font-size:12px;border:1px solid beige' class='items_list'><tbody>`;
-                    let items = JSON.parse(po.purchase_array);
-                    items.forEach((item) => {
-                        str1 += `<tr><td>` + item.item + `</td><td>` + item.quantity + `</td><td>` + item.price + `(pkr)</td></tr>`;
-                    });
-                    str1 += `</tbody></table>`;
-                    str += '<tr><td>' + po.po_num + '</td><td>' + po.ref + '</td><td>' + po.vendor + '</td><td>' + str1 + '</td><td>' + po.flag + '</td><td>' + po.date + '</td></tr>'
-                });
-                table.innerHTML = str;
-            }
-        };
-        xhttp.open("GET", "/get_pos", true);
-        xhttp.send();
-    }
+    load_js();
     function search(input, table) {
 
         var input, filter, found, table, tr, td, i, j;
@@ -443,6 +417,84 @@
     let s_date = '2019-1-1';
     var date = new Date(s_date).getTime();
     console.log(date);
+    function print(e){
+        let table= document.getElementById('js_table');
+        let tr = table.getElementsByTagName('tr');
+       
+        let array =[];
+        for(let i=0; i < tr.length ; i++){
+            if(tr[i].style.display!=='none')
+            {
+                array.push([
+               tr[i].getElementsByTagName('td')[0].innerHTML,
+               tr[i].getElementsByTagName('td')[1].innerHTML,
+               tr[i].getElementsByTagName('td')[2].innerHTML,
+               tr[i].getElementsByTagName('td')[3].innerHTML,
+               tr[i].getElementsByTagName('td')[4].innerHTML,
+               tr[i].getElementsByTagName('td')[5].innerHTML,
+               tr[i].getElementsByTagName('td')[6].innerHTML,
+               tr[i].getElementsByTagName('td')[7].innerHTML,
+               tr[i].getElementsByTagName('td')[8].innerHTML,
+               tr[i].getElementsByTagName('td')[9].innerHTML,
+               tr[i].getElementsByTagName('td')[10].innerHTML,
+               tr[i].getElementsByTagName('td')[11].innerHTML,
+               tr[i].getElementsByTagName('td')[12].innerHTML,
+               tr[i].getElementsByTagName('td')[13].innerHTML,
+               tr[i].getElementsByTagName('td')[14].innerHTML,
+               tr[i].getElementsByTagName('td')[15].innerHTML
+                        ])
+            }
+           
+        }
+        array = JSON.stringify(array);
+        console.log(array);
+        var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert("Production Report is Generated");
+
+                    var link = document.createElement("a");
+                    link.download = 'production report.xlsx';
+                    link.href = '/production_report';
+                    link.click();
+                }
+            };
+            xhttp.open("POST", "/production_report", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("array="+array);
+
+
+    }
 </script>
+ <script>
+        function cpo_set(e){
+            let cpo_select = document.getElementById('s_lpo_select');
+            let txt = '<option value="all">All</option>';
+            lpos.forEach((lpo)=>{
+                if(lpo.client=== e.value){
+                    txt += `<option value="`+lpo.ref+`">`+lpo.ref+`</option>`
+                }
+            })
+            cpo_select.innerHTML = txt ;
+            update();
+        }
+        function update()
+        {   let client = document.getElementById('clients_select').value;
+            let cpo = document.getElementById('s_lpo_select').value;
+            console.log(cpo);
+            let table = document.getElementById('js_table');
+            let tr = table.getElementsByTagName('tr');
+            for(let i=0 ; i < tr.length ; i++){
+                if(((tr[i].getElementsByTagName('td')[0].innerHTML === client) || client === "all") &&
+                 (tr[i].getElementsByTagName('td')[1].innerHTML === cpo || cpo === "all") )
+                {   console.log(tr[i].getElementsByTagName('td')[1].innerHTML,cpo)
+                    tr[i].style.display="";
+                }
+                else{
+                    tr[i].style.display="none";
+                }
+            }
+        }
+    </script>
 
 </html>

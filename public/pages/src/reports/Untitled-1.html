@@ -1,0 +1,91 @@
+ <div class="container">
+                    <!---  input search -->
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="input-group mb-3">
+
+                                <div class="input-group-prepend s_date">
+                                    <span class='input-group-text'>Start Date</span>
+                                </div>
+                                <input type='date' class='form-control s_date'>
+                                <div class="input-group-prepend e_date">
+                                    <span class='input-group-text'>End Date</span>
+                                </div>
+                                <input type='date' class='form-control e_date'>
+
+                            </div>
+                        </div>
+                        <script>
+                            function date_type(e) {
+                                if (e.value === "any") {
+                                    document.getElementsByClassName("s_date")[0].style.display = "none";
+                                    document.getElementsByClassName("s_date")[1].style.display = "none";
+                                    document.getElementsByClassName("e_date")[0].style.display = "none";
+                                    document.getElementsByClassName("e_date")[1].style.display = "none";
+
+                                }
+                                else if (e.value === "start") {
+                                    document.getElementsByClassName("s_date")[0].style.display = "block";
+                                    document.getElementsByClassName("s_date")[1].style.display = "block";
+                                    document.getElementsByClassName("e_date")[0].style.display = "none";
+                                    document.getElementsByClassName("e_date")[1].style.display = "none";
+
+                                }
+                                else if (e.value === "end") {
+                                    document.getElementsByClassName("s_date")[0].style.display = "none";
+                                    document.getElementsByClassName("s_date")[1].style.display = "none";
+                                    document.getElementsByClassName("e_date")[0].style.display = "block";
+                                    document.getElementsByClassName("e_date")[1].style.display = "block";
+
+                                }
+                                else if (e.value === "range") {
+                                    document.getElementsByClassName("s_date")[0].style.display = "block";
+                                    document.getElementsByClassName("s_date")[1].style.display = "block";
+                                    document.getElementsByClassName("e_date")[0].style.display = "block";
+                                    document.getElementsByClassName("e_date")[1].style.display = "block";
+
+                                }
+                            }
+                        </script>
+                        <div class="col-6">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class='input-group-text'>Date Range</span>
+                                </div>
+                                <select class='form-control' onChange="date_type(this)" style='max-width:200px' id='date_type'>
+                                    <option value='any'>Any</option>
+                                    <option value='start'>Starting from</option>
+                                    <option value='end'>Upto</option>
+                                    <option value='range'>Range</option>
+                                </select>
+                                <select class="form-control" id='clients_select'>
+
+                                </select>
+                                <div class="input-group-prepend">
+                                    <button class="input-group-text" onClick='select_client()'>Clients Result</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!----- input search  -->
+                    <table class="table table-light table-striped">
+                        <thead>
+                            <tr>
+                                <th>lpo#</th>
+                                <th>Ref</th>
+                                <th>Client</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id='lpos_table'>
+
+                        </tbody>
+                    </table>
+
+
+
+                </div>
