@@ -237,6 +237,7 @@ async function sales_report(arr,total_lpo,g_total,cb){
          let worksheet = workbook.getWorksheet('Sheet1'); // replace sheetname with actual sheet name
          let d = new Date();
          worksheet.getRow(2).getCell(2).value = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() ;
+            let r_total=0,p_total=0;
          r_arr.forEach((item , index)=>{
              worksheet.getRow(6+index).getCell(1).value = index+1; 
              worksheet.getRow(6+index).getCell(2).value = item[0]; 
@@ -244,6 +245,12 @@ async function sales_report(arr,total_lpo,g_total,cb){
              worksheet.getRow(6+index).getCell(4).value = item[2]; 
              worksheet.getRow(6+index).getCell(5).value = item[3];
              worksheet.getRow(6+index).getCell(6).value = item[4];
+             r_total += parseFloat(item[4]);
+             if(r_arr[r_arr.length-1]===item){
+                worksheet.getRow(8+index).getCell(5).value = "Total Recievables";
+                worksheet.getRow(8+index).getCell(6).value = r_total.toFixed(2);
+
+             }
      
          })
          p_arr.forEach((item,index)=>{
@@ -253,6 +260,12 @@ async function sales_report(arr,total_lpo,g_total,cb){
             worksheet.getRow(6+index).getCell(10).value = item[2]; 
             worksheet.getRow(6+index).getCell(11).value = item[3];
             worksheet.getRow(6+index).getCell(12).value = item[4];
+            p_total += parseFloat(item[4]);
+            if(p_arr[p_arr.length-1]===item){
+               worksheet.getRow(8+index).getCell(11).value = "Total Payables";
+               worksheet.getRow(8+index).getCell(12).value = p_total.toFixed(2);
+
+            }
     
          })
              
