@@ -196,9 +196,7 @@
                                                 <option value='range'>Range</option>
                                             </select>
                                             
-                                            <div class="input-group-prepend">
-                                                <button class="input-group-text" onClick='update()'>Clients Result</button>
-                                            </div>
+                                                <button class="input-group-text" onClick='select_client()'> Filter</button>
             
                                         </div>
                                     </div>
@@ -349,45 +347,34 @@
         let s_date = document.getElementsByClassName('s_date')[1].value;
         let e_date = document.getElementsByClassName('e_date')[1].value;
         let date_type = document.getElementById("date_type").value;
-        let client = document.getElementById("clients_select").value;
         //table info //
         var found, table, tr, td, i, j;
-        table = document.getElementById('lpos_table');
+        table = document.getElementById('recievables_table');
+        table2 = document.getElementById('payables_table');
+
         tr = table.getElementsByTagName("tr");
+        tr2 = table2.getElementsByTagName("tr");
 
         //table info //
         if (date_type === "any") {
-            if (client === "all") {
-
-                for (i = 0; i < tr.length; i++) {
-
+              
+            for (let i = 0; i < tr.length; i++) {
 
                     tr[i].style.display = "";
 
-                }
-            }
-            else {
-                for (i = 0; i < tr.length; i++) {
-
-                    if (tr[i].getElementsByTagName('td')[2].innerHTML === client) {
-                        tr[i].style.display = "";
-
                     }
-                    else {
-                        tr[i].style.display = "none";
+                    for (let i = 0; i < tr2.length; i++) {
 
-                    }
+                        tr2[i].style.display = "";
 
-                }
-            }
+                    }        
+            
         }
         else {
             if (s_date === '' && e_date === '') {
                 alert("please select the dates")
             }
             else {
-                 if(client==="all")
-                 {
                     for (i = 0; i < tr.length; i++) {
                         let lpo_date = tr[i].getElementsByTagName('td')[3].innerHTML;
                          found = date_check(lpo_date); 
@@ -400,21 +387,19 @@
 
                     }
                 }
-                 }
-                 else{
-                    for (i = 0; i < tr.length; i++) {
-                        let lpo_date = tr[i].getElementsByTagName('td')[3].innerHTML;
+                for (i = 0; i < tr2.length; i++) {
+                        let lpo_date = tr2[i].getElementsByTagName('td')[3].innerHTML;
                          found = date_check(lpo_date); 
-                    if (found && tr[i].getElementsByTagName('td')[2].innerHTML === client) {
-                        tr[i].style.display = "";
+                    if (found) {
+                        tr2[i].style.display = "";
 
                     }
                     else {
-                        tr[i].style.display = "none";
+                        tr2[i].style.display = "none";
 
                     }
                 }
-                 }
+                 
                
             }
         }
