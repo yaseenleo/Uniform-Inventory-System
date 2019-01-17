@@ -126,7 +126,7 @@
 
         <div id="content" class="container-fluid">
 
-            <h2 class="text-center">PURCHASE REPORTS</h2>
+            <h2 class="text-center">PURCHASE STATUS REPORTS</h2>
             <hr>
             <br>
             <div class="container">
@@ -215,6 +215,7 @@
                                 <th>Vendor</th>
                                 <th>Date</th>
                                 <th>Amount</th>
+                                <th>Status</th>
 
                             </tr>
                         </thead>
@@ -294,7 +295,7 @@
                 let table = document.getElementById('lpos_table');
                 let str = '';
                 pos.forEach((po) => {
-                    str += '<tr><td>' + po.po_num + '</td><td>' + po.vendor + '</td><td>' + po.date + '</td><td>' + po.total + '</td></tr>'
+                    str += '<tr><td>' + po.po_num + '</td><td>' + po.vendor + '</td><td>' + po.date + '</td><td>' + po.total + '</td><td>'+po.flag+'</td></tr>'
                 });
                 table.innerHTML = str;
                 update();
@@ -491,7 +492,8 @@
                tr[i].getElementsByTagName('td')[0].innerHTML,
                tr[i].getElementsByTagName('td')[1].innerHTML,
                tr[i].getElementsByTagName('td')[2].innerHTML,
-               tr[i].getElementsByTagName('td')[3].innerHTML 
+               tr[i].getElementsByTagName('td')[3].innerHTML,
+               tr[i].getElementsByTagName('td')[4].innerHTML  
             ])
             }
            

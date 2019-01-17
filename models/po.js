@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
     p_date:String,
     lpo_number:   String,
     ref: String,
-    flag:String,
+    flag:{type:String , default:''},
     vendor:  String,
     purchase_array :String,
     recieved_array:String,

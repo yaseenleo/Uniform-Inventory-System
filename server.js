@@ -157,6 +157,7 @@ async function sales_report(arr,total_lpo,g_total,cb){
              worksheet.getRow(6+index).getCell(3).value = item[1]; 
              worksheet.getRow(6+index).getCell(4).value = item[2]; 
              worksheet.getRow(6+index).getCell(5).value = item[3];
+             worksheet.getRow(6+index).getCell(6).value = item[4];
              if(index=== (total_lpo-1))
              {  console.log('check')
                 worksheet.getRow(index+7).getCell(4).value ="Total Amount";
@@ -190,7 +191,7 @@ async function sales_report(arr,total_lpo,g_total,cb){
          worksheet.getRow(2).getCell(2).value = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() ;
         
      
-     
+        let c_t=0 ,s_t=0,q_t=0,p_t=0,d_t=0;
          arr.forEach((item , index)=>{
              worksheet.getRow(6+index).getCell(1).value = index+1; 
              worksheet.getRow(6+index).getCell(2).value = item[0]; 
@@ -209,10 +210,25 @@ async function sales_report(arr,total_lpo,g_total,cb){
              worksheet.getRow(6+index).getCell(15).value = item[13];
              worksheet.getRow(6+index).getCell(16).value = item[14];
              worksheet.getRow(6+index).getCell(16).value = item[15];
+            c_t += parseInt(item[6]),
+            s_t += parseInt(item[8]),
+            q_t += parseInt(item[10]),
+            p_t += parseInt(item[12]),
+            d_t += parseInt(item[14]);
+            if(arr[arr.length-1]===item){
+                worksheet.getRow(8+index).getCell(7).value = "Total Cut";
+                worksheet.getRow(8+index).getCell(8).value = c_t;
+                worksheet.getRow(8+index).getCell(9).value = "Total Stitched";
+                worksheet.getRow(8+index).getCell(10).value = s_t;
+                worksheet.getRow(8+index).getCell(11).value = "Total Finished";
+                worksheet.getRow(8+index).getCell(12).value = q_t;
+                worksheet.getRow(8+index).getCell(13).value = "Total Packed";
+                worksheet.getRow(8+index).getCell(14).value = p_t;
+                worksheet.getRow(8+index).getCell(15).value = "Total Delivered";
+                worksheet.getRow(8+index).getCell(16).value = d_t;
+
+             }
             
-            
-            
-     
          })
              
 
@@ -1523,6 +1539,27 @@ app.post("/generate_gr_note",(req,res)=>{
            vendor:vendor,
            payment:g_total
        }).save(()=>{
+        //
+            Pos.findOne({po_num:po_num},(err,po)=>{
+        let purchase_array = JSON.parse(po.purchase_array);
+             console.log("before:",purchase_array);
+             purchase_array.forEach((item,index) => {
+                 item.quantity = parseInt(item.quantity) - parseInt(qtys[index]);
+             });
+             console.log("mid:",purchase_array);
+        
+         let filtered = purchase_array.filter((item)=>
+          item.quantity!=0
+        )   
+        if(filtered.length<1){
+            flag = "purchased_done";
+            po.flag=flag;
+        }      
+          po.purchase_array = JSON.stringify(purchase_array);
+          po.save((err,po)=>{});
+    })
+
+        
         console.log("gr note generated");
         res.json({success:true});
         res.end();
@@ -1532,52 +1569,6 @@ app.post("/generate_gr_note",(req,res)=>{
     })
     
 
-//     Pos.findOne({po_num:po_num},(err,po)=>{
-//         let purchase_array = JSON.parse(po.purchase_array);
-//              console.log("before:",purchase_array);
-//              purchase_array.forEach((item,index) => {
-//                  item.quantity = parseInt(item.quantity) - parseInt(qtys[index]);
-//              });
-//              console.log("mid:",purchase_array);
-        
-//          let filtered = purchase_array.filter((item)=>
-//           item.quantity!=0
-//         )   
-//         if(filtered.length<1){
-//             flag = "purchased_done";
-//             po.flag=flag;
-//         }      
-//           po.purchase_array = JSON.stringify(purchase_array);
-//           po.save((err,po)=>{
-//             // lpos
-//                     Lpos.findOne({ref:po.ref},(err,lpo)=>{
-//      let purchase_array = JSON.parse(lpo.purchase_array);
-//      console.log("before:",purchase_array);
-//      purchase_array.forEach((item,index) => {
-//          item.quantity = parseInt(item.quantity) - parseInt(qtys[index]);
-//      });
-//      console.log("mid:",purchase_array);
-
-//  let filtered = purchase_array.filter((item)=>
-//   item.quantity!=0
-// )   
-// if(filtered.length<1){
-//     flag = "purchased_done";
-//     lpo.flag=flag;
-// }      
-//   lpo.purchase_array = JSON.stringify(purchase_array);
-//   lpo.save((err,lpo)=>{
-    
-//     res.json({success:true,lpo:lpo});
-//     res.end();
-
-//   });
-
-// });
-
-//             //lpos
-//           });
-//     })
 
 });
 async function generate_purchase_order(items_list,company,ship,lpo_num,date,p_date,ref,cb) {
