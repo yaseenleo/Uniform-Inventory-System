@@ -652,3 +652,7 @@ a.article:hover {
 .sub-list{
     margin-left: 1.3em !important;
 }
+
+.cus-container{
+    overflow-x: scroll;
+}
