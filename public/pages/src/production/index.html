@@ -29,7 +29,7 @@
 
     <div class="nav-side-menu">
             <div class="brand brand-color">
-                <h4>Uniform Inventory</h4>
+                <h5>Abbas Ali & Sons Uniforms and Textiles</h5>
             </div>
             <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
             <div class="menu-list" id="menu-content">
@@ -95,7 +95,7 @@
             
                             <li>
                                 <a href="/master">
-                                    <i></i> Master Control
+                                    <i></i> Master Data
                                 </a>
                             </li>
             
@@ -338,7 +338,7 @@
                                                                       if (this.readyState == 4 && this.status == 200) {
 
                                                                     //   let msg = JSON.parse(this.responseText).msg;
-                                                                        
+                                                                        alert('Success');
                                                                     //    alert(msg);
                                                                           
                                                                                   }
@@ -346,7 +346,7 @@
                                                                           xhttp.open("POST", "/job_slip/cutting", true);
                                                                           xhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
                                                                           xhttp.send("lpo_ref="+lpo_ref+"&q="+q+"&date="+time+"&by="+by);
-                                                                          location.reload();
+                                                                         // location.reload();
 
       
                                                             }
@@ -411,16 +411,16 @@
                                                                var xhttp = new XMLHttpRequest();
                                                                  xhttp.onreadystatechange = function () {
                                                                 if (this.readyState == 4 && this.status == 200) {
-                                                                let js_num = JSON.parse(this.responseText).js_num;
-                                                                alert("job_slip is refreshed for js# "+js_num);
-                                                                location.reload();
-                                                                    
+                                                               // let js_num = JSON.parse(this.responseText).js_num;
+                                                             //   alert("job_slip is refreshed for js# "+js_num);
+                                                               // location.reload();
+                                                                    alert('Success')
                                                                             }
                                                                             };
                                                                     xhttp.open("POST", "/job_slip/stitching", true);
                                                                     xhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
                                                                     xhttp.send("lpo_ref="+lpo_ref+"&q="+q+"&date="+time+"&by="+by);
-                                                                    location.reload();
+                                                                   // location.reload();
 
                                                       }
                                                      </script>
@@ -486,16 +486,16 @@
                                                                  var xhttp = new XMLHttpRequest();
                                                                    xhttp.onreadystatechange = function () {
                                                                   if (this.readyState == 4 && this.status == 200) {
-                                                                  let js_num = JSON.parse(this.responseText).js_num;
-                                                                  alert("job_slip is refreshed for js# "+js_num);
-                                                                  location.reload();
-                                                                      
+                                                                 // let js_num = JSON.parse(this.responseText).js_num;
+                                                                 // alert("job_slip is refreshed for js# "+js_num);
+                                                                //  location.reload();
+                                                                   alert('Success');   
                                                                               }
                                                                               };
                                                                       xhttp.open("POST", "/job_slip/qc", true);
                                                                       xhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
                                                                       xhttp.send("lpo_ref="+lpo_ref+"&q="+q+"&date="+time+"&by="+by);
-                                                                      location.reload();
+                                                                     // location.reload();
 
                                                         }
                                                        </script>
@@ -559,16 +559,16 @@
                                                                  var xhttp = new XMLHttpRequest();
                                                                    xhttp.onreadystatechange = function () {
                                                                   if (this.readyState == 4 && this.status == 200) {
-                                                                  let js_num = JSON.parse(this.responseText).js_num;
-                                                                  alert("job_slip is refreshed for js# "+js_num);
-                                                                  location.reload();
-                                                                      
+                                                                 // let js_num = JSON.parse(this.responseText).js_num;
+                                                                //  alert("job_slip is refreshed for js# "+js_num);
+                                                                //  location.reload();
+                                                                   alert('Success') ;  
                                                                               }
                                                                               };
                                                                       xhttp.open("POST", "/job_slip/packing", true);
                                                                       xhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
                                                                       xhttp.send("lpo_ref="+lpo_ref+"&q="+q+"&date="+time+"&by="+by);
-                                                                      location.reload();
+                                                                    //  location.reload();
 
                                                         }
                                                        </script>
@@ -688,11 +688,11 @@
                                                 
                                                 <div class='row'>
                                                         <div class="col-md-4">
-                                                                <button class='btn btn-primary' onClick='generate_slip()'>Generate Job Slip</button>
+                                                                <button class='btn btn-primary' onClick='generate_slip()'>Print Job Slip</button>
 
                                                         </div>
                                                         <div class="col-md-4" style="margin-left:30px;">
-                                                                <button class='btn btn-primary' onClick='generate_slips()'>Generate Barcode Stickers</button>
+                                                                <button class='btn btn-primary' onClick='generate_slips()'>Print Barcode Stickers</button>
 
                                                         </div>
                                                         
@@ -759,7 +759,7 @@
                         <td>`+product.product+`</td><td>`+product.fabric_code+`</td>
                         <td>`+product.details+`</td><td><textarea rows='4' class='form-control'></textarea></td>
                         <td><input type="number" class="form-control"></td>
-                        <td><select class="form-control">
+                        <td style='width:150px'><select class="form-control">
                                 <option value="">Select Size</option>
                                 <option value="s">Small</option>
                                 <option value="m">Medium</option>
@@ -799,8 +799,12 @@
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 let js_num = JSON.parse(this.responseText).js_num;
-               alert("job_slip is created for lpo ref#"+lpo_ref+" ,js# "+js_num);
-               location.reload();
+                e.disabled = false;
+                e.parentNode.parentNode.getElementsByTagName("td")[4].getElementsByTagName("input")[0].value='';
+         e.parentNode.parentNode.getElementsByTagName("td")[5].getElementsByTagName("select")[0].value='';
+         e.parentNode.parentNode.getElementsByTagName("td")[6].getElementsByTagName("input")[0].value='';
+         e.parentNode.parentNode.getElementsByTagName("td")[3].getElementsByTagName("textarea")[0].value='';
+               alert("job slip is created for lpo ref#"+lpo_ref+" for "+q+" "+p );
             }
         };
         xhttp.open("POST", "/create_job_slip", true);
@@ -1019,7 +1023,10 @@
            let quantity =  document.getElementById('printing_quantity').value;
              job_slips.reverse().forEach((job_slip)=>{
                 if(job_slip.number===number)
-                {   let d = new Date(),str='';
+                {  
+                    if(job_slip.quantity>=quantity && start >= job_slip.starting_number){
+
+                    let d = new Date(),str='';
                     
                   let date = d.getDate() +"/"+ (d.getMonth() + 1) +"/"+ d.getFullYear(), 
                     item = job_slip.product,
@@ -1086,7 +1093,11 @@
                     document.getElementById("print_btn").disabled = false;
                    // alert(JSON.stringify(job_slip));
                 
-              };
+              }
+              else{
+                alert(`quantity must be equal or less than ${job_slip.quantity} and starting sequence should be equal or greater than ${job_slip.starting_number}`);
+              }
+            }
             })
 
          };
@@ -1120,7 +1131,7 @@
                     
                     <div class="row">
                         <div class="col-md-3">Qty#</div>
-                        <div class="col-md-9">`+qty+`</div>
+                        <div class="col-md-9">1</div>
                     </div>
                     <div class="row">
                             <div class="col-md-3">Item</div>
@@ -1166,9 +1177,7 @@
                 
                 }
                    else{
-                       alert(`quantity must be equal or less than ${job_slip.quantity} 
-                       and starting sequence should be equal or greater than ${job_slip.starting_number}
-                       `);
+                       alert(`quantity must be equal or less than ${job_slip.quantity} and starting sequence should be equal or greater than ${job_slip.starting_number}`);
                    }
                    
                }

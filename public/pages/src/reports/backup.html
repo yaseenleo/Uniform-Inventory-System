@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Purchase Report</title>
+    <title>Accounts Report</title>
 
     <link rel="stylesheet" href="../../../css/style.css">
     <link rel="stylesheet" href="../../../css/salesStyle.css">
@@ -32,7 +32,7 @@
 
     <div class="nav-side-menu">
         <div class="brand brand-color">
-            <h5>Abbas Ali & Sons Uniforms and Textiles</h5>
+            <h4>Uniform Inventory</h4>
         </div>
         <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
         <div class="menu-list" id="menu-content">
@@ -126,126 +126,131 @@
 
         <div id="content" class="container-fluid">
 
-            <h2 class="text-center">PURCHASE STATUS REPORTS</h2>
+            <h2 class="text-center">ACCOUNTS REPORTS</h2>
             <hr>
             <br>
             <div class="container">
-
                 <div class="container">
                         <div class="row">
                                 <div class="col-6">
                                     <button class='btn btn-primary' onclick="print(this)">Download Printable</button>
                                 </div>
                             </div>
-                    <!---  input search -->
+                            <hr>
+                            <div class="row">
+                                    <div class="col-6">
+                                        <div class="input-group mb-3">
+            
+                                            <div class="input-group-prepend s_date">
+                                                <span class='input-group-text'>Start Date</span>
+                                            </div>
+                                            <input type='date' class='form-control s_date'>
+                                            <div class="input-group-prepend e_date">
+                                                <span class='input-group-text'>End Date</span>
+                                            </div>
+                                            <input type='date' class='form-control e_date'>
+            
+                                        </div>
+                                    </div>
+                                    <script>
+                                        function date_type(e) {
+                                            if (e.value === "any") {
+                                                document.getElementsByClassName("s_date")[0].style.display = "none";
+                                                document.getElementsByClassName("s_date")[1].style.display = "none";
+                                                document.getElementsByClassName("e_date")[0].style.display = "none";
+                                                document.getElementsByClassName("e_date")[1].style.display = "none";
+            
+                                            }
+                                            else if (e.value === "start") {
+                                                document.getElementsByClassName("s_date")[0].style.display = "block";
+                                                document.getElementsByClassName("s_date")[1].style.display = "block";
+                                                document.getElementsByClassName("e_date")[0].style.display = "none";
+                                                document.getElementsByClassName("e_date")[1].style.display = "none";
+            
+                                            }
+                                            else if (e.value === "end") {
+                                                document.getElementsByClassName("s_date")[0].style.display = "none";
+                                                document.getElementsByClassName("s_date")[1].style.display = "none";
+                                                document.getElementsByClassName("e_date")[0].style.display = "block";
+                                                document.getElementsByClassName("e_date")[1].style.display = "block";
+            
+                                            }
+                                            else if (e.value === "range") {
+                                                document.getElementsByClassName("s_date")[0].style.display = "block";
+                                                document.getElementsByClassName("s_date")[1].style.display = "block";
+                                                document.getElementsByClassName("e_date")[0].style.display = "block";
+                                                document.getElementsByClassName("e_date")[1].style.display = "block";
+            
+                                            }
+                                        }
+                                    </script>
+                                    <div class="col-6">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class='input-group-text'>Date Range</span>
+                                            </div>
+                                            <select class='form-control' onChange="date_type(this)" style='max-width:200px' id='date_type'>
+                                                <option value='any'>Any</option>
+                                                <option value='start'>Starting from</option>
+                                                <option value='end'>Upto</option>
+                                                <option value='range'>Range</option>
+                                            </select>
+                                            
+                                                <button class="input-group-text" onClick='select_client()'> Filter</button>
+            
+                                        </div>
+                                    </div>
+                                </div>
+                    
                     <div class="row">
-                        <div class="col-6">
-                            <div class="input-group mb-3">
-
-                                <div class="input-group-prepend s_date">
-                                    <span class='input-group-text'>Start Date</span>
-                                </div>
-                                <input type='date' class='form-control s_date'>
-                                <div class="input-group-prepend e_date">
-                                    <span class='input-group-text'>End Date</span>
-                                </div>
-                                <input type='date' class='form-control e_date'>
-
-                            </div>
+                        <!-- accounts recievables -->
+                        <div class="col-6" style='border-right:1px solid black'>
+                            <h4 class='text-center'>Accounts Recievables</h4>
+                            <table class='table table-light'>
+                                <thead>
+                                        <tr>    <th>Customer</th>
+                                                <th>C.P.O#</th>
+                                                <th>Invoice Number</th>
+                                                <th>Date</th>
+                                                <th>Recievable</th>
+                                        </tr>
+                                </thead>
+                                <tbody id='recievables_table'>
+                                    
+                                </tbody>
+                            </table>
                         </div>
-                        <script>
-                            function date_type(e) {
-                                if (e.value === "any") {
-                                    document.getElementsByClassName("s_date")[0].style.display = "none";
-                                    document.getElementsByClassName("s_date")[1].style.display = "none";
-                                    document.getElementsByClassName("e_date")[0].style.display = "none";
-                                    document.getElementsByClassName("e_date")[1].style.display = "none";
-
-                                }
-                                else if (e.value === "start") {
-                                    document.getElementsByClassName("s_date")[0].style.display = "block";
-                                    document.getElementsByClassName("s_date")[1].style.display = "block";
-                                    document.getElementsByClassName("e_date")[0].style.display = "none";
-                                    document.getElementsByClassName("e_date")[1].style.display = "none";
-
-                                }
-                                else if (e.value === "end") {
-                                    document.getElementsByClassName("s_date")[0].style.display = "none";
-                                    document.getElementsByClassName("s_date")[1].style.display = "none";
-                                    document.getElementsByClassName("e_date")[0].style.display = "block";
-                                    document.getElementsByClassName("e_date")[1].style.display = "block";
-
-                                }
-                                else if (e.value === "range") {
-                                    document.getElementsByClassName("s_date")[0].style.display = "block";
-                                    document.getElementsByClassName("s_date")[1].style.display = "block";
-                                    document.getElementsByClassName("e_date")[0].style.display = "block";
-                                    document.getElementsByClassName("e_date")[1].style.display = "block";
-
-                                }
-                            }
-                        </script>
+                        <!-- accounts recievables -->
+                        <!--- accounts payable-->
                         <div class="col-6">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class='input-group-text'>Date Range</span>
-                                </div>
-                                <select class='form-control' onChange="date_type(this)" style='max-width:200px' id='date_type'>
-                                    <option value='any'>Any</option>
-                                    <option value='start'>Starting from</option>
-                                    <option value='end'>Upto</option>
-                                    <option value='range'>Range</option>
-                                </select>
-                                <select class="form-control" id='vendors_select'>
-
-                                </select>
-                                <div class="input-group-prepend">
-                                    <button class="input-group-text" onClick='select_vendor()'>Vendors Result</button>
-                                </div>
-
-                            </div>
+                                <h4 class='text-center'>Accounts Payable</h4>
+                                <table class='table table-light'>
+                                    <thead>
+                                            <tr>    <th>Vendor</th>
+                                                    <th>V.P.O#</th>
+                                                    <th>Invoice Number</th>
+                                                    <th>Date</th>
+                                                    <th>Payable</th>
+                                                </tr>
+                                    </thead>
+                                    <tbody id='payables_table'>
+                                        
+                                    </tbody>
+                                </table>
                         </div>
+                        <!-- accounts payable -->
                     </div>
-
-                    <!----- input search  -->
-                    <table class="table table-light table-striped">
-                        <thead>
-                            <tr>
-                                <th>V.P.O#</th>
-                                <th>Vendor</th>
-                                <th>Date</th>
-                                <th>Amount</th>
-                                <th>Status</th>
-
-                            </tr>
-                        </thead>
-                        <tbody id='lpos_table'>
-
-                        </tbody>
-                    </table>
-                    <table class='table table-dark'>
-                            <tbody>
-                                <tr>
-                                    <td> total Purchase Orders: <span id='total_lpo'></span></td>
-                                    <td>  &nbsp; </td>
-                                    <td> &nbsp; </td>
-                                    <td > &nbsp;</td>
-                                    <td ><span style='float:right'>Total Amount: <span id='g_total'></span></span></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="row"></div>
 
 
 
                 </div>
-                <hr>
-
-
+            
 
 
 
             </div>
-
+            <!-- new --->
 
 
 
@@ -271,62 +276,48 @@
 <script src="../../../js/app.js"></script>
 
 <script>
-    var clients;
+    var recievables,payables;
     function fill() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                vendors = JSON.parse(this.responseText).vendors;
-                let txt = '<option value="all">All</option>';
-                vendors.forEach((vendor) => {
-                    txt += `<option value="` + vendor.company_name + `">` + vendor.company_name + `</option>`;
+                recievables = JSON.parse(this.responseText).invoices;
+                let txt = '';
+                recievables.forEach((item) => {
+                    txt += `<tr>
+                        <td>`+item.company+`</td>
+                        <td>`+item.lpo_ref+`</td>
+                        <td>`+item.number+`</td>
+                        <td>`+item.date+`</td>
+                        <td>`+item.payment+`</td>
+                        </tr>`;
                 });
-                document.getElementById("vendors_select").innerHTML = txt;
+                document.getElementById("recievables_table").innerHTML = txt;
             }
         };
-        xhttp.open("GET", "/get_vendors", true);
+        xhttp.open("GET", "/get_invoices", true);
         xhttp.send();
-    }
-    function load_lpos() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
+        var xhttp2 = new XMLHttpRequest();
+        xhttp2.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                let pos = JSON.parse(this.responseText).pos;
-                let table = document.getElementById('lpos_table');
-                let str = '';
-                pos.forEach((po) => {
-                    let flag = po.flag === 'purchased_done' ? "Order Fullfiled" : "";
-                    str += '<tr><td>' + po.po_num + '</td><td>' + po.vendor + '</td><td>' + po.date + '</td><td>' + po.total + '</td><td>'+flag+'</td></tr>'
+                payables = JSON.parse(this.responseText).invoices;
+                let txt = '';
+                payables.forEach((item) => {
+                    txt += `<tr>
+                        <td>`+item.vendor+`</td>
+                        <td>`+item.po_ref+`</td>
+                        <td>`+item.invoice_num+`</td>
+                        <td>`+item.date+`</td>
+                        <td>`+item.payment+`</td>
+                        </tr>`;
                 });
-                table.innerHTML = str;
-                update();
+                document.getElementById("payables_table").innerHTML = txt;
             }
         };
-        xhttp.open("GET", "/get_pos", true);
-        xhttp.send();
+        xhttp2.open("GET", "/get_gr_notes", true);
+        xhttp2.send();
     }
-    function load_pos() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                let pos = JSON.parse(this.responseText).pos;
-                let table = document.getElementById('pos_table');
-                let str = '';
-                pos.forEach((po) => {
-                    let str1 = `<table  style='font-size:12px;border:1px solid beige' class='items_list'><tbody>`;
-                    let items = JSON.parse(po.purchase_array);
-                    items.forEach((item) => {
-                        str1 += `<tr><td>` + item.item + `</td><td>` + item.quantity + `</td><td>` + item.price + `(pkr)</td></tr>`;
-                    });
-                    str1 += `</tbody></table>`;
-                    str += '<tr><td>' + po.po_num + '</td><td>' + po.ref + '</td><td>' + po.vendor + '</td><td>' + str1 + '</td><td>' + po.flag + '</td><td>' + po.date + '</td></tr>'
-                });
-                table.innerHTML = str;
-            }
-        };
-        xhttp.open("GET", "/get_pos", true);
-        xhttp.send();
-    }
+    
     function search(input, table) {
 
         var input, filter, found, table, tr, td, i, j;
@@ -349,56 +340,43 @@
             }
         }
     }
-    load_lpos();
-    load_pos();
+    
 </script>
 <script>
-    function select_vendor() {
+    function select_client() {
         let s_date = document.getElementsByClassName('s_date')[1].value;
         let e_date = document.getElementsByClassName('e_date')[1].value;
         let date_type = document.getElementById("date_type").value;
-        let client = document.getElementById("vendors_select").value;
         //table info //
         var found, table, tr, td, i, j;
-        table = document.getElementById('lpos_table');
+        table = document.getElementById('recievables_table');
+        table2 = document.getElementById('payables_table');
+
         tr = table.getElementsByTagName("tr");
+        tr2 = table2.getElementsByTagName("tr");
 
         //table info //
         if (date_type === "any") {
-            if (client === "all") {
-
-                for (i = 0; i < tr.length; i++) {
-
+              
+            for (let i = 0; i < tr.length; i++) {
 
                     tr[i].style.display = "";
-                    console.log(i,tr[i].getElementsByTagName('td')[1].innerHTML);
-
-                }
-            }
-            else {
-                for (i = 0; i < tr.length; i++) {
-
-                    if (tr[i].getElementsByTagName('td')[1].innerHTML === client) {
-                        tr[i].style.display = "";
 
                     }
-                    else {
-                        tr[i].style.display = "none";
+                    for (let i = 0; i < tr2.length; i++) {
 
-                    }
+                        tr2[i].style.display = "";
 
-                }
-            }
+                    }        
+            
         }
         else {
             if (s_date === '' && e_date === '') {
                 alert("please select the dates")
             }
             else {
-                 if(client==="all")
-                 {
                     for (i = 0; i < tr.length; i++) {
-                        let lpo_date = tr[i].getElementsByTagName('td')[2].innerHTML;
+                        let lpo_date = tr[i].getElementsByTagName('td')[3].innerHTML;
                          found = date_check(lpo_date); 
                     if (found) {
                         tr[i].style.display = "";
@@ -409,21 +387,19 @@
 
                     }
                 }
-                 }
-                 else{
-                    for (i = 0; i < tr.length; i++) {
-                        let lpo_date = tr[i].getElementsByTagName('td')[2].innerHTML;
+                for (i = 0; i < tr2.length; i++) {
+                        let lpo_date = tr2[i].getElementsByTagName('td')[3].innerHTML;
                          found = date_check(lpo_date); 
-                    if (found && tr[i].getElementsByTagName('td')[1].innerHTML === client) {
-                        tr[i].style.display = "";
+                    if (found) {
+                        tr2[i].style.display = "";
 
                     }
                     else {
-                        tr[i].style.display = "none";
+                        tr2[i].style.display = "none";
 
                     }
                 }
-                 }
+                 
                
             }
         }
@@ -431,28 +407,10 @@
         console.log(s_date);
         console.log(e_date);
         console.log(date_type);
-        update();
+
 
         // alert("Ss")
     }
-    function update(){
-        let total_lpo=0,total=0;
-        table = document.getElementById('lpos_table');
-        tr = table.getElementsByTagName("tr");
-        for(i=0; i < tr.length ; i++)
-        {   
-            if(tr[i].style.display!=='none')
-            {
-                total_lpo++;
-                total += parseFloat(tr[i].getElementsByTagName('td')[3].innerHTML);
-                console.log(tr[i]);
-
-            }
-        }
-        document.getElementById('total_lpo').innerHTML = total_lpo;
-        document.getElementById('g_total').innerHTML = total.toFixed(2);
-    }
-   
     function date_check(lpo_date){
         let date_type = document.getElementById('date_type').value
         let s_date = new Date(document.getElementsByClassName('s_date')[1].value).getTime();
@@ -480,43 +438,56 @@
     //     c
     }
     function print(e){
-        e.disabled = true;
-        let table= document.getElementById('lpos_table');
+        let table= document.getElementById('recievables_table');
         let tr = table.getElementsByTagName('tr');
-        let total_lpo = document.getElementById('total_lpo').innerHTML,
-        g_total = document.getElementById('g_total').innerHTML;
-        let array =[];
+        let table2= document.getElementById('payables_table');
+        let tr2 = table2.getElementsByTagName('tr');
+       
+        let r_array =[],p_array=[];
         for(let i=0; i < tr.length ; i++){
             if(tr[i].style.display!=='none')
             {
-                array.push([
+                r_array.push([
                tr[i].getElementsByTagName('td')[0].innerHTML,
                tr[i].getElementsByTagName('td')[1].innerHTML,
                tr[i].getElementsByTagName('td')[2].innerHTML,
                tr[i].getElementsByTagName('td')[3].innerHTML,
-               tr[i].getElementsByTagName('td')[4].innerHTML  
-            ])
+               tr[i].getElementsByTagName('td')[4].innerHTML
+                        ])
             }
            
         }
-        array = JSON.stringify(array);
-        console.log(array);
-        console.log(total_lpo);
-        console.log(g_total);
+        for(let i=0; i < tr2.length ; i++){
+            if(tr2[i].style.display!=='none')
+            {
+                p_array.push([
+               tr2[i].getElementsByTagName('td')[0].innerHTML,
+               tr2[i].getElementsByTagName('td')[1].innerHTML,
+               tr2[i].getElementsByTagName('td')[2].innerHTML,
+               tr2[i].getElementsByTagName('td')[3].innerHTML,
+               tr2[i].getElementsByTagName('td')[4].innerHTML
+                        ])
+            }
+        }
+        r_array = JSON.stringify(r_array);
+        p_array = JSON.stringify(p_array);
+
+        console.log('recievables',r_array);
+        console.log('payables',p_array);
         var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    alert("Purchase Report is Generated");
-                    e.disabled = false;
+                    alert("Accounts Report is Generated");
+
                     var link = document.createElement("a");
-                    link.download = 'purchase report.xlsx';
-                    link.href = '/purchase_report';
+                    link.download = 'accounts report.xlsx';
+                    link.href = '/accounts_report';
                     link.click();
                 }
             };
-            xhttp.open("POST", "/purchase_report", true);
+            xhttp.open("POST", "/accounts_report", true);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send("array="+array+"&total_lpo="+total_lpo+"&g_total="+g_total);
+            xhttp.send("r_array="+r_array+"&p_array="+p_array);
 
 
     }

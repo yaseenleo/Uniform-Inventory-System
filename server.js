@@ -290,6 +290,80 @@ async function sales_report(arr,total_lpo,g_total,cb){
          
          workbook.xlsx.writeFile(path.join(__dirname,"/public/reports/accounts_report_g.xlsx")).then(cb)
 }
+async function accounts_payables(p_arr,cb){
+    let workbook = new Excel.Workbook();
+          
+         workbook = await workbook.xlsx.readFile(path.join(__dirname,"/public/reports/accounts_payables.xlsx")); // replace question_39869739.xls with your file
+         let worksheet = workbook.getWorksheet('Sheet1'); // replace sheetname with actual sheet name
+         let d = new Date();
+         worksheet.getRow(2).getCell(2).value = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() ;
+            p_total=0;
+         p_arr.forEach((item , index)=>{
+             worksheet.getRow(6+index).getCell(1).value = index+1; 
+             worksheet.getRow(6+index).getCell(2).value = item[0]; 
+             worksheet.getRow(6+index).getCell(3).value = item[1]; 
+             worksheet.getRow(6+index).getCell(4).value = item[2]; 
+             worksheet.getRow(6+index).getCell(5).value = item[3];
+             worksheet.getRow(6+index).getCell(6).value = item[4];
+             p_total += parseFloat(item[4]);
+             if(p_arr[p_arr.length-1]===item){
+                worksheet.getRow(8+index).getCell(5).value = "Total Payables";
+                worksheet.getRow(8+index).getCell(6).value = p_total.toFixed(2);
+
+             }
+     
+         })
+      
+         
+         workbook.xlsx.writeFile(path.join(__dirname,"/public/reports/accounts_payables_g.xlsx")).then(cb)
+}
+async function accounts_receivables(r_arr,cb){
+    let workbook = new Excel.Workbook();
+          
+         workbook = await workbook.xlsx.readFile(path.join(__dirname,"/public/reports/accounts_receivables.xlsx")); // replace question_39869739.xls with your file
+         let worksheet = workbook.getWorksheet('Sheet1'); // replace sheetname with actual sheet name
+         let d = new Date();
+         worksheet.getRow(2).getCell(2).value = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear() ;
+            r_total=0;
+            r_arr.forEach((item , index)=>{
+             worksheet.getRow(6+index).getCell(1).value = index+1; 
+             worksheet.getRow(6+index).getCell(2).value = item[0]; 
+             worksheet.getRow(6+index).getCell(3).value = item[1]; 
+             worksheet.getRow(6+index).getCell(4).value = item[2]; 
+             worksheet.getRow(6+index).getCell(5).value = item[3];
+             worksheet.getRow(6+index).getCell(6).value = item[4];
+             r_total += parseFloat(item[4]);
+             if(r_arr[r_arr.length-1]===item){
+                worksheet.getRow(8+index).getCell(5).value = "Total Receivables";
+                worksheet.getRow(8+index).getCell(6).value = r_total.toFixed(2);
+
+             }
+     
+         })
+      
+         
+         workbook.xlsx.writeFile(path.join(__dirname,"/public/reports/accounts_receivables_g.xlsx")).then(cb)
+}
+app.post('/accounts_payables_print',(req,res)=>{
+    let p_array = JSON.parse(req.body.p_array);
+        
+        accounts_payables(p_array,()=>{
+           console.log('Accounts Payables generated');
+            res.json({success:true});
+            res.end();
+        })
+        
+});
+app.post('/accounts_receivables_print',(req,res)=>{
+    let r_array = JSON.parse(req.body.r_array);
+        
+        accounts_receivables(r_array,()=>{
+           console.log('Accounts Receivables generated');
+            res.json({success:true});
+            res.end();
+        })
+        
+});
  app.post('/accounts_report',(req,res)=>{
      let r_array = JSON.parse(req.body.r_array),
         p_array = JSON.parse(req.body.p_array);
@@ -403,6 +477,24 @@ app.get('/reports/accounts_report',(req,res)=>{
         res.redirect("/login"); 
     }
 });
+app.get('/reports/receivables',(req,res)=>{
+    if(req.cookies.user)
+    {
+        res.sendFile(path.join(__dirname,'/public/pages/src/reports/accounts_receivables.html'));
+    }
+    else{
+        res.redirect("/login"); 
+    }
+});app.get('/sale/sales_order',(req,res)=>{
+    if(req.cookies.user)
+    {
+        res.sendFile(path.join(__dirname,'/public/pages/src/sales/sales.html'));
+    }
+    else{
+        res.redirect("/login"); 
+    }
+});
+
 app.get('/production',(req,res)=>{
     if(req.cookies.user)
     {
@@ -1221,7 +1313,7 @@ app.post('/generate_packing_list',(req,res)=>{
     let packing_list = JSON.parse(req.body.packing_list);
     let g_total = 0;
     packing_list.forEach((item)=>{
-        g_total += parseFlaot(item)
+        g_total += parseFloat(item)
     })
     let html ='',str='';
      let obj = {lpo_ref:lpo_ref,number:invoice_num,ref:invoice_ref,date:date,company:company,items_list:req.body.packing_list};
@@ -1479,6 +1571,14 @@ app.get("/production_report",(req,res)=>{
 app.get("/accounts_report",(req,res)=>{
     res.setHeader( 'Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
     res.sendFile(path.join(__dirname,"public/reports/accounts_report_g.xlsx"));
+})
+app.get("/accounts_payables",(req,res)=>{
+    res.setHeader( 'Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    res.sendFile(path.join(__dirname,"public/reports/accounts_payables_g.xlsx"));
+});
+app.get("/accounts_receivables",(req,res)=>{
+    res.setHeader( 'Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    res.sendFile(path.join(__dirname,"public/reports/accounts_receivables_g.xlsx"));
 })
 async function generate_gr_note(items_list,company,date,invoice_ref,recieved_by,po_ref,cb) {
     let workbook = new Excel.Workbook();
